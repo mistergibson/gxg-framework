@@ -1,0 +1,3067 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module GxG::Engine - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/navigation.js" defer></script>
+<script src="../js/search.js" defer></script>
+<script src="../js/search_index.js" defer></script>
+<script src="../js/searcher.js" defer></script>
+<script src="../js/darkfish.js" defer></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><span class="include">::Process</span>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-5B-5D">::[]</a>
+    
+    <li ><a href="#method-c-abort">::abort</a>
+    
+    <li ><a href="#method-c-available_event_descriptors">::available_event_descriptors</a>
+    
+    <li ><a href="#method-c-available_file_descriptors">::available_file_descriptors</a>
+    
+    <li ><a href="#method-c-daemon">::daemon</a>
+    
+    <li ><a href="#method-c-descriptor_heap_used">::descriptor_heap_used</a>
+    
+    <li ><a href="#method-c-descriptor_limits">::descriptor_limits</a>
+    
+    <li ><a href="#method-c-detach">::detach</a>
+    
+    <li ><a href="#method-c-detail_mapping">::detail_mapping</a>
+    
+    <li ><a href="#method-c-determine_engine_load">::determine_engine_load</a>
+    
+    <li ><a href="#method-c-determine_event_allocations">::determine_event_allocations</a>
+    
+    <li ><a href="#method-c-determine_loads">::determine_loads</a>
+    
+    <li ><a href="#method-c-determine_memory_load">::determine_memory_load</a>
+    
+    <li ><a href="#method-c-egid">::egid</a>
+    
+    <li ><a href="#method-c-engine_data_keys">::engine_data_keys</a>
+    
+    <li ><a href="#method-c-engine_gear">::engine_gear</a>
+    
+    <li ><a href="#method-c-engine_load">::engine_load</a>
+    
+    <li ><a href="#method-c-engine_load_high-3F">::engine_load_high?</a>
+    
+    <li ><a href="#method-c-engine_load_low-3F">::engine_load_low?</a>
+    
+    <li ><a href="#method-c-engine_load_medium-3F">::engine_load_medium?</a>
+    
+    <li ><a href="#method-c-euid">::euid</a>
+    
+    <li ><a href="#method-c-event_allocation_envelope">::event_allocation_envelope</a>
+    
+    <li ><a href="#method-c-event_descriptors_threshold">::event_descriptors_threshold</a>
+    
+    <li ><a href="#method-c-event_minimum_threshold">::event_minimum_threshold</a>
+    
+    <li ><a href="#method-c-events_in_use">::events_in_use</a>
+    
+    <li ><a href="#method-c-exec">::exec</a>
+    
+    <li ><a href="#method-c-exit">::exit</a>
+    
+    <li ><a href="#method-c-exit-21">::exit!</a>
+    
+    <li ><a href="#method-c-file_descriptors">::file_descriptors</a>
+    
+    <li ><a href="#method-c-fork">::fork</a>
+    
+    <li ><a href="#method-c-gear">::gear</a>
+    
+    <li ><a href="#method-c-get_engine_data">::get_engine_data</a>
+    
+    <li ><a href="#method-c-getpgid">::getpgid</a>
+    
+    <li ><a href="#method-c-getpgrp">::getpgrp</a>
+    
+    <li ><a href="#method-c-getpriority">::getpriority</a>
+    
+    <li ><a href="#method-c-getrlimit">::getrlimit</a>
+    
+    <li ><a href="#method-c-gid">::gid</a>
+    
+    <li ><a href="#method-c-groups">::groups</a>
+    
+    <li ><a href="#method-c-initgroups">::initgroups</a>
+    
+    <li ><a href="#method-c-kill">::kill</a>
+    
+    <li ><a href="#method-c-maxgroups">::maxgroups</a>
+    
+    <li ><a href="#method-c-maximum_event_descriptors">::maximum_event_descriptors</a>
+    
+    <li ><a href="#method-c-maximum_file_descriptors">::maximum_file_descriptors</a>
+    
+    <li ><a href="#method-c-memory_available">::memory_available</a>
+    
+    <li ><a href="#method-c-memory_gear">::memory_gear</a>
+    
+    <li ><a href="#method-c-memory_load">::memory_load</a>
+    
+    <li ><a href="#method-c-memory_load_high-3F">::memory_load_high?</a>
+    
+    <li ><a href="#method-c-memory_load_low-3F">::memory_load_low?</a>
+    
+    <li ><a href="#method-c-memory_load_medium-3F">::memory_load_medium?</a>
+    
+    <li ><a href="#method-c-memory_used">::memory_used</a>
+    
+    <li ><a href="#method-c-object_memory_used">::object_memory_used</a>
+    
+    <li ><a href="#method-c-pid">::pid</a>
+    
+    <li ><a href="#method-c-ppid">::ppid</a>
+    
+    <li ><a href="#method-c-profile">::profile</a>
+    
+    <li ><a href="#method-c-release_event_descriptor">::release_event_descriptor</a>
+    
+    <li ><a href="#method-c-reserve_event_descriptor">::reserve_event_descriptor</a>
+    
+    <li ><a href="#method-c-set_engine_data">::set_engine_data</a>
+    
+    <li ><a href="#method-c-setpgid">::setpgid</a>
+    
+    <li ><a href="#method-c-setpgrp">::setpgrp</a>
+    
+    <li ><a href="#method-c-setpriority">::setpriority</a>
+    
+    <li ><a href="#method-c-setrlimit">::setrlimit</a>
+    
+    <li ><a href="#method-c-setsid">::setsid</a>
+    
+    <li ><a href="#method-c-spawn">::spawn</a>
+    
+    <li ><a href="#method-c-times">::times</a>
+    
+    <li ><a href="#method-c-uid">::uid</a>
+    
+    <li ><a href="#method-c-wait">::wait</a>
+    
+    <li ><a href="#method-c-wait2">::wait2</a>
+    
+    <li ><a href="#method-c-waitall">::waitall</a>
+    
+    <li ><a href="#method-c-waitpid">::waitpid</a>
+    
+    <li ><a href="#method-c-waitpid2">::waitpid2</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-GxG::Engine">
+  <h1 id="module-GxG::Engine" class="module">
+    module GxG::Engine
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-5B-5D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">[]</span><span
+            class="method-args">(the_path=&quot;&quot;)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="5B-5D-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">[]</span>(<span class="ruby-identifier">the_path</span>=<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-comment"># Public interface for accessing system keyed values.</span>
+  <span class="ruby-comment"># access cached or system-read values on /proc (sysctl-style) keys. (frankly missing from BSD, etc)</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">reference</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">detail_mapping</span>()
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">reference</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">mapping</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">mapping</span>[<span class="ruby-value">:key</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">the_path</span>
+      <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+        <span class="ruby-identifier">result</span> = <span class="ruby-identifier">@@details</span>.<span class="ruby-identifier">get_at_path</span>(<span class="ruby-identifier">mapping</span>[<span class="ruby-value">:path</span>]).<span class="ruby-identifier">clone</span>
+      }
+      <span class="ruby-keyword">break</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#      unless result</span>
+  <span class="ruby-comment">#        # attempt to fetch the data from the system somehow.</span>
+  <span class="ruby-comment">#        result = get_system_data(the_path)</span>
+  <span class="ruby-comment">#        unless result.keys.size &gt; 0</span>
+  <span class="ruby-comment">#          result = nil</span>
+  <span class="ruby-comment">#        end</span>
+  <span class="ruby-comment">#      end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-abort" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">abort</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="abort-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">abort</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">abort</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-available_event_descriptors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_event_descriptors</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available_event_descriptors-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 758</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">available_event_descriptors</span>()
+  <span class="ruby-identifier">result</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">current</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-identifier">current</span> = (<span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">maximum_event_descriptors</span>() <span class="ruby-operator">-</span> <span class="ruby-identifier">@@event_descriptors</span>)
+  }
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">current</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">current</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-available_file_descriptors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">available_file_descriptors</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="available_file_descriptors-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 729</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">available_file_descriptors</span>()
+  (<span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">maximum_file_descriptors</span>() <span class="ruby-operator">-</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">file_descriptors</span>().<span class="ruby-identifier">size</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-daemon" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">daemon</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="daemon-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 383</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">daemon</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">daemon</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-descriptor_heap_used" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">descriptor_heap_used</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="descriptor_heap_used-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 687</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">descriptor_heap_used</span>()
+  <span class="ruby-identifier">result</span> = {<span class="ruby-value">:total</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0</span>}
+  <span class="ruby-identifier">slot_size</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">profile</span>[<span class="ruby-value">:slot_size</span>]
+  <span class="ruby-identifier">file_total</span> = <span class="ruby-value">0</span>
+  <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">file_descriptors</span>().<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">file_total</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">heap_used</span>()
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:files</span>] = <span class="ruby-identifier">file_total</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">descriptor_limits</span>()[<span class="ruby-value">:events</span>] <span class="ruby-operator">==</span> <span class="ruby-value">:files</span>
+      <span class="ruby-comment"># see available_file_descriptors : beware counting event descriptors twice (w/ file descriptors)</span>
+      <span class="ruby-comment"># TODO: GxG::Engine::descriptor_heap_used : sync w/ more precise event socket size determination</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:events</span>] = (<span class="ruby-identifier">@@event_descriptors</span> <span class="ruby-operator">*</span> (<span class="ruby-identifier">slot_size</span> <span class="ruby-operator">+</span> <span class="ruby-value">4</span>))
+    <span class="ruby-keyword">end</span>
+  }
+  <span class="ruby-identifier">result</span>[<span class="ruby-value">:total</span>] = (<span class="ruby-identifier">result</span>[<span class="ruby-value">:files</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">:events</span>].<span class="ruby-identifier">to_i</span>)
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-descriptor_limits" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">descriptor_limits</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Descriptors in general</p>
+          
+          
+
+          
+          <div class="method-source-code" id="descriptor_limits-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 683</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">descriptor_limits</span>()
+  {<span class="ruby-value">:events</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:events</span>][<span class="ruby-value">:maximum_event_descriptors</span>], <span class="ruby-value">:files</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:files</span>][<span class="ruby-value">:maximum_file_descriptors</span>]}.<span class="ruby-identifier">clone</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-detach" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">detach</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="detach-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 280</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">detach</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">detach</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-detail_mapping" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">detail_mapping</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="detail_mapping-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">detail_mapping</span>()
+  <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:key_map</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-determine_engine_load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">determine_engine_load</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="determine_engine_load-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 155</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">determine_engine_load</span>()
+  <span class="ruby-identifier">max_event_descriptors</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">maximum_event_descriptors</span>()
+  <span class="ruby-identifier">available_events</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">available_event_descriptors</span>()
+  <span class="ruby-identifier">current_load</span> = (((<span class="ruby-identifier">max_event_descriptors</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">available_events</span>).<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">max_event_descriptors</span>.<span class="ruby-identifier">to_f</span>) <span class="ruby-operator">*</span> <span class="ruby-value">100.0</span>)
+  <span class="ruby-keyword">if</span> (<span class="ruby-value">0.0</span><span class="ruby-operator">..</span><span class="ruby-value">40.0</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">current_load</span>)
+    <span class="ruby-comment"># low</span>
+    <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+      <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:engine_load</span>][<span class="ruby-value">:high</span>] = <span class="ruby-keyword">false</span>
+      <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:engine_load</span>][<span class="ruby-value">:medium</span>] = <span class="ruby-keyword">false</span>
+      <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:engine_load</span>][<span class="ruby-value">:low</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:percent</span>] = <span class="ruby-identifier">current_load</span>
+    }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-value">40.0</span><span class="ruby-operator">..</span><span class="ruby-value">70.0</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">current_load</span>)
+      <span class="ruby-comment"># medium</span>
+      <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+        <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:engine_load</span>][<span class="ruby-value">:high</span>] = <span class="ruby-keyword">false</span>
+        <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:engine_load</span>][<span class="ruby-value">:medium</span>] = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:engine_load</span>][<span class="ruby-value">:low</span>] = <span class="ruby-keyword">false</span>
+        <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:engine_load</span>][<span class="ruby-value">:percent</span>] = <span class="ruby-identifier">current_load</span>
+      }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_load</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">70.0</span>
+        <span class="ruby-comment"># high</span>
+        <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+          <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:engine_load</span>][<span class="ruby-value">:high</span>] = <span class="ruby-keyword">true</span>
+          <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:engine_load</span>][<span class="ruby-value">:medium</span>] = <span class="ruby-keyword">false</span>
+          <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:engine_load</span>][<span class="ruby-value">:low</span>] = <span class="ruby-keyword">false</span>
+          <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:engine_load</span>][<span class="ruby-value">:percent</span>] = <span class="ruby-identifier">current_load</span>
+        }
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-determine_event_allocations" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">determine_event_allocations</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="determine_event_allocations-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 794</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">determine_event_allocations</span>()
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">total</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">maximum_event_descriptors</span>()
+  <span class="ruby-identifier">dispatchers</span> = []
+  [<span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Events</span><span class="ruby-operator">::</span><span class="ruby-constant">EventDispatcher</span>, <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Events</span><span class="ruby-operator">::</span><span class="ruby-constant">EventDispatcher</span><span class="ruby-operator">::</span><span class="ruby-identifier">descendants</span>()].<span class="ruby-identifier">flatten!</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_class</span><span class="ruby-operator">|</span>
+    <span class="ruby-operator">::</span><span class="ruby-constant">ObjectSpace</span>.<span class="ruby-identifier">each_object</span>(<span class="ruby-identifier">the_class</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_dispatcher</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_dispatcher</span>.<span class="ruby-identifier">alive?</span>()
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_dispatcher</span>.<span class="ruby-identifier">running?</span>()
+          <span class="ruby-identifier">dispatchers</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_dispatcher</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># Note : a ghost-dispatcher representing all other system funcitons is added to the dispatcher count.</span>
+  <span class="ruby-identifier">maximum_events</span> = (<span class="ruby-identifier">total</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> (<span class="ruby-identifier">dispatchers</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>).<span class="ruby-identifier">to_f</span>).<span class="ruby-identifier">to_i</span>
+  <span class="ruby-identifier">threshold</span> = (<span class="ruby-identifier">maximum_events</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">*</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">event_descriptors_threshold</span>().<span class="ruby-identifier">to_f</span>).<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">threshold</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">threshold</span> = <span class="ruby-value">1</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:events</span>][<span class="ruby-value">:event_minimum_threshold</span>] = <span class="ruby-identifier">threshold</span>
+    <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:events</span>][<span class="ruby-value">:event_descriptors_envelope</span>] = ((<span class="ruby-identifier">threshold</span>)<span class="ruby-operator">..</span>(<span class="ruby-identifier">maximum_events</span>))
+  }
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-determine_loads" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">determine_loads</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="determine_loads-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 190</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">determine_loads</span>()
+  <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">determine_memory_load</span>()
+  <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">determine_engine_load</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-determine_memory_load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">determine_memory_load</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="determine_memory_load-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 122</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">determine_memory_load</span>()
+  <span class="ruby-identifier">current_load</span> = ((<span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">memory_used</span>()[<span class="ruby-value">:total</span>].<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM</span>.<span class="ruby-identifier">memory_limits</span>()[<span class="ruby-value">:process</span>].<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_f</span>) <span class="ruby-operator">*</span> <span class="ruby-value">100.0</span>)
+  <span class="ruby-keyword">if</span> (<span class="ruby-value">0.0</span><span class="ruby-operator">..</span><span class="ruby-value">40.0</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">current_load</span>)
+    <span class="ruby-comment"># low</span>
+    <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+      <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:high</span>] = <span class="ruby-keyword">false</span>
+      <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:medium</span>] = <span class="ruby-keyword">false</span>
+      <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:low</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:percent</span>] = <span class="ruby-identifier">current_load</span>
+    }
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-value">40.0</span><span class="ruby-operator">..</span><span class="ruby-value">70.0</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">current_load</span>)
+      <span class="ruby-comment"># medium</span>
+      <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+        <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:high</span>] = <span class="ruby-keyword">false</span>
+        <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:medium</span>] = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:low</span>] = <span class="ruby-keyword">false</span>
+        <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:percent</span>] = <span class="ruby-identifier">current_load</span>
+      }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_load</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">70.0</span>
+        <span class="ruby-comment"># high</span>
+        <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+          <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:high</span>] = <span class="ruby-keyword">true</span>
+          <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:medium</span>] = <span class="ruby-keyword">false</span>
+          <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:low</span>] = <span class="ruby-keyword">false</span>
+          <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:percent</span>] = <span class="ruby-identifier">current_load</span>
+        }
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-egid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">egid</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="egid-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 365</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">egid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">egid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-engine_data_keys" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">engine_data_keys</span><span
+            class="method-args">(other_platform=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="engine_data_keys-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 520</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">engine_data_keys</span>(<span class="ruby-identifier">other_platform</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-identifier">data</span> = []
+  <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:key</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;files.max_descriptors&quot;</span>, <span class="ruby-value">:platforms</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:linux</span>], <span class="ruby-value">:operation</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:getconf</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;OPEN_MAX&quot;</span>, <span class="ruby-value">:format</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">:to_int</span>}}
+  <span class="ruby-comment"># TODO: Research maximum socket limit under zmq:</span>
+  <span class="ruby-comment"># See: http://news.ycombinator.com/item?id=1740823</span>
+  <span class="ruby-comment"># Also : http://stackoverflow.com/questions/651665/how-many-socket-connections-possible</span>
+  <span class="ruby-comment"># inventory the various platform variables that affect what threshold of max_socket_count a given system would end up with.</span>
+  <span class="ruby-comment"># TODO: find a way to ask the OS and ZMQ for: how many descriptors available to this process, and how many in use under zmq 2.x &amp; 3.x respectively?</span>
+  <span class="ruby-comment"># ALSO: factor in passed preferences for these settings.</span>
+  <span class="ruby-comment"># update available_file_descriptors when all that becomes clear and is a bit settled.</span>
+  <span class="ruby-comment"># current_memory = ::GxG::Engine::memory_available()[:actual]</span>
+  <span class="ruby-comment"># TODO: GxG::Engine::engine_data_keys : determine precise socket size (32bit/64bit arch) for event zmq sockets used (exact type used).</span>
+  <span class="ruby-comment"># GxG::Engine::profile()[:bits]</span>
+  <span class="ruby-comment"># zmq_socket_size = 16384</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># event_allocation = 0.5</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># TODO: GxG::Engine::engine_data_keys : tie event allocation percentage into defaults / config.file loader.</span>
+  <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:key</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;events.max_descriptors&quot;</span>, <span class="ruby-value">:platforms</span> <span class="ruby-operator">=&gt;</span> [<span class="ruby-value">:linux</span>], <span class="ruby-value">:operation</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:event_allocation</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0.5</span>, <span class="ruby-value">:format</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">:noop</span>}}
+  <span class="ruby-comment"># See: http://www.metabrew.com/article/a-million-user-comet-application-with-mochiweb-part-3</span>
+  <span class="ruby-comment"># Sysctl tuning: http://www.metabrew.com/article/a-million-user-comet-application-with-mochiweb-part-1</span>
+  <span class="ruby-comment"># LATER: develop a series of formulas for calculating approx. how many clients one can support under one &#39;cluster&#39; controller (session manager).</span>
+  <span class="ruby-identifier">data</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry</span>[<span class="ruby-value">:platforms</span>].<span class="ruby-identifier">include?</span>((<span class="ruby-identifier">other_platform</span> <span class="ruby-operator">||</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM</span>.<span class="ruby-identifier">platform</span>()[<span class="ruby-value">:platform</span>]))
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">entry</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-engine_gear" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">engine_gear</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="engine_gear-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 195</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">engine_gear</span>()
+  <span class="ruby-comment"># inverse of load</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-value">:low</span>
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:engine_load</span>][<span class="ruby-value">:medium</span>]
+      <span class="ruby-identifier">result</span> = <span class="ruby-value">:medium</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:engine_load</span>][<span class="ruby-value">:low</span>]
+      <span class="ruby-identifier">result</span> = <span class="ruby-value">:high</span>
+    <span class="ruby-keyword">end</span>
+  }
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-engine_load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">engine_load</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="engine_load-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">engine_load</span>()
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:engine_load</span>][<span class="ruby-value">:percent</span>]
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-engine_load_high-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">engine_load_high?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="engine_load_high-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">engine_load_high?</span>()
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:engine_load</span>][<span class="ruby-value">:high</span>]
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-engine_load_low-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">engine_load_low?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="engine_load_low-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">engine_load_low?</span>()
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:engine_load</span>][<span class="ruby-value">:low</span>]
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-engine_load_medium-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">engine_load_medium?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="engine_load_medium-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 104</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">engine_load_medium?</span>()
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:engine_load</span>][<span class="ruby-value">:medium</span>]
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-euid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">euid</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="euid-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 361</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">euid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">euid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-event_allocation_envelope" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">event_allocation_envelope</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="event_allocation_envelope-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 820</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">event_allocation_envelope</span>()
+  <span class="ruby-identifier">result</span> = (<span class="ruby-value">20</span><span class="ruby-operator">..</span><span class="ruby-value">100</span>)
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:events</span>][<span class="ruby-value">:event_descriptors_envelope</span>]
+  }
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-event_descriptors_threshold" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">event_descriptors_threshold</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="event_descriptors_threshold-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 738</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">event_descriptors_threshold</span>()
+  <span class="ruby-comment"># Percentage of allocation that must be available for events to be released.</span>
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:events</span>][<span class="ruby-value">:event_descriptors_threshold</span>].<span class="ruby-identifier">clone</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-event_minimum_threshold" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">event_minimum_threshold</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="event_minimum_threshold-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 745</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">event_minimum_threshold</span>()
+  <span class="ruby-comment"># Percentage of allocation that must be available for events to be released.</span>
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:events</span>][<span class="ruby-value">:event_minimum_threshold</span>].<span class="ruby-identifier">clone</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-events_in_use" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">events_in_use</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="events_in_use-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 752</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">events_in_use</span>()
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-identifier">@@event_descriptors</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-exec" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exec</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>overrides</p>
+
+<p>[:exec, :fork, :spawn, :exit!, :exit, :abort, :kill, :wait, :wait2, :waitpid, :waitpid2, :waitall, :detach, :pid, :ppid, .</p>
+          
+          
+
+          
+          <div class="method-source-code" id="exec-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 232</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">exec</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">exec</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-exit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exit</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="exit-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 248</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">exit</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">exit</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-exit-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">exit!</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="exit-21-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 244</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">exit!</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">exit!</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-file_descriptors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">file_descriptors</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="file_descriptors-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 711</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">file_descriptors</span>()
+  <span class="ruby-comment"># Return an Array of currently opened file descriptors.</span>
+  <span class="ruby-comment"># About File Descriptors: http://stackoverflow.com/questions/848717/handling-more-than-1024-file-descriptors-in-c-on-linux</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-identifier">exclude_list</span> = []
+  [<span class="ruby-operator">::</span><span class="ruby-constant">IO</span>, <span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-identifier">descendants</span>()].<span class="ruby-identifier">flatten!</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_class</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">exclude_list</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">the_class</span>)
+      <span class="ruby-operator">::</span><span class="ruby-constant">ObjectSpace</span>.<span class="ruby-identifier">each_object</span>(<span class="ruby-identifier">the_class</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_io</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">the_io</span>.<span class="ruby-identifier">closed?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">the_io</span>))
+          <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_io</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-fork" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fork</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fork-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 236</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">fork</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">fork</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-gear" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gear</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="gear-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 223</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">gear</span>()
+  <span class="ruby-node">&quot;#{::GxG::Engine::engine_gear().to_s}_#{::GxG::Engine::memory_gear().to_s}&quot;</span>.<span class="ruby-identifier">to_sym</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-get_engine_data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_engine_data</span><span
+            class="method-args">(keys=[])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_engine_data-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 553</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">get_engine_data</span>(<span class="ruby-identifier">keys</span>=[])
+  <span class="ruby-comment"># Support for &lt;SYSTEM&gt;.refresh_data_for(a_path) (private_method)</span>
+  <span class="ruby-comment"># some sort of sysctl + config + etc for *all* platforms:</span>
+  <span class="ruby-comment"># &quot;sysctl -n net.ipv4.tcp_sack&quot; becomes: &quot;/net/ipv4/tcp/selective_ack&quot; (external use path)</span>
+  <span class="ruby-comment"># @details[:memory_limits][:buffers][:socket][:ipc] becomes colllection_point = @details.at_path(&quot;:memory_limits/:buffers/:socket/:ipc&quot;);collection_point[(key)]=value</span>
+  <span class="ruby-comment"># procs for gathering data, and formatting for use.</span>
+  <span class="ruby-comment"># by_platform key between sysctl/config-key and @details hash path.</span>
+  <span class="ruby-comment"># {:synonyms =&gt; [&quot;external-path&quot;], :sysctl =&gt; &quot;key-string&#39;, :format =&gt; :proc-name, :location =&gt; &quot;hash-path&quot;, :location_key =&gt; (:sym or int)}</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+    <span class="ruby-identifier">keys</span> = [(<span class="ruby-identifier">keys</span>)]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span> = {}
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">format_noop</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_data</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">the_data</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">format_to_int</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_string</span><span class="ruby-operator">|</span>
+    (<span class="ruby-identifier">the_string</span>.<span class="ruby-identifier">numeric_values</span>()[<span class="ruby-value">:integer</span>] <span class="ruby-operator">||</span> <span class="ruby-value">0</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">format_to_float</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_string</span><span class="ruby-operator">|</span>
+    (<span class="ruby-identifier">the_string</span>.<span class="ruby-identifier">numeric_values</span>()[<span class="ruby-value">:float</span>] <span class="ruby-operator">||</span> <span class="ruby-value">0.0</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">format_zerofalse</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_string</span><span class="ruby-operator">|</span>
+    ( <span class="ruby-identifier">format_to_int</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">the_string</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> )
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">format_valid_with_initial</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_string</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">raw_data</span> = <span class="ruby-identifier">the_string</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>)
+    {<span class="ruby-value">:initial</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">format_to_int</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">raw_data</span>[<span class="ruby-value">1</span>]), <span class="ruby-value">:valid</span> <span class="ruby-operator">=&gt;</span> ((<span class="ruby-identifier">format_to_int</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">raw_data</span>[<span class="ruby-value">0</span>]))<span class="ruby-operator">..</span>(<span class="ruby-identifier">format_to_int</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">raw_data</span>[<span class="ruby-value">2</span>])))}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">sysctl_read</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a_key</span>,<span class="ruby-identifier">the_formatter</span><span class="ruby-operator">|</span>
+    ( <span class="ruby-identifier">the_formatter</span>.<span class="ruby-identifier">call</span>(<span class="ruby-node">`sysctl -n #{a_key.to_s}`</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>)[<span class="ruby-value">0</span>]) )
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">getconf_read</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a_key</span>, <span class="ruby-identifier">the_formatter</span><span class="ruby-operator">|</span>
+    ( <span class="ruby-identifier">the_formatter</span>.<span class="ruby-identifier">call</span>(<span class="ruby-node">`getconf #{a_key.to_s}`</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;\n&quot;</span>)[<span class="ruby-value">0</span>]) )
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">event_allocation</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_allocation</span>, <span class="ruby-identifier">the_formatter</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># more precise zmq socket byte size goes here.</span>
+    <span class="ruby-identifier">zmq_socket_size</span> = <span class="ruby-value">16384</span>
+    <span class="ruby-comment">#</span>
+    (((<span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">memory_available</span>()[<span class="ruby-value">:actual</span>].<span class="ruby-identifier">to_f</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">the_allocation</span>.<span class="ruby-identifier">to_f</span>).<span class="ruby-identifier">to_i</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">zmq_socket_size</span>) <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">reference</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">engine_data_keys</span>()
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">fetch_data</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_key</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">data</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">reference</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry</span>[<span class="ruby-value">:key</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">the_key</span>
+        <span class="ruby-keyword">case</span> <span class="ruby-identifier">entry</span>[<span class="ruby-value">:operation</span>][<span class="ruby-value">:format</span>]
+        <span class="ruby-keyword">when</span> <span class="ruby-value">:noop</span>
+          <span class="ruby-identifier">the_formatter</span> = <span class="ruby-identifier">format_noop</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-value">:zerofalse</span>
+          <span class="ruby-identifier">the_formatter</span> = <span class="ruby-identifier">format_zerofalse</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-value">:to_int</span>
+          <span class="ruby-identifier">the_formatter</span> = <span class="ruby-identifier">format_to_int</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-value">:to_float</span>
+          <span class="ruby-identifier">the_formatter</span> = <span class="ruby-identifier">format_to_float</span>
+        <span class="ruby-keyword">when</span> <span class="ruby-value">:valid_with_initial</span>
+          <span class="ruby-identifier">the_formatter</span> = <span class="ruby-identifier">format_valid_with_initial</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">the_formatter</span> = <span class="ruby-identifier">format_noop</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry</span>[<span class="ruby-value">:operation</span>][<span class="ruby-value">:sysctl</span>]
+          <span class="ruby-identifier">data</span> = <span class="ruby-identifier">sysctl_read</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">entry</span>[<span class="ruby-value">:operation</span>][<span class="ruby-value">:sysctl</span>],<span class="ruby-identifier">the_formatter</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry</span>[<span class="ruby-value">:operation</span>][<span class="ruby-value">:getconf</span>]
+            <span class="ruby-identifier">data</span> = <span class="ruby-identifier">getconf_read</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">entry</span>[<span class="ruby-value">:operation</span>][<span class="ruby-value">:getconf</span>],<span class="ruby-identifier">the_formatter</span>)
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry</span>[<span class="ruby-value">:operation</span>][<span class="ruby-value">:event_allocation</span>]
+              <span class="ruby-identifier">data</span> = <span class="ruby-identifier">event_allocation</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">entry</span>[<span class="ruby-value">:operation</span>][<span class="ruby-value">:event_allocation</span>],<span class="ruby-identifier">the_formatter</span>)
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-comment">#</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-comment">#</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>
+          <span class="ruby-keyword">break</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">data</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">specifier</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">specifier</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-comment"># if element is String: serves as result Hash key to hold result value.</span>
+      <span class="ruby-comment"># single result with this result key</span>
+      <span class="ruby-identifier">result</span>[(<span class="ruby-identifier">specifier</span>)] = <span class="ruby-identifier">fetch_data</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">specifier</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">specifier</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+        <span class="ruby-comment"># if element is Hash: {ukey =&gt; hash_path}, {:key =&gt; &lt;keystring&gt;, :path =&gt; &lt;hash_path&gt;}</span>
+        <span class="ruby-comment"># if hash_path supplied, read the data; set the @details hash element, and return the formatted data</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">specifier</span>[<span class="ruby-value">:key</span>]
+          <span class="ruby-comment"># {:key =&gt; &lt;keystring&gt;, :path =&gt; &lt;hash_path&gt;}</span>
+          <span class="ruby-identifier">result</span>[(<span class="ruby-identifier">specifier</span>[<span class="ruby-value">:key</span>])] = <span class="ruby-identifier">fetch_data</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">specifier</span>[<span class="ruby-value">:key</span>])
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">specifier</span>[<span class="ruby-value">:path</span>]
+            <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+              <span class="ruby-identifier">@@details</span>.<span class="ruby-identifier">set_at_path</span>(<span class="ruby-identifier">specifier</span>[<span class="ruby-value">:path</span>],<span class="ruby-identifier">result</span>[(<span class="ruby-identifier">specifier</span>[<span class="ruby-value">:key</span>])])
+            }
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-comment"># {ukey =&gt; hash_path}</span>
+          <span class="ruby-identifier">subkeys</span> = <span class="ruby-identifier">specifier</span>.<span class="ruby-identifier">keys</span>
+          <span class="ruby-identifier">subkeys</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a_key</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">result</span>[(<span class="ruby-identifier">a_key</span>)] = <span class="ruby-identifier">fetch_data</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">a_key</span>)
+            <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+              <span class="ruby-identifier">@@details</span>.<span class="ruby-identifier">set_at_path</span>(<span class="ruby-identifier">specifier</span>[(<span class="ruby-identifier">a_key</span>)],<span class="ruby-identifier">result</span>[(<span class="ruby-identifier">a_key</span>)])
+            }
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-getpgid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getpgid</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="getpgid-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 302</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">getpgid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">getpgid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-getpgrp" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getpgrp</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>:getpgrp, :setpgrp, :getpgid, :setpgid, :setsid, :getpriority, :setpriority, :getrlimit, :setrlimit, :uid, :gid, :euid, :egid,</p>
+          
+          
+
+          
+          <div class="method-source-code" id="getpgrp-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 294</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">getpgrp</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">getpgrp</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-getpriority" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getpriority</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="getpriority-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 314</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">getpriority</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">getpriority</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-getrlimit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getrlimit</span><span
+            class="method-args">(key)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="getrlimit-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 322</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">getrlimit</span>(<span class="ruby-identifier">key</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-comment"># FIX: GxG::Engine::getrlimit : Awaiting rbx bug #2112 fix : https://github.com/rubinius/rubinius/issues/2112</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">profile</span>()[<span class="ruby-value">:engine</span>]
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:ruby</span>
+    <span class="ruby-identifier">raw_data</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">getrlimit</span>(<span class="ruby-identifier">key</span>)
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">key</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:AS</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM</span>
+        <span class="ruby-identifier">memory_limits</span> = <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM</span>.<span class="ruby-identifier">memory_limits</span>()
+        <span class="ruby-identifier">result</span> = [<span class="ruby-identifier">raw_data</span>[<span class="ruby-value">0</span>],(<span class="ruby-identifier">memory_limits</span>[<span class="ruby-value">:process</span>].<span class="ruby-identifier">max</span>)]
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">result</span> = <span class="ruby-identifier">raw_data</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-identifier">raw_data</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:jruby</span>
+    <span class="ruby-identifier">memory_limits</span> = <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM</span>.<span class="ruby-identifier">memory_limits</span>()
+    <span class="ruby-identifier">result</span> = [(<span class="ruby-identifier">memory_limits</span>[<span class="ruby-value">:process</span>].<span class="ruby-identifier">first</span>),(<span class="ruby-identifier">memory_limits</span>[<span class="ruby-value">:process</span>].<span class="ruby-identifier">last</span>)]
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:rbx</span>
+    <span class="ruby-identifier">memory_limits</span> = <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM</span>.<span class="ruby-identifier">memory_limits</span>()
+    <span class="ruby-identifier">result</span> = [(<span class="ruby-identifier">memory_limits</span>[<span class="ruby-value">:process</span>].<span class="ruby-identifier">first</span>),(<span class="ruby-identifier">memory_limits</span>[<span class="ruby-value">:process</span>].<span class="ruby-identifier">last</span>)]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-gid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gid</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="gid-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 357</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">gid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">gid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-groups" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">groups</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="groups-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 375</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">groups</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">groups</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-initgroups" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">initgroups</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>:initgroups, :groups, :maxgroups, :daemon, :times]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="initgroups-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 371</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">initgroups</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">initgroups</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-kill" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">kill</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="kill-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 256</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">kill</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">kill</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-maxgroups" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">maxgroups</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="maxgroups-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 379</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">maxgroups</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">maxgroups</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-maximum_event_descriptors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">maximum_event_descriptors</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Event Descriptors</p>
+          
+          
+
+          
+          <div class="method-source-code" id="maximum_event_descriptors-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 734</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">maximum_event_descriptors</span>()
+  <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">descriptor_limits</span>()[<span class="ruby-value">:events</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-maximum_file_descriptors" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">maximum_file_descriptors</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="../File.html"><code>File</code></a> Descriptors</p>
+          
+          
+
+          
+          <div class="method-source-code" id="maximum_file_descriptors-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 707</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">maximum_file_descriptors</span>()
+    <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">descriptor_limits</span>()[<span class="ruby-value">:files</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-memory_available" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">memory_available</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="memory_available-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 481</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">memory_available</span>()
+  <span class="ruby-comment"># Memory available for this process</span>
+  <span class="ruby-identifier">result</span> = {<span class="ruby-value">:actual</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0</span>, <span class="ruby-value">:virtual</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0</span>, <span class="ruby-value">:total</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0</span>}
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM</span>
+    <span class="ruby-identifier">used_memory</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">memory_used</span>()
+    <span class="ruby-identifier">free_memory</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM</span>.<span class="ruby-identifier">memory</span>()
+    <span class="ruby-identifier">limits</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">getrlimit</span>(<span class="ruby-value">:AS</span>)
+    <span class="ruby-identifier">latitude_total</span> = (<span class="ruby-identifier">limits</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">used_memory</span>[<span class="ruby-value">:actual</span>])
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">latitude_total</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">latitude_total</span> = <span class="ruby-value">0</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># latitude_virtual = (limits[0] - used_memory[:actual])</span>
+    <span class="ruby-comment"># latitude_actual = (limits[0] - used_memory[:virtual])</span>
+    <span class="ruby-comment"># indicates available ram vs. paged swap first</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">free_memory</span>[<span class="ruby-value">:actual</span>][<span class="ruby-value">:free</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">limits</span>[<span class="ruby-value">0</span>]
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:actual</span>] = <span class="ruby-identifier">latitude_total</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:virtual</span>] = <span class="ruby-value">0</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:actual</span>] = <span class="ruby-identifier">free_memory</span>[<span class="ruby-value">:actual</span>][<span class="ruby-value">:free</span>]
+      <span class="ruby-comment"># vm calc is crack-monkey, but someplace close to reality.</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">free_memory</span>[<span class="ruby-value">:virtual</span>][<span class="ruby-value">:free</span>] <span class="ruby-operator">&gt;</span> ((<span class="ruby-identifier">limits</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">:actual</span>]) <span class="ruby-operator">-</span> <span class="ruby-identifier">used_memory</span>[<span class="ruby-value">:total</span>])
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:virtual</span>] = ((<span class="ruby-identifier">limits</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">:actual</span>]) <span class="ruby-operator">-</span> <span class="ruby-identifier">used_memory</span>[<span class="ruby-value">:total</span>])
+        <span class="ruby-keyword">unless</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">:virtual</span>] <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">result</span>[<span class="ruby-value">:virtual</span>] = <span class="ruby-value">0</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">if</span> ((<span class="ruby-identifier">free_memory</span>[<span class="ruby-value">:virtual</span>][<span class="ruby-value">:free</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">:actual</span>]) <span class="ruby-operator">-</span> <span class="ruby-identifier">used_memory</span>[<span class="ruby-value">:total</span>]) <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">result</span>[<span class="ruby-value">:virtual</span>] = ((<span class="ruby-identifier">free_memory</span>[<span class="ruby-value">:virtual</span>][<span class="ruby-value">:free</span>] <span class="ruby-operator">-</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">:actual</span>]) <span class="ruby-operator">-</span> <span class="ruby-identifier">used_memory</span>[<span class="ruby-value">:total</span>])
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">result</span>[<span class="ruby-value">:virtual</span>] = <span class="ruby-value">0</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>[<span class="ruby-value">:total</span>] = (<span class="ruby-identifier">result</span>[<span class="ruby-value">:actual</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">:virtual</span>])
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-memory_gear" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">memory_gear</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="memory_gear-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 209</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">memory_gear</span>()
+  <span class="ruby-comment"># inverse of load</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-value">:low</span>
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:medium</span>]
+      <span class="ruby-identifier">result</span> = <span class="ruby-value">:medium</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:low</span>]
+      <span class="ruby-identifier">result</span> = <span class="ruby-value">:high</span>
+    <span class="ruby-keyword">end</span>
+  }
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-memory_load" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">memory_load</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="memory_load-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">memory_load</span>()
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:percent</span>]
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-memory_load_high-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">memory_load_high?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="memory_load_high-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 74</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">memory_load_high?</span>()
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:high</span>]
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-memory_load_low-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">memory_load_low?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="memory_load_low-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 86</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">memory_load_low?</span>()
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:low</span>]
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-memory_load_medium-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">memory_load_medium?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="memory_load_medium-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">memory_load_medium?</span>()
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:memory_load</span>][<span class="ruby-value">:medium</span>]
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-memory_used" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">memory_used</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="memory_used-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 415</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">memory_used</span>()
+  <span class="ruby-comment"># ok... why in the fly&#39;n F isn&#39;t this provided by core ruby?!?</span>
+  <span class="ruby-comment"># Attribution: http://stackoverflow.com/questions/7220896/get-current-ruby-process-memory-usage</span>
+  <span class="ruby-identifier">result</span> = {<span class="ruby-value">:actual</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0</span>, <span class="ruby-value">:virtual</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0</span>, <span class="ruby-value">:total</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0</span>}
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM</span>.<span class="ruby-identifier">platform</span>[<span class="ruby-value">:platform</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:windows</span>
+      <span class="ruby-comment"># FORNOW: user object space enumeration</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:actual</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">object_memory_used</span>()
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:bsd</span>
+      <span class="ruby-identifier">pid_string</span> = <span class="ruby-node">&quot;#{::Process::pid}&quot;</span>
+      <span class="ruby-identifier">env</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">environment</span>()
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">env</span>[<span class="ruby-value">:environment</span>]
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:openbsd</span>
+        <span class="ruby-comment"># See: http://modman.unixdev.net/?sektion=1&amp;page=procmap&amp;manpath=OpenBSD-3.6</span>
+        <span class="ruby-comment"># use `procmap -p #{pid_string}`</span>
+        <span class="ruby-comment"># LATER: GxG::Engine::memory_used (OpenBSD) : determine how to cull procmap text data into :actual and :virtual memory usage.</span>
+        <span class="ruby-comment"># FORNOW: user object space enumeration</span>
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:actual</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">object_memory_used</span>()
+        <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:freebsd</span>, <span class="ruby-value">:dragonfly</span>, <span class="ruby-value">:pcbsd</span>
+        <span class="ruby-comment"># TODO: GxG::Engine::memory_used: Test with FreeBSD, DragonFlyBSD, and PCBSD.</span>
+        <span class="ruby-identifier">raw_data</span> = <span class="ruby-string">`top -d 1`</span>
+        <span class="ruby-identifier">raw_data</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each_line</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_line</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_line</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>)[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">pid_string</span>
+            <span class="ruby-identifier">result</span>[<span class="ruby-value">:actual</span>] = (<span class="ruby-identifier">the_line</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>)[<span class="ruby-value">6</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;B&quot;</span>).<span class="ruby-identifier">numeric_values</span>([<span class="ruby-value">:byte</span>])[<span class="ruby-value">:byte</span>].<span class="ruby-identifier">to_i</span>
+            <span class="ruby-comment"># TODO: GxG::Engine.memory_used() (netbsd) : Find a reliable way to get result[:virtual] mem used.</span>
+            <span class="ruby-keyword">break</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:netbsd</span>
+        <span class="ruby-comment"># TODO: GxG::Engine::memory_used: Test with NetBSD.</span>
+        <span class="ruby-identifier">raw_data</span> = <span class="ruby-string">`top -d 1`</span>
+        <span class="ruby-identifier">raw_data</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each_line</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_line</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_line</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>)[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">pid_string</span>
+            <span class="ruby-identifier">result</span>[<span class="ruby-value">:actual</span>] = (<span class="ruby-identifier">the_line</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>)[<span class="ruby-value">4</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;B&quot;</span>).<span class="ruby-identifier">numeric_values</span>([<span class="ruby-value">:byte</span>])[<span class="ruby-value">:byte</span>].<span class="ruby-identifier">to_i</span>
+            <span class="ruby-comment"># TODO: GxG::Engine.memory_used() (netbsd) : Find a reliable way to get result[:virtual] mem used.</span>
+            <span class="ruby-keyword">break</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:darwin</span>, <span class="ruby-value">:macos</span>
+        <span class="ruby-comment"># TODO: GxG::Engine::memory_used: Test with Darwin/MacOSX.</span>
+        <span class="ruby-identifier">raw_data</span> = <span class="ruby-string">`top -l 1`</span>
+        <span class="ruby-identifier">raw_data</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each_line</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_line</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_line</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>)[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">pid_string</span>
+            <span class="ruby-identifier">result</span>[<span class="ruby-value">:actual</span>] = (<span class="ruby-identifier">the_line</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>)[<span class="ruby-value">9</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;B&quot;</span>).<span class="ruby-identifier">numeric_values</span>([<span class="ruby-value">:byte</span>])[<span class="ruby-value">:byte</span>].<span class="ruby-identifier">to_i</span>
+            <span class="ruby-comment"># TODO: GxG::Engine.memory_used() (darwin) : Find a reliable way to get result[:virtual] mem used.</span>
+            <span class="ruby-keyword">break</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:linux</span>, <span class="ruby-value">:solaris</span>
+      <span class="ruby-comment"># PS is universal, but unfortunately universally incorrect, See: http://stackoverflow.com/questions/131303/linux-how-to-measure-actual-memory-usage-of-an-application-or-process</span>
+      <span class="ruby-comment"># TODO: GxG::Engine::memory_used: create a non-toolbox version for bootstrap memory profiling.</span>
+      <span class="ruby-comment"># TODO: GxG::Engine::memory_used: Test with Solaris.</span>
+      <span class="ruby-identifier">raw_data</span> = <span class="ruby-node">`pmap -d #{::Process::pid} | tail -n 1`</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>)
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:actual</span>] = (<span class="ruby-identifier">raw_data</span>[<span class="ruby-value">3</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;B&quot;</span>).<span class="ruby-identifier">numeric_values</span>()[<span class="ruby-value">:byte</span>].<span class="ruby-identifier">to_i</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:virtual</span>] = (<span class="ruby-identifier">raw_data</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;B&quot;</span>).<span class="ruby-identifier">numeric_values</span>()[<span class="ruby-value">:byte</span>].<span class="ruby-identifier">to_i</span>
+      <span class="ruby-comment"># result[:shared] = (raw_data[5] &lt;&lt; &quot;B&quot;).numeric_values()[:byte].to_i</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>[<span class="ruby-value">:total</span>] = (<span class="ruby-identifier">result</span>[<span class="ruby-value">:actual</span>] <span class="ruby-operator">+</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">:virtual</span>])
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-object_memory_used" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">object_memory_used</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="object_memory_used-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 399</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">object_memory_used</span>()
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">slots</span> = <span class="ruby-value">0</span>
+  <span class="ruby-identifier">other</span> = <span class="ruby-value">0</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">ObjectSpace</span>.<span class="ruby-identifier">each_object</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_object</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">slots</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_object</span>.<span class="ruby-identifier">alive?</span>()
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+        <span class="ruby-identifier">other</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">the_object</span>.<span class="ruby-identifier">bytesize</span>()
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  ((<span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">profile</span>()[<span class="ruby-value">:slot_size</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">slots</span>) <span class="ruby-operator">+</span> <span class="ruby-identifier">other</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-pid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pid</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pid-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 284</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">pid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">pid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-ppid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ppid</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ppid-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 288</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">ppid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">ppid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-profile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">profile</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>extensions</p>
+          
+          
+
+          
+          <div class="method-source-code" id="profile-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 393</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">profile</span>()
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    {<span class="ruby-value">:engine</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:runtime</span>], <span class="ruby-value">:version</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:runtime_version</span>], <span class="ruby-value">:bits</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:runtime_bits</span>], <span class="ruby-value">:slot_size</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">@@details</span>[<span class="ruby-value">:runtime_rvalue_size</span>]}.<span class="ruby-identifier">clone</span>
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-release_event_descriptor" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">release_event_descriptor</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="release_event_descriptor-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 783</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">release_event_descriptor</span>()
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">@@event_descriptors</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">@@event_descriptors</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+  }
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-reserve_event_descriptor" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reserve_event_descriptor</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reserve_event_descriptor-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 770</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">reserve_event_descriptor</span>()
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">available_event_descriptors</span>() <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">@@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+      <span class="ruby-identifier">@@event_descriptors</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+    }
+    <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">ENOMEM</span>, <span class="ruby-node">&quot;maximum number of event descriptors in use (#{GxG::Engine::maximum_event_descriptors().to_s})&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-set_engine_data" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_engine_data</span><span
+            class="method-args">(keys=[])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_engine_data-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 672</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">set_engine_data</span>(<span class="ruby-identifier">keys</span>=[])
+  <span class="ruby-comment"># LATER: GxG::Engine::set_engine_data : when you figure out system(sudo) authentication - use this for ops that require elevated privs to set system parameters.</span>
+  <span class="ruby-comment"># Define a set of universal_keys that affect what other keys; upon setting any one, unique-list a set of keys to read back in w/ hash paths.</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">nil</span>
+    <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">get_engine_data</span>(<span class="ruby-keyword">nil</span>,<span class="ruby-keyword">nil</span>)
+    <span class="ruby-comment"># compare hash value to the_value; return true if successful</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-setpgid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setpgid</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setpgid-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 306</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">setpgid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">setpgid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-setpgrp" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setpgrp</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setpgrp-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 298</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">setpgrp</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">setpgrp</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-setpriority" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setpriority</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setpriority-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 318</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">setpriority</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">setpriority</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-setrlimit" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setrlimit</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setrlimit-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 349</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">setrlimit</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">setrlimit</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-setsid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">setsid</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="setsid-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 310</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">setsid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">setsid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-spawn" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">spawn</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="spawn-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 240</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">spawn</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">spawn</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-times" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">times</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="times-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 387</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">times</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">times</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-uid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">uid</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="uid-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 353</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">uid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">uid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wait" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wait</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="wait-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 260</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">wait</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">wait</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-wait2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">wait2</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="wait2-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 264</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">wait2</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">wait2</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-waitall" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">waitall</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="waitall-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 276</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">waitall</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">waitall</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-waitpid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">waitpid</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="waitpid-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 268</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">waitpid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">waitpid</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-waitpid2" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">waitpid2</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="waitpid2-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_engine.rb, line 272</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">waitpid2</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-operator">::</span><span class="ruby-constant">Process</span><span class="ruby-operator">::</span><span class="ruby-identifier">waitpid2</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

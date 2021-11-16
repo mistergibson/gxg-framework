@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class GxG::Networking::XmppAgentFileTransfer - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-accept">#accept</a>
+    
+    <li ><a href="#method-i-buffer_size">#buffer_size</a>
+    
+    <li ><a href="#method-i-buffer_size-3D">#buffer_size=</a>
+    
+    <li ><a href="#method-i-cancel">#cancel</a>
+    
+    <li ><a href="#method-i-cancelled-3F">#cancelled?</a>
+    
+    <li ><a href="#method-i-decline">#decline</a>
+    
+    <li ><a href="#method-i-download_directory">#download_directory</a>
+    
+    <li ><a href="#method-i-download_directory-3D">#download_directory=</a>
+    
+    <li ><a href="#method-i-file_details">#file_details</a>
+    
+    <li ><a href="#method-i-in_progress-3F">#in_progress?</a>
+    
+    <li ><a href="#method-i-info">#info</a>
+    
+    <li ><a href="#method-i-inspect">#inspect</a>
+    
+    <li ><a href="#method-i-pending-3F">#pending?</a>
+    
+    <li ><a href="#method-i-percent_completed">#percent_completed</a>
+    
+    <li ><a href="#method-i-reference">#reference</a>
+    
+    <li ><a href="#method-i-session_id">#session_id</a>
+    
+    <li ><a href="#method-i-upload_file">#upload_file</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-GxG::Networking::XmppAgentFileTransfer">
+  <h1 id="class-GxG::Networking::XmppAgentFileTransfer" class="class">
+    class GxG::Networking::XmppAgentFileTransfer
+  </h1>
+
+  <section class="description">
+    
+<p><a href="../../File.html"><code>File</code></a> Transfer</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(manager, direction, details, parent)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Review : totally rewrite this</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2538</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">manager</span>, <span class="ruby-identifier">direction</span>, <span class="ruby-identifier">details</span>, <span class="ruby-identifier">parent</span>)
+  <span class="ruby-ivar">@reference</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-identifier">uuid_generate</span>.<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-ivar">@session_id</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@pending</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-ivar">@inprogress</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@percent_completed</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@status_thread_safety</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@manager</span> = <span class="ruby-identifier">manager</span>
+  <span class="ruby-ivar">@direction</span> = <span class="ruby-identifier">direction</span>
+  <span class="ruby-ivar">@info</span> = {<span class="ruby-value">:reference</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-ivar">@reference</span>}
+  <span class="ruby-ivar">@bytestream</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@file_details</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@cancel</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">the_value</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM</span>.<span class="ruby-identifier">maximum_buffer_size</span>.<span class="ruby-identifier">get_at_path</span>(<span class="ruby-string">&quot;/:ipv4/:tcp/:write/:valid&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Range</span>)
+    <span class="ruby-ivar">@valid_write_buffer_sizes</span> = <span class="ruby-identifier">the_value</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@valid_write_buffer_sizes</span> = (<span class="ruby-value">4096</span><span class="ruby-operator">..</span><span class="ruby-value">65536</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@buffer_size</span> = <span class="ruby-value">4096</span>
+  <span class="ruby-ivar">@client</span> = <span class="ruby-identifier">parent</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@direction</span> <span class="ruby-operator">==</span> <span class="ruby-value">:download</span>
+    <span class="ruby-ivar">@invitation</span> = <span class="ruby-identifier">details</span>[<span class="ruby-value">:iq</span>]
+    <span class="ruby-ivar">@sender</span> = <span class="ruby-identifier">details</span>[<span class="ruby-value">:iq</span>].<span class="ruby-identifier">from</span>
+    <span class="ruby-ivar">@info</span>[<span class="ruby-value">:sender</span>] = <span class="ruby-ivar">@sender</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-ivar">@info</span>[<span class="ruby-value">:recipient</span>] = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">jid</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-ivar">@file_details</span> = {<span class="ruby-value">:filename</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">details</span>[<span class="ruby-value">:file_info</span>].<span class="ruby-identifier">fname</span>, <span class="ruby-value">:path</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">details</span>[<span class="ruby-value">:download_directory</span>] <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">details</span>[<span class="ruby-value">:file_info</span>].<span class="ruby-identifier">fname</span>), <span class="ruby-value">:size</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">details</span>[<span class="ruby-value">:file_info</span>].<span class="ruby-identifier">size</span>, <span class="ruby-value">:md5</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">details</span>[<span class="ruby-value">:file_info</span>].<span class="ruby-identifier">hash</span>, <span class="ruby-value">:description</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">details</span>[<span class="ruby-value">:file_info</span>].<span class="ruby-identifier">description</span>}
+    <span class="ruby-ivar">@download_directory</span> = <span class="ruby-identifier">details</span>[<span class="ruby-value">:download_directory</span>]
+    <span class="ruby-ivar">@info</span>[<span class="ruby-value">:details</span>] = <span class="ruby-ivar">@file_details</span>
+    <span class="ruby-ivar">@recipient</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@direction</span> <span class="ruby-operator">==</span> <span class="ruby-value">:upload</span>
+    <span class="ruby-ivar">@info</span>[<span class="ruby-value">:sender</span>] = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">jid</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-ivar">@info</span>[<span class="ruby-value">:recipient</span>] = <span class="ruby-identifier">details</span>[<span class="ruby-value">:jid</span>].<span class="ruby-identifier">to_s</span>
+    <span class="ruby-ivar">@recipient</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">JID</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">details</span>[<span class="ruby-value">:jid</span>])
+    <span class="ruby-ivar">@file_details</span> = {<span class="ruby-value">:filename</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">details</span>[<span class="ruby-value">:path</span>]), <span class="ruby-value">:path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">details</span>[<span class="ruby-value">:path</span>], <span class="ruby-value">:size</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">size</span>(<span class="ruby-identifier">details</span>[<span class="ruby-value">:path</span>]), <span class="ruby-value">:md5</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>.<span class="ruby-identifier">file</span>(<span class="ruby-identifier">details</span>[<span class="ruby-value">:path</span>]), <span class="ruby-value">:description</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">details</span>[<span class="ruby-value">:description</span>]}
+    <span class="ruby-ivar">@info</span>[<span class="ruby-value">:details</span>] = <span class="ruby-ivar">@file_details</span>
+    <span class="ruby-ivar">@invitation</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-ivar">@download_directory</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-accept" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">accept</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="accept-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2651</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">accept</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@pending</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@direction</span> <span class="ruby-operator">==</span> <span class="ruby-value">:download</span> }
+      <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> {
+        <span class="ruby-keyword">begin</span>
+          <span class="ruby-identifier">bytes_received</span> = <span class="ruby-value">0</span>
+          <span class="ruby-identifier">total_size</span> = <span class="ruby-ivar">@file_details</span>[<span class="ruby-value">:size</span>]
+          <span class="ruby-ivar">@bytestream</span> = <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">accept</span>(<span class="ruby-ivar">@invitation</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@bytestream</span>
+            <span class="ruby-ivar">@bytestream</span>.<span class="ruby-identifier">accept</span>()
+            <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+              <span class="ruby-ivar">@pending</span> = <span class="ruby-keyword">false</span>
+              <span class="ruby-ivar">@inprogress</span> = <span class="ruby-keyword">true</span>
+              <span class="ruby-ivar">@session_id</span> = <span class="ruby-ivar">@bytestream</span>.<span class="ruby-identifier">session_id</span>.<span class="ruby-identifier">to_s</span>
+            }
+            <span class="ruby-comment">#</span>
+            <span class="ruby-identifier">cancel_callback</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_iq</span><span class="ruby-operator">|</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_iq</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:error</span>
+                <span class="ruby-identifier">the_error</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">ServerError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">the_iq</span>.<span class="ruby-identifier">error</span>)
+                <span class="ruby-keyword">if</span> <span class="ruby-ivar">@invitation</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">the_iq</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>
+                  <span class="ruby-identifier">the_transfer</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">find_file_transfer</span>(<span class="ruby-ivar">@reference</span>)
+                  <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_transfer</span>
+                    <span class="ruby-identifier">the_transfer</span>.<span class="ruby-identifier">cancel</span>
+                  <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:iq</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_iq</span>}})
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">set_xfr_callback</span>(<span class="ruby-ivar">@session_id</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">cancel_callback</span>)
+            <span class="ruby-comment">#</span>
+            <span class="ruby-identifier">the_file</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-ivar">@file_details</span>[<span class="ruby-value">:path</span>], <span class="ruby-string">&quot;w+b&quot;</span>,<span class="ruby-value">0664</span>)
+            <span class="ruby-identifier">the_file</span>.<span class="ruby-identifier">pos</span> = <span class="ruby-value">0</span>
+            <span class="ruby-identifier">buffer</span> = <span class="ruby-ivar">@bytestream</span>.<span class="ruby-identifier">read</span>()
+            <span class="ruby-keyword">while</span> <span class="ruby-identifier">buffer</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@cancel</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span> } <span class="ruby-keyword">do</span>
+              <span class="ruby-identifier">the_file</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">to_s</span>)
+              <span class="ruby-identifier">bytes_received</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span>
+              <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@percent_completed</span> = ((<span class="ruby-identifier">bytes_received</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">total_size</span>.<span class="ruby-identifier">to_f</span>) <span class="ruby-operator">*</span> <span class="ruby-value">100.0</span>).<span class="ruby-identifier">to_i</span> }
+              <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">notify</span>({<span class="ruby-value">:event</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">:file_transfer_progress</span>, <span class="ruby-value">:transfer</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-ivar">@reference</span>, <span class="ruby-value">:progress</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@percent_completed</span> }})
+              <span class="ruby-identifier">buffer</span> = <span class="ruby-ivar">@bytestream</span>.<span class="ruby-identifier">read</span>()
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">the_file</span>.<span class="ruby-identifier">close</span>
+            <span class="ruby-ivar">@bytestream</span>.<span class="ruby-identifier">close</span>
+            <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+              <span class="ruby-ivar">@inprogress</span> = <span class="ruby-keyword">false</span>
+              <span class="ruby-ivar">@pending</span> = <span class="ruby-keyword">false</span>
+            }
+            <span class="ruby-identifier">the_path</span> = <span class="ruby-ivar">@file_details</span>[<span class="ruby-value">:path</span>]
+            <span class="ruby-keyword">if</span> <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@cancel</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> }
+              <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">the_path</span>)
+              <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">notify</span>({<span class="ruby-value">:event</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">:file_transfer_cancelled</span>, <span class="ruby-value">:transfer</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-ivar">@reference</span>})
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-ivar">@file_details</span>[<span class="ruby-value">:md5</span>]
+                <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@file_details</span>[<span class="ruby-value">:md5</span>] <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Digest</span><span class="ruby-operator">::</span><span class="ruby-constant">MD5</span>.<span class="ruby-identifier">file</span>(<span class="ruby-identifier">the_path</span>)
+                  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-node">&quot;MD5 Checksum Failure - file corruption on file: #{the_path}&quot;</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">notify</span>({<span class="ruby-value">:event</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">:file_transfer_complete</span>, <span class="ruby-value">:transfer</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-ivar">@reference</span>})
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+              <span class="ruby-ivar">@inprogress</span> = <span class="ruby-keyword">false</span>
+              <span class="ruby-ivar">@pending</span> = <span class="ruby-keyword">false</span>
+            }
+            <span class="ruby-identifier">the_file</span> = <span class="ruby-keyword">nil</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-string">&quot;Failed to negotiate a transfer method.&quot;</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+          <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+            <span class="ruby-ivar">@inprogress</span> = <span class="ruby-keyword">false</span>
+            <span class="ruby-ivar">@pending</span> = <span class="ruby-keyword">false</span>
+          }
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_file</span>
+            <span class="ruby-identifier">the_file</span>.<span class="ruby-identifier">close</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@bytestream</span>
+            <span class="ruby-ivar">@bytestream</span>.<span class="ruby-identifier">close</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {}})
+          <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">notify</span>({<span class="ruby-value">:event</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">:file_transfer_error</span>, <span class="ruby-value">:transfer</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-ivar">@reference</span>})
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@session_id</span>
+          <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">clear_xfr_callback</span>(<span class="ruby-ivar">@session_id</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">refresh_file_transfers</span>
+      }
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-buffer_size" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">buffer_size</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="buffer_size-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2603</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">buffer_size</span>()
+  <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@buffer_size</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-buffer_size-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">buffer_size=</span><span
+            class="method-args">(the_size=4096)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="buffer_size-3D-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2607</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">buffer_size=</span>(<span class="ruby-identifier">the_size</span>=<span class="ruby-value">4096</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_size</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide an Integer to set buffer size.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@direction</span> <span class="ruby-operator">==</span> <span class="ruby-value">:upload</span> }
+      <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@valid_write_buffer_sizes</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">the_size</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;You MUST provide an Integer between #{@valid_read_buffer_sizes.first} and #{@valid_read_buffer_sizes.last}.&quot;</span>
+        <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@buffer_size</span> = <span class="ruby-identifier">the_size</span> }
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">log_warn</span>(<span class="ruby-string">&quot;Buffer size is only set on upload file transfers.&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">the_size</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {}})
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cancel" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cancel</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cancel-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2631</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cancel</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@pending</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> }
+        <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@pending</span> = <span class="ruby-keyword">false</span> }
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@inprogress</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> }
+        <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@inprogress</span> = <span class="ruby-keyword">false</span> }
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@cancel</span> = <span class="ruby-keyword">true</span> }
+      <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">refresh_file_transfers</span>
+      <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cancelled-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cancelled?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cancelled-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2627</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cancelled?</span>()
+  <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@cancel</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-decline" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">decline</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="decline-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2743</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">decline</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@pending</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@direction</span> <span class="ruby-operator">==</span> <span class="ruby-value">:download</span> }
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">decline</span>(<span class="ruby-ivar">@invitation</span>)
+        <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@pending</span> = <span class="ruby-keyword">false</span> }
+      <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+        <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {}})
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-download_directory" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">download_directory</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="download_directory-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2771</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">download_directory</span>()
+  <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@download_directory</span>.<span class="ruby-identifier">clone</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-download_directory-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">download_directory=</span><span
+            class="method-args">(the_path=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="download_directory-3D-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2775</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">download_directory=</span>(<span class="ruby-identifier">the_path</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_path</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST supply a String as valid directory path.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">the_path</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">the_path</span>)
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_path</span>.<span class="ruby-identifier">valid_path?</span>()
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST supply a valid directory path.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">exist?</span>(<span class="ruby-identifier">the_path</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST supply a valid directory path - Directory does not exist.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+      <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@inprogress</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@direction</span> <span class="ruby-operator">==</span> <span class="ruby-value">:download</span>
+          <span class="ruby-ivar">@download_directory</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">expand_path</span>(<span class="ruby-identifier">the_path</span>)
+          <span class="ruby-ivar">@file_details</span>[<span class="ruby-value">:path</span>] = (<span class="ruby-ivar">@download_directory</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;/&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-ivar">@file_details</span>[<span class="ruby-value">:filename</span>])
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      }
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {}})
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-file_details" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">file_details</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="file_details-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2767</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">file_details</span>()
+  <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@file_details</span>.<span class="ruby-identifier">clone</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-in_progress-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">in_progress?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="in_progress-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2759</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">in_progress?</span>()
+  <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@inprogress</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-info" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">info</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="info-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2587</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">info</span>()
+  <span class="ruby-ivar">@info</span>.<span class="ruby-identifier">clone</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2583</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inspect</span>()
+  <span class="ruby-node">&quot;&lt;Transfer: #{@direction.inspect} - #{@reference}, with Session ID: #{@session_id} for File #{@file_details[:filename]}&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pending-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pending?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pending-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2599</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pending?</span>()
+  <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@pending</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-percent_completed" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">percent_completed</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="percent_completed-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2763</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">percent_completed</span>()
+  <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@percent_completed</span>.<span class="ruby-identifier">clone</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reference" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reference</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reference-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2591</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reference</span>()
+  <span class="ruby-ivar">@reference</span>.<span class="ruby-identifier">clone</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-session_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">session_id</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="session_id-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2595</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">session_id</span>()
+  <span class="ruby-ivar">@session_id</span>.<span class="ruby-identifier">clone</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upload_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload_file</span><span
+            class="method-args">(proxy=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="upload_file-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2800</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">upload_file</span>(<span class="ruby-identifier">proxy</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@direction</span> <span class="ruby-operator">==</span> <span class="ruby-value">:upload</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@inprogress</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> }
+        <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> {
+          <span class="ruby-keyword">begin</span>
+            <span class="ruby-identifier">bytes_sent</span> = <span class="ruby-value">0</span>
+            <span class="ruby-identifier">buffer_size</span> = <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@buffer_size</span> }
+            <span class="ruby-identifier">the_file_source</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">FileTransfer</span><span class="ruby-operator">::</span><span class="ruby-constant">FileSource</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@file_details</span>[<span class="ruby-value">:path</span>])
+            <span class="ruby-identifier">the_file_source</span>.<span class="ruby-identifier">length</span> = <span class="ruby-identifier">buffer_size</span>
+            <span class="ruby-identifier">total_size</span> = <span class="ruby-identifier">the_file_source</span>.<span class="ruby-identifier">size</span>
+            <span class="ruby-ivar">@bytestream</span> = <span class="ruby-keyword">nil</span>
+            <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@manager</span>.<span class="ruby-identifier">offer</span>(<span class="ruby-ivar">@recipient</span>,<span class="ruby-identifier">the_file_source</span>,<span class="ruby-ivar">@file_details</span>[<span class="ruby-value">:description</span>],<span class="ruby-keyword">nil</span>,<span class="ruby-ivar">@reference</span>.<span class="ruby-identifier">to_s</span>)
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+              <span class="ruby-ivar">@bytestream</span> = <span class="ruby-identifier">response</span>[<span class="ruby-value">:bytestream</span>]
+              <span class="ruby-identifier">the_iq_id</span> = <span class="ruby-identifier">response</span>[<span class="ruby-value">:iq_id</span>]
+              <span class="ruby-keyword">if</span> <span class="ruby-ivar">@bytestream</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-ivar">@bytestream</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Bytestreams</span><span class="ruby-operator">::</span><span class="ruby-constant">SOCKS5BytestreamsInitiator</span>)
+                  <span class="ruby-keyword">if</span> <span class="ruby-identifier">proxy</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">JID</span>)
+                    <span class="ruby-ivar">@bytestream</span>.<span class="ruby-identifier">add_streamhost</span>(<span class="ruby-identifier">proxy</span>)
+                  <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-ivar">@bytestream</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">Bytestreams</span><span class="ruby-operator">::</span><span class="ruby-constant">IBBInitiator</span>)
+                  <span class="ruby-ivar">@bytestream</span>.<span class="ruby-identifier">block_size</span> = <span class="ruby-identifier">buffer_size</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-comment">#</span>
+                <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+                  <span class="ruby-ivar">@pending</span> = <span class="ruby-keyword">false</span>
+                  <span class="ruby-ivar">@inprogress</span> = <span class="ruby-keyword">true</span>
+                }
+                <span class="ruby-identifier">open_response</span> = <span class="ruby-ivar">@bytestream</span>.<span class="ruby-identifier">open</span>()
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">open_response</span>
+                  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Got: (open_response) - #{open_response.inspect}&quot;</span>
+                  <span class="ruby-keyword">if</span> <span class="ruby-identifier">open_response</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:result</span>
+                    <span class="ruby-comment">#</span>
+                    <span class="ruby-ivar">@session_id</span> = <span class="ruby-ivar">@bytestream</span>.<span class="ruby-identifier">session_id</span>.<span class="ruby-identifier">to_s</span>
+                    <span class="ruby-comment">#</span>
+                    <span class="ruby-identifier">cancel_callback</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_iq</span><span class="ruby-operator">|</span>
+                      <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_iq</span>.<span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-value">:error</span>
+                        <span class="ruby-identifier">the_error</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Jabber</span><span class="ruby-operator">::</span><span class="ruby-constant">ServerError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">the_iq</span>.<span class="ruby-identifier">error</span>)
+                        <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_iq_id</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">the_iq</span>.<span class="ruby-identifier">id</span>.<span class="ruby-identifier">to_s</span>
+                          <span class="ruby-identifier">the_transfer</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">find_file_transfer</span>(<span class="ruby-ivar">@reference</span>)
+                          <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_transfer</span>
+                            <span class="ruby-identifier">the_transfer</span>.<span class="ruby-identifier">cancel</span>
+                          <span class="ruby-keyword">end</span>
+                        <span class="ruby-keyword">end</span>
+                        <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:iq</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_iq</span>}})
+                      <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">set_xfr_callback</span>(<span class="ruby-ivar">@session_id</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">cancel_callback</span>)
+                    <span class="ruby-comment">#</span>
+                    <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span>.<span class="ruby-identifier">apportioned_ranges</span>(<span class="ruby-identifier">total_size</span>,<span class="ruby-identifier">buffer_size</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_range</span><span class="ruby-operator">|</span>
+                      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@cancel</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span> }
+                        <span class="ruby-identifier">the_file_source</span>.<span class="ruby-identifier">close</span>
+                        <span class="ruby-keyword">break</span>
+                      <span class="ruby-keyword">end</span>
+                      <span class="ruby-identifier">the_file_source</span>.<span class="ruby-identifier">seek</span>(<span class="ruby-identifier">the_range</span>.<span class="ruby-identifier">first</span>)
+                      <span class="ruby-identifier">bytes_sent</span> <span class="ruby-operator">+=</span> <span class="ruby-ivar">@bytestream</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">the_file_source</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">the_range</span>.<span class="ruby-identifier">size</span>)).<span class="ruby-identifier">to_i</span>
+                      <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@percent_completed</span> = ((<span class="ruby-identifier">bytes_sent</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">total_size</span>.<span class="ruby-identifier">to_f</span>) <span class="ruby-operator">*</span> <span class="ruby-value">100.0</span>).<span class="ruby-identifier">to_i</span> }
+                      <span class="ruby-comment">#</span>
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-ivar">@bytestream</span>.<span class="ruby-identifier">flush</span>
+                    <span class="ruby-ivar">@bytestream</span>.<span class="ruby-identifier">close</span>
+                    <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@inprogress</span> = <span class="ruby-keyword">false</span> }
+                  <span class="ruby-keyword">else</span>
+                    <span class="ruby-comment"># Error?</span>
+                    <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+                      <span class="ruby-ivar">@pending</span> = <span class="ruby-keyword">false</span>
+                      <span class="ruby-ivar">@inprogress</span> = <span class="ruby-keyword">false</span>
+                    }
+                  <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">else</span>
+                  <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-string">&quot;Failed to open the stream.&quot;</span>
+                <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+                <span class="ruby-ivar">@pending</span> = <span class="ruby-keyword">false</span>
+                <span class="ruby-ivar">@inprogress</span> = <span class="ruby-keyword">false</span>
+              }
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+            <span class="ruby-identifier">the_file_source</span>.<span class="ruby-identifier">close</span>
+            <span class="ruby-ivar">@bytestream</span>.<span class="ruby-identifier">close</span>
+            <span class="ruby-ivar">@status_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@inprogress</span> = <span class="ruby-keyword">false</span> }
+            <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:proxy</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">proxy</span>}})
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">clear_xfr_callback</span>(<span class="ruby-ivar">@reference</span>.<span class="ruby-identifier">to_s</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@session_id</span>
+            <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">clear_xfr_callback</span>(<span class="ruby-ivar">@session_id</span>)
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">refresh_file_transfers</span>
+        }
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

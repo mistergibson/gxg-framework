@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class IO - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-flags">#flags</a>
+    
+    <li ><a href="#method-i-latency_reading">#latency_reading</a>
+    
+    <li ><a href="#method-i-profile">#profile</a>
+    
+    <li ><a href="#method-i-read_latency">#read_latency</a>
+    
+    <li ><a href="#method-i-write_latency">#write_latency</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-IO">
+  <h1 id="class-IO" class="class">
+    class IO
+  </h1>
+
+  <section class="description">
+    
+<pre>IO/StringIO/File alterations
+Fill in missing constants according to platform.
+### win32 stuff</pre>
+
+<p>006 define F_SETFL         1 007 define F_SETFD         2 008 define F_GETFL         3 009 010 define _O_RDONLY       0x0000     open for reading only</p>
+
+<p>011 define _O_WRONLY       0x0001     open for writing only</p>
+
+<p>012 define _O_RDWR         0x0002  /* open for reading and writing */ 013 014 define _O_NONBLOCK     0x0004 015 016 define _O_APPEND       0x0008  /* writes done at eof */ 017 define _O_CREAT        0x0100  /* create and open file */ 018 define _O_TRUNC        0x0200  /* open and truncate */ 019 define _O_EXCL         0x0400  /* open only if file doesn&#39;t already exist */ 020 define _O_TEXT         0x4000  /* file mode is text (translated) */ 021 define _O_BINARY       0x8000  /* file mode is binary (untranslated) */ 022 define _O_ACCMODE      0x10000 023 024 define _O_NOINHERIT    0 025 define O_NOINHERIT     _O_NOINHERIT 026 027 define O_RDONLY        _O_RDONLY 028 define O_WRONLY        _O_WRONLY 029 define O_RDWR          _O_RDWR 030 031 define O_NONBLOCK      _O_NONBLOCK 032 033 define O_APPEND        _O_APPEND 034 define O_CREAT         _O_CREAT 035 define O_TRUNC         _O_TRUNC 036 define O_EXCL          _O_EXCL 037 define O_TEXT          _O_TEXT 038 define O_BINARY        _O_BINARY 039 define O_ACCMODE       _O_ACCMODE</p>
+
+<pre>### end win32 stuff
+     @@valid_modes[:flags][:io][:tty] = 0x00000010
+     @@valid_modes[:flags][:io][:noctty] = ::IO::NOCTTY
+     @@valid_modes[:flags][:io][:duplex] = 0x00000020
+     @@valid_modes[:flags][:io][:append] = ::IO::APPEND
+     @@valid_modes[:flags][:io][:create] = ::IO::CREAT
+     @@valid_modes[:flags][:io][:exclusive] = ::IO::EXCL
+     @@valid_modes[:flags][:io][:wsplit] = 0x00000200
+     @@valid_modes[:flags][:io][:wsplit_initialized] = 0x00000400
+     @@valid_modes[:flags][:io][:trunc] = ::IO::TRUNC
+     @@valid_modes[:flags][:io][:text] = ::IO::TEXT
+     @@valid_modes[:flags][:io][:setenc_by_bom] = 0x00100000
+See : http://boop.ankhcraft.com/library/ruby-api/dc/dac/io_8h.html
+Also : http://boop.ankhcraft.com/library/ruby-api/d2/d4d/file_8h.html
+also : http://boop.ankhcraft.com/library/ruby-api/d6/d13/file_8c.html</pre>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+    <section class="constants-list">
+      <header>
+        <h3>Constants</h3>
+      </header>
+      <dl>
+      
+        <dt id="DSYNC">DSYNC
+        
+        <dd><p>Note: need to verify this int value before using:</p>
+        
+      
+        <dt id="DUPLEX">DUPLEX
+        
+        <dd><p>Note: need to verify this int value before using:</p>
+        
+      
+        <dt id="NOATIME">NOATIME
+        
+        <dd><p>Note: need to verify this int value before using:</p>
+        
+      
+        <dt id="NOFOLLOW">NOFOLLOW
+        
+        <dd><p>Note: need to verify this int value before using:</p>
+        
+      
+        <dt id="RSYNC">RSYNC
+        
+        <dd><p>Note: need to verify this int value before using:</p>
+        
+      
+        <dt id="SETENC_BY_BOM">SETENC_BY_BOM
+        
+        <dd><pre>Note: need to verify this int value before using:</pre>
+
+<p><a href="IO.html#SETENC_BY_BOM"><code>SETENC_BY_BOM</code></a> = 0x00100000</p>
+        
+      
+        <dt id="TEXT">TEXT
+        
+        <dd><p>What is the flag value under Win32?</p>
+        
+      
+        <dt id="TTY">TTY
+        
+        <dd><p>Note: need to verify this int value before using:</p>
+        
+      
+        <dt id="WSPLIT">WSPLIT
+        
+        <dd><p>Note: need to verify this int value before using:</p>
+        
+      
+        <dt id="WSPLIT_INITIALIZED">WSPLIT_INITIALIZED
+        
+        <dd><p>Note: need to verify this int value before using:</p>
+        
+      
+      </dl>
+    </section>
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-flags" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flags</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="flags-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 275</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">flags</span>()
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-identifier">current</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fcntl</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">F_GETFL</span>)
+  <span class="ruby-identifier">flags</span> = {}
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">binmode?</span>()
+    <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:binary</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span> <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:setenc_by_bom</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:text</span>
+    <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:wsplit</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tty?</span>
+    <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:tty</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#flag[:read] = 0x00000001</span>
+  <span class="ruby-comment">#flag[:write] = 0x00000002</span>
+  <span class="ruby-comment">#flag[:readwrite] = (flag[:read] | flag[:write])</span>
+  <span class="ruby-comment">#flag[:binmode] = 0x00000004</span>
+  <span class="ruby-comment">#flag[:readwrite] = (flag[:read] | flag[:write])</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:read</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_RDONLY</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:write</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_WRONLY</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:readwrite</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_RDWR</span>
+  <span class="ruby-comment">#flags[:binary] = 0x00000004</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:sync</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SYNC</span> <span class="ruby-comment"># no internal buffering -- The file will be opened for synchronous I/O. No write operation will complete until the data has been physically written to disk.</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:dsync</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">DSYNC</span> <span class="ruby-comment"># only normal data be synchronized after each write operation, not metadata.</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:rsync</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">RSYNC</span> <span class="ruby-comment"># the synchronization of read requests as well as write requests. It must be used with one of IO::SYNC or IO::DSYNC</span>
+  <span class="ruby-comment">#flags[:tty] = 0x00000010</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:notcontrol_tty</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NOCTTY</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:duplex</span>] = <span class="ruby-value">0x00000020</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:append</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_APPEND</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:create</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_CREAT</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:exclusive</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_EXCL</span>
+  <span class="ruby-comment"># flags[:wsplit] = 0x00000200</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:wsplit_initialized</span>] = <span class="ruby-value">0x00000400</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:trunc</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_TRUNC</span>
+  <span class="ruby-comment">#flags[:text] = 0x00001000</span>
+  <span class="ruby-comment">#flags[:setenc_by_bom] = 0x00100000</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:seek_set</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEEK_SET</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:seek_current</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEEK_CUR</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:seek_end</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEEK_END</span>
+  <span class="ruby-comment"># ### file region locking:</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:shared_lock</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">LOCK_SH</span> <span class="ruby-comment"># for reading</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:exclusive_lock</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">LOCK_EX</span> <span class="ruby-comment"># for writing (implies blocking)</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:nonblock_lock</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">LOCK_NB</span> <span class="ruby-comment"># combine with exclusive_lock for immediate non-blocking lock for writing.</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:unlock</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">LOCK_UN</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:nonblocking</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NONBLOCK</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:ndelay</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NDELAY</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:nofollow</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">NOFOLLOW</span> <span class="ruby-comment"># Do not follow symlinks.</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:noaccesstime</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">NOATIME</span> <span class="ruby-comment"># Do not update the access time (atime) of the file.</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:match_noescape</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">FNM_NOESCAPE</span> <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:match_pathname</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">FNM_PATHNAME</span> <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:match_dotmatch</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">FNM_DOTMATCH</span> <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:match_casefold</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">FNM_CASEFOLD</span> <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:match_systemcase</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">FNM_SYSCASE</span> <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_flag_key</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">current</span> <span class="ruby-operator">&amp;</span> <span class="ruby-identifier">flags</span>[(<span class="ruby-identifier">the_flag_key</span>)]) <span class="ruby-operator">==</span> <span class="ruby-identifier">flags</span>[(<span class="ruby-identifier">the_flag_key</span>)]
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">the_flag_key</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:readwrite</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value">:write</span>)
+          <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:read</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value">:read</span>)
+            <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:write</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:wsplit_initialized</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value">:wsplit</span>)
+          <span class="ruby-identifier">result</span>[(<span class="ruby-identifier">result</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value">:wsplit</span>))] = <span class="ruby-value">:wsplit_initialized</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:wsplit_initialized</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_flag_key</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-latency_reading" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">latency_reading</span><span
+            class="method-args">(old_reading=nil,&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="latency_reading-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 246</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">latency_reading</span>(<span class="ruby-identifier">old_reading</span>=<span class="ruby-keyword">nil</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">old_reading</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">old_reading</span> = {<span class="ruby-value">:low</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:last</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:high</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">new_reading</span> = {<span class="ruby-value">:low</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:last</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:high</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>}
+  <span class="ruby-identifier">reading</span> = <span class="ruby-identifier">millisecond_latency</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">old_reading</span>[<span class="ruby-value">:low</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">reading</span>[<span class="ruby-value">:milliseconds</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">old_reading</span>[<span class="ruby-value">:low</span>]
+      <span class="ruby-identifier">new_reading</span>[<span class="ruby-value">:low</span>] = <span class="ruby-identifier">reading</span>[<span class="ruby-value">:milliseconds</span>].<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">new_reading</span>[<span class="ruby-value">:low</span>] = <span class="ruby-identifier">old_reading</span>[<span class="ruby-value">:low</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">new_reading</span>[<span class="ruby-value">:low</span>] = <span class="ruby-identifier">reading</span>[<span class="ruby-value">:milliseconds</span>].<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">new_reading</span>[<span class="ruby-value">:last</span>] = <span class="ruby-identifier">reading</span>[<span class="ruby-value">:milliseconds</span>].<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">old_reading</span>[<span class="ruby-value">:high</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">reading</span>[<span class="ruby-value">:milliseconds</span>] <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">old_reading</span>[<span class="ruby-value">:high</span>]
+      <span class="ruby-identifier">new_reading</span>[<span class="ruby-value">:high</span>] = <span class="ruby-identifier">reading</span>[<span class="ruby-value">:milliseconds</span>].<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">new_reading</span>[<span class="ruby-value">:high</span>] = <span class="ruby-identifier">old_reading</span>[<span class="ruby-value">:high</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">new_reading</span>[<span class="ruby-value">:high</span>] = <span class="ruby-identifier">reading</span>[<span class="ruby-value">:milliseconds</span>].<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  {<span class="ruby-value">:result</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">reading</span>[<span class="ruby-value">:result</span>], <span class="ruby-value">:reading</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">new_reading</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-profile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">profile</span><span
+            class="method-args">(params={:follow_symlinks =&gt; true})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="profile-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 360</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">profile</span>(<span class="ruby-identifier">params</span>={<span class="ruby-value">:follow_symlinks</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>})
+  <span class="ruby-identifier">platform_details</span> = <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM</span>.<span class="ruby-identifier">platform</span>()
+  <span class="ruby-identifier">result</span> = {}
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:follow_symlinks</span>]
+    <span class="ruby-identifier">raw_stat</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_io</span>.<span class="ruby-identifier">stat</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raw_stat</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_io</span>.<span class="ruby-identifier">lstat</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">raw_mode</span> = <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">mode</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-identifier">base</span>=<span class="ruby-value">8</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">raw_mode</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">7</span>
+    <span class="ruby-identifier">raw_mode</span> = (<span class="ruby-string">&quot;0&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">raw_mode</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">set_user_id</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">set_group_id</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">set_sticky_bit</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">raw_mode</span>[<span class="ruby-value">3</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">4</span>) <span class="ruby-operator">==</span> <span class="ruby-value">4</span>
+    <span class="ruby-identifier">set_user_id</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">raw_mode</span>[<span class="ruby-value">3</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">2</span>) <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">set_group_id</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">raw_mode</span>[<span class="ruby-value">3</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">1</span>) <span class="ruby-operator">==</span>  <span class="ruby-value">1</span>
+    <span class="ruby-identifier">set_sticky_bit</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">raw_permission</span> = { <span class="ruby-value">:execute</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:rename</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:move</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:destroy</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:create</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:write</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:read</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span> }
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">file_handle</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">file_descriptors</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_handle</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fileno</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">the_handle</span>.<span class="ruby-identifier">fileno</span>
+      <span class="ruby-identifier">file_handle</span> = <span class="ruby-identifier">the_handle</span>
+      <span class="ruby-keyword">break</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># LATER: GxG::IO::IO.profile : patch into file/stream type recognition engine.</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">ftype</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:link</span>
+    <span class="ruby-comment"># are .lnk files handled properly on win32 for this?</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:type</span>] =  <span class="ruby-value">:symlink</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:file</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">file_handle</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tty?</span>
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:type</span>] =  <span class="ruby-value">:tty</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">the_extension</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-identifier">basename</span>(<span class="ruby-identifier">file_handle</span>.<span class="ruby-identifier">to_path</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;.&quot;</span>)[<span class="ruby-value">-1</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_extension</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;lnk&quot;</span>
+          <span class="ruby-identifier">result</span>[<span class="ruby-value">:type</span>] =  <span class="ruby-value">:symlink</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;so&quot;</span>,<span class="ruby-string">&quot;la&quot;</span>,<span class="ruby-string">&quot;a&quot;</span>,<span class="ruby-string">&quot;dylib&quot;</span>,<span class="ruby-string">&quot;dll&quot;</span>,<span class="ruby-string">&quot;class&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">the_extension</span>)
+            <span class="ruby-identifier">result</span>[<span class="ruby-value">:type</span>] =  <span class="ruby-value">:library</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">if</span> ([<span class="ruby-string">&quot;out&quot;</span>,<span class="ruby-string">&quot;exe&quot;</span>,<span class="ruby-string">&quot;misc&quot;</span>,<span class="ruby-string">&quot;java&quot;</span>,<span class="ruby-string">&quot;jar&quot;</span>, <span class="ruby-string">&quot;sh&quot;</span>, <span class="ruby-string">&quot;rb&quot;</span>, <span class="ruby-string">&quot;py&quot;</span>, <span class="ruby-string">&quot;pyc&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">the_extension</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">executable_real?</span>)
+              <span class="ruby-identifier">result</span>[<span class="ruby-value">:type</span>] =  <span class="ruby-value">:application</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">result</span>[<span class="ruby-value">:type</span>] = <span class="ruby-value">:file</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:fifo</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:type</span>] =  <span class="ruby-value">:fifo</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:characterspecial</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:type</span>] =  <span class="ruby-value">:character_device</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:blockspecial</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:type</span>] =  <span class="ruby-value">:block_device</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:socket</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:type</span>] =  <span class="ruby-value">:socket</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:directory</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:type</span>] =  <span class="ruby-value">:directory</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-value">:unknown</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:type</span>] =  <span class="ruby-value">:unknown</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">pipe?</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:type</span>] =  <span class="ruby-value">:pipe</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">pipe?</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:type</span>] =  <span class="ruby-value">:pipe</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>[<span class="ruby-value">:owner_type</span>] = <span class="ruby-identifier">result</span>[<span class="ruby-value">:type</span>]
+  <span class="ruby-identifier">result</span>[<span class="ruby-value">:on_device</span>] = <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">dev</span>.<span class="ruby-identifier">to_s</span>(<span class="ruby-identifier">base</span>=<span class="ruby-value">10</span>).<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">:on_device</span>]
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:on_device_major</span>] = <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">dev_major</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:on_device_minor</span>] = <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">dev_minor</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>[<span class="ruby-value">:is_device</span>] = <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">rdev</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">:is_device</span>]
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:is_device_major</span>] = <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">rdev_major</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:is_device_minor</span>] = <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">rdev_minor</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>[<span class="ruby-value">:inode</span>] = <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">ino</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span>[<span class="ruby-value">:flags</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">flags</span>()
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">file_handle</span>
+    <span class="ruby-comment"># man fstat : mode decoder-ring table:</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment">#           S_IFMT     0170000   bit mask for the file type bit fields</span>
+    <span class="ruby-comment">#           S_IFSOCK   0140000   socket</span>
+    <span class="ruby-comment">#           S_IFLNK    0120000   symbolic link</span>
+    <span class="ruby-comment">#           S_IFREG    0100000   regular file</span>
+    <span class="ruby-comment">#           S_IFBLK    0060000   block device</span>
+    <span class="ruby-comment">#           S_IFDIR    0040000   directory</span>
+    <span class="ruby-comment">#           S_IFCHR    0020000   character device</span>
+    <span class="ruby-comment">#           S_IFIFO    0010000   FIFO</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment">#           S_ISUID    0004000   set UID bit</span>
+    <span class="ruby-comment">#           S_ISGID    0002000   set-group-ID bit (see below)</span>
+    <span class="ruby-comment">#           S_ISVTX    0001000   sticky bit (see below)</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment">#           S_IRWXU    00700     mask for file owner permissions</span>
+    <span class="ruby-comment">#           S_IRUSR    00400     owner has read permission</span>
+    <span class="ruby-comment">#           S_IWUSR    00200     owner has write permission</span>
+    <span class="ruby-comment">#           S_IXUSR    00100     owner has execute permission</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment">#           S_IRWXG    00070     mask for group permissions</span>
+    <span class="ruby-comment">#           S_IRGRP    00040     group has read permission</span>
+    <span class="ruby-comment">#           S_IWGRP    00020     group has write permission</span>
+    <span class="ruby-comment">#           S_IXGRP    00010     group has execute permission</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment">#           S_IRWXO    00007     mask for permissions for others (not in group)</span>
+    <span class="ruby-comment">#           S_IROTH    00004     others have read permission</span>
+    <span class="ruby-comment">#           S_IWOTH    00002     others have write permission</span>
+    <span class="ruby-comment">#           S_IXOTH    00001     others have execute permission</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># &lt;file&gt;.stat table: (mode example : 0100664)</span>
+    <span class="ruby-comment">#      0700       rwx mask for owner</span>
+    <span class="ruby-comment">#      0400       r for owner</span>
+    <span class="ruby-comment">#      0200       w for owner</span>
+    <span class="ruby-comment">#      0100       x for owner</span>
+    <span class="ruby-comment">#      0070       rwx mask for group</span>
+    <span class="ruby-comment">#      0040       r for group</span>
+    <span class="ruby-comment">#      0020       w for group</span>
+    <span class="ruby-comment">#      0010       x for group</span>
+    <span class="ruby-comment">#      0007       rwx mask for other</span>
+    <span class="ruby-comment">#      0004       r for other</span>
+    <span class="ruby-comment">#      0002       w for other</span>
+    <span class="ruby-comment">#      0001       x for other</span>
+    <span class="ruby-comment">#      4000       Set user ID on execution</span>
+    <span class="ruby-comment">#      2000       Set group ID on execution</span>
+    <span class="ruby-comment">#      1000       Save swapped text, even after use</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:hardlinks_to</span>] = <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">nlink</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:user_id</span>] = <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">uid</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:group_id</span>] = <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">gid</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:size</span>] = <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">size</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:block_size</span>] = <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">blksize</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:blocks</span>] = <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">blocks</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:accessed</span>] = <span class="ruby-constant">DateTime</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">atime</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:modified</span>] = <span class="ruby-constant">DateTime</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">mtime</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:status_modified</span>] = <span class="ruby-constant">DateTime</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">ctime</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-comment"># File permissions work in an ACL style, even if based only upon Unix-style permissions.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>] = {<span class="ruby-value">:effective</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">raw_permission</span>.<span class="ruby-identifier">clone</span>, <span class="ruby-value">:owner</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">raw_permission</span>.<span class="ruby-identifier">clone</span>, <span class="ruby-value">:group</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">raw_permission</span>.<span class="ruby-identifier">clone</span>, <span class="ruby-value">:other</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">raw_permission</span>.<span class="ruby-identifier">clone</span>}
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">set_user_id</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:flags</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:user_id_on_execute</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">set_group_id</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:flags</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:group_id_on_execute</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">set_sticky_bit</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:flags</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:sticky_bit</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># owner permissions</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">raw_mode</span>[<span class="ruby-value">4</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">4</span>) <span class="ruby-operator">==</span> <span class="ruby-value">4</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:owner</span>][<span class="ruby-value">:read</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">raw_mode</span>[<span class="ruby-value">4</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">2</span>) <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:owner</span>][<span class="ruby-value">:write</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">platform_details</span>[<span class="ruby-value">:platform</span>] <span class="ruby-operator">==</span> <span class="ruby-value">:windows</span>
+        <span class="ruby-comment"># :windows way of reading :rename, :move, and :destroy permission for file/directory.</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:owner</span>][<span class="ruby-value">:rename</span>] = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:owner</span>][<span class="ruby-value">:move</span>] = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:owner</span>][<span class="ruby-value">:destroy</span>] = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:owner</span>][<span class="ruby-value">:create</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">raw_mode</span>[<span class="ruby-value">4</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">1</span>) <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:owner</span>][<span class="ruby-value">:execute</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># group permissions</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">raw_mode</span>[<span class="ruby-value">5</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">4</span>) <span class="ruby-operator">==</span> <span class="ruby-value">4</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:owner</span>][<span class="ruby-value">:read</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">raw_mode</span>[<span class="ruby-value">5</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">2</span>) <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:group</span>][<span class="ruby-value">:write</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">platform_details</span>[<span class="ruby-value">:platform</span>] <span class="ruby-operator">==</span> <span class="ruby-value">:windows</span>
+        <span class="ruby-comment"># :windows way of reading :rename, :move, and :destroy permission for file/directory.</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:group</span>][<span class="ruby-value">:rename</span>] = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:group</span>][<span class="ruby-value">:move</span>] = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:group</span>][<span class="ruby-value">:destroy</span>] = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:group</span>][<span class="ruby-value">:create</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">raw_mode</span>[<span class="ruby-value">5</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">1</span>) <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:group</span>][<span class="ruby-value">:execute</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># other permissions</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">raw_mode</span>[<span class="ruby-value">6</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">4</span>) <span class="ruby-operator">==</span> <span class="ruby-value">4</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:other</span>][<span class="ruby-value">:read</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">raw_mode</span>[<span class="ruby-value">6</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">2</span>) <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:other</span>][<span class="ruby-value">:write</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">platform_details</span>[<span class="ruby-value">:platform</span>] <span class="ruby-operator">==</span> <span class="ruby-value">:windows</span>
+        <span class="ruby-comment"># :windows way of reading :rename, :move, and :destroy permission for file/directory.</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:other</span>][<span class="ruby-value">:rename</span>] = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:other</span>][<span class="ruby-value">:move</span>] = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:other</span>][<span class="ruby-value">:destroy</span>] = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:other</span>][<span class="ruby-value">:create</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">raw_mode</span>[<span class="ruby-value">6</span>].<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&amp;</span> <span class="ruby-value">1</span>) <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:other</span>][<span class="ruby-value">:execute</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># effective (this user) permissions (while opened, supercedes normal effective file system permissions)</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">:flags</span>].<span class="ruby-identifier">index</span>(<span class="ruby-value">:read</span>)
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:effective</span>][<span class="ruby-value">:read</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">:flags</span>].<span class="ruby-identifier">index</span>(<span class="ruby-value">:write</span>)
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:effective</span>][<span class="ruby-value">:write</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">platform_details</span>[<span class="ruby-value">:platform</span>] <span class="ruby-operator">==</span> <span class="ruby-value">:windows</span>
+        <span class="ruby-comment"># :windows way of reading :rename, :move, and :destroy permission for file/directory.</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:effective</span>][<span class="ruby-value">:rename</span>] = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:effective</span>][<span class="ruby-value">:move</span>] = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:effective</span>][<span class="ruby-value">:destroy</span>] = <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:effective</span>][<span class="ruby-value">:create</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">raw_stat</span>.<span class="ruby-identifier">executable?</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:effective</span>][<span class="ruby-value">:execute</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># in-memory object - no fs involvement</span>
+    <span class="ruby-comment"># ok ... why? Well, I want objects to be able to pass through my unwritten system stuff : experimental, w/o special handling.</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>] = {<span class="ruby-value">:effective</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">raw_permission</span>.<span class="ruby-identifier">clone</span>, <span class="ruby-value">:owner</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">raw_permission</span>.<span class="ruby-identifier">clone</span>, <span class="ruby-value">:group</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">raw_permission</span>.<span class="ruby-identifier">clone</span>, <span class="ruby-value">:other</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">raw_permission</span>.<span class="ruby-identifier">clone</span>}
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">:flags</span>].<span class="ruby-identifier">index</span>(<span class="ruby-value">:read</span>)
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:effective</span>][<span class="ruby-value">:read</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:owner</span>][<span class="ruby-value">:read</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:group</span>][<span class="ruby-value">:read</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:other</span>][<span class="ruby-value">:read</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">:flags</span>].<span class="ruby-identifier">index</span>(<span class="ruby-value">:write</span>)
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:effective</span>][<span class="ruby-value">:write</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:owner</span>][<span class="ruby-value">:write</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:group</span>][<span class="ruby-value">:write</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:other</span>][<span class="ruby-value">:write</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span>[<span class="ruby-value">:mode</span>] = {}
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_latency" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_latency</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="read_latency-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 239</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_latency</span>()
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@read_latency</span>)
+    <span class="ruby-ivar">@read_latency</span>= {<span class="ruby-value">:low</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:last</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:high</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@read_latency</span>.<span class="ruby-identifier">clone</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_latency" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write_latency</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="write_latency-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 232</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">write_latency</span>()
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@write_latency</span>)
+    <span class="ruby-ivar">@write_latency</span>= {<span class="ruby-value">:low</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:last</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:high</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@write_latency</span>.<span class="ruby-identifier">clone</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

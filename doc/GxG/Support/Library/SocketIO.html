@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module GxG::Support::Library::SocketIO - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/navigation.js" defer></script>
+<script src="../../../js/search.js" defer></script>
+<script src="../../../js/search_index.js" defer></script>
+<script src="../../../js/searcher.js" defer></script>
+<script src="../../../js/darkfish.js" defer></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-recv">#recv</a>
+    
+    <li ><a href="#method-i-recvmsg">#recvmsg</a>
+    
+    <li ><a href="#method-i-send">#send</a>
+    
+    <li ><a href="#method-i-sendmsg">#sendmsg</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-GxG::Support::Library::SocketIO">
+  <h1 id="module-GxG::Support::Library::SocketIO" class="module">
+    module GxG::Support::Library::SocketIO
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-recv" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">recv</span><span
+            class="method-args">(bytecount=nil, flags=0)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="recv-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_io.rb, line 340</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">recv</span>(<span class="ruby-identifier">bytecount</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">flags</span>=<span class="ruby-value">0</span>)
+  <span class="ruby-comment"># for now, flags ignored.  LATER: study Socket.recv message flags in detail</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@before_receive_data</span>)
+    <span class="ruby-ivar">@before_receive_data</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@after_receive_data</span>)
+    <span class="ruby-ivar">@after_receive_data</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">bytecount</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>)
+    <span class="ruby-identifier">bytecount</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">buffer_limits</span>(<span class="ruby-value">:in</span>,<span class="ruby-value">:socket</span>)[<span class="ruby-value">:initial</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>)
+    <span class="ruby-identifier">flags</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fcntl</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">F_GETFL</span>,<span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NONBLOCK</span>) <span class="ruby-operator">&amp;</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NONBLOCK</span> <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NONBLOCK</span>
+    <span class="ruby-comment"># on Winderz, just to a buffer sized spoon full until done ??</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed?</span>()
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;attempting to recv on a closed stream&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@before_receive_data</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+        <span class="ruby-ivar">@before_receive_data</span>.<span class="ruby-identifier">call</span>()
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">UNIXServer</span>, <span class="ruby-operator">::</span><span class="ruby-constant">UNIXSocket</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Socket</span>)
+        <span class="ruby-identifier">whatfor</span> = <span class="ruby-value">:socket</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">TCPServer</span>, <span class="ruby-operator">::</span><span class="ruby-constant">SOCKSocket</span>, <span class="ruby-operator">::</span><span class="ruby-constant">TCPSocket</span>)
+          <span class="ruby-identifier">whatfor</span> = <span class="ruby-value">:tcp</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">UDPServer</span>, <span class="ruby-operator">::</span><span class="ruby-constant">UDPSource</span>, <span class="ruby-operator">::</span><span class="ruby-constant">UDPSocket</span>)
+            <span class="ruby-identifier">whatfor</span> = <span class="ruby-value">:udp</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">buffer_size</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">buffer_limits</span>(<span class="ruby-value">:in</span>,<span class="ruby-identifier">whatfor</span>)[<span class="ruby-value">:initial</span>]
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">bytecount</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>)
+        <span class="ruby-identifier">bytecount</span> = <span class="ruby-identifier">buffer_size</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>)
+        <span class="ruby-identifier">flags</span> = <span class="ruby-value">0</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment"># millisecond: 1/1000th of a second (reminder)</span>
+      <span class="ruby-identifier">read_bytes</span> = <span class="ruby-value">0</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-string">&quot;&quot;</span>
+      <span class="ruby-identifier">result</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>)
+      <span class="ruby-identifier">chunk</span> = <span class="ruby-string">&quot;abc&quot;</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">until</span> (<span class="ruby-identifier">read_bytes</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">bytecount</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">chunk</span>.<span class="ruby-identifier">bytesize</span>() <span class="ruby-operator">==</span> <span class="ruby-value">0</span>)
+        <span class="ruby-keyword">begin</span>
+          <span class="ruby-keyword">if</span> ((<span class="ruby-identifier">bytecount</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">read_bytes</span>) <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">buffer_size</span>)
+            <span class="ruby-identifier">chunk</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">recv_nonblock</span>((<span class="ruby-identifier">bytecount</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">read_bytes</span>),<span class="ruby-identifier">flags</span>).<span class="ruby-identifier">to_s</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">chunk</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">recv_nonblock</span>(<span class="ruby-identifier">buffer_size</span>,<span class="ruby-identifier">flags</span>).<span class="ruby-identifier">to_s</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">read_bytes</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">chunk</span>.<span class="ruby-identifier">bytesize</span>()
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">chunk</span>.<span class="ruby-identifier">bytesize</span>() <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+            <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">chunk</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-comment">#</span>
+        <span class="ruby-keyword">rescue</span> <span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">WaitReadable</span>, <span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">WaitWritable</span>, <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">WaitReadable</span>, <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">WaitWritable</span>
+          <span class="ruby-identifier">pause</span>
+          <span class="ruby-keyword">begin</span>
+            <span class="ruby-comment"># about 10 ms</span>
+            <span class="ruby-identifier">selected</span> = <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-identifier">select</span>([<span class="ruby-keyword">self</span>],<span class="ruby-keyword">nil</span>,<span class="ruby-keyword">nil</span>,<span class="ruby-value">0.010</span>)
+            <span class="ruby-keyword">until</span> <span class="ruby-identifier">selected</span>
+              <span class="ruby-identifier">pause</span>
+              <span class="ruby-identifier">selected</span> = <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-identifier">select</span>([<span class="ruby-keyword">self</span>],<span class="ruby-keyword">nil</span>,<span class="ruby-keyword">nil</span>,<span class="ruby-value">0.010</span>)
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span>
+            <span class="ruby-identifier">pause</span>
+            <span class="ruby-keyword">retry</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">retry</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-identifier">pause</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@after_receive_data</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+        <span class="ruby-ivar">@after_receive_data</span>.<span class="ruby-identifier">call</span>([<span class="ruby-identifier">result</span>,<span class="ruby-keyword">nil</span>,<span class="ruby-value">0</span>,<span class="ruby-keyword">nil</span>])
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed?</span>()
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;attempting to recv on a closed stream&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@before_receive_data</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+        <span class="ruby-ivar">@before_receive_data</span>.<span class="ruby-identifier">call</span>()
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">original_recv</span>(<span class="ruby-identifier">bytecount</span>.<span class="ruby-identifier">to_i</span>,<span class="ruby-identifier">flags</span>).<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">result</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@after_receive_data</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+        <span class="ruby-ivar">@after_receive_data</span>.<span class="ruby-identifier">call</span>([<span class="ruby-identifier">result</span>,<span class="ruby-keyword">nil</span>,<span class="ruby-value">0</span>,<span class="ruby-keyword">nil</span>])
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-recvmsg" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">recvmsg</span><span
+            class="method-args">(max_mesg_length=nil, flags=0, max_control_length=nil, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="recvmsg-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_io.rb, line 281</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">recvmsg</span>(<span class="ruby-identifier">max_mesg_length</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">flags</span>=<span class="ruby-value">0</span>, <span class="ruby-identifier">max_control_length</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-comment"># for now, flags ignored.  LATER: study Socket.recv message flags in detail</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fcntl</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">F_GETFL</span>,<span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NONBLOCK</span>) <span class="ruby-operator">&amp;</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NONBLOCK</span> <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NONBLOCK</span>
+    <span class="ruby-comment"># on Winderz, just to a buffer sized spoon full until done ??</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed?</span>()
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;attempting to recvmsg on a closed stream&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@before_receive_data</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+        <span class="ruby-ivar">@before_receive_data</span>.<span class="ruby-identifier">call</span>()
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">result</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">recvmsg_nonblock</span>(<span class="ruby-identifier">max_mesg_length</span>, <span class="ruby-identifier">flags</span>, <span class="ruby-identifier">max_control_length</span>, <span class="ruby-identifier">options</span>)
+        <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">rescue</span> <span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">WaitReadable</span>, <span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">WaitWritable</span>, <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">WaitReadable</span>, <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">WaitWritable</span>
+        <span class="ruby-identifier">pause</span>
+        <span class="ruby-keyword">begin</span>
+          <span class="ruby-comment"># about 10 ms</span>
+          <span class="ruby-identifier">selected</span> = <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-identifier">select</span>([<span class="ruby-keyword">self</span>],<span class="ruby-keyword">nil</span>,<span class="ruby-keyword">nil</span>,<span class="ruby-value">0.010</span>)
+          <span class="ruby-keyword">until</span> <span class="ruby-identifier">selected</span>
+            <span class="ruby-identifier">pause</span>
+            <span class="ruby-identifier">selected</span> = <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-identifier">select</span>([<span class="ruby-keyword">self</span>],<span class="ruby-keyword">nil</span>,<span class="ruby-keyword">nil</span>,<span class="ruby-value">0.010</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span>
+          <span class="ruby-identifier">pause</span>
+          <span class="ruby-keyword">retry</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">retry</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+          <span class="ruby-identifier">result</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">force_encoding</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@after_receive_data</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+        <span class="ruby-ivar">@after_receive_data</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">result</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed?</span>()
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;attempting to recvmsg on a closed stream&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@before_receive_data</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+        <span class="ruby-ivar">@before_receive_data</span>.<span class="ruby-identifier">call</span>()
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">original_recvmsg</span>(<span class="ruby-identifier">max_mesg_length</span>, <span class="ruby-identifier">flags</span>, <span class="ruby-identifier">max_control_length</span>, <span class="ruby-identifier">options</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+          <span class="ruby-identifier">result</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">force_encoding</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@after_receive_data</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+        <span class="ruby-ivar">@after_receive_data</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">result</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-send" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">send</span><span
+            class="method-args">(data=&quot;&quot;, flags=0, destination_socket_address=nil, *controls)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="send-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_io.rb, line 181</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">send</span>(<span class="ruby-identifier">data</span>=<span class="ruby-string">&quot;&quot;</span>, <span class="ruby-identifier">flags</span>=<span class="ruby-value">0</span>, <span class="ruby-identifier">destination_socket_address</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">controls</span>)
+  <span class="ruby-comment"># for now, flags ignored.  LATER: study Socket.send message flags in detail</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@remote_closed</span>)
+    <span class="ruby-ivar">@remote_closed</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@write_latency</span>)
+    <span class="ruby-ivar">@write_latency</span> = {<span class="ruby-value">:low</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:last</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:high</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@before_send_data</span>)
+    <span class="ruby-ivar">@before_send_data</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@after_send_data</span>)
+    <span class="ruby-ivar">@after_send_data</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed?</span>()
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;attempting to send on a closed stream&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@remote_closed</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EPIPE</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">data</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">length</span> = <span class="ruby-value">0</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">bytesize</span>() <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">length</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">bytesize</span>()
+        <span class="ruby-comment"># process controls:</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">controls</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">controls</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AncillaryData</span>)
+            <span class="ruby-identifier">controls</span> = <span class="ruby-identifier">controls</span>[<span class="ruby-value">0</span>]
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">controls</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+              <span class="ruby-identifier">controls</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AncillaryData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_UNIX</span>, (<span class="ruby-identifier">controls</span>[<span class="ruby-value">:level</span>] <span class="ruby-operator">||</span> <span class="ruby-value">:SOCKET</span>), (<span class="ruby-identifier">controls</span>[<span class="ruby-value">:type</span>] <span class="ruby-operator">||</span> <span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">SCM_RIGHTS</span>), (<span class="ruby-identifier">controls</span>[<span class="ruby-value">:data</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fileno</span>))
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">controls</span>.<span class="ruby-identifier">flatten!</span>
+              <span class="ruby-identifier">controls</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AncillaryData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_UNIX</span>, (<span class="ruby-identifier">controls</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">||</span> <span class="ruby-value">:SOCKET</span>), (<span class="ruby-identifier">controls</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">||</span> <span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">SCM_RIGHTS</span>), (<span class="ruby-identifier">controls</span>[<span class="ruby-value">2</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fileno</span>))
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">controls</span> = <span class="ruby-keyword">nil</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">UNIXServer</span>, <span class="ruby-operator">::</span><span class="ruby-constant">UNIXSocket</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Socket</span>)
+          <span class="ruby-identifier">whatfor</span> = <span class="ruby-value">:socket</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">TCPServer</span>, <span class="ruby-operator">::</span><span class="ruby-constant">SOCKSocket</span>, <span class="ruby-operator">::</span><span class="ruby-constant">TCPSocket</span>)
+            <span class="ruby-identifier">whatfor</span> = <span class="ruby-value">:tcp</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">UDPServer</span>, <span class="ruby-operator">::</span><span class="ruby-constant">UDPSource</span>, <span class="ruby-operator">::</span><span class="ruby-constant">UDPSocket</span>)
+              <span class="ruby-identifier">whatfor</span> = <span class="ruby-value">:udp</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">buffer_size</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">buffer_limits</span>(<span class="ruby-value">:out</span>,<span class="ruby-identifier">whatfor</span>)[<span class="ruby-value">:initial</span>]
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">buffer_size</span>
+          <span class="ruby-identifier">passes</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">passes_needed</span>(<span class="ruby-identifier">length</span>, <span class="ruby-identifier">buffer_size</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">passes</span> = <span class="ruby-value">1</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-identifier">total</span> = (<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+        <span class="ruby-identifier">starting</span> = <span class="ruby-value">0</span>
+        <span class="ruby-identifier">ending</span> = ([<span class="ruby-identifier">length</span>,<span class="ruby-identifier">buffer_size</span>].<span class="ruby-identifier">min</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+        <span class="ruby-comment">#</span>
+        <span class="ruby-identifier">passes</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span>
+          <span class="ruby-comment"># if remote end closes during write, raise error.</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">controls</span>
+            <span class="ruby-identifier">reading</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">latency_reading</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">write_latency</span>()) <span class="ruby-keyword">do</span>
+              <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sendmsg</span>(<span class="ruby-identifier">data</span>.<span class="ruby-identifier">slice_bytes</span>(<span class="ruby-identifier">starting</span><span class="ruby-operator">..</span><span class="ruby-identifier">ending</span>),<span class="ruby-identifier">flags</span>,<span class="ruby-identifier">destination_socket_address</span>,<span class="ruby-identifier">controls</span>) <span class="ruby-keyword">or</span> <span class="ruby-ivar">@remote_closed</span>=<span class="ruby-keyword">true</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">destination_socket_address</span>
+              <span class="ruby-identifier">reading</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">latency_reading</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">write_latency</span>()) <span class="ruby-keyword">do</span>
+                <span class="ruby-keyword">self</span>.<span class="ruby-identifier">original_send</span>(<span class="ruby-identifier">data</span>.<span class="ruby-identifier">slice_bytes</span>(<span class="ruby-identifier">starting</span><span class="ruby-operator">..</span><span class="ruby-identifier">ending</span>),<span class="ruby-identifier">flags</span>,<span class="ruby-identifier">destination_socket_address</span>) <span class="ruby-keyword">or</span> <span class="ruby-ivar">@remote_closed</span>=<span class="ruby-keyword">true</span>
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">reading</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">latency_reading</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">write_latency</span>()) <span class="ruby-keyword">do</span>
+                <span class="ruby-keyword">self</span>.<span class="ruby-identifier">original_send</span>(<span class="ruby-identifier">data</span>.<span class="ruby-identifier">slice_bytes</span>(<span class="ruby-identifier">starting</span><span class="ruby-operator">..</span><span class="ruby-identifier">ending</span>),<span class="ruby-identifier">flags</span>) <span class="ruby-keyword">or</span> <span class="ruby-ivar">@remote_closed</span>=<span class="ruby-keyword">true</span>
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@remote_closed</span>
+            <span class="ruby-keyword">break</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-ivar">@write_latency</span> = <span class="ruby-identifier">reading</span>[<span class="ruby-value">:reading</span>]
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">starting</span> = <span class="ruby-identifier">ending</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+          <span class="ruby-identifier">ending</span> = (<span class="ruby-identifier">starting</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">buffer_size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>))
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">ending</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">total</span>
+            <span class="ruby-identifier">ending</span> = <span class="ruby-identifier">ending</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">ending</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">total</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@remote_closed</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EPIPE</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">length</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sendmsg" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sendmsg</span><span
+            class="method-args">(data=&quot;&quot;, flags=0, destination_socket_address=nil, *controls)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sendmsg-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_io.rb, line 8</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sendmsg</span>(<span class="ruby-identifier">data</span>=<span class="ruby-string">&quot;&quot;</span>, <span class="ruby-identifier">flags</span>=<span class="ruby-value">0</span>, <span class="ruby-identifier">destination_socket_address</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">*</span><span class="ruby-identifier">controls</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@remote_closed</span>)
+    <span class="ruby-ivar">@remote_closed</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@write_latency</span>)
+    <span class="ruby-ivar">@write_latency</span> = {<span class="ruby-value">:low</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:last</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:high</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@before_send_data</span>)
+    <span class="ruby-ivar">@before_send_data</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@after_send_data</span>)
+    <span class="ruby-ivar">@after_send_data</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fcntl</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">F_GETFL</span>,<span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NONBLOCK</span>) <span class="ruby-operator">&amp;</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NONBLOCK</span> <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NONBLOCK</span>
+    <span class="ruby-comment"># on Winderz, just to a buffer sized spoon full until done ??</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed?</span>()
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;attempting to sendmsg on a closed stream&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@remote_closed</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EPIPE</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">data</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">to_s</span>
+        <span class="ruby-identifier">written_bytes</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">bytesize</span>()
+        <span class="ruby-comment"># process controls:</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">controls</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">controls</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AncillaryData</span>)
+            <span class="ruby-identifier">controls</span> = <span class="ruby-identifier">controls</span>[<span class="ruby-value">0</span>]
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">controls</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+              <span class="ruby-identifier">controls</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AncillaryData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_UNIX</span>, (<span class="ruby-identifier">controls</span>[<span class="ruby-value">:level</span>] <span class="ruby-operator">||</span> <span class="ruby-value">:SOCKET</span>), (<span class="ruby-identifier">controls</span>[<span class="ruby-value">:type</span>] <span class="ruby-operator">||</span> <span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">SCM_RIGHTS</span>), (<span class="ruby-identifier">controls</span>[<span class="ruby-value">:data</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fileno</span>))
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">controls</span>.<span class="ruby-identifier">flatten!</span>
+              <span class="ruby-identifier">controls</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AncillaryData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_UNIX</span>, (<span class="ruby-identifier">controls</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">||</span> <span class="ruby-value">:SOCKET</span>), (<span class="ruby-identifier">controls</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">||</span> <span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">SCM_RIGHTS</span>), (<span class="ruby-identifier">controls</span>[<span class="ruby-value">2</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fileno</span>))
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you MUST supply ancillary data as a control&quot;</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">UNIXServer</span>, <span class="ruby-operator">::</span><span class="ruby-constant">UNIXSocket</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Socket</span>)
+          <span class="ruby-identifier">whatfor</span> = <span class="ruby-value">:socket</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">TCPServer</span>, <span class="ruby-operator">::</span><span class="ruby-constant">SOCKSocket</span>, <span class="ruby-operator">::</span><span class="ruby-constant">TCPSocket</span>)
+            <span class="ruby-identifier">whatfor</span> = <span class="ruby-value">:tcp</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">UDPServer</span>, <span class="ruby-operator">::</span><span class="ruby-constant">UDPSource</span>, <span class="ruby-operator">::</span><span class="ruby-constant">UDPSocket</span>)
+              <span class="ruby-identifier">whatfor</span> = <span class="ruby-value">:udp</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">buffer_size</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">buffer_limits</span>(<span class="ruby-value">:out</span>,<span class="ruby-identifier">whatfor</span>)[<span class="ruby-value">:initial</span>]
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">written_bytes</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">buffer_size</span>
+          <span class="ruby-identifier">passes</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">passes_needed</span>(<span class="ruby-identifier">written_bytes</span>, <span class="ruby-identifier">buffer_size</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">passes</span> = <span class="ruby-value">1</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-identifier">total</span> = (<span class="ruby-identifier">written_bytes</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+        <span class="ruby-identifier">starting</span> = <span class="ruby-value">0</span>
+        <span class="ruby-identifier">ending</span> = ([<span class="ruby-identifier">written_bytes</span>,<span class="ruby-identifier">buffer_size</span>].<span class="ruby-identifier">min</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+        <span class="ruby-comment">#</span>
+        <span class="ruby-identifier">passes</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span>
+          <span class="ruby-comment">#</span>
+          <span class="ruby-keyword">begin</span>
+            <span class="ruby-comment"># if remote end closes during write, raise error by setting @remote_closed and breaking loop.</span>
+            <span class="ruby-identifier">reading</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">latency_reading</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">write_latency</span>()) <span class="ruby-keyword">do</span>
+              <span class="ruby-keyword">self</span>.<span class="ruby-identifier">sendmsg_nonblock</span>(<span class="ruby-identifier">data</span>.<span class="ruby-identifier">slice_bytes</span>(<span class="ruby-identifier">starting</span><span class="ruby-operator">..</span><span class="ruby-identifier">ending</span>),<span class="ruby-identifier">flags</span>,<span class="ruby-identifier">destination_socket_address</span>,<span class="ruby-identifier">controls</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-ivar">@write_latency</span> = <span class="ruby-identifier">reading</span>[<span class="ruby-value">:reading</span>]
+            <span class="ruby-comment">#</span>
+          <span class="ruby-keyword">rescue</span> <span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">WaitWritable</span>, <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">WaitWritable</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EINTR</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EWOULDBLOCK</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EAGAIN</span>
+            <span class="ruby-identifier">pause</span>
+            <span class="ruby-keyword">begin</span>
+              <span class="ruby-identifier">selected</span> = <span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-identifier">select</span>(<span class="ruby-keyword">nil</span>,[<span class="ruby-keyword">self</span>],<span class="ruby-keyword">nil</span>,<span class="ruby-value">0.010</span>)
+              <span class="ruby-keyword">until</span> <span class="ruby-identifier">selected</span>
+                <span class="ruby-identifier">pause</span>
+                <span class="ruby-identifier">selected</span> = <span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-identifier">select</span>(<span class="ruby-keyword">nil</span>,[<span class="ruby-keyword">self</span>],<span class="ruby-keyword">nil</span>,<span class="ruby-value">0.010</span>)
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span>
+              <span class="ruby-identifier">pause</span>
+              <span class="ruby-keyword">retry</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">retry</span>
+          <span class="ruby-keyword">rescue</span> <span class="ruby-operator">::</span><span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EPIPE</span>
+            <span class="ruby-ivar">@remote_closed</span>=<span class="ruby-keyword">true</span>
+            <span class="ruby-keyword">break</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-comment">#</span>
+          <span class="ruby-identifier">starting</span> = <span class="ruby-identifier">ending</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+          <span class="ruby-identifier">ending</span> = (<span class="ruby-identifier">starting</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">buffer_size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>))
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">ending</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">total</span>
+            <span class="ruby-identifier">ending</span> = <span class="ruby-identifier">ending</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">ending</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">total</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@remote_closed</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EPIPE</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">written_bytes</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed?</span>()
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;attempting to sendmsg on a closed stream&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@remote_closed</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EPIPE</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">data</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode_to_external</span>(<span class="ruby-identifier">data</span>)
+        <span class="ruby-identifier">written_bytes</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">bytesize</span>()
+        <span class="ruby-comment"># process controls:</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">controls</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">controls</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AncillaryData</span>)
+            <span class="ruby-identifier">controls</span> = <span class="ruby-identifier">controls</span>[<span class="ruby-value">0</span>]
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">controls</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+              <span class="ruby-identifier">controls</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AncillaryData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_UNIX</span>, (<span class="ruby-identifier">controls</span>[<span class="ruby-value">:level</span>] <span class="ruby-operator">||</span> <span class="ruby-value">:SOCKET</span>), (<span class="ruby-identifier">controls</span>[<span class="ruby-value">:type</span>] <span class="ruby-operator">||</span> <span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">SCM_RIGHTS</span>), (<span class="ruby-identifier">controls</span>[<span class="ruby-value">:data</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fileno</span>))
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">controls</span>.<span class="ruby-identifier">flatten!</span>
+              <span class="ruby-identifier">controls</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AncillaryData</span>.<span class="ruby-identifier">new</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">AF_UNIX</span>, (<span class="ruby-identifier">controls</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">||</span> <span class="ruby-value">:SOCKET</span>), (<span class="ruby-identifier">controls</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">||</span> <span class="ruby-operator">::</span><span class="ruby-constant">Socket</span><span class="ruby-operator">::</span><span class="ruby-constant">SCM_RIGHTS</span>), (<span class="ruby-identifier">controls</span>[<span class="ruby-value">2</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fileno</span>))
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you MUST supply ancillary data as a control&quot;</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">UNIXServer</span>, <span class="ruby-operator">::</span><span class="ruby-constant">UNIXSocket</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Socket</span>)
+          <span class="ruby-identifier">whatfor</span> = <span class="ruby-value">:socket</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">TCPServer</span>, <span class="ruby-operator">::</span><span class="ruby-constant">SOCKSocket</span>, <span class="ruby-operator">::</span><span class="ruby-constant">TCPSocket</span>)
+            <span class="ruby-identifier">whatfor</span> = <span class="ruby-value">:tcp</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">UDPServer</span>, <span class="ruby-operator">::</span><span class="ruby-constant">UDPSource</span>, <span class="ruby-operator">::</span><span class="ruby-constant">UDPSocket</span>)
+              <span class="ruby-identifier">whatfor</span> = <span class="ruby-value">:udp</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">buffer_size</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">buffer_limits</span>(<span class="ruby-value">:out</span>,<span class="ruby-identifier">whatfor</span>)[<span class="ruby-value">:initial</span>]
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">written_bytes</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">buffer_size</span>
+          <span class="ruby-identifier">passes</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">passes_needed</span>(<span class="ruby-identifier">written_bytes</span>, <span class="ruby-identifier">buffer_size</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">passes</span> = <span class="ruby-value">1</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-identifier">total</span> = (<span class="ruby-identifier">written_bytes</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+        <span class="ruby-identifier">starting</span> = <span class="ruby-value">0</span>
+        <span class="ruby-identifier">ending</span> = ([<span class="ruby-identifier">written_bytes</span>,<span class="ruby-identifier">buffer_size</span>].<span class="ruby-identifier">min</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+        <span class="ruby-comment">#</span>
+        <span class="ruby-identifier">passes</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span>
+          <span class="ruby-comment"># if remote end closes during write, raise error.</span>
+          <span class="ruby-identifier">reading</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">latency_reading</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">write_latency</span>()) <span class="ruby-keyword">do</span>
+            <span class="ruby-keyword">self</span>.<span class="ruby-identifier">original_sendmsg</span>(<span class="ruby-identifier">data</span>.<span class="ruby-identifier">slice_bytes</span>(<span class="ruby-identifier">starting</span><span class="ruby-operator">..</span><span class="ruby-identifier">ending</span>),<span class="ruby-identifier">flags</span>,<span class="ruby-identifier">destination_socket_address</span>,<span class="ruby-identifier">controls</span>) <span class="ruby-keyword">or</span> <span class="ruby-ivar">@remote_closed</span>=<span class="ruby-keyword">true</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@remote_closed</span>
+            <span class="ruby-keyword">break</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-ivar">@write_latency</span> = <span class="ruby-identifier">reading</span>[<span class="ruby-value">:reading</span>]
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">starting</span> = <span class="ruby-identifier">ending</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+          <span class="ruby-identifier">ending</span> = (<span class="ruby-identifier">starting</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">buffer_size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>))
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">ending</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">total</span>
+            <span class="ruby-identifier">ending</span> = <span class="ruby-identifier">ending</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">ending</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">total</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@remote_closed</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EPIPE</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">written_bytes</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

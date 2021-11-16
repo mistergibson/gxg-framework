@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class GxG::Networking::ZMQ::ZmqAdapter - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/navigation.js" defer></script>
+<script src="../../../js/search.js" defer></script>
+<script src="../../../js/search_index.js" defer></script>
+<script src="../../../js/searcher.js" defer></script>
+<script src="../../../js/darkfish.js" defer></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-close">#close</a>
+    
+    <li ><a href="#method-i-context">#context</a>
+    
+    <li ><a href="#method-i-identity">#identity</a>
+    
+    <li ><a href="#method-i-listen">#listen</a>
+    
+    <li ><a href="#method-i-open-3F">#open?</a>
+    
+    <li ><a href="#method-i-receive">#receive</a>
+    
+    <li ><a href="#method-i-send">#send</a>
+    
+    <li ><a href="#method-i-socket">#socket</a>
+    
+    <li ><a href="#method-i-vetted_parameters">#vetted_parameters</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-GxG::Networking::ZMQ::ZmqAdapter">
+  <h1 id="class-GxG::Networking::ZMQ::ZmqAdapter" class="class">
+    class GxG::Networking::ZMQ::ZmqAdapter
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-close" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">close</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="close-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 101</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">close</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@open</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-ivar">@connector</span>.<span class="ruby-identifier">socket</span>.<span class="ruby-identifier">close</span>
+    <span class="ruby-ivar">@open</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-context" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">context</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="context-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 111</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">context</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@open</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-ivar">@connector</span>.<span class="ruby-identifier">context</span>()
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-identity" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">identity</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="identity-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 123</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">identity</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@open</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-ivar">@connector</span>.<span class="ruby-identifier">socket</span>.<span class="ruby-identifier">identity</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-listen" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">listen</span><span
+            class="method-args">(&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="listen-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">listen</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@open</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-ivar">@connector</span>.<span class="ruby-identifier">listen</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-open-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="open-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 97</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">open?</span>()
+  <span class="ruby-ivar">@open</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-receive" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">receive</span><span
+            class="method-args">(**options, &amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="receive-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 135</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">receive</span>(<span class="ruby-operator">**</span><span class="ruby-identifier">options</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@open</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-ivar">@connector</span>.<span class="ruby-identifier">receive</span>(<span class="ruby-identifier">options</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-send" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">send</span><span
+            class="method-args">(message=&quot;&quot;, **options)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="send-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 141</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">send</span>(<span class="ruby-identifier">message</span>=<span class="ruby-string">&quot;&quot;</span>, <span class="ruby-operator">**</span><span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@open</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-ivar">@connector</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">message</span>.<span class="ruby-identifier">to_s</span>,<span class="ruby-identifier">options</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-socket" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">socket</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="socket-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 117</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">socket</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@open</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-ivar">@connector</span>.<span class="ruby-identifier">socket</span>()
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-vetted_parameters" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">vetted_parameters</span><span
+            class="method-args">(params={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <pre>Proposed: {:bind/connect =&gt; &lt;URI&gt;, :context =&gt; &lt;Context&gt;, :encode =&gt; &lt;Proc&gt;, :decode =&gt; &lt;Proc&gt;}
+mode (:bind, :connect) — a mode for the socket.
+Options Hash:</pre>
+
+<p>context (ZMQ::Context) — a context to use for this socket (one will be created if not provided). encode (lambda) — how to encode messages. decode (lambda) — how to decode messages. transport (Symbol) — default: :tcp — transport for transport. address (String) — default: &#39;127.0.0.1&#39; — address for endpoint. port (Fixnum) — default: 5555 — port for endpoint.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="vetted_parameters-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 47</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">vetted_parameters</span>(<span class="ruby-identifier">params</span>={})
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a Hash as parameters.&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:bind</span>]
+    <span class="ruby-comment"># bind</span>
+    <span class="ruby-identifier">mode</span> = <span class="ruby-value">:bind</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># connect</span>
+    <span class="ruby-identifier">mode</span> = <span class="ruby-value">:connect</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">options</span> = {}
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:context</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">Context</span>)
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:context</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-value">:context</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">uri</span> = <span class="ruby-identifier">params</span>[(<span class="ruby-identifier">mode</span>)].<span class="ruby-identifier">clone</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">port</span>
+    <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">port</span> = <span class="ruby-value">5555</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:port</span>] = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">port</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">Generic</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a valid URI to bind or connect to.&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-identifier">zmq_supported_protocols</span>().<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">scheme</span>())
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">mode</span> <span class="ruby-operator">==</span> <span class="ruby-value">:bind</span>
+      <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;tcp&quot;</span>, <span class="ruby-string">&quot;tcp4&quot;</span>, <span class="ruby-string">&quot;tcp6&quot;</span>, <span class="ruby-string">&quot;udp&quot;</span>, <span class="ruby-string">&quot;udp4&quot;</span>, <span class="ruby-string">&quot;udp6&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">scheme</span>())
+        <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">resolve_host</span>()
+        <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM</span>.<span class="ruby-identifier">network_port_used?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Addrinfo</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">uri</span>))
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EADDRINUSE</span>, <span class="ruby-node">&quot;Address and port already in use: #{uri.to_s}&quot;</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-node">&quot;Unsupported networking protocol: #{uri.scheme().inspect}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:transport</span>] = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">scheme</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:address</span>] = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">hostname</span>
+  <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;tcp&quot;</span>, <span class="ruby-string">&quot;tcp4&quot;</span>, <span class="ruby-string">&quot;tcp6&quot;</span>, <span class="ruby-string">&quot;udp&quot;</span>, <span class="ruby-string">&quot;udp4&quot;</span>, <span class="ruby-string">&quot;udp6&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">scheme</span>())
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:port</span>] = (<span class="ruby-identifier">uri</span>.<span class="ruby-identifier">port</span> <span class="ruby-operator">||</span> <span class="ruby-value">5555</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">options</span>[<span class="ruby-value">:transport</span>] = <span class="ruby-identifier">uri</span>.<span class="ruby-identifier">scheme</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:encode</span>].<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:encode</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-value">:encode</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:decode</span>].<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-identifier">options</span>[<span class="ruby-value">:decode</span>] = <span class="ruby-identifier">params</span>[<span class="ruby-value">:decode</span>]
+  <span class="ruby-keyword">end</span>
+  {<span class="ruby-value">:mode</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">mode</span>, <span class="ruby-value">:options</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">options</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

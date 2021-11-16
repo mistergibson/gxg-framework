@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class GxG::Networking::SoapDriver - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">Handsoap::Service
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-interface">#interface</a>
+    
+    <li ><a href="#method-i-on_before_dispatch">#on_before_dispatch</a>
+    
+    <li ><a href="#method-i-on_create_document">#on_create_document</a>
+    
+    <li ><a href="#method-i-on_response_document">#on_response_document</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-GxG::Networking::SoapDriver">
+  <h1 id="class-GxG::Networking::SoapDriver" class="class">
+    class GxG::Networking::SoapDriver
+  </h1>
+
+  <section class="description">
+    
+<p>SOAP Classes:</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(the_url=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Example sites to test with: <a href="http://www.restfulwebservices.net/rest/WeatherForecastService.svc?wsdl">www.restfulwebservices.net/rest/WeatherForecastService.svc?wsdl</a> <a href="http://www.restfulwebservices.net/wcf/WeatherForecastService.svc?wsdl">www.restfulwebservices.net/wcf/WeatherForecastService.svc?wsdl</a> <a href="https://graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl">graphical.weather.gov/xml/DWMLgen/wsdl/ndfdXML.wsdl</a> <a href="http://www.webservicex.com/CurrencyConvertor.asmx?wsdl">www.webservicex.com/CurrencyConvertor.asmx?wsdl</a></p>
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2062</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">the_url</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">Generic</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a valid URI.&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">super</span>()
+  <span class="ruby-ivar">@user</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@password</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@interface</span> = []
+  <span class="ruby-ivar">@tns_url</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">Handsoap</span><span class="ruby-operator">::</span><span class="ruby-identifier">http_driver</span> = <span class="ruby-value">:net_http</span>
+  <span class="ruby-operator">::</span><span class="ruby-constant">Handsoap</span><span class="ruby-operator">::</span><span class="ruby-identifier">xml_query_driver</span> = <span class="ruby-value">:rexml</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">query</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;wsdl&quot;</span>) <span class="ruby-operator">||</span> (<span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">path</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;wsdl&quot;</span>))
+    <span class="ruby-identifier">point</span> = (<span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">scheme</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-string">&quot;://&quot;</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">user</span>
+      <span class="ruby-identifier">point</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">user</span>
+      <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">user</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">password</span>
+      <span class="ruby-identifier">point</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-string">&quot;:&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">password</span>)
+      <span class="ruby-ivar">@password</span> = <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">password</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">hostname</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">user</span>
+        <span class="ruby-identifier">point</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-string">&quot;@&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">hostname</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">point</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">hostname</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">path</span>
+      <span class="ruby-identifier">point</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">path</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># Process WSDL, determine actual version number from that.</span>
+    <span class="ruby-identifier">http_tool</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">HttpClient</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-identifier">response</span> = <span class="ruby-identifier">http_tool</span>.<span class="ruby-identifier">get</span>(<span class="ruby-identifier">the_url</span>, {<span class="ruby-value">:raw_response</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>})
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>
+      <span class="ruby-identifier">wsdl_data</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">transcode</span>({<span class="ruby-value">:replace</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;.&quot;</span>},<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">wsdl_data</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;</span>)
+        <span class="ruby-identifier">wsdl_version</span> = <span class="ruby-value">1</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">wsdl_version</span> = <span class="ruby-value">2</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">SoapDriver</span><span class="ruby-operator">::</span><span class="ruby-identifier">endpoint</span>({<span class="ruby-value">:uri</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">point</span>), <span class="ruby-value">:version</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">wsdl_version</span>)})
+      <span class="ruby-comment"># Build Interface Data:</span>
+      <span class="ruby-identifier">document</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Oga</span>.<span class="ruby-identifier">parse_xml</span>(<span class="ruby-identifier">wsdl_data</span>)
+      <span class="ruby-identifier">nodes</span> = <span class="ruby-identifier">document</span>.<span class="ruby-identifier">css</span>(<span class="ruby-string">&quot;definitions&quot;</span>)
+      <span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>)
+        <span class="ruby-identifier">node</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attribute</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;tns&quot;</span>, <span class="ruby-string">&quot;targetNamespace&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">name</span>)
+            <span class="ruby-ivar">@tns_url</span> = <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">value</span>
+            <span class="ruby-keyword">break</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tns_url</span>
+          <span class="ruby-keyword">break</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@tns_url</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-string">&quot;Failed to load namespace (required).&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">nodes</span> = <span class="ruby-identifier">document</span>.<span class="ruby-identifier">css</span>(<span class="ruby-string">&quot;portType&quot;</span>)
+      <span class="ruby-identifier">base_names</span> = []
+      <span class="ruby-identifier">nodes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>)
+        <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_operation</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_operation</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>)
+          <span class="ruby-identifier">basename</span> = <span class="ruby-keyword">nil</span>
+          <span class="ruby-identifier">the_operation</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attribute</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;name&quot;</span>
+              <span class="ruby-identifier">basename</span> = <span class="ruby-identifier">attribute</span>.<span class="ruby-identifier">value</span>
+              <span class="ruby-keyword">break</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">basename</span>
+            <span class="ruby-identifier">record</span> = {<span class="ruby-value">:base</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">basename</span>), <span class="ruby-value">:message</span> <span class="ruby-operator">=&gt;</span> ((<span class="ruby-string">&quot;tns:&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">basename</span>).<span class="ruby-identifier">to_sym</span>), <span class="ruby-value">:input</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:output</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>}
+            <span class="ruby-identifier">the_operation</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_io</span><span class="ruby-operator">|</span>
+              <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_io</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>)
+              <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;input&quot;</span>, <span class="ruby-string">&quot;output&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">the_io</span>.<span class="ruby-identifier">name</span>)
+                <span class="ruby-identifier">the_io</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_message</span><span class="ruby-operator">|</span>
+                  <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_message</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;message&quot;</span>
+                    <span class="ruby-identifier">record</span>[(<span class="ruby-identifier">the_io</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>)] = <span class="ruby-identifier">the_message</span>.<span class="ruby-identifier">value</span>
+                  <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>[<span class="ruby-value">:input</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">record</span>[<span class="ruby-value">:output</span>]
+              <span class="ruby-identifier">base_names</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">record</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">messages</span> = <span class="ruby-identifier">document</span>.<span class="ruby-identifier">css</span>(<span class="ruby-string">&quot;message&quot;</span>)
+      <span class="ruby-identifier">base_names</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_method</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">record</span> = {<span class="ruby-value">:method</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">the_method</span>[<span class="ruby-value">:message</span>]), <span class="ruby-value">:input</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:output</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>}
+        <span class="ruby-identifier">messages</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_message</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_message</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>)
+          <span class="ruby-identifier">the_message</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_attribute</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">direction_key</span> = <span class="ruby-keyword">nil</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_method</span>[<span class="ruby-value">:input</span>].<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/^.+:/</span>, <span class="ruby-string">&quot;&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-identifier">the_attribute</span>.<span class="ruby-identifier">value</span>
+              <span class="ruby-identifier">direction_key</span> = <span class="ruby-value">:input</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_method</span>[<span class="ruby-value">:output</span>].<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/^.+:/</span>, <span class="ruby-string">&quot;&quot;</span>) <span class="ruby-operator">==</span> <span class="ruby-identifier">the_attribute</span>.<span class="ruby-identifier">value</span>
+              <span class="ruby-identifier">direction_key</span> = <span class="ruby-value">:output</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">direction_key</span>
+              <span class="ruby-identifier">parameters</span> = {}
+              <span class="ruby-identifier">the_message</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_part</span><span class="ruby-operator">|</span>
+                <span class="ruby-keyword">next</span> <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_part</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>)
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_part</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;part&quot;</span>
+                  <span class="ruby-identifier">the_name</span> = <span class="ruby-keyword">nil</span>
+                  <span class="ruby-identifier">the_type</span> = <span class="ruby-keyword">nil</span>
+                  <span class="ruby-identifier">the_part</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_parameter</span><span class="ruby-operator">|</span>
+                    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_parameter</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;name&quot;</span>
+                      <span class="ruby-identifier">the_name</span> = <span class="ruby-identifier">the_parameter</span>.<span class="ruby-identifier">value</span>
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_parameter</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;type&quot;</span>
+                      <span class="ruby-identifier">the_type</span> = <span class="ruby-identifier">the_parameter</span>.<span class="ruby-identifier">value</span>
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_parameter</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;element&quot;</span>
+                      <span class="ruby-identifier">the_type</span> = <span class="ruby-identifier">the_parameter</span>.<span class="ruby-identifier">value</span>
+                    <span class="ruby-keyword">end</span>
+                    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">the_name</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">the_type</span>)
+                      <span class="ruby-identifier">parameters</span>[(<span class="ruby-identifier">the_name</span>.<span class="ruby-identifier">to_sym</span>)] = <span class="ruby-identifier">the_type</span>
+                      <span class="ruby-identifier">the_name</span> = <span class="ruby-keyword">nil</span>
+                      <span class="ruby-identifier">the_type</span> = <span class="ruby-keyword">nil</span>
+                    <span class="ruby-keyword">end</span>
+                  <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">parameters</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+                <span class="ruby-identifier">record</span>[(<span class="ruby-identifier">direction_key</span>)] = <span class="ruby-identifier">parameters</span>
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>[<span class="ruby-value">:input</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">record</span>[<span class="ruby-value">:output</span>]
+          <span class="ruby-ivar">@interface</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">record</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-string">&quot;Failed to retrieve WSDL data.&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;No WSDL endpoint detected (required).&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-interface" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">interface</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="interface-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2228</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">interface</span>()
+  <span class="ruby-ivar">@interface</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_before_dispatch" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_before_dispatch</span><span
+            class="method-args">(the_document=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_before_dispatch-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2218</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_before_dispatch</span>(<span class="ruby-identifier">the_document</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment">#</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_create_document" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_create_document</span><span
+            class="method-args">(the_document=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Handsoap support hooks:</p>
+          
+          
+
+          
+          <div class="method-source-code" id="on_create_document-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2212</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_create_document</span>(<span class="ruby-identifier">the_document</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tns_url</span>
+    <span class="ruby-identifier">the_document</span>.<span class="ruby-identifier">alias</span>(<span class="ruby-string">&#39;tns&#39;</span>, <span class="ruby-ivar">@tns_url</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on_response_document" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on_response_document</span><span
+            class="method-args">(the_document=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="on_response_document-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2222</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on_response_document</span>(<span class="ruby-identifier">the_document</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tns_url</span>
+    <span class="ruby-identifier">the_document</span>.<span class="ruby-identifier">add_namespace</span>(<span class="ruby-string">&#39;ns&#39;</span>, <span class="ruby-ivar">@tns_url</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

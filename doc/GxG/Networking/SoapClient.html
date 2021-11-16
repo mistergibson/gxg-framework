@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class GxG::Networking::SoapClient - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-callmethod">#callmethod</a>
+    
+    <li ><a href="#method-i-closed-3F">#closed?</a>
+    
+    <li ><a href="#method-i-interface">#interface</a>
+    
+    <li ><a href="#method-i-login">#login</a>
+    
+    <li ><a href="#method-i-logout">#logout</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-GxG::Networking::SoapClient">
+  <h1 id="class-GxG::Networking::SoapClient" class="class">
+    class GxG::Networking::SoapClient
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Standard:</p>
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2236</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>()
+  <span class="ruby-ivar">@client</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-callmethod" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">callmethod</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="callmethod-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2265</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">callmethod</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">the_method</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_s</span>
+      <span class="ruby-identifier">arguments</span> = {}
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">the_method</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_s</span>
+        <span class="ruby-keyword">unless</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a Hash or Array to specify parameters for this method.&quot;</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">arguments</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>]
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a valid SOAP method.&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+      <span class="ruby-identifier">response_tag</span> = (<span class="ruby-identifier">the_method</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-regexp">/^.+:/</span>, <span class="ruby-string">&quot;&quot;</span>) <span class="ruby-operator">+</span> <span class="ruby-string">&quot;Response&quot;</span>)
+      <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">invoke</span>(<span class="ruby-identifier">the_method</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">message</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+          <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_key</span>, <span class="ruby-identifier">the_value</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">message</span>.<span class="ruby-identifier">add</span>(<span class="ruby-identifier">the_key</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">the_value</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+          <span class="ruby-identifier">arguments</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_value</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">message</span>.<span class="ruby-identifier">add</span>(<span class="ruby-string">&quot;literal&quot;</span>, <span class="ruby-identifier">the_value</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">data</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse_xml</span>(<span class="ruby-identifier">response</span>.<span class="ruby-identifier">to_xml</span>).<span class="ruby-identifier">css</span>(<span class="ruby-identifier">response_tag</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>
+        <span class="ruby-identifier">found_numbers</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">text</span>.<span class="ruby-identifier">numeric_values</span>
+        <span class="ruby-identifier">found_value</span> = []
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">found_numbers</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+          <span class="ruby-identifier">found_numbers</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_subarray</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_subarray</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_subarray</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+                <span class="ruby-identifier">the_key</span> = <span class="ruby-identifier">the_subarray</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">keys</span>[<span class="ruby-value">0</span>]
+                <span class="ruby-identifier">found_value</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_subarray</span>[<span class="ruby-value">0</span>][(<span class="ruby-identifier">the_key</span>)]
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">result</span> = {}
+        <span class="ruby-identifier">result</span>[(<span class="ruby-identifier">response_tag</span>.<span class="ruby-identifier">to_sym</span>)] = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">text</span>
+        <span class="ruby-comment">#              if found_value.size &gt; 0</span>
+        <span class="ruby-comment">#                if found_value.size == 1</span>
+        <span class="ruby-comment">#                  result[(response_tag.to_sym)] = found_value[0]</span>
+        <span class="ruby-comment">#                else</span>
+        <span class="ruby-comment">#                  result[(response_tag.to_sym)] = found_value</span>
+        <span class="ruby-comment">#                end</span>
+        <span class="ruby-comment">#              else</span>
+        <span class="ruby-comment">#                result[(response_tag.to_sym)] = data.text</span>
+        <span class="ruby-comment">#              end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-node">&quot;Failed to interpret response data. Data: #{data.inspect}&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:method</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_method</span>, <span class="ruby-value">:arguments</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">arguments</span>}})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-closed-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">closed?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="closed-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2257</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">closed?</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-interface" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">interface</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="interface-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2331</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">interface</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">interface</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-login" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">login</span><span
+            class="method-args">(the_url=nil, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="login-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2241</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">login</span>(<span class="ruby-identifier">the_url</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-ivar">@client</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">SoapDriver</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">the_url</span>)
+    <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:url</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_url</span>}})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-logout" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">logout</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="logout-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 2252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">logout</span>()
+  <span class="ruby-ivar">@client</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

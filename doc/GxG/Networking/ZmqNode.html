@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class GxG::Networking::ZmqNode - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add_zmq_input">#add_zmq_input</a>
+    
+    <li ><a href="#method-i-add_zmq_output">#add_zmq_output</a>
+    
+    <li ><a href="#method-i-halt_zmq_processing">#halt_zmq_processing</a>
+    
+    <li ><a href="#method-i-remove_zmq_input">#remove_zmq_input</a>
+    
+    <li ><a href="#method-i-remove_zmq_output">#remove_zmq_output</a>
+    
+    <li ><a href="#method-i-resume_zmq_processing">#resume_zmq_processing</a>
+    
+    <li class="calls-super" ><a href="#method-i-terminate">#terminate</a>
+    
+    <li ><a href="#method-i-zmq_error_handler">#zmq_error_handler</a>
+    
+    <li ><a href="#method-i-zmq_handler">#zmq_handler</a>
+    
+    <li ><a href="#method-i-zmq_inputs">#zmq_inputs</a>
+    
+    <li ><a href="#method-i-zmq_outputs">#zmq_outputs</a>
+    
+    <li ><a href="#method-i-zmq_process">#zmq_process</a>
+    
+    <li ><a href="#method-i-zmq_processing-3F">#zmq_processing?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-GxG::Networking::ZmqNode">
+  <h1 id="class-GxG::Networking::ZmqNode" class="class">
+    class GxG::Networking::ZmqNode
+  </h1>
+
+  <section class="description">
+    
+<p>xxx</p>
+
+<pre class="ruby"><span class="ruby-keyword">class</span> <span class="ruby-constant">AbstractZMQSocket</span>
+  <span class="ruby-comment"># Abstract class, never instantiated</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">supported_protocols</span>()
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM</span>.<span class="ruby-identifier">platform</span>()[<span class="ruby-value">:platform</span>] <span class="ruby-operator">==</span> <span class="ruby-value">:windows</span>
+      [<span class="ruby-string">&quot;inproc&quot;</span>, <span class="ruby-string">&quot;tcp&quot;</span>, <span class="ruby-string">&quot;tcp4&quot;</span>, <span class="ruby-string">&quot;tcp6&quot;</span>, <span class="ruby-string">&quot;pgm&quot;</span>, <span class="ruby-string">&quot;epgm&quot;</span>]
+    <span class="ruby-keyword">else</span>
+      [<span class="ruby-string">&quot;inproc&quot;</span>, <span class="ruby-string">&quot;ipc&quot;</span>, <span class="ruby-string">&quot;tcp&quot;</span>, <span class="ruby-string">&quot;tcp4&quot;</span>, <span class="ruby-string">&quot;tcp6&quot;</span>, <span class="ruby-string">&quot;pgm&quot;</span>, <span class="ruby-string">&quot;epgm&quot;</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">settings</span>={})
+    <span class="ruby-comment"># {:context =&gt; nil, :type =&gt; nil, :bind =&gt; {:thisone =&gt; &quot;&quot;, :thatone =&gt; &quot;&quot;}, :connect =&gt; nil}</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you must supply a hash of settings for the socket&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@thread_safety</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">settings</span>[<span class="ruby-value">:context</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">Context</span>)
+      <span class="ruby-ivar">@context</span> = <span class="ruby-identifier">settings</span>[<span class="ruby-value">:context</span>]
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@context</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-identifier">zmq_context</span>()
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">settings</span>[<span class="ruby-value">:type</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>)
+      <span class="ruby-ivar">@socket</span> = <span class="ruby-ivar">@context</span>.<span class="ruby-identifier">socket</span>(<span class="ruby-identifier">settings</span>[<span class="ruby-value">:type</span>])
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you must supply a type for the socket&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@name</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Celluloid</span><span class="ruby-operator">::</span><span class="ruby-constant">UUID</span>.<span class="ruby-identifier">random_generate</span>().<span class="ruby-identifier">to_sym</span>
+    <span class="ruby-identifier">socket_id</span> = (<span class="ruby-identifier">settings</span>[<span class="ruby-value">:identity</span>] <span class="ruby-operator">||</span> <span class="ruby-ivar">@name</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">socket_id</span>.<span class="ruby-identifier">bytesize</span>() <span class="ruby-operator">&gt;</span> <span class="ruby-value">255</span>
+      <span class="ruby-identifier">socket_id</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>)
+      <span class="ruby-identifier">socket_id</span> = <span class="ruby-identifier">socket_id</span>[(<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">255</span>)]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">identity</span> = <span class="ruby-identifier">socket_id</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-ivar">@recv_buffer_size</span> = <span class="ruby-value">1024</span>
+    <span class="ruby-ivar">@send_buffer_size</span> = <span class="ruby-value">1024</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-ivar">@bindings</span> = {}
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">settings</span>[<span class="ruby-value">:bind</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-comment">#</span>
+      <span class="ruby-identifier">settings</span>[<span class="ruby-value">:bind</span>].<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">binding_key</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">settings</span>[<span class="ruby-value">:bind</span>][(<span class="ruby-identifier">binding_key</span>)].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">Generic</span>)
+          <span class="ruby-identifier">address</span> = <span class="ruby-identifier">settings</span>[<span class="ruby-value">:bind</span>][(<span class="ruby-identifier">binding_key</span>)]
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">address</span> = <span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">settings</span>[<span class="ruby-value">:bind</span>][(<span class="ruby-identifier">binding_key</span>)])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">AbstractZMQSocket</span><span class="ruby-operator">::</span><span class="ruby-identifier">supported_protocols</span>().<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">address</span>.<span class="ruby-identifier">scheme</span>())
+          <span class="ruby-identifier">address</span>.<span class="ruby-identifier">resolve_host</span>()
+          <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;tcp&quot;</span>, <span class="ruby-string">&quot;tcp4&quot;</span>, <span class="ruby-string">&quot;tcp6&quot;</span>, <span class="ruby-string">&quot;udp&quot;</span>, <span class="ruby-string">&quot;udp4&quot;</span>, <span class="ruby-string">&quot;udp6&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">address</span>.<span class="ruby-identifier">scheme</span>())
+            <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM</span>.<span class="ruby-identifier">network_port_used?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Addrinfo</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">address</span>))
+              <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EADDRINUSE</span>, <span class="ruby-node">&quot;Address and port already in use: #{address.to_s}&quot;</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">begin</span>
+            <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">bind</span>(<span class="ruby-identifier">address</span>.<span class="ruby-identifier">to_s</span>)
+            <span class="ruby-ivar">@bindings</span>[(<span class="ruby-identifier">binding_key</span>)] = <span class="ruby-identifier">address</span>
+          <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span>
+            <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">close</span>
+            <span class="ruby-identifier">raise</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{address.scheme().to_s} is an unsupported protocol&quot;</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-ivar">@connections</span> = {}
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">settings</span>[<span class="ruby-value">:connect</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">settings</span>[<span class="ruby-value">:connect</span>].<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">connection_key</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">settings</span>[<span class="ruby-value">:connect</span>][(<span class="ruby-identifier">connection_key</span>)].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">Generic</span>)
+          <span class="ruby-identifier">address</span> = <span class="ruby-identifier">settings</span>[<span class="ruby-value">:connect</span>][(<span class="ruby-identifier">connection_key</span>)]
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">address</span> = <span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">settings</span>[<span class="ruby-value">:connect</span>][(<span class="ruby-identifier">connection_key</span>)])
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment"># address = ::URI::parse(settings[:connect][(connection_key)])</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">AbstractZMQSocket</span><span class="ruby-operator">::</span><span class="ruby-identifier">supported_protocols</span>().<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">address</span>.<span class="ruby-identifier">scheme</span>())
+          <span class="ruby-identifier">address</span>.<span class="ruby-identifier">resolve_host</span>()
+          <span class="ruby-keyword">unless</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM</span>.<span class="ruby-identifier">network_port_used?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Addrinfo</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">address</span>))
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EADDRNOTAVAIL</span>, <span class="ruby-node">&quot;Address and port not bound: #{address.to_s}&quot;</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">begin</span>
+            <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">connect</span>(<span class="ruby-identifier">address</span>.<span class="ruby-identifier">to_s</span>)
+            <span class="ruby-ivar">@connections</span>[(<span class="ruby-identifier">connection_key</span>)] = <span class="ruby-identifier">address</span>
+          <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span>
+            <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">close</span>
+            <span class="ruby-identifier">raise</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{address.scheme().to_s} is an unsupported protocol&quot;</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-ivar">@recv_buffer_size</span> = <span class="ruby-identifier">this</span>.<span class="ruby-identifier">recv_buffer_size</span>()
+    <span class="ruby-ivar">@send_buffer_size</span> = <span class="ruby-identifier">this</span>.<span class="ruby-identifier">send_buffer_size</span>()
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">this</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">context</span>()
+    <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@context</span> }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">socket</span>()
+    <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@socket</span> }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">identity</span>()
+    <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">identity</span>()
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">recv_buffer_size</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>)
+        <span class="ruby-identifier">the_size</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_i</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">valid_min</span> = [<span class="ruby-value">16384</span>]
+          <span class="ruby-identifier">valid_max</span> = [<span class="ruby-value">65536</span>]
+          [<span class="ruby-ivar">@bindings</span>, <span class="ruby-ivar">@connections</span>].<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_set</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">the_set</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_terminus</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">setting</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-identifier">buffer_limits</span>(<span class="ruby-value">:in</span>, (<span class="ruby-identifier">the_set</span>[(<span class="ruby-identifier">the_terminus</span>)].<span class="ruby-identifier">scheme</span>).<span class="ruby-identifier">to_sym</span>)[<span class="ruby-value">:valid</span>]
+              <span class="ruby-identifier">valid_min</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">setting</span>.<span class="ruby-identifier">min</span>)
+              <span class="ruby-identifier">valid_max</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">setting</span>.<span class="ruby-identifier">max</span>)
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> ((<span class="ruby-identifier">valid_min</span>.<span class="ruby-identifier">min</span>)<span class="ruby-operator">..</span>(<span class="ruby-identifier">valid_max</span>.<span class="ruby-identifier">max</span>)).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">the_size</span>)
+            <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+              <span class="ruby-ivar">@recv_buffer_size</span> = <span class="ruby-identifier">the_size</span>
+              <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">setsockopt</span>(<span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">RCVBUF</span>,<span class="ruby-identifier">the_size</span>)
+            }
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-node">&quot;New buffer size #{the_size} is outside acceptable range: #{((valid_min.min)..(valid_max.max)).inspect}&quot;</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">data</span> = []
+      <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">getsockopt</span>(<span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">RCVBUF</span>,<span class="ruby-identifier">data</span>) }
+      <span class="ruby-identifier">the_size</span> = (<span class="ruby-identifier">data</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">||</span> <span class="ruby-value">0</span>).<span class="ruby-identifier">to_i</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_size</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+        <span class="ruby-comment"># find scheme of connection/binding : the_scheme</span>
+        <span class="ruby-comment"># buffer_size = (::GxG::Networking::buffer_limits(:out, the_scheme.to_sym)[:initial] || 65536)</span>
+        <span class="ruby-identifier">buffer_sizes</span> = [<span class="ruby-value">65536</span>]
+        [<span class="ruby-ivar">@bindings</span>, <span class="ruby-ivar">@connections</span>].<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_set</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">the_set</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_terminus</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">buffer_sizes</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-identifier">buffer_limits</span>(<span class="ruby-value">:in</span>, (<span class="ruby-identifier">the_set</span>[(<span class="ruby-identifier">the_terminus</span>)].<span class="ruby-identifier">scheme</span>).<span class="ruby-identifier">to_sym</span>)[<span class="ruby-value">:valid</span>].<span class="ruby-identifier">min</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment"># FORNOW: use the smallest buffer size found across all bindings and/or connections</span>
+        <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@recv_buffer_size</span> = <span class="ruby-identifier">buffer_sizes</span>.<span class="ruby-identifier">min</span> }
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@recv_buffer_size</span> = <span class="ruby-identifier">the_size</span> }
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@recv_buffer_size</span>.<span class="ruby-identifier">dup</span> }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">send_buffer_size</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>)
+        <span class="ruby-identifier">the_size</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">first</span>.<span class="ruby-identifier">to_i</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">valid_min</span> = [<span class="ruby-value">16384</span>]
+          <span class="ruby-identifier">valid_max</span> = [<span class="ruby-value">65536</span>]
+          [<span class="ruby-ivar">@bindings</span>, <span class="ruby-ivar">@connections</span>].<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_set</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">the_set</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_terminus</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">setting</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-identifier">buffer_limits</span>(<span class="ruby-value">:out</span>, (<span class="ruby-identifier">the_set</span>[(<span class="ruby-identifier">the_terminus</span>)].<span class="ruby-identifier">scheme</span>).<span class="ruby-identifier">to_sym</span>)[<span class="ruby-value">:valid</span>]
+              <span class="ruby-identifier">valid_min</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">setting</span>.<span class="ruby-identifier">min</span>)
+              <span class="ruby-identifier">valid_max</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-identifier">setting</span>.<span class="ruby-identifier">max</span>)
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> ((<span class="ruby-identifier">valid_min</span>.<span class="ruby-identifier">min</span>)<span class="ruby-operator">..</span>(<span class="ruby-identifier">valid_max</span>.<span class="ruby-identifier">max</span>)).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">the_size</span>)
+            <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+              <span class="ruby-ivar">@send_buffer_size</span> = <span class="ruby-identifier">the_size</span>
+              <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">setsockopt</span>(<span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">SNDBUF</span>,<span class="ruby-identifier">the_size</span>)
+            }
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-node">&quot;New buffer size #{the_size} is outside acceptable range: #{((valid_min.min)..(valid_max.max)).inspect}&quot;</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">data</span> = []
+      <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">getsockopt</span>(<span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">SNDBUF</span>,<span class="ruby-identifier">data</span>) }
+      <span class="ruby-identifier">the_size</span> = (<span class="ruby-identifier">data</span>.<span class="ruby-identifier">first</span> <span class="ruby-operator">||</span> <span class="ruby-value">0</span>).<span class="ruby-identifier">to_i</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_size</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+        <span class="ruby-comment"># find scheme of connection/binding : the_scheme</span>
+        <span class="ruby-comment"># buffer_size = (::GxG::Networking::buffer_limits(:out, the_scheme.to_sym)[:initial] || 65536)</span>
+        <span class="ruby-identifier">buffer_sizes</span> = [<span class="ruby-value">65536</span>]
+        [<span class="ruby-ivar">@bindings</span>, <span class="ruby-ivar">@connections</span>].<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_set</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">the_set</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_terminus</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">buffer_sizes</span> <span class="ruby-operator">&lt;&lt;</span> (<span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-identifier">buffer_limits</span>(<span class="ruby-value">:out</span>, (<span class="ruby-identifier">the_set</span>[(<span class="ruby-identifier">the_terminus</span>)].<span class="ruby-identifier">scheme</span>).<span class="ruby-identifier">to_sym</span>)[<span class="ruby-value">:valid</span>].<span class="ruby-identifier">min</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment"># FORNOW: use the smallest buffer size found across all bindings and/or connections</span>
+        <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@send_buffer_size</span> = <span class="ruby-identifier">buffer_sizes</span>.<span class="ruby-identifier">min</span> }
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@send_buffer_size</span> = <span class="ruby-identifier">the_size</span> }
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@send_buffer_size</span>.<span class="ruby-identifier">dup</span> }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">binding</span>(<span class="ruby-identifier">binding_key</span>=<span class="ruby-keyword">nil</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">binding_key</span>
+      <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@bindings</span>[(<span class="ruby-identifier">binding_key</span>)] }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@bindings</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bind</span>(<span class="ruby-identifier">settings</span>={})
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you must supply a hash of keyed bind point(s) for the binding&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">binding_key</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">settings</span>[(<span class="ruby-identifier">binding_key</span>)].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">Generic</span>)
+        <span class="ruby-identifier">address</span> = <span class="ruby-identifier">settings</span>[(<span class="ruby-identifier">binding_key</span>)]
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">address</span> = <span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">settings</span>[(<span class="ruby-identifier">binding_key</span>)])
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment"># address = ::URI::parse(settings[(binding_key)])</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">AbstractZMQSocket</span><span class="ruby-operator">::</span><span class="ruby-identifier">supported_protocols</span>().<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">address</span>.<span class="ruby-identifier">scheme</span>())
+        <span class="ruby-identifier">address</span>.<span class="ruby-identifier">resolve_host</span>()
+        <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;tcp&quot;</span>, <span class="ruby-string">&quot;tcp4&quot;</span>, <span class="ruby-string">&quot;tcp6&quot;</span>, <span class="ruby-string">&quot;udp&quot;</span>, <span class="ruby-string">&quot;udp4&quot;</span>, <span class="ruby-string">&quot;udp6&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">address</span>.<span class="ruby-identifier">scheme</span>())
+          <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM</span>.<span class="ruby-identifier">network_port_used?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Addrinfo</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">address</span>))
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EADDRINUSE</span>, <span class="ruby-node">&quot;Address and port already in use: #{address.to_s}&quot;</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">begin</span>
+          <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+            <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">bind</span>(<span class="ruby-identifier">address</span>.<span class="ruby-identifier">to_s</span>)
+            <span class="ruby-ivar">@bindings</span>[(<span class="ruby-identifier">binding_key</span>)] = <span class="ruby-identifier">address</span>
+          }
+          <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span>
+          <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">close</span> }
+          <span class="ruby-identifier">raise</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{address.scheme().to_s} is an unsupported protocol&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@recv_buffer_size</span> = <span class="ruby-identifier">this</span>.<span class="ruby-identifier">recv_buffer_size</span>()
+    <span class="ruby-ivar">@send_buffer_size</span> = <span class="ruby-identifier">this</span>.<span class="ruby-identifier">send_buffer_size</span>()
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">connection</span>(<span class="ruby-identifier">connection_key</span>=<span class="ruby-keyword">nil</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">connection_key</span>
+      <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@connections</span>[(<span class="ruby-identifier">connection_key</span>)] }
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@connections</span> }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">connect</span>(<span class="ruby-identifier">settings</span>={})
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you must supply a hash of keyed address(es) for the connection&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">connection_key</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">settings</span>[(<span class="ruby-identifier">connection_key</span>)].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">Generic</span>)
+        <span class="ruby-identifier">address</span> = <span class="ruby-identifier">settings</span>[(<span class="ruby-identifier">connection_key</span>)]
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">address</span> = <span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">settings</span>[(<span class="ruby-identifier">connection_key</span>)])
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment"># address = ::URI::parse(settings[(connection_key)])</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">AbstractZMQSocket</span><span class="ruby-operator">::</span><span class="ruby-identifier">supported_protocols</span>().<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">address</span>.<span class="ruby-identifier">scheme</span>())
+        <span class="ruby-identifier">address</span>.<span class="ruby-identifier">resolve_host</span>()
+        <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;tcp&quot;</span>, <span class="ruby-string">&quot;tcp4&quot;</span>, <span class="ruby-string">&quot;tcp6&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">address</span>.<span class="ruby-identifier">scheme</span>())
+          <span class="ruby-keyword">unless</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">SYSTEM</span>.<span class="ruby-identifier">network_port_used?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Addrinfo</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">address</span>))
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">Errno</span><span class="ruby-operator">::</span><span class="ruby-constant">EADDRNOTAVAIL</span>, <span class="ruby-node">&quot;Address and port not bound: #{address.to_s}&quot;</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">begin</span>
+          <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+            <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">connect</span>(<span class="ruby-identifier">address</span>.<span class="ruby-identifier">to_s</span>)
+            <span class="ruby-ivar">@connections</span>[(<span class="ruby-identifier">connection_key</span>)] = <span class="ruby-identifier">address</span>
+          }
+          <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span>
+          <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">close</span>() }
+          <span class="ruby-identifier">raise</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{address.scheme().to_s} is an unsupported protocol&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@recv_buffer_size</span> = <span class="ruby-identifier">this</span>.<span class="ruby-identifier">recv_buffer_size</span>()
+    <span class="ruby-ivar">@send_buffer_size</span> = <span class="ruby-identifier">this</span>.<span class="ruby-identifier">send_buffer_size</span>()
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">close</span>()
+    <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">close</span>() }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">triage_strings</span>(<span class="ruby-identifier">data</span>=[])
+    <span class="ruby-comment"># takes raw output from @socket.recv_strings([]) and separates routing from content</span>
+    <span class="ruby-identifier">result</span> = {<span class="ruby-value">:route</span> <span class="ruby-operator">=&gt;</span> [], <span class="ruby-value">:content</span> <span class="ruby-operator">=&gt;</span> []}
+    <span class="ruby-identifier">prior_element</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-identifier">data</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_element</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment"># Empty strings terminate routes -- Do NOT use in payload as parse element</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_element</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">prior_element</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">result</span>[<span class="ruby-value">:content</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">prior_element</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">prior_element</span> = <span class="ruby-identifier">the_element</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">prior_element</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">result</span>[<span class="ruby-value">:route</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">prior_element</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">prior_element</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">prior_element</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:content</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">prior_element</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">recv</span>(<span class="ruby-identifier">options</span>={<span class="ruby-value">:autojoin</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>})
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">options</span> = {<span class="ruby-value">:autojoin</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>}
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">payload</span> = []
+    <span class="ruby-comment"># @thread_safety.lock</span>
+    <span class="ruby-identifier">status</span> = <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">recv_strings</span>(<span class="ruby-identifier">payload</span>,<span class="ruby-value">0</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">resultcode_ok?</span>(<span class="ruby-identifier">status</span>)
+      <span class="ruby-identifier">data</span> = <span class="ruby-identifier">this</span>.<span class="ruby-identifier">triage_strings</span>(<span class="ruby-identifier">payload</span>)
+      <span class="ruby-keyword">if</span> (<span class="ruby-identifier">data</span>[<span class="ruby-value">:route</span>].<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">data</span>[<span class="ruby-value">:content</span>].<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:autojoin</span>]
+          <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Events</span><span class="ruby-operator">::</span><span class="ruby-constant">Message</span>.<span class="ruby-identifier">new</span>({<span class="ruby-value">:sender</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">this</span>, <span class="ruby-value">:body</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">data</span>[<span class="ruby-value">:content</span>].<span class="ruby-identifier">join</span>(), <span class="ruby-value">:route</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">data</span>[<span class="ruby-value">:route</span>]})
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Events</span><span class="ruby-operator">::</span><span class="ruby-constant">Message</span>.<span class="ruby-identifier">new</span>({<span class="ruby-value">:sender</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">this</span>, <span class="ruby-value">:body</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">data</span>[<span class="ruby-value">:content</span>], <span class="ruby-value">:route</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">data</span>[<span class="ruby-value">:route</span>]})
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">nil</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, (<span class="ruby-string">&quot;ZMQ - &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">Util</span>.<span class="ruby-identifier">error_string</span>())
+      <span class="ruby-keyword">rescue</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+        <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>})
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># @thread_safety.unlock</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">send</span>(<span class="ruby-identifier">data</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">route</span>=[])
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>
+      <span class="ruby-comment"># FORNOW: use the smallest buffer size found across all bindings and/or connections</span>
+      <span class="ruby-identifier">buffer_size</span> = <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@send_buffer_size</span> }
+      <span class="ruby-identifier">payload</span> = []
+      <span class="ruby-identifier">messages</span> = []
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">route</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">route</span> = [(<span class="ruby-identifier">route</span>)]
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Events</span><span class="ruby-operator">::</span><span class="ruby-constant">Message</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">body</span>().<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+          <span class="ruby-identifier">data</span> = [(<span class="ruby-identifier">data</span>.<span class="ruby-identifier">body</span>())]
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">data</span> = [(<span class="ruby-identifier">data</span>.<span class="ruby-identifier">body</span>().<span class="ruby-identifier">serialize</span>())]
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+        <span class="ruby-identifier">data</span> = [(<span class="ruby-identifier">data</span>)]
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">route</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">route</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_route</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_route</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+            <span class="ruby-identifier">payload</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_route</span>.<span class="ruby-identifier">slice_bytes</span>(<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">255</span>)
+            <span class="ruby-identifier">payload</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">payload</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">identity</span>()
+      <span class="ruby-identifier">payload</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">data</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_element</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_element</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_element</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+              <span class="ruby-comment"># Disallow parsing payload with empty strings : used to parse routes</span>
+              <span class="ruby-comment"># Break into appropriate buffer size as needed : respect buffer sizes</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_element</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">buffer_size</span>
+                <span class="ruby-identifier">length</span> = <span class="ruby-identifier">the_element</span>.<span class="ruby-identifier">bytesize</span>()
+                <span class="ruby-identifier">passes</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-identifier">passes_needed</span>(<span class="ruby-identifier">length</span>, <span class="ruby-identifier">buffer_size</span>)
+                <span class="ruby-identifier">total</span> = (<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+                <span class="ruby-identifier">starting</span> = <span class="ruby-value">0</span>
+                <span class="ruby-identifier">ending</span> = ([<span class="ruby-identifier">length</span>,<span class="ruby-identifier">buffer_size</span>].<span class="ruby-identifier">min</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+                <span class="ruby-identifier">passes</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span>
+                  <span class="ruby-identifier">messages</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_element</span>.<span class="ruby-identifier">slice_bytes</span>(<span class="ruby-identifier">starting</span><span class="ruby-operator">..</span><span class="ruby-identifier">ending</span>)
+                  <span class="ruby-comment">#</span>
+                  <span class="ruby-identifier">starting</span> = <span class="ruby-identifier">ending</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+                  <span class="ruby-identifier">ending</span> = (<span class="ruby-identifier">starting</span> <span class="ruby-operator">+</span> (<span class="ruby-identifier">buffer_size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>))
+                  <span class="ruby-keyword">if</span> <span class="ruby-identifier">ending</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">total</span>
+                    <span class="ruby-identifier">ending</span> = <span class="ruby-identifier">ending</span> <span class="ruby-operator">-</span> (<span class="ruby-identifier">ending</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">total</span>)
+                  <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-comment">#</span>
+              <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">messages</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_element</span>
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">messages</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">payload</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">messages</span>
+          <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">flatten!</span>
+          <span class="ruby-identifier">status</span> = <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">send_strings</span>(<span class="ruby-identifier">payload</span>) }
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">status</span> <span class="ruby-operator">==</span> <span class="ruby-value">-1</span>
+            <span class="ruby-keyword">begin</span>
+              <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-string">&quot;ZMQ - Message could not be enqueued.&quot;</span>
+            <span class="ruby-keyword">rescue</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+              <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:data</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">data</span>, <span class="ruby-value">:route</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">route</span>}})
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">ZMQRouter</span> <span class="ruby-operator">&lt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">AbstractZMQSocket</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">settings</span>={})
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you must supply a hash of settings for the socket&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">settings</span>[<span class="ruby-value">:context</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">Context</span>)
+      <span class="ruby-identifier">settings</span>[<span class="ruby-value">:context</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-identifier">zmq_context</span>()
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">settings</span>[<span class="ruby-value">:type</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">ROUTER</span>
+    <span class="ruby-identifier">bindings</span> = (<span class="ruby-identifier">settings</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:bind</span>) <span class="ruby-operator">||</span> {})
+    <span class="ruby-keyword">super</span>(<span class="ruby-identifier">settings</span>)
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">bindings</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">bindings</span>[<span class="ruby-value">:inproc</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-node">&quot;inproc://#{@name}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">this</span>.<span class="ruby-identifier">bind</span>(<span class="ruby-identifier">bindings</span>)
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">this</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">ZMQDealer</span> <span class="ruby-operator">&lt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">AbstractZMQSocket</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">settings</span>={})
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you must supply a hash of settings for the socket&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">settings</span>[<span class="ruby-value">:type</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">DEALER</span>
+    <span class="ruby-keyword">super</span>(<span class="ruby-identifier">settings</span>)
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">this</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">ZMQRequest</span> <span class="ruby-operator">&lt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">AbstractZMQSocket</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">settings</span>={})
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you must supply a hash of settings for the socket&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">settings</span>[<span class="ruby-value">:type</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">REQ</span>
+    <span class="ruby-keyword">super</span>(<span class="ruby-identifier">settings</span>)
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">this</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">ZMQReply</span> <span class="ruby-operator">&lt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">AbstractZMQSocket</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">settings</span>={})
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you must supply a hash of settings for the socket&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">settings</span>[<span class="ruby-value">:type</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">REP</span>
+    <span class="ruby-keyword">super</span>(<span class="ruby-identifier">settings</span>)
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">this</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">ZMQPuller</span> <span class="ruby-operator">&lt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">AbstractZMQSocket</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">settings</span>={})
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you must supply a hash of settings for the socket&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">settings</span>[<span class="ruby-value">:type</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">PULL</span>
+    <span class="ruby-keyword">super</span>(<span class="ruby-identifier">settings</span>)
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">this</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">send</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-comment"># no-op</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">ZMQPusher</span> <span class="ruby-operator">&lt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">AbstractZMQSocket</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">settings</span>={})
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you must supply a hash of settings for the socket&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">settings</span>[<span class="ruby-value">:type</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">PUSH</span>
+    <span class="ruby-keyword">super</span>(<span class="ruby-identifier">settings</span>)
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">this</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">recv</span>()
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">ZMQPair</span> <span class="ruby-operator">&lt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">AbstractZMQSocket</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">settings</span>={})
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you must supply a hash of settings for the socket&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">settings</span>[<span class="ruby-value">:type</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">PAIR</span>
+    <span class="ruby-keyword">super</span>(<span class="ruby-identifier">settings</span>)
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">this</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">ZMQSubscriber</span> <span class="ruby-operator">&lt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">AbstractZMQSocket</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">settings</span>={})
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you must supply a hash of settings for the socket&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">settings</span>[<span class="ruby-value">:type</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">SUB</span>
+    <span class="ruby-keyword">super</span>(<span class="ruby-identifier">settings</span>)
+    <span class="ruby-ivar">@topics</span> = []
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">this</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">topics</span>()
+    <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@topics</span>.<span class="ruby-identifier">dup</span> }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">subscribe_topic</span>(<span class="ruby-identifier">the_topic</span>=<span class="ruby-keyword">nil</span>)
+    <span class="ruby-identifier">the_topic</span> = <span class="ruby-identifier">the_topic</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_topic</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">255</span>
+      <span class="ruby-identifier">the_topic</span> = <span class="ruby-identifier">the_topic</span>.<span class="ruby-identifier">slice_bytes</span>(<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">255</span>).<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_topic</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+        <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@topics</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">the_topic</span>)
+          <span class="ruby-ivar">@topics</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_topic</span>
+          <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">setsockopt</span>(<span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">SUBSCRIBE</span>,<span class="ruby-identifier">the_topic</span>)
+        <span class="ruby-keyword">end</span>
+      }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">unsubscribe_topic</span>(<span class="ruby-identifier">the_topic</span>=<span class="ruby-keyword">nil</span>)
+    <span class="ruby-identifier">the_topic</span> = <span class="ruby-identifier">the_topic</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_topic</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">255</span>
+      <span class="ruby-identifier">the_topic</span> = <span class="ruby-identifier">the_topic</span>.<span class="ruby-identifier">slice_bytes</span>(<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">255</span>).<span class="ruby-identifier">to_s</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_topic</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-ivar">@thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@topics</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">the_topic</span>)
+          <span class="ruby-ivar">@topics</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">the_topic</span>)
+          <span class="ruby-ivar">@socket</span>.<span class="ruby-identifier">setsockopt</span>(<span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">UNSUBSCRIBE</span>,<span class="ruby-identifier">the_topic</span>)
+        <span class="ruby-keyword">end</span>
+      }
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">send</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-comment"># no-op</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">ZMQPublisher</span> <span class="ruby-operator">&lt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">AbstractZMQSocket</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">settings</span>={})
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you must supply a hash of settings for the socket&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">settings</span>[<span class="ruby-value">:type</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">PUB</span>
+    <span class="ruby-identifier">bindings</span> = (<span class="ruby-identifier">settings</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:bind</span>) <span class="ruby-operator">||</span> {})
+    <span class="ruby-keyword">super</span>(<span class="ruby-identifier">settings</span>)
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">bindings</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">bindings</span>[<span class="ruby-value">:inproc</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-node">&quot;inproc://#{@name}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">this</span>.<span class="ruby-identifier">bind</span>(<span class="ruby-identifier">bindings</span>)
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">this</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">recv</span>()
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">publish</span>(<span class="ruby-identifier">the_data</span>=<span class="ruby-keyword">nil</span>,<span class="ruby-identifier">the_topic</span>=<span class="ruby-keyword">nil</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_data</span>
+      <span class="ruby-identifier">the_topic</span> = <span class="ruby-identifier">the_topic</span>.<span class="ruby-identifier">to_s</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_topic</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">255</span>
+        <span class="ruby-identifier">the_topic</span> = <span class="ruby-identifier">the_topic</span>.<span class="ruby-identifier">slice_bytes</span>(<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">255</span>).<span class="ruby-identifier">to_s</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_topic</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">this</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">the_data</span>,[(<span class="ruby-identifier">the_topic</span>)])
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">this</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">the_data</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+
+<span class="ruby-keyword">class</span> <span class="ruby-constant">ZMQ_RequestReplyBroker</span> <span class="ruby-operator">&lt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Events</span><span class="ruby-operator">::</span><span class="ruby-constant">Actor</span>
+  <span class="ruby-comment"># class ZMQ_RequestReplyBroker is a derivative work based upon: http://zguide.zeromq.org/rb:rrbroker Copyright (c) 2013 iMatix Corporation</span>
+  <span class="ruby-comment"># accordingly, class ZMQ_RequestReplyBroker is licensed under this license: http://creativecommons.org/licenses/by-sa/3.0/legalcode</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">settings</span>={})
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You must provide a hash of settings for the Broker.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">settings</span>[<span class="ruby-value">:frontend</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">Generic</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You must provide a URI as :frontend.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">settings</span>[<span class="ruby-value">:backend</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">Generic</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You must provide a URI as :backend.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">super</span>()
+    <span class="ruby-comment">#</span>
+    <span class="ruby-ivar">@context</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-identifier">zmq_context</span>()
+    <span class="ruby-ivar">@frontend</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">ZMQRouter</span>.<span class="ruby-identifier">new</span>({<span class="ruby-value">:context</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-ivar">@context</span>, <span class="ruby-value">:bind</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:frontend</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">settings</span>[<span class="ruby-value">:frontend</span>]}})
+    <span class="ruby-ivar">@backend</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">ZMQDealer</span>.<span class="ruby-identifier">new</span>({<span class="ruby-value">:context</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-ivar">@context</span>, <span class="ruby-value">:bind</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:backend</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">settings</span>[<span class="ruby-value">:backend</span>]}})
+    <span class="ruby-comment"># @queue = ::ZMQ::Device.new(::ZMQ::QUEUE, @frontend.socket(), @backend.socket())</span>
+    <span class="ruby-ivar">@queue</span> = <span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">Poller</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">register</span>(<span class="ruby-ivar">@frontend</span>.<span class="ruby-identifier">socket</span>(), <span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">POLLIN</span>)
+    <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">register</span>(<span class="ruby-ivar">@backend</span>.<span class="ruby-identifier">socket</span>(), <span class="ruby-operator">::</span><span class="ruby-constant">ZMQ</span><span class="ruby-operator">::</span><span class="ruby-constant">POLLIN</span>)
+    <span class="ruby-comment">#</span>
+    <span class="ruby-ivar">@circulating</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-ivar">@is_circulating</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-ivar">@circulate_safety</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">this</span>.<span class="ruby-identifier">resume_circulating</span>()
+    <span class="ruby-operator">::</span><span class="ruby-constant">Celluloid</span><span class="ruby-operator">::</span><span class="ruby-identifier">current_actor</span>()
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">terminate</span>()
+    <span class="ruby-identifier">this</span>.<span class="ruby-identifier">halt_circulating</span>()
+    <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">deregister</span>(<span class="ruby-ivar">@frontend</span>.<span class="ruby-identifier">socket</span>())
+    <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">deregister</span>(<span class="ruby-ivar">@backend</span>.<span class="ruby-identifier">socket</span>())
+    <span class="ruby-ivar">@frontend</span>.<span class="ruby-identifier">close</span>()
+    <span class="ruby-ivar">@backend</span>.<span class="ruby-identifier">close</span>()
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">super</span>()
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">circulating?</span>()
+    <span class="ruby-ivar">@circulate_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@circulating</span> }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">halt_circulating</span>()
+    <span class="ruby-ivar">@circulate_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@circulating</span> = <span class="ruby-keyword">false</span> }
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">resume_circulating</span>()
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">this</span>.<span class="ruby-identifier">circulating?</span>()
+      <span class="ruby-ivar">@circulate_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@circulating</span> = <span class="ruby-keyword">true</span> }
+      <span class="ruby-identifier">this</span>.<span class="ruby-identifier">async</span>.<span class="ruby-identifier">circulate</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">circulate</span>()
+    <span class="ruby-comment"># Circulate Data as required</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">this</span>.<span class="ruby-identifier">alive?</span>()
+      <span class="ruby-identifier">front_socket</span> = <span class="ruby-ivar">@frontend</span>.<span class="ruby-identifier">socket</span>()
+      <span class="ruby-identifier">front_id</span> = <span class="ruby-ivar">@frontend</span>.<span class="ruby-identifier">identity</span>()
+      <span class="ruby-identifier">back_socket</span> = <span class="ruby-ivar">@backend</span>.<span class="ruby-identifier">socket</span>()
+      <span class="ruby-identifier">back_id</span> = <span class="ruby-ivar">@frontend</span>.<span class="ruby-identifier">identity</span>()
+      <span class="ruby-identifier">busy</span> = <span class="ruby-ivar">@circulate_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@is_circulating</span> }
+      <span class="ruby-keyword">while</span> (<span class="ruby-identifier">this</span>.<span class="ruby-identifier">circulating?</span>() <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-identifier">busy</span>) <span class="ruby-keyword">do</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-ivar">@circulate_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@is_circulating</span> = <span class="ruby-keyword">true</span> }
+        <span class="ruby-ivar">@circulate_safety</span>.<span class="ruby-identifier">lock</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">poll</span>(<span class="ruby-value">:blocking</span>)
+        <span class="ruby-ivar">@queue</span>.<span class="ruby-identifier">readables</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_socket</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_socket</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">front_socket</span>
+            <span class="ruby-identifier">data</span> = <span class="ruby-ivar">@frontend</span>.<span class="ruby-identifier">triage_strings</span>(<span class="ruby-identifier">the_socket</span>.<span class="ruby-identifier">recv_strings</span>([]))
+            <span class="ruby-identifier">payload</span> = []
+            <span class="ruby-keyword">if</span> (<span class="ruby-identifier">data</span>[<span class="ruby-value">:route</span>].<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">data</span>[<span class="ruby-value">:content</span>].<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+              <span class="ruby-identifier">data</span>[<span class="ruby-value">:route</span>].<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_route</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">payload</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_route</span>
+                <span class="ruby-identifier">payload</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+              <span class="ruby-keyword">end</span>
+              <span class="ruby-identifier">payload</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">back_id</span>
+              <span class="ruby-identifier">payload</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+              <span class="ruby-identifier">payload</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>[<span class="ruby-value">:content</span>]
+              <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">flatten!</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+                <span class="ruby-identifier">back_socket</span>.<span class="ruby-identifier">send_strings</span>(<span class="ruby-identifier">payload</span>)
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_socket</span> <span class="ruby-operator">===</span> <span class="ruby-identifier">back_socket</span>
+            <span class="ruby-identifier">data</span> = <span class="ruby-ivar">@backend</span>.<span class="ruby-identifier">triage_strings</span>(<span class="ruby-identifier">the_socket</span>.<span class="ruby-identifier">recv_strings</span>([]))
+            <span class="ruby-identifier">payload</span> = []
+            <span class="ruby-keyword">if</span> (<span class="ruby-identifier">data</span>[<span class="ruby-value">:route</span>].<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">data</span>[<span class="ruby-value">:content</span>].<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+              <span class="ruby-identifier">data</span>[<span class="ruby-value">:route</span>].<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_route</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">payload</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_route</span>
+                <span class="ruby-identifier">payload</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+              <span class="ruby-keyword">end</span>
+              <span class="ruby-identifier">payload</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">front_id</span>
+              <span class="ruby-identifier">payload</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;&quot;</span>
+              <span class="ruby-identifier">payload</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>[<span class="ruby-value">:content</span>]
+              <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">flatten!</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">payload</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+                <span class="ruby-identifier">front_socket</span>.<span class="ruby-identifier">send_strings</span>(<span class="ruby-identifier">payload</span>)
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-ivar">@circulate_safety</span>.<span class="ruby-identifier">unlock</span>
+        <span class="ruby-ivar">@circulate_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@is_circulating</span> = <span class="ruby-keyword">false</span> }
+        <span class="ruby-identifier">busy</span> = <span class="ruby-ivar">@circulate_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@is_circulating</span> }
+        <span class="ruby-comment">#</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">this</span>.<span class="ruby-identifier">alive?</span>()
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">this</span>.<span class="ruby-identifier">circulating?</span>()
+            <span class="ruby-identifier">sleep</span> <span class="ruby-value">0.033</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>Deprecated: completely rethink this.</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 1026</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment">#</span>
+  <span class="ruby-ivar">@zmq_thread_safety</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Mutex</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-ivar">@zmq_processing</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@zmq_is_processing</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@zmq_processing_handler</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@zmq_processing_error_handler</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@zmq_inputs</span> = {}
+  <span class="ruby-ivar">@zmq_outputs</span> = {}
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_zmq_input" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_zmq_input</span><span
+            class="method-args">(the_key=nil, the_socket=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_zmq_input-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 1062</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_zmq_input</span>(<span class="ruby-identifier">the_key</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">the_socket</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">valid</span> = [<span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">ZMQPair</span>, <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">ZMQPuller</span>, <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">ZMQSubscriber</span>, <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">ZMQReply</span>, <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">ZMQRequest</span>]
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_key</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Symbol</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you need so supply a unique symbol key for the socket&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@zmq_inputs</span>[(<span class="ruby-identifier">the_key</span>)] })
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;inputs already exists, you need so supply a unique symbol key for the socket&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_socket</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-identifier">valid</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;you supplied a #{the_socket.class.inspect}, you need so supply one of these as socket type: #{valid.inspect}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@zmq_inputs</span>[(<span class="ruby-identifier">the_key</span>)] = <span class="ruby-identifier">the_socket</span> }
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-add_zmq_output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_zmq_output</span><span
+            class="method-args">(the_key=nil, the_socket=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_zmq_output-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 1100</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_zmq_output</span>(<span class="ruby-identifier">the_key</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">the_socket</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">valid</span> = [<span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">ZMQPair</span>, <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">ZMQPusher</span>, <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">ZMQPublisher</span>, <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">ZMQReply</span>, <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Networking</span><span class="ruby-operator">::</span><span class="ruby-constant">ZMQRequest</span>]
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_key</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Symbol</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you need so supply a unique symbol key for the socket&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@zmq_outputs</span>[(<span class="ruby-identifier">the_key</span>)] })
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;inputs already exists, you need so supply a unique symbol key for the socket&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_socket</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-identifier">valid</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;you supplied a #{the_socket.class.inspect}, you need so supply one of these as socket type: #{valid.inspect}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@zmq_outputs</span>[(<span class="ruby-identifier">the_key</span>)] = <span class="ruby-identifier">the_socket</span> }
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-halt_zmq_processing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">halt_zmq_processing</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="halt_zmq_processing-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 1167</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">halt_zmq_processing</span>()
+  <span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@zmq_processing</span> = <span class="ruby-keyword">false</span>;<span class="ruby-ivar">@zmq_is_processing</span> = <span class="ruby-keyword">false</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_zmq_input" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_zmq_input</span><span
+            class="method-args">(the_key=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remove_zmq_input-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 1078</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_zmq_input</span>(<span class="ruby-identifier">the_key</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">the_inputs</span> = <span class="ruby-identifier">this</span>.<span class="ruby-identifier">zmq_inputs</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_inputs</span>[(<span class="ruby-identifier">the_key</span>)]
+    <span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@zmq_inputs</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">the_key</span>) }
+    <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_zmq_output" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_zmq_output</span><span
+            class="method-args">(the_key=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remove_zmq_output-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 1116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_zmq_output</span>(<span class="ruby-identifier">the_key</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">the_outputs</span> = <span class="ruby-identifier">this</span>.<span class="ruby-identifier">zmq_outputs</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_outputs</span>[(<span class="ruby-identifier">the_key</span>)]
+    <span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@zmq_outputs</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">the_key</span>) }
+    <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-resume_zmq_processing" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resume_zmq_processing</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="resume_zmq_processing-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 1171</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">resume_zmq_processing</span>()
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">this</span>.<span class="ruby-identifier">processing?</span>()
+    <span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@zmq_processing</span> = <span class="ruby-keyword">true</span> }
+    <span class="ruby-identifier">this</span>.<span class="ruby-identifier">async</span>.<span class="ruby-identifier">zmq_process</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-terminate" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">terminate</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="terminate-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 1039</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">terminate</span>()
+  <span class="ruby-comment"># Halt any zmq processing first</span>
+  <span class="ruby-identifier">this</span>.<span class="ruby-identifier">halt_zmq_processing</span>()
+  <span class="ruby-comment"># Remove any references to input and output sockets</span>
+  <span class="ruby-comment"># Question: should I close all input/output sockets here???</span>
+  <span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-ivar">@zmq_inputs</span> = {}
+    <span class="ruby-ivar">@zmq_outputs</span> = {}
+  }
+  <span class="ruby-keyword">super</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-zmq_error_handler" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zmq_error_handler</span><span
+            class="method-args">(params={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="zmq_error_handler-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 1145</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">zmq_error_handler</span>(<span class="ruby-identifier">params</span>={})
+  <span class="ruby-identifier">result</span> = {<span class="ruby-value">:result</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>}
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-value">:Hash</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you must provide a Hash as parameter container&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:block</span>].<span class="ruby-identifier">respond_to</span>(<span class="ruby-value">:call</span>)
+      <span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@zmq_processing_error_handler</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:block</span>] }
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:result</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you must provide something that responds to :call with the :block parameter&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">params</span>})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-zmq_handler" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zmq_handler</span><span
+            class="method-args">(params={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="zmq_handler-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 1127</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">zmq_handler</span>(<span class="ruby-identifier">params</span>={})
+  <span class="ruby-identifier">result</span> = {<span class="ruby-value">:result</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>}
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-value">:Hash</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you must provide a Hash as parameter container&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:block</span>].<span class="ruby-identifier">respond_to</span>(<span class="ruby-value">:call</span>)
+      <span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@zmq_processing_handler</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:block</span>] }
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:result</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you must provide something that responds to :call with the :block parameter&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">params</span>})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-zmq_inputs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zmq_inputs</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="zmq_inputs-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 1051</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">zmq_inputs</span>()
+  <span class="ruby-identifier">result</span> = {}
+  <span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-ivar">@zmq_inputs</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_key</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">result</span>[(<span class="ruby-identifier">the_key</span>)] = <span class="ruby-ivar">@zmq_inputs</span>[(<span class="ruby-identifier">the_key</span>)]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+  }
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-zmq_outputs" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zmq_outputs</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="zmq_outputs-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 1089</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">zmq_outputs</span>()
+  <span class="ruby-identifier">result</span> = {}
+  <span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> {
+    <span class="ruby-ivar">@zmq_outputs</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_key</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">result</span>[(<span class="ruby-identifier">the_key</span>)] = <span class="ruby-ivar">@zmq_outputs</span>[(<span class="ruby-identifier">the_key</span>)]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+  }
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-zmq_process" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zmq_process</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="zmq_process-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 1178</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">zmq_process</span>()
+  <span class="ruby-comment"># Process items on the zmq inputs and potentially send things via outputs</span>
+  <span class="ruby-keyword">while</span> (<span class="ruby-identifier">this</span>.<span class="ruby-identifier">zmq_processing?</span>() <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span>(<span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@zmq_is_processing</span> })) <span class="ruby-keyword">do</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@zmq_is_processing</span> = <span class="ruby-keyword">true</span> }
+    <span class="ruby-comment"># Process event item</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">my_handler</span> = <span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@zmq_processing_error_handler</span> }
+      <span class="ruby-keyword">begin</span>
+        <span class="ruby-identifier">processor</span> = <span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@zmq_processing_handler</span> }
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">processor</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+          <span class="ruby-identifier">processor</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">this</span>, <span class="ruby-identifier">this</span>.<span class="ruby-identifier">zmq_inputs</span>(), <span class="ruby-identifier">this</span>.<span class="ruby-identifier">zmq_outputs</span>())
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+        <span class="ruby-comment"># TODO: Revise logging/error-handling system generally, after display manager construction</span>
+        <span class="ruby-identifier">this</span>.<span class="ruby-identifier">halt_zmq_processing</span>()
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">my_handler</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+          <span class="ruby-comment"># error handler provided</span>
+          <span class="ruby-identifier">my_handler</span>.<span class="ruby-identifier">call</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>})
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-comment"># log error and forget about it</span>
+          <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>})
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">error_handling</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">error_handling</span>})
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@zmq_is_processing</span> = <span class="ruby-keyword">false</span> }
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">this</span>.<span class="ruby-identifier">alive?</span>()
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">this</span>.<span class="ruby-identifier">zmq_processing?</span>()
+        <span class="ruby-identifier">sleep</span> <span class="ruby-value">0.033</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-zmq_processing-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">zmq_processing?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="zmq_processing-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_zmq.rb, line 1163</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">zmq_processing?</span>()
+  <span class="ruby-ivar">@zmq_thread_safety</span>.<span class="ruby-identifier">synchronize</span> { <span class="ruby-ivar">@zmq_processing</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

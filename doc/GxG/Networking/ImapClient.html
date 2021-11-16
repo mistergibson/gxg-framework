@@ -1,0 +1,1965 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class GxG::Networking::ImapClient - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-add_message_flags">#add_message_flags</a>
+    
+    <li ><a href="#method-i-capability">#capability</a>
+    
+    <li ><a href="#method-i-connector">#connector</a>
+    
+    <li ><a href="#method-i-copy_to_mailbox">#copy_to_mailbox</a>
+    
+    <li ><a href="#method-i-create_mailbox">#create_mailbox</a>
+    
+    <li ><a href="#method-i-fetch_manifest">#fetch_manifest</a>
+    
+    <li ><a href="#method-i-fetch_message">#fetch_message</a>
+    
+    <li ><a href="#method-i-get_quota">#get_quota</a>
+    
+    <li ><a href="#method-i-inspect">#inspect</a>
+    
+    <li ><a href="#method-i-list">#list</a>
+    
+    <li ><a href="#method-i-list_subscriptions">#list_subscriptions</a>
+    
+    <li ><a href="#method-i-login">#login</a>
+    
+    <li ><a href="#method-i-logout">#logout</a>
+    
+    <li ><a href="#method-i-mount">#mount</a>
+    
+    <li ><a href="#method-i-mount_mode">#mount_mode</a>
+    
+    <li ><a href="#method-i-mounted-3F">#mounted?</a>
+    
+    <li ><a href="#method-i-move_to_mailbox">#move_to_mailbox</a>
+    
+    <li ><a href="#method-i-remove_mailbox">#remove_mailbox</a>
+    
+    <li ><a href="#method-i-remove_message_flags">#remove_message_flags</a>
+    
+    <li ><a href="#method-i-remove_messages">#remove_messages</a>
+    
+    <li ><a href="#method-i-rename_mailbox">#rename_mailbox</a>
+    
+    <li ><a href="#method-i-set_message_attributes">#set_message_attributes</a>
+    
+    <li ><a href="#method-i-sort">#sort</a>
+    
+    <li ><a href="#method-i-status">#status</a>
+    
+    <li ><a href="#method-i-subscribe">#subscribe</a>
+    
+    <li ><a href="#method-i-theaded_list">#theaded_list</a>
+    
+    <li ><a href="#method-i-uid_list">#uid_list</a>
+    
+    <li ><a href="#method-i-unmount">#unmount</a>
+    
+    <li ><a href="#method-i-unsubscribe">#unsubscribe</a>
+    
+    <li ><a href="#method-i-upload_message">#upload_message</a>
+    
+    <li ><a href="#method-i-xlist">#xlist</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-GxG::Networking::ImapClient">
+  <h1 id="class-GxG::Networking::ImapClient" class="class">
+    class GxG::Networking::ImapClient
+  </h1>
+
+  <section class="description">
+    
+<p>To Generate OAuth2 Tokens, See: <a href="https://github.com/google/gmail-oauth2-tools">github.com/google/gmail-oauth2-tools</a> IMAP Classes:</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(host=nil, port=nil, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 532</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">host</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">port</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">port</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">options</span> = <span class="ruby-identifier">port</span>
+    <span class="ruby-identifier">port</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@password</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@client</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@host</span> = <span class="ruby-identifier">host</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@host</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a HOST String.&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:use_ssl</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-ivar">@port</span> = (<span class="ruby-identifier">port</span> <span class="ruby-operator">||</span> <span class="ruby-value">993</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@port</span> = (<span class="ruby-identifier">port</span> <span class="ruby-operator">||</span> <span class="ruby-value">143</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@port</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a valid PORT Integer.&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-ivar">@capability</span> = []
+  <span class="ruby-comment">#</span>
+  <span class="ruby-ivar">@mounted</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@mount_mode</span> = <span class="ruby-value">:read</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:use_ssl</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:ignore_ssl_errors</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+      <span class="ruby-ivar">@client</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">IMAP</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@host</span>, <span class="ruby-ivar">@port</span>, <span class="ruby-keyword">true</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-keyword">false</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@client</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">IMAP</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@host</span>, <span class="ruby-ivar">@port</span>, <span class="ruby-keyword">true</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@client</span> = <span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">IMAP</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@host</span>, <span class="ruby-ivar">@port</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@capability</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">capability</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-add_message_flags" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">add_message_flags</span><span
+            class="method-args">(uid=nil, flags=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="add_message_flags-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 1041</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">add_message_flags</span>(<span class="ruby-identifier">uid</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">flags</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">uid</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify a UID name to set FLAGS.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify what FLAGS to set.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_message_attributes</span>(<span class="ruby-identifier">uid</span>, <span class="ruby-string">&quot;+FLAGS&quot;</span>, <span class="ruby-identifier">flags</span>)
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:uid_set</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">uid</span>, <span class="ruby-value">:flags</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">flags</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-capability" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">capability</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="capability-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 576</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">capability</span>()
+  <span class="ruby-ivar">@capability</span>.<span class="ruby-identifier">clone</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-connector" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">connector</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>???</p>
+          
+          
+
+          
+          <div class="method-source-code" id="connector-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 528</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">connector</span>()
+  <span class="ruby-ivar">@client</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-copy_to_mailbox" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">copy_to_mailbox</span><span
+            class="method-args">(uid=nil, mailbox=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="copy_to_mailbox-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 1096</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">copy_to_mailbox</span>(<span class="ruby-identifier">uid</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">mailbox</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">uid</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify a UID to copy the message.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mailbox</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify a MAILBOX to copy the message to.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">uid_copy</span>(<span class="ruby-identifier">uid</span>, <span class="ruby-identifier">mailbox</span>)
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:uid_set</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">uid</span>, <span class="ruby-value">:mailbox</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">mailbox</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_mailbox" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_mailbox</span><span
+            class="method-args">(mailbox=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_mailbox-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 1253</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create_mailbox</span>(<span class="ruby-identifier">mailbox</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mailbox</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify a MAILBOX name to create it.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">mailbox</span>)
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:mailbox</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">mailbox</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_manifest" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_manifest</span><span
+            class="method-args">(uid_set=[])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_manifest-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 1134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fetch_manifest</span>(<span class="ruby-identifier">uid_set</span>=[])
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mounted?</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-string">&quot;You MUST mount a Mailbox prior to calling this operation.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">uid_set</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>)
+        <span class="ruby-identifier">uid_set</span> = [(<span class="ruby-identifier">uid_set</span>)]
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">uid_set</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide an Array of Message UID Integers.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-identifier">parse_header</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_raw_message</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">header</span> = {}
+        <span class="ruby-identifier">parser</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Mail</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">the_raw_message</span>)
+        <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">header_fields</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">field</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">the_key</span> = <span class="ruby-identifier">field</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_sym</span>
+          <span class="ruby-identifier">the_data</span> = <span class="ruby-identifier">field</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">transcode</span>({<span class="ruby-value">:replace</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;.&quot;</span>},<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)
+          <span class="ruby-identifier">the_data</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;         &quot;</span>,<span class="ruby-string">&quot;&quot;</span>)
+          <span class="ruby-identifier">the_data</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;        &quot;</span>,<span class="ruby-string">&quot;&quot;</span>)
+          <span class="ruby-identifier">the_data</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;   &quot;</span>,<span class="ruby-string">&quot;&quot;</span>)
+          <span class="ruby-identifier">the_data</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;\r\n&quot;</span>,<span class="ruby-string">&quot;&quot;</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">header</span>[(<span class="ruby-identifier">the_key</span>)]
+            <span class="ruby-keyword">unless</span> <span class="ruby-identifier">header</span>[(<span class="ruby-identifier">the_key</span>)].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+              <span class="ruby-identifier">header</span>[(<span class="ruby-identifier">the_key</span>)] = [(<span class="ruby-identifier">header</span>[(<span class="ruby-identifier">the_key</span>)])]
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">header</span>[(<span class="ruby-identifier">the_key</span>)] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_data</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">header</span>[(<span class="ruby-identifier">the_key</span>)] = <span class="ruby-identifier">the_data</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">header</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-identifier">uid_set</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">uid</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">record</span> = {<span class="ruby-value">:uid</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">uid</span>, <span class="ruby-value">:date</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:from</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:to</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:subject</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;&quot;</span>}
+        <span class="ruby-identifier">raw_response</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">uid_fetch</span>(<span class="ruby-identifier">uid</span>,<span class="ruby-string">&quot;BODY[HEADER]&quot;</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">raw_response</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">raw_response</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+            <span class="ruby-identifier">header</span> = <span class="ruby-identifier">parse_header</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">raw_response</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">attr</span>()[<span class="ruby-string">&quot;BODY[HEADER]&quot;</span>])
+            <span class="ruby-identifier">record</span>[<span class="ruby-value">:date</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">parse</span>(<span class="ruby-identifier">header</span>[<span class="ruby-value">:Date</span>].<span class="ruby-identifier">to_s</span>)
+            <span class="ruby-identifier">record</span>[<span class="ruby-value">:from</span>] = <span class="ruby-identifier">header</span>[<span class="ruby-value">:From</span>]
+            <span class="ruby-identifier">record</span>[<span class="ruby-value">:to</span>] = <span class="ruby-identifier">header</span>[<span class="ruby-value">:To</span>]
+            <span class="ruby-identifier">record</span>[<span class="ruby-value">:subject</span>] = <span class="ruby-identifier">header</span>[<span class="ruby-value">:Subject</span>]
+            <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">record</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:uid_set</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">uid_set</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fetch_message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fetch_message</span><span
+            class="method-args">(uid=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fetch_message-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 918</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fetch_message</span>(<span class="ruby-identifier">uid</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mounted?</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-string">&quot;You MUST mount a Mailbox prior to calling this operation.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">uid</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide an Integer to specify the Message UID Number.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">parse_message</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_raw_message</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">header</span> = {}
+        <span class="ruby-identifier">body</span> = []
+        <span class="ruby-identifier">attachments</span> = []
+        <span class="ruby-identifier">parser</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Mail</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">the_raw_message</span>)
+        <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">header_fields</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">field</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">the_key</span> = <span class="ruby-identifier">field</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_sym</span>
+          <span class="ruby-identifier">the_data</span> = <span class="ruby-identifier">field</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">transcode</span>({<span class="ruby-value">:replace</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;.&quot;</span>},<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)
+          <span class="ruby-identifier">the_data</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;         &quot;</span>,<span class="ruby-string">&quot;&quot;</span>)
+          <span class="ruby-identifier">the_data</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;        &quot;</span>,<span class="ruby-string">&quot;&quot;</span>)
+          <span class="ruby-identifier">the_data</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;   &quot;</span>,<span class="ruby-string">&quot;&quot;</span>)
+          <span class="ruby-identifier">the_data</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;\r\n&quot;</span>,<span class="ruby-string">&quot;&quot;</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">header</span>[(<span class="ruby-identifier">the_key</span>)]
+            <span class="ruby-keyword">unless</span> <span class="ruby-identifier">header</span>[(<span class="ruby-identifier">the_key</span>)].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+              <span class="ruby-identifier">header</span>[(<span class="ruby-identifier">the_key</span>)] = [(<span class="ruby-identifier">header</span>[(<span class="ruby-identifier">the_key</span>)])]
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">header</span>[(<span class="ruby-identifier">the_key</span>)] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_data</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">header</span>[(<span class="ruby-identifier">the_key</span>)] = <span class="ruby-identifier">the_data</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">multipart?</span>
+          <span class="ruby-identifier">link_db</span> = []
+          <span class="ruby-identifier">body</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:preamble</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">preamble</span>}
+          <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">parts</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">part</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">multipart?</span>
+              <span class="ruby-identifier">link_db</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">part</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">attachment?</span>
+                <span class="ruby-identifier">attachments</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:content_type</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:type</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">mime_type</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">content_type_parameters</span>}, <span class="ruby-value">:filename</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">filename</span>, <span class="ruby-value">:path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:content</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">ByteArray</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">part</span>.<span class="ruby-identifier">decoded</span>)}
+              <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">body</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:content_type</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:type</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">mime_type</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">content_type_parameters</span>}, <span class="ruby-value">:content</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">transcode</span>({<span class="ruby-value">:replace</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;.&quot;</span>},<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)}
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">while</span> <span class="ruby-identifier">link_db</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword">do</span>
+            <span class="ruby-identifier">part</span> = <span class="ruby-identifier">link_db</span>.<span class="ruby-identifier">shift</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">multipart?</span>
+              <span class="ruby-identifier">part</span>.<span class="ruby-identifier">parts</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_sub_part</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">link_db</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_sub_part</span>
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">attachment?</span>
+                <span class="ruby-identifier">attachments</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:content_type</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:type</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">mime_type</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">content_type_parameters</span>}, <span class="ruby-value">:filename</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">filename</span>, <span class="ruby-value">:path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:content</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">ByteArray</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">part</span>.<span class="ruby-identifier">decoded</span>)}
+              <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">body</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:content_type</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:type</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">mime_type</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">content_type_parameters</span>}, <span class="ruby-value">:content</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">part</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">transcode</span>({<span class="ruby-value">:replace</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;.&quot;</span>},<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)}
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">body</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:epilogue</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">epilogue</span>}
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">body</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:preamble</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">preamble</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">transcode</span>({<span class="ruby-value">:replace</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;.&quot;</span>},<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)}
+          <span class="ruby-identifier">mime_type</span> = <span class="ruby-string">&quot;text/plain&quot;</span>
+          <span class="ruby-identifier">parameters</span> = {<span class="ruby-string">&quot;charset&quot;</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;UTF-8&quot;</span>}
+          <span class="ruby-identifier">body_text</span> = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">transcode</span>({<span class="ruby-value">:replace</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;.&quot;</span>},<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">body_text</span>.<span class="ruby-identifier">xml?</span>
+            <span class="ruby-identifier">mime_type</span> = <span class="ruby-string">&quot;text/xml&quot;</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">body_text</span>.<span class="ruby-identifier">html?</span>
+            <span class="ruby-identifier">mime_type</span> = <span class="ruby-string">&quot;text/html&quot;</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">body</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:content_type</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:type</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">mime_type</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">parameters</span>}, <span class="ruby-value">:content</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">body_text</span>}
+          <span class="ruby-identifier">body</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:epilogue</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">body</span>.<span class="ruby-identifier">epilogueto_s</span>.<span class="ruby-identifier">transcode</span>({<span class="ruby-value">:replace</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;.&quot;</span>},<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)}
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">gxg_message</span> = <span class="ruby-identifier">new_message</span>
+        <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:sender</span>] = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">from</span>
+        <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:id</span>] = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">message_id</span>
+        <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:to</span>] = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">to</span>
+        <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:cc</span>] = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">cc</span>
+        <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:bcc</span>] = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">bcc</span>
+        <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:subject</span>] = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">subject</span>
+        <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:date</span>] = <span class="ruby-identifier">parser</span>.<span class="ruby-identifier">date</span>
+        <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:header</span>] = <span class="ruby-identifier">header</span>
+        <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:body</span>] = <span class="ruby-identifier">body</span>
+        <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:attachments</span>] = <span class="ruby-identifier">attachments</span>
+        <span class="ruby-identifier">gxg_message</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-identifier">raw_response</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">uid_fetch</span>(<span class="ruby-identifier">uid</span>,<span class="ruby-string">&quot;BODY[]&quot;</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">raw_response</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">raw_response</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">result</span> = <span class="ruby-identifier">parse_message</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">raw_response</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">attr</span>()[<span class="ruby-string">&quot;BODY[]&quot;</span>])
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:unique_id</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">uid</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-get_quota" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">get_quota</span><span
+            class="method-args">(mailbox=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="get_quota-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 1353</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">get_quota</span>(<span class="ruby-identifier">mailbox</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mailbox</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify a MAILBOX name.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">raw_response</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">getquotaroot</span>(<span class="ruby-identifier">mailbox</span>)[<span class="ruby-value">1</span>]
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">raw_response</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">IMAP</span><span class="ruby-operator">::</span><span class="ruby-constant">MailboxQuota</span>)
+        <span class="ruby-identifier">result</span> = {<span class="ruby-value">:usage</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">raw_response</span>.<span class="ruby-identifier">usage</span>.<span class="ruby-identifier">to_i</span>, <span class="ruby-value">:quota</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">raw_response</span>.<span class="ruby-identifier">quota</span>.<span class="ruby-identifier">to_i</span>}
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:mailbox</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">mailbox</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 572</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inspect</span>()
+  <span class="ruby-node">&quot;&lt;ImapClient: User: #{@user.inspect} Host: #{@host.inspect} Connected: #{! @client.disconnected?}&gt;&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">list</span><span
+            class="method-args">(reference=nil, mailbox=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="list-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 748</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">list</span>(<span class="ruby-identifier">reference</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">mailbox</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">reference</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST sepcify a REFERENCE to list.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mailbox</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST sepcify a MAILBOX to list.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">raw_list</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">list</span>(<span class="ruby-identifier">reference</span>, <span class="ruby-identifier">mailbox</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">raw_list</span>
+        <span class="ruby-identifier">raw_list</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">IMAP</span><span class="ruby-operator">::</span><span class="ruby-constant">MailboxList</span>)
+            <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:name</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">name</span>, <span class="ruby-value">:flags</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">attr</span>, <span class="ruby-value">:delimiter</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">delim</span>}
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:reference</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">reference</span>, <span class="ruby-value">:mailbox</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">mailbox</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-list_subscriptions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">list_subscriptions</span><span
+            class="method-args">(reference=nil, mailbox=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="list_subscriptions-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 1334</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">list_subscriptions</span>(<span class="ruby-identifier">reference</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">mailbox</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">raw_list</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">lsub</span>(<span class="ruby-identifier">reference</span>, <span class="ruby-identifier">mailbox</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">raw_list</span>
+        <span class="ruby-identifier">raw_list</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">IMAP</span><span class="ruby-operator">::</span><span class="ruby-constant">MailboxList</span>)
+            <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:name</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">name</span>, <span class="ruby-value">:flags</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">attr</span>, <span class="ruby-value">:delimiter</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">delim</span>}
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:reference</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">reference</span>, <span class="ruby-value">:mailbox</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">mailbox</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-login" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">login</span><span
+            class="method-args">(user_id=nil, password=nil, options={:method =&gt; :auth})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="login-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 580</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">login</span>(<span class="ruby-identifier">user_id</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">password</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span>={<span class="ruby-value">:method</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">:auth</span>})
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">disconnected?</span>
+        <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">user_id</span>
+        <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@user</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a USER id, like this: &lt;user_id&gt;,&lt;password&gt;,(&lt;options&gt;)&quot;</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@password</span> = <span class="ruby-identifier">password</span>
+        <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@password</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a PASSWORD/OAUTH-TOKEN, like this: &lt;user_id&gt;,&lt;password/oauth-token&gt;,(&lt;options&gt;)&quot;</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">case</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:method</span>]
+        <span class="ruby-keyword">when</span> <span class="ruby-value">:auth</span>
+          <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">login</span>(<span class="ruby-ivar">@user</span>, <span class="ruby-ivar">@password</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">:login</span>
+          <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">authenticate</span>(<span class="ruby-string">&quot;LOGIN&quot;</span>, <span class="ruby-ivar">@user</span>, <span class="ruby-ivar">@password</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">:cram_md5</span>
+          <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">authenticate</span>(<span class="ruby-string">&quot;CRAM-MD5&quot;</span>, <span class="ruby-ivar">@user</span>, <span class="ruby-ivar">@password</span>)
+        <span class="ruby-keyword">when</span> <span class="ruby-value">:oauth2</span>
+          <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">authenticate</span>(<span class="ruby-string">&quot;XOAUTH2&quot;</span>, <span class="ruby-ivar">@user</span>, <span class="ruby-ivar">@password</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Authentication method #{options[:method].inspect} not supported. Choose one of these: [:auth, :login, :cram_md5, :oauth2]&quot;</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:user</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">user_id</span>, <span class="ruby-value">:options</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">options</span>}})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-logout" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">logout</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="logout-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 615</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">logout</span>()
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">logout</span>
+      <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">disconnect</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">disconnected?</span>
+      <span class="ruby-ivar">@client</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mount" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mount</span><span
+            class="method-args">(mailbox=nil,mode=:read_write)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mount-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 648</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">mount</span>(<span class="ruby-identifier">mailbox</span>=<span class="ruby-keyword">nil</span>,<span class="ruby-identifier">mode</span>=<span class="ruby-value">:read_write</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> [<span class="ruby-value">:read</span>, <span class="ruby-value">:read_write</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">mode</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Mode #{mode.inspect} is invalid. Choose one of these: [:read, :read_write].&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mounted?</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@mounted</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">mailbox</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mount_mode</span>() <span class="ruby-operator">==</span> <span class="ruby-value">:read</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">mode</span> <span class="ruby-operator">==</span> <span class="ruby-value">:read_write</span>
+            <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">select</span>(<span class="ruby-identifier">mailbox</span>)
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">IMAP</span><span class="ruby-operator">::</span><span class="ruby-constant">TaggedResponse</span>)
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;OK&quot;</span>
+                <span class="ruby-ivar">@mounted</span> = <span class="ruby-identifier">mailbox</span>
+                <span class="ruby-ivar">@mount_mode</span> = <span class="ruby-value">:read_write</span>
+                <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+              <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-node">&quot;Failed to re-mount #{mailbox.inspect} as :read_write.&quot;</span>
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-node">&quot;Failed to re-mount #{mailbox.inspect} as :read_write.&quot;</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-node">&quot;You must unmount mailbox #{@mounted.inspect} first, then mount #{mailbox.inspect}.&quot;</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-comment"># mount</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">mode</span> <span class="ruby-operator">==</span> <span class="ruby-value">:read_write</span>
+          <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">select</span>(<span class="ruby-identifier">mailbox</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">IMAP</span><span class="ruby-operator">::</span><span class="ruby-constant">TaggedResponse</span>)
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;OK&quot;</span>
+              <span class="ruby-ivar">@mounted</span> = <span class="ruby-identifier">mailbox</span>
+              <span class="ruby-ivar">@mount_mode</span> = <span class="ruby-value">:read_write</span>
+              <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-node">&quot;Failed to mount #{mailbox.inspect} as :read_write.&quot;</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-node">&quot;Failed to mount #{mailbox.inspect} as :read_write.&quot;</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-comment"># mount :read only</span>
+          <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">examine</span>(<span class="ruby-identifier">mailbox</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">IMAP</span><span class="ruby-operator">::</span><span class="ruby-constant">TaggedResponse</span>)
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;OK&quot;</span>
+              <span class="ruby-ivar">@mounted</span> = <span class="ruby-identifier">mailbox</span>
+              <span class="ruby-ivar">@mount_mode</span> = <span class="ruby-value">:read</span>
+              <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-node">&quot;Failed to mount #{mailbox.inspect} as :read.&quot;</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-node">&quot;Failed to mount #{mailbox.inspect} as :read.&quot;</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:mailbox</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">mailbox</span>, <span class="ruby-value">:mode</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">mode</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mount_mode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mount_mode</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mount_mode-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 640</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">mount_mode</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mounted?</span>
+    <span class="ruby-ivar">@mount_mode</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-value">:unmounted</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mounted-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mounted?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mounted-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 630</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">mounted?</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@mounted</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-move_to_mailbox" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">move_to_mailbox</span><span
+            class="method-args">(uid=nil, mailbox=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="move_to_mailbox-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 1115</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">move_to_mailbox</span>(<span class="ruby-identifier">uid</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">mailbox</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">uid</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify a UID to move the message.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mailbox</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify a MAILBOX to move the message to.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">uid_move</span>(<span class="ruby-identifier">uid</span>, <span class="ruby-identifier">mailbox</span>)
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:uid_set</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">uid</span>, <span class="ruby-value">:mailbox</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">mailbox</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_mailbox" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_mailbox</span><span
+            class="method-args">(mailbox=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remove_mailbox-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 1268</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_mailbox</span>(<span class="ruby-identifier">mailbox</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mailbox</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify a MAILBOX name to delete it.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">mailbox</span>)
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:mailbox</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">mailbox</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_message_flags" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_message_flags</span><span
+            class="method-args">(uid=nil, flags=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remove_message_flags-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 1060</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_message_flags</span>(<span class="ruby-identifier">uid</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">flags</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">uid</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify a UID name to clear FLAGS.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify what FLAGS to clear.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_message_attributes</span>(<span class="ruby-identifier">uid</span>, <span class="ruby-string">&quot;-FLAGS&quot;</span>, <span class="ruby-identifier">flags</span>)
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:uid_set</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">uid</span>, <span class="ruby-value">:flags</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">flags</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_messages" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_messages</span><span
+            class="method-args">(uid=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remove_messages-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 1079</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_messages</span>(<span class="ruby-identifier">uid</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">uid</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify a UID to remove.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">add_message_flags</span>(<span class="ruby-identifier">uid</span>, [<span class="ruby-value">:Deleted</span>])
+      <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">expunge</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:uid_set</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">uid</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rename_mailbox" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rename_mailbox</span><span
+            class="method-args">(mailbox=nil, new_name=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="rename_mailbox-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 1283</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">rename_mailbox</span>(<span class="ruby-identifier">mailbox</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">new_name</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mailbox</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify a MAILBOX name to rename it.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">new_name</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify a NEW_NAME name to rename the MAILBOX.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">rename</span>(<span class="ruby-identifier">mailbox</span>, <span class="ruby-identifier">new_name</span>)
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:mailbox</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">mailbox</span>, <span class="ruby-value">:new_name</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">new_name</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-set_message_attributes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_message_attributes</span><span
+            class="method-args">(uid=nil, attributes=nil, flags=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="set_message_attributes-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 1019</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_message_attributes</span>(<span class="ruby-identifier">uid</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">attributes</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">flags</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">uid</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Integer</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify a UID to set an ATTRIBUTE.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify what ATTRIBUTE to set.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify what FLAGS to set/unset.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">uid_store</span>(<span class="ruby-identifier">uid</span>, <span class="ruby-identifier">attributes</span>, <span class="ruby-identifier">flags</span>)
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:uid_set</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">uid</span>, <span class="ruby-value">:attributes</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">attributes</span>, <span class="ruby-value">:flags</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">flags</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sort" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sort</span><span
+            class="method-args">(sort_keys=[&quot;DATE&quot;], search_keys=[&quot;ALL&quot;], charset=&quot;UTF-8&quot;)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sort-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 1235</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">sort</span>(<span class="ruby-identifier">sort_keys</span>=[<span class="ruby-string">&quot;DATE&quot;</span>], <span class="ruby-identifier">search_keys</span>=[<span class="ruby-string">&quot;ALL&quot;</span>], <span class="ruby-identifier">charset</span>=<span class="ruby-string">&quot;UTF-8&quot;</span>)
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mounted?</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-string">&quot;You MUST mount a Mailbox prior to calling this operation.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@mount_mode</span> <span class="ruby-operator">==</span> <span class="ruby-value">:read_write</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-node">&quot;You need to re-mount #{@mounted.inspect} as :read_write to peform this operation.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">uid_sort</span>(<span class="ruby-identifier">sort_keys</span>, <span class="ruby-identifier">search_keys</span>, <span class="ruby-identifier">charset</span>)
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:sort_keys</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">sort_keys</span>, <span class="ruby-value">:search_keys</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">search_keys</span>, <span class="ruby-value">:charset</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">charset</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-status" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">status</span><span
+            class="method-args">(mailbox=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="status-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 724</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">status</span>(<span class="ruby-identifier">mailbox</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = {<span class="ruby-value">:connected</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:unseen</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0</span>, <span class="ruby-value">:recent</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0</span>, <span class="ruby-value">:messages</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0</span>}
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-value">:connected</span>] = (<span class="ruby-operator">!</span> <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">disconnected?</span>)
+      <span class="ruby-identifier">the_mailbox</span> = (<span class="ruby-identifier">mailbox</span> <span class="ruby-operator">||</span> <span class="ruby-ivar">@mounted</span>)
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_mailbox</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You must either MOUNT an inbox, or specify one to get status.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>[<span class="ruby-value">:connected</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">raw_response</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">status</span>(<span class="ruby-identifier">the_mailbox</span>, [<span class="ruby-string">&quot;UNSEEN&quot;</span>,<span class="ruby-string">&quot;MESSAGES&quot;</span>, <span class="ruby-string">&quot;RECENT&quot;</span>])
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">raw_response</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+          <span class="ruby-identifier">result</span>[<span class="ruby-value">:unseen</span>] = <span class="ruby-identifier">raw_response</span>[<span class="ruby-string">&quot;UNSEEN&quot;</span>]
+          <span class="ruby-identifier">result</span>[<span class="ruby-value">:recent</span>] = <span class="ruby-identifier">raw_response</span>[<span class="ruby-string">&quot;RECENT&quot;</span>]
+          <span class="ruby-identifier">result</span>[<span class="ruby-value">:messages</span>] = <span class="ruby-identifier">raw_response</span>[<span class="ruby-string">&quot;MESSAGES&quot;</span>]
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:reference</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">reference</span>, <span class="ruby-value">:mailbox</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">mailbox</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-subscribe" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">subscribe</span><span
+            class="method-args">(mailbox=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="subscribe-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 1302</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">subscribe</span>(<span class="ruby-identifier">mailbox</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mailbox</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify a MAILBOX name to subscribe to.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">subscribe</span>(<span class="ruby-identifier">mailbox</span>)
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:mailbox</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">mailbox</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-theaded_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">theaded_list</span><span
+            class="method-args">(algorithm=nil,search_keys=nil, charset=&quot;UTF-8&quot;)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="theaded_list-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 1210</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">theaded_list</span>(<span class="ruby-identifier">algorithm</span>=<span class="ruby-keyword">nil</span>,<span class="ruby-identifier">search_keys</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">charset</span>=<span class="ruby-string">&quot;UTF-8&quot;</span>)
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mounted?</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-string">&quot;You MUST mount a Mailbox prior to calling this operation.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> [<span class="ruby-string">&quot;orderedsubject&quot;</span>,<span class="ruby-string">&quot;references&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">algorithm</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">downcase</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;The algorithm you specified is invalid. Choose one of these: [&#39;ORDEREDSUBJECT&#39;, &#39;REFERENCES&#39;]&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">algorithm</span> = <span class="ruby-identifier">algorithm</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">upcase</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">search_keys</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide search keys in the form of an Array of Strings.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">charset</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a CHARSET specifier. Try one of these: [&#39;US-ASCII&#39;, &#39;UTF-8&#39;]&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">uid_thread</span>(<span class="ruby-identifier">algorithm</span>, <span class="ruby-identifier">search_keys</span>, <span class="ruby-identifier">charset</span>)
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:algorithm</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">algorithm</span>, <span class="ruby-value">:search_keys</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">search_keys</span>, <span class="ruby-value">:charset</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">charset</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-uid_list" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">uid_list</span><span
+            class="method-args">(criteria=[&quot;NEW&quot;])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="uid_list-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 1192</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">uid_list</span>(<span class="ruby-identifier">criteria</span>=[<span class="ruby-string">&quot;NEW&quot;</span>])
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mounted?</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-string">&quot;You MUST mount a Mailbox prior to calling this operation.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">criteria</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a search criteria in the form of an Array of Strings.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">uid_search</span>(<span class="ruby-identifier">criteria</span>)
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:criteria</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">criteria</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unmount" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unmount</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unmount-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 714</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">unmount</span>()
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mounted?</span>()
+    <span class="ruby-ivar">@mounted</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-ivar">@mount_mode</span> = <span class="ruby-value">:read</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unsubscribe" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unsubscribe</span><span
+            class="method-args">(mailbox=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unsubscribe-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 1318</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">unsubscribe</span>(<span class="ruby-identifier">mailbox</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mailbox</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST specify a MAILBOX name to unsubscribe from.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">unsubscribe</span>(<span class="ruby-identifier">mailbox</span>)
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:mailbox</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">mailbox</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upload_message" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload_message</span><span
+            class="method-args">(mailbox=nil, gxg_message=nil, flags=[:Seen], timestamp=::Time.now)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="upload_message-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 798</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">upload_message</span>(<span class="ruby-identifier">mailbox</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">gxg_message</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">flags</span>=[<span class="ruby-value">:Seen</span>], <span class="ruby-identifier">timestamp</span>=<span class="ruby-operator">::</span><span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">mailbox</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Events</span><span class="ruby-operator">::</span><span class="ruby-constant">Message</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">gxg_message</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Symbol</span>,<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+          <span class="ruby-identifier">flags</span> = <span class="ruby-identifier">gxg_message</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">gxg_message</span> = <span class="ruby-identifier">mailbox</span>
+        <span class="ruby-identifier">mailbox</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mailbox</span>
+        <span class="ruby-identifier">mailbox</span> = <span class="ruby-ivar">@mounted</span>
+        <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@mount_mode</span> <span class="ruby-operator">==</span> <span class="ruby-value">:read_write</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-node">&quot;You should re-mount #{@mounted.inspect} as :read_write, or select another MAILBOX.&quot;</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mailbox</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST sepcify a MAILBOX to append the message to.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Symbol</span>)
+        <span class="ruby-identifier">flags</span> = [(<span class="ruby-identifier">flags</span>)]
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+        <span class="ruby-keyword">unless</span> <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value">:Seen</span>)
+          <span class="ruby-identifier">flags</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:Seen</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">gxg_message</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Events</span><span class="ruby-operator">::</span><span class="ruby-constant">Message</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a ::GxG::Events::Message object as the message. See: &lt;SmtpClient&gt;.message_template()&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment"># Build suitable mail message</span>
+      <span class="ruby-identifier">message</span> = <span class="ruby-constant">Mail</span>.<span class="ruby-identifier">new</span>
+      <span class="ruby-identifier">the_fields</span> = []
+      <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:header</span>].<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_key</span>, <span class="ruby-identifier">the_value</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+          <span class="ruby-identifier">the_value</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_field_value</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">the_fields</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{the_key.to_s}: #{the_field_value.to_s}&quot;</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">the_fields</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{the_key.to_s}: #{the_value.to_s}&quot;</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">message</span>.<span class="ruby-identifier">header</span> = <span class="ruby-identifier">the_fields</span>.<span class="ruby-identifier">join</span>(<span class="ruby-string">&quot;\r\n&quot;</span>)
+      <span class="ruby-identifier">message</span>.<span class="ruby-identifier">from</span> = <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:sender</span>]
+      <span class="ruby-identifier">message</span>.<span class="ruby-identifier">reply_to</span> = <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:sender</span>]
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:id</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;@&quot;</span>)
+        <span class="ruby-identifier">message</span>.<span class="ruby-identifier">message_id</span> = <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:id</span>].<span class="ruby-identifier">to_s</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">message</span>.<span class="ruby-identifier">message_id</span> = <span class="ruby-node">&quot;&lt;#{gxg_message[:id].to_s}@#{::Socket.gethostname}.mail&gt;&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">message</span>.<span class="ruby-identifier">to</span> = <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:to</span>]
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:cc</span>]
+        <span class="ruby-identifier">message</span>.<span class="ruby-identifier">cc</span> = <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:cc</span>]
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:bcc</span>]
+        <span class="ruby-identifier">message</span>.<span class="ruby-identifier">bcc</span> = <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:bcc</span>]
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">message</span>.<span class="ruby-identifier">subject</span> = <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:subject</span>]
+      <span class="ruby-identifier">message</span>.<span class="ruby-identifier">date</span> = (<span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:date</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">||</span> <span class="ruby-operator">::</span><span class="ruby-constant">DateTime</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_s</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:attachments</span>].<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">multipart</span> = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">part_count</span> = <span class="ruby-value">0</span>
+        <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:body</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">part</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">unless</span> <span class="ruby-identifier">part</span>[<span class="ruby-value">:prologue</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">part</span>[<span class="ruby-value">:epilogue</span>]
+            <span class="ruby-identifier">part_count</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">part_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+          <span class="ruby-identifier">multipart</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">multipart</span> = <span class="ruby-keyword">false</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">multipart</span>
+        <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:body</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">part</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">unless</span> <span class="ruby-identifier">part</span>[<span class="ruby-value">:prologue</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">part</span>[<span class="ruby-value">:epilogue</span>]
+            <span class="ruby-identifier">type_info</span> = <span class="ruby-node">&quot;Content-Type: #{part[:content_type][:type]}&quot;</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">part</span>[<span class="ruby-value">:content_type</span>][<span class="ruby-value">:parameters</span>].<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+              <span class="ruby-identifier">part</span>[<span class="ruby-value">:content_type</span>][<span class="ruby-value">:parameters</span>].<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_key</span>, <span class="ruby-identifier">the_value</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">type_info</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;; &#39;#{the_key.to_s}&#39;: &#39;#{the_value.to_s}&#39;&quot;</span>
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">new_part</span> = <span class="ruby-constant">Mail</span><span class="ruby-operator">::</span><span class="ruby-constant">Part</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">type_info</span>)
+            <span class="ruby-identifier">new_part</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">part</span>[<span class="ruby-value">:content</span>]
+            <span class="ruby-identifier">message</span>.<span class="ruby-identifier">add_part</span>(<span class="ruby-identifier">new_part</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment"># Add file attachments:</span>
+        <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:attachments</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">attachment</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">attachment</span>[<span class="ruby-value">:content</span>].<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">0</span>
+            <span class="ruby-identifier">file_size</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">size</span>(<span class="ruby-identifier">attachment</span>[<span class="ruby-value">:path</span>])
+            <span class="ruby-identifier">file_handle</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">attachment</span>[<span class="ruby-value">:path</span>],<span class="ruby-string">&quot;rb&quot;</span>)
+            <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-identifier">apportioned_ranges</span>(<span class="ruby-identifier">file_size</span>,<span class="ruby-value">65536</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_range</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">file_handle</span>.<span class="ruby-identifier">seek</span>(<span class="ruby-identifier">the_range</span>.<span class="ruby-identifier">first</span>)
+              <span class="ruby-identifier">attachment</span>[<span class="ruby-value">:content</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">file_handle</span>.<span class="ruby-identifier">read</span>(<span class="ruby-identifier">the_range</span>.<span class="ruby-identifier">size</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">file_handle</span>.<span class="ruby-identifier">close</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">message</span>.<span class="ruby-identifier">add_file</span>({<span class="ruby-value">:filename</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">attachment</span>[<span class="ruby-value">:filename</span>], <span class="ruby-value">:content</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">attachment</span>[<span class="ruby-value">:content</span>].<span class="ruby-identifier">to_s</span>})
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">gxg_message</span>[<span class="ruby-value">:body</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">part</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">unless</span> <span class="ruby-identifier">part</span>[<span class="ruby-value">:prologue</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">part</span>[<span class="ruby-value">:epilogue</span>]
+            <span class="ruby-identifier">message</span>.<span class="ruby-identifier">body</span> = <span class="ruby-identifier">part</span>[<span class="ruby-value">:content</span>]
+            <span class="ruby-keyword">break</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment"># Send it</span>
+      <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">mailbox</span>, <span class="ruby-identifier">message</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">flags</span>, <span class="ruby-identifier">timestamp</span>)
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:mailbox</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">mailbox</span>, <span class="ruby-value">:message</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">gxg_message</span>, <span class="ruby-value">:flags</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">flags</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-xlist" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">xlist</span><span
+            class="method-args">(reference=nil, mailbox=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="xlist-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 773</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">xlist</span>(<span class="ruby-identifier">reference</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">mailbox</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">reference</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST sepcify a REFERENCE to list.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">mailbox</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST sepcify a MAILBOX to list.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">raw_list</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">xlist</span>(<span class="ruby-identifier">reference</span>, <span class="ruby-identifier">mailbox</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">raw_list</span>
+        <span class="ruby-identifier">raw_list</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">IMAP</span><span class="ruby-operator">::</span><span class="ruby-constant">MailboxList</span>)
+            <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> {<span class="ruby-value">:name</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">name</span>, <span class="ruby-value">:flags</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">attr</span>, <span class="ruby-value">:delimiter</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">delim</span>}
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:reference</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">reference</span>, <span class="ruby-value">:mailbox</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">mailbox</span>}})
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

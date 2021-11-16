@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Object - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">BasicObject
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="Kernel.html">Kernel</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-actor-3F">#actor?</a>
+    
+    <li ><a href="#method-i-alive-3F">#alive?</a>
+    
+    <li ><a href="#method-i-handle_error">#handle_error</a>
+    
+    <li ><a href="#method-i-heap_used">#heap_used</a>
+    
+    <li ><a href="#method-i-is_any-3F">#is_any?</a>
+    
+    <li ><a href="#method-i-millisecond_latency">#millisecond_latency</a>
+    
+    <li ><a href="#method-i-serialize">#serialize</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Object">
+  <h1 id="class-Object" class="class">
+    class Object
+  </h1>
+
+  <section class="description">
+    <hr>
+
+<p>Preliminary alternations to Kernel/Object class: Actor/Event support</p>
+<hr>
+
+<p>Alterations to <a href="Object.html"><code>Object</code></a> class: <a href="GxG/Engine.html"><code>GxG::Engine</code></a> dependency - quota supports</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-actor-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">actor?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="actor-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">actor?</span>()
+  <span class="ruby-keyword">false</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-alive-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">alive?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="alive-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg.rb, line 129</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">alive?</span>()
+  <span class="ruby-comment"># Why: adjusting the entire object space to dealing with possibilities introduced by Celluloid.</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-handle_error" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle_error</span><span
+            class="method-args">(the_error={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle_error-source">
+            <pre><span class="ruby-comment"># File lib/gxg.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">handle_error</span>(<span class="ruby-identifier">the_error</span>={})
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_error</span>[<span class="ruby-value">:error</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Exception</span>)
+    <span class="ruby-identifier">log_error</span>(<span class="ruby-identifier">the_error</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-heap_used" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">heap_used</span><span
+            class="method-args">(options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="heap_used-source">
+            <pre><span class="ruby-comment"># File lib/gxg.rb, line 436</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">heap_used</span>(<span class="ruby-identifier">options</span>={})
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">options</span>={}
+  <span class="ruby-keyword">end</span>
+  (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">content_size_used</span>(<span class="ruby-identifier">options</span>).<span class="ruby-identifier">to_i</span> <span class="ruby-operator">+</span> (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">slots_used</span>(<span class="ruby-identifier">options</span>).<span class="ruby-identifier">to_i</span> <span class="ruby-operator">*</span> <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">profile</span>[<span class="ruby-value">:slot_size</span>]).<span class="ruby-identifier">to_i</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-is_any-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_any?</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>public methods</p>
+          
+          
+
+          
+          <div class="method-source-code" id="is_any-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg.rb, line 116</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">is_any?</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-identifier">args</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">thing</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">thing</span>.<span class="ruby-identifier">class</span> <span class="ruby-operator">==</span> <span class="ruby-constant">Class</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-identifier">thing</span>)
+        <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">break</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-millisecond_latency" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">millisecond_latency</span><span
+            class="method-args">(*args,&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="millisecond_latency-source">
+            <pre><span class="ruby-comment"># File lib/gxg.rb, line 408</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">millisecond_latency</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>
+    <span class="ruby-identifier">starting</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_f</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-identifier">ending</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_f</span>
+    <span class="ruby-comment"># Results are approximate: does not include the time ruby needs to return from the call,</span>
+    <span class="ruby-comment"># assign the result RVALUE, collect a time, convert it to a Float, and assign ending RVALUE..</span>
+    <span class="ruby-comment"># However, it is pretty darn close.</span>
+    {<span class="ruby-value">:result</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">result</span>, <span class="ruby-value">:milliseconds</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">ending</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">starting</span>)}
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># If :milliseconds are nil then the block was not passed and since it never ran, there is no latency to count up.</span>
+    <span class="ruby-comment"># Simply do a return_var[:milliseconds].to_f for auto-accumulators w/o post-call comparison.</span>
+    {<span class="ruby-value">:result</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:milliseconds</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0.0</span>}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># Attribution : http://stackoverflow.com/questions/2289381/how-to-time-an-operation-in-milliseconds-in-ruby</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-serialize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">serialize</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="serialize-source">
+            <pre><span class="ruby-comment"># File lib/gxg.rb, line 144</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">serialize</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Set</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Struct</span>)
+    <span class="ruby-identifier">data</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">process</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span>, <span class="ruby-identifier">selector</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">serialize</span>()
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">begin</span>
+      (<span class="ruby-string">&quot;structure:&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-operator">::</span><span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-identifier">data</span>).<span class="ruby-identifier">encode64</span>())
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-string">&quot;marshal:BAgw&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">serialized?</span>()
+        <span class="ruby-keyword">self</span>
+      <span class="ruby-keyword">else</span>
+        (<span class="ruby-string">&quot;marshal:&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-operator">::</span><span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-keyword">self</span>).<span class="ruby-identifier">encode64</span>())
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># by default, or upon error, returns marshaled nil, must override to get other serialization</span>
+      <span class="ruby-keyword">begin</span>
+        (<span class="ruby-string">&quot;marshal:&quot;</span> <span class="ruby-operator">+</span> <span class="ruby-operator">::</span><span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">dump</span>(<span class="ruby-keyword">self</span>).<span class="ruby-identifier">encode64</span>())
+      <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+        <span class="ruby-string">&quot;marshal:BAgw&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

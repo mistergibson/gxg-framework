@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class GxG::IO::StringIO - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../StringIO.html">StringIO</a>
+  
+</div>
+
+    <div id="includes-section" class="nav-section">
+  <h3>Included Modules</h3>
+
+  <ul class="link-list">
+  
+  
+    <li><a class="include" href="../Support/Library/StringIOPrepare.html">GxG::Support::Library::StringIOPrepare</a>
+  
+  
+  
+    <li><a class="include" href="../Support/Library/CommonIOPrepare.html">GxG::Support::Library::CommonIOPrepare</a>
+  
+  
+  
+    <li><a class="include" href="../Support/Library/Transcoding.html">GxG::Support::Library::Transcoding</a>
+  
+  
+  
+    <li><a class="include" href="../Support/Library/TranscodingIO.html">GxG::Support::Library::TranscodingIO</a>
+  
+  
+  </ul>
+</div>
+
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-open">::open</a>
+    
+    <li ><a href="#method-i-3C-3C">#&lt;&lt;</a>
+    
+    <li class="calls-super" ><a href="#method-i-binmode">#binmode</a>
+    
+    <li ><a href="#method-i-binmode-3F">#binmode?</a>
+    
+    <li class="calls-super" ><a href="#method-i-close">#close</a>
+    
+    <li class="calls-super" ><a href="#method-i-close_read">#close_read</a>
+    
+    <li class="calls-super" ><a href="#method-i-close_write">#close_write</a>
+    
+    <li ><a href="#method-i-external_encoding-3D">#external_encoding=</a>
+    
+    <li ><a href="#method-i-flags">#flags</a>
+    
+    <li ><a href="#method-i-inspect">#inspect</a>
+    
+    <li class="calls-super" ><a href="#method-i-read">#read</a>
+    
+    <li ><a href="#method-i-read_nonblock">#read_nonblock</a>
+    
+    <li ><a href="#method-i-readpartial">#readpartial</a>
+    
+    <li ><a href="#method-i-sysread">#sysread</a>
+    
+    <li ><a href="#method-i-syswrite">#syswrite</a>
+    
+    <li class="calls-super" ><a href="#method-i-write">#write</a>
+    
+    <li ><a href="#method-i-write_nonblock">#write_nonblock</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-GxG::IO::StringIO">
+  <h1 id="class-GxG::IO::StringIO" class="class">
+    class GxG::IO::StringIO
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_io.rb, line 2063</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># TODO: override methods to operate in cooperative processing event system</span>
+  <span class="ruby-comment"># TODO: provide a REAL external:internal encoding translation aspect (stock version is poorly designed/wrong, it would act *exactly* like a real IO)</span>
+  <span class="ruby-comment"># TODO: optimize this class for memory and call efficiency (see Question at super() call)</span>
+  <span class="ruby-comment"># LATER: GxG::StringIO : create/learn/whatever an optimized any-encoding-to-any-encoding transcoding/normalization matrix : possibly extend Encoding Class? This should include a conversion newline/field_separator/record_separator for each pair of Encodings.</span>
+  <span class="ruby-comment"># Question: is there some possible benefit to using a ByteArray instead of a stock StringIO ?</span>
+  <span class="ruby-identifier">params</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">process_parameters</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>].<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:read</span>
+    <span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:write</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:external_encoding</span>] <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-value">:binary</span>)
+      <span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:binary</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">mode_string</span> = <span class="ruby-string">&quot;&quot;</span>
+  <span class="ruby-identifier">mode_numeric</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@fcntl_mode</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NONBLOCK</span>
+  <span class="ruby-identifier">mode_flags</span> = {<span class="ruby-value">:binary</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">BINARY</span>, <span class="ruby-value">:text</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">TEXT</span>, <span class="ruby-value">:read</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">RDONLY</span>, <span class="ruby-value">:write</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">WRONLY</span>, <span class="ruby-value">:readwrite</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">RDWR</span>, <span class="ruby-value">:create</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">CREAT</span>, <span class="ruby-value">:overwrite</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">TRUNC</span>, <span class="ruby-value">:append</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">APPEND</span>}
+  <span class="ruby-identifier">modes</span> = <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-identifier">valid_mode_set</span>({<span class="ruby-value">:type</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">:io</span>, <span class="ruby-value">:read</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:write</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:text</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:binary</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>})
+  <span class="ruby-identifier">the_mode_used</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">options</span> = {}
+  <span class="ruby-comment"># :mode</span>
+  <span class="ruby-comment">#Same as mode parameter</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>].<span class="ruby-identifier">index</span>(<span class="ruby-value">:binary</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>].<span class="ruby-identifier">index</span>(<span class="ruby-value">:read</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>].<span class="ruby-identifier">index</span>(<span class="ruby-value">:write</span>)
+          <span class="ruby-identifier">mode_string</span> = <span class="ruby-string">&quot;binary_readwrite&quot;</span>
+          <span class="ruby-identifier">mode_numeric</span> = (<span class="ruby-identifier">mode_numeric</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">mode_flags</span>[<span class="ruby-value">:binary</span>] <span class="ruby-operator">|</span> <span class="ruby-identifier">mode_flags</span>[<span class="ruby-value">:readwrite</span>])
+          <span class="ruby-ivar">@fcntl_mode</span> = (<span class="ruby-ivar">@fcntl_mode</span> <span class="ruby-operator">|</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_RDWR</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">mode_string</span> = <span class="ruby-string">&quot;binary_read&quot;</span>
+          <span class="ruby-identifier">mode_numeric</span> = (<span class="ruby-identifier">mode_numeric</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">mode_flags</span>[<span class="ruby-value">:binary</span>] <span class="ruby-operator">|</span> <span class="ruby-identifier">mode_flags</span>[<span class="ruby-value">:read</span>])
+          <span class="ruby-ivar">@fcntl_mode</span> = (<span class="ruby-ivar">@fcntl_mode</span> <span class="ruby-operator">|</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_RDONLY</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>].<span class="ruby-identifier">index</span>(<span class="ruby-value">:write</span>)
+          <span class="ruby-identifier">mode_string</span> = <span class="ruby-string">&quot;binary_write&quot;</span>
+          <span class="ruby-identifier">mode_numeric</span> = (<span class="ruby-identifier">mode_numeric</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">mode_flags</span>[<span class="ruby-value">:binary</span>] <span class="ruby-operator">|</span> <span class="ruby-identifier">mode_flags</span>[<span class="ruby-value">:write</span>])
+          <span class="ruby-ivar">@fcntl_mode</span> = (<span class="ruby-ivar">@fcntl_mode</span> <span class="ruby-operator">|</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_WRONLY</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>].<span class="ruby-identifier">index</span>(<span class="ruby-value">:read</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>].<span class="ruby-identifier">index</span>(<span class="ruby-value">:write</span>)
+          <span class="ruby-identifier">mode_string</span> = <span class="ruby-string">&quot;text_readwrite&quot;</span>
+          <span class="ruby-identifier">mode_numeric</span> = (<span class="ruby-identifier">mode_numeric</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">mode_flags</span>[<span class="ruby-value">:text</span>] <span class="ruby-operator">|</span> <span class="ruby-identifier">mode_flags</span>[<span class="ruby-value">:readwrite</span>])
+          <span class="ruby-ivar">@fcntl_mode</span> = (<span class="ruby-ivar">@fcntl_mode</span> <span class="ruby-operator">|</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_RDWR</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">mode_string</span> = <span class="ruby-string">&quot;text_read&quot;</span>
+          <span class="ruby-identifier">mode_numeric</span> = (<span class="ruby-identifier">mode_numeric</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">mode_flags</span>[<span class="ruby-value">:text</span>] <span class="ruby-operator">|</span> <span class="ruby-identifier">mode_flags</span>[<span class="ruby-value">:read</span>])
+          <span class="ruby-ivar">@fcntl_mode</span> = (<span class="ruby-ivar">@fcntl_mode</span> <span class="ruby-operator">|</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_RDONLY</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>].<span class="ruby-identifier">index</span>(<span class="ruby-value">:write</span>)
+          <span class="ruby-identifier">mode_string</span> = <span class="ruby-string">&quot;text_write&quot;</span>
+          <span class="ruby-identifier">mode_numeric</span> = (<span class="ruby-identifier">mode_numeric</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">mode_flags</span>[<span class="ruby-value">:text</span>] <span class="ruby-operator">|</span> <span class="ruby-identifier">mode_flags</span>[<span class="ruby-value">:write</span>])
+          <span class="ruby-ivar">@fcntl_mode</span> = (<span class="ruby-ivar">@fcntl_mode</span> <span class="ruby-operator">|</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_WRONLY</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>].<span class="ruby-identifier">index</span>(<span class="ruby-value">:overwrite</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>].<span class="ruby-identifier">index</span>(<span class="ruby-value">:truncate</span>) )
+      <span class="ruby-identifier">mode_string</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;_overwrite&quot;</span>
+      <span class="ruby-identifier">mode_numeric</span> = (<span class="ruby-identifier">mode_numeric</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">mode_flags</span>[<span class="ruby-value">:overwrite</span>])
+      <span class="ruby-ivar">@fcntl_mode</span> = (<span class="ruby-ivar">@fcntl_mode</span> <span class="ruby-operator">|</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_TRUNC</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>].<span class="ruby-identifier">index</span>(<span class="ruby-value">:append</span>)
+        <span class="ruby-identifier">mode_string</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;_append&quot;</span>
+        <span class="ruby-identifier">mode_numeric</span> = (<span class="ruby-identifier">mode_numeric</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">mode_flags</span>[<span class="ruby-value">:append</span>])
+        <span class="ruby-ivar">@fcntl_mode</span> = (<span class="ruby-ivar">@fcntl_mode</span> <span class="ruby-operator">|</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_APPEND</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>].<span class="ruby-identifier">index</span>(<span class="ruby-value">:create</span>)
+          <span class="ruby-identifier">mode_string</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-string">&quot;_create&quot;</span>
+          <span class="ruby-identifier">mode_numeric</span> = (<span class="ruby-identifier">mode_numeric</span> <span class="ruby-operator">|</span> <span class="ruby-identifier">mode_flags</span>[<span class="ruby-value">:create</span>])
+          <span class="ruby-ivar">@fcntl_mode</span> = (<span class="ruby-ivar">@fcntl_mode</span> <span class="ruby-operator">|</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_CREAT</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># [:read, :write, :readwrite, :overwrite, :truncate:, :append, :text, :binary]</span>
+    <span class="ruby-identifier">modes</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">mode_entry</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">mode_entry</span>[<span class="ruby-value">:synonyms</span>].<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_synonym</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_synonym</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Symbol</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_synonym</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">mode_string</span>.<span class="ruby-identifier">to_sym</span>
+            <span class="ruby-identifier">the_mode_used</span> = <span class="ruby-identifier">mode_entry</span>
+            <span class="ruby-keyword">break</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_synonym</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Numeric</span>)
+            <span class="ruby-keyword">if</span> (<span class="ruby-identifier">the_synonym</span> <span class="ruby-operator">&amp;</span> <span class="ruby-identifier">mode_numeric</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">mode_numeric</span>)
+              <span class="ruby-identifier">the_mode_used</span> = <span class="ruby-identifier">mode_entry</span>
+              <span class="ruby-keyword">break</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_mode_used</span>
+        <span class="ruby-keyword">break</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">the_mode_used</span>)
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:mode</span>] = <span class="ruby-identifier">the_mode_used</span>[<span class="ruby-value">:if_exist</span>].<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">modes_list</span> = []
+      <span class="ruby-identifier">modes</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">modes_list</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">item</span>[<span class="ruby-value">:synonyms</span>]
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;#{params[:mode].inspect} is an invalid :mode, use one of the following: #{modes_list.inspect}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">mode_numeric</span> = <span class="ruby-identifier">options</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:mode</span>)
+  <span class="ruby-comment">#</span>
+  <span class="ruby-ivar">@conversion_options</span> = {<span class="ruby-value">:external</span> <span class="ruby-operator">=&gt;</span> {}, <span class="ruby-value">:internal</span> <span class="ruby-operator">=&gt;</span> {}}
+  <span class="ruby-comment"># init-text clobber work-around : defer :write of init-text until the end.</span>
+  <span class="ruby-comment"># init_text = params[:object].dup</span>
+  <span class="ruby-comment"># params[:object].clear</span>
+  <span class="ruby-comment"># FORNOW: just use default behavior</span>
+  <span class="ruby-keyword">super</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:object</span>],<span class="ruby-identifier">mode_numeric</span>)
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-value">:binary</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_encoding</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:external_encoding</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>)
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_encoding</span>(<span class="ruby-identifier">params</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:external_encoding</span>))
+      <span class="ruby-comment">#:2nd internal_encoding parameter and 3rd parameter optional hash ignored</span>
+      <span class="ruby-comment"># if you want the supplied string&#39;s encoding - best to simply pass it on the .new method call params.</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_encoding</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_external</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># if external_encoding is BINARY/ASCII_8BIT - just nullify internal_encoding, and skip external/internal conversion option mapping.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:mode</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-value">:binary</span>)
+    <span class="ruby-ivar">@internal_encoding</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:internal_encoding</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>)
+      <span class="ruby-ivar">@internal_encoding</span> = <span class="ruby-identifier">params</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:internal_encoding</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@internal_encoding</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_internal</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@internal_encoding</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@internal_encoding</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:external_conversion</span>]
+          <span class="ruby-comment"># External conversion options will have to be dynamically generated upon transcode_to_external as *any* encoding is possible, not just internal_encoding</span>
+          <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:external</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">String</span><span class="ruby-operator">::</span><span class="ruby-identifier">transcode_options</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span>,<span class="ruby-ivar">@internal_encoding</span>,<span class="ruby-identifier">params</span>[<span class="ruby-value">:external_conversion</span>])
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:external</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">String</span><span class="ruby-operator">::</span><span class="ruby-identifier">transcode_options</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span>,<span class="ruby-ivar">@internal_encoding</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-ivar">@internal_encoding</span> <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>
+          <span class="ruby-comment">#</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:internal_conversion</span>]
+            <span class="ruby-identifier">nl_op</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">newline_option_used</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:internal_conversion</span>])
+            <span class="ruby-identifier">conv_options</span> = {}
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">nl_op</span>
+              <span class="ruby-identifier">conv_options</span>[(<span class="ruby-identifier">nl_op</span>)] = <span class="ruby-keyword">true</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:internal</span>] = <span class="ruby-identifier">conv_options</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:internal_conversion</span>]
+            <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:internal</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">String</span><span class="ruby-operator">::</span><span class="ruby-identifier">transcode_options</span>(<span class="ruby-ivar">@internal_encoding</span>,<span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span>,<span class="ruby-identifier">params</span>[<span class="ruby-value">:internal_conversion</span>])
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:internal</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">String</span><span class="ruby-operator">::</span><span class="ruby-identifier">transcode_options</span>(<span class="ruby-ivar">@internal_encoding</span>,<span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-ivar">@external_field_separator</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:external_field_separator</span>]
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_field_separator</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:external_field_separator</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@external_record_separator</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:external_record_separator</span>]
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_record_separator</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:external_record_separator</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@internal_field_separator</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:internal_field_separator</span>]
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_field_separator</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:internal_field_separator</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@internal_record_separator</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:internal_record_separator</span>]
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_field_separator</span> = <span class="ruby-identifier">params</span>[<span class="ruby-value">:internal_record_separator</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># init-text clobber workaround : deferred :write</span>
+  <span class="ruby-comment">#self.write(init_text)</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-open" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open</span><span
+            class="method-args">(the_string=&quot;&quot;,mode=::IO::RDWR,&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="open-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_io.rb, line 1962</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">open</span>(<span class="ruby-identifier">the_string</span>=<span class="ruby-string">&quot;&quot;</span>,<span class="ruby-identifier">mode</span>=<span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">RDWR</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">the_io</span> = <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">IO</span><span class="ruby-operator">::</span><span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">the_string</span>,<span class="ruby-identifier">mode</span>)
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">the_io</span>)
+    <span class="ruby-identifier">the_io</span>.<span class="ruby-identifier">close</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">the_io</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-3C-3C" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">&lt;&lt;</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="3C-3C-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_io.rb, line 2392</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">&lt;&lt;</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">write</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-binmode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">binmode</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              <a href="StringIO.html#method-i-binmode"><code>StringIO#binmode</code></a>
+            </div>
+          
+
+          
+          <div class="method-source-code" id="binmode-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_io.rb, line 2276</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">binmode</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">binmode?</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@internal_encoding</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:internal</span>] = {}
+    <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:external</span>] = {}
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_encoding</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>)
+    <span class="ruby-keyword">super</span>()
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-binmode-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">binmode?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="binmode-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_io.rb, line 2268</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">binmode?</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span> <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-close" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">close</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="close-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_io.rb, line 2493</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">close</span>()
+  <span class="ruby-keyword">super</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-close_read" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">close_read</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="close_read-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_io.rb, line 2497</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">close_read</span>()
+  <span class="ruby-keyword">super</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-close_write" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">close_write</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="close_write-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_io.rb, line 2501</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">close_write</span>()
+  <span class="ruby-keyword">super</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-external_encoding-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">external_encoding=</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="external_encoding-3D-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_io.rb, line 2288</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">external_encoding=</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">binmode?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>, <span class="ruby-operator">::</span><span class="ruby-constant">NilClass</span>)
+      <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">binmode</span>()
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">old_data</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">string</span>().<span class="ruby-identifier">dup</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>)
+          <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_encoding</span>(<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>])
+          <span class="ruby-keyword">if</span> <span class="ruby-ivar">@internal_encoding</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-ivar">@internal_encoding</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span>
+              <span class="ruby-comment"># preserve newline settings</span>
+              <span class="ruby-identifier">nl_op</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">newline_option_used</span>(<span class="ruby-value">:external</span>)
+              <span class="ruby-identifier">options</span> = {}
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">nl_op</span>
+                <span class="ruby-identifier">options</span>[(<span class="ruby-identifier">nl_op</span>)] = <span class="ruby-keyword">true</span>
+              <span class="ruby-keyword">end</span>
+              <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:external</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">String</span><span class="ruby-operator">::</span><span class="ruby-identifier">transcoding_options</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span>,<span class="ruby-ivar">@internal_encoding</span>,<span class="ruby-identifier">options</span>)
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_encoding</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_external</span>())
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span>() <span class="ruby-operator">!=</span> <span class="ruby-identifier">old_data</span>.<span class="ruby-identifier">encoding</span>()
+          <span class="ruby-comment"># preserve newline settings</span>
+          <span class="ruby-identifier">nl_op</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">newline_option_used</span>(<span class="ruby-value">:external</span>)
+          <span class="ruby-identifier">options</span> = {}
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">nl_op</span>
+            <span class="ruby-identifier">options</span>[(<span class="ruby-identifier">nl_op</span>)] = <span class="ruby-keyword">true</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">old_data</span>.<span class="ruby-identifier">transcode!</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span>(),<span class="ruby-identifier">options</span>)
+          <span class="ruby-comment">#</span>
+          <span class="ruby-keyword">self</span>.<span class="ruby-identifier">string</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">old_data</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Expected an Encoding or NilClass, you provided #{args[0].class}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-flags" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flags</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Public instance methods</p>
+          
+          
+
+          
+          <div class="method-source-code" id="flags-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_io.rb, line 1977</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">flags</span>()
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-identifier">current</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fcntl</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">F_GETFL</span>)
+  <span class="ruby-identifier">flags</span> = {}
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">binmode?</span>()
+    <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:binary</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span> <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:setenc_by_bom</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:text</span>
+    <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:wsplit</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tty?</span>
+    <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:tty</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#flag[:read] = 0x00000001</span>
+  <span class="ruby-comment">#flag[:write] = 0x00000002</span>
+  <span class="ruby-comment">#flag[:readwrite] = (flag[:read] | flag[:write])</span>
+  <span class="ruby-comment">#flag[:binmode] = 0x00000004</span>
+  <span class="ruby-comment">#flag[:readwrite] = (flag[:read] | flag[:write])</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:read</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_RDONLY</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:write</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_WRONLY</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:readwrite</span>] =<span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_RDWR</span>
+  <span class="ruby-comment">#flags[:binary] = 0x00000004</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:sync</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SYNC</span> <span class="ruby-comment"># no internal buffering -- The file will be opened for synchronous I/O. No write operation will complete until the data has been physically written to disk.</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:dsync</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">DSYNC</span> <span class="ruby-comment"># only normal data be synchronized after each write operation, not metadata.</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:rsync</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">RSYNC</span> <span class="ruby-comment"># the synchronization of read requests as well as write requests. It must be used with one of IO::SYNC or IO::DSYNC</span>
+  <span class="ruby-comment">#flags[:tty] = 0x00000010</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:notcontrol_tty</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NOCTTY</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:duplex</span>] = <span class="ruby-value">0x00000020</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:append</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_APPEND</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:create</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_CREAT</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:exclusive</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_EXCL</span>
+  <span class="ruby-comment"># flags[:wsplit] = 0x00000200</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:wsplit_initialized</span>] = <span class="ruby-value">0x00000400</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:trunc</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_TRUNC</span>
+  <span class="ruby-comment">#flags[:text] = 0x00001000</span>
+  <span class="ruby-comment">#flags[:setenc_by_bom] = 0x00100000</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:seek_set</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEEK_SET</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:seek_current</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEEK_CUR</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:seek_end</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEEK_END</span>
+  <span class="ruby-comment"># ### file region locking:</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:shared_lock</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">LOCK_SH</span> <span class="ruby-comment"># for reading</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:exclusive_lock</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">LOCK_EX</span> <span class="ruby-comment"># for writing (implies blocking)</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:nonblock_lock</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">LOCK_NB</span> <span class="ruby-comment"># combine with exclusive_lock for immediate non-blocking lock for writing.</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:unlock</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">LOCK_UN</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:nonblocking</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NONBLOCK</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:ndelay</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NDELAY</span>
+  <span class="ruby-comment"># unrelated to in-memory IO-like objects</span>
+  <span class="ruby-comment">#        flags[:nofollow] = ::File::NOFOLLOW # Do not follow symlinks.</span>
+  <span class="ruby-comment">#        flags[:noaccesstime] = ::File::NOATIME # Do not update the access time (atime) of the file.</span>
+  <span class="ruby-comment">#        flags[:match_noescape] = ::File::FNM_NOESCAPE #</span>
+  <span class="ruby-comment">#        flags[:match_pathname] = ::File::FNM_PATHNAME #</span>
+  <span class="ruby-comment">#        flags[:match_dotmatch] = ::File::FNM_DOTMATCH #</span>
+  <span class="ruby-comment">#        flags[:match_casefold] = ::File::FNM_CASEFOLD #</span>
+  <span class="ruby-comment">#        flags[:match_systemcase] = ::File::FNM_SYSCASE #</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_flag_key</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">current</span> <span class="ruby-operator">&amp;</span> <span class="ruby-identifier">flags</span>[(<span class="ruby-identifier">the_flag_key</span>)]) <span class="ruby-operator">==</span> <span class="ruby-identifier">flags</span>[(<span class="ruby-identifier">the_flag_key</span>)]
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">the_flag_key</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:readwrite</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value">:write</span>)
+          <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:read</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value">:read</span>)
+            <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:write</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:wsplit_initialized</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value">:wsplit</span>)
+          <span class="ruby-identifier">result</span>[(<span class="ruby-identifier">result</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value">:wsplit</span>))] = <span class="ruby-value">:wsplit_initialized</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:wsplit_initialized</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_flag_key</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspect" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>:reopen, :string, :string, :lineno, :lineno, :close_read, :close_write, :closed?, :closed_read?, :closed_write?, :eof, :eof?, :fcntl, :flush, :fsync, :pos, :pos, :rewind, :seek, :sync, :sync, :tell, :each, :each_line, :lines, :each_codepoint, :codepoints, :getc, :ungetc, :ungetbyte, :readchar, :getbyte, :readbyte, :gets, :readline, :readlines, :read, :sysread, :readpartial, :read_nonblock, :write, :, :print, :printf, :putc, :puts, :syswrite, :write_nonblock, :isatty, :tty?, :pid, :fileno, :size, :length, :truncate, :external_encoding, :internal_encoding, :set_encoding</p>
+          
+          
+
+          
+          <div class="method-source-code" id="inspect-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_io.rb, line 2264</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inspect</span>()
+  (<span class="ruby-string">&quot;&lt;#&quot;</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-node">&quot;#{self.class}:#{super().split(&quot; &quot;)[0].split(&quot;:&quot;).last}&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="read-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_io.rb, line 2336</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># read length bytes from StringIO and optionally route to a buffer object</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_read?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for reading&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Numeric</span>)
+      <span class="ruby-comment"># length</span>
+      <span class="ruby-identifier">data</span> = <span class="ruby-keyword">super</span>(<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_i</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># LATER: provide for StringIO buffer size manipulation??? what is default read length??</span>
+      <span class="ruby-identifier">data</span> = <span class="ruby-keyword">super</span>()
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">data</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode_to_internal</span>(<span class="ruby-identifier">data</span>)
+      <span class="ruby-comment"># buffer</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>, <span class="ruby-operator">::</span><span class="ruby-constant">IO</span>, <span class="ruby-operator">::</span><span class="ruby-constant">StringIO</span>, <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">ByteArray</span>)
+        <span class="ruby-comment"># check which classes this can use and in what ways.</span>
+        <span class="ruby-identifier">data</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:chars</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_character</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_character</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment"># return buffer object</span>
+        <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>]
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-comment"># return string</span>
+        <span class="ruby-identifier">data</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># return nil</span>
+      <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="StringIO.html#method-i-read_nonblock">read_nonblock</a>, <a href="StringIO.html#method-i-sysread">sysread</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_nonblock" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">read_nonblock</span><span
+            class="method-args">(*args)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="StringIO.html#method-i-read">read</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-readpartial" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">readpartial</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="readpartial-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_io.rb, line 2397</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">readpartial</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># args[0] maxlen (Fixnum)</span>
+  <span class="ruby-comment"># args[1] (optional) buffer_object</span>
+  <span class="ruby-comment"># Note: use the same approach to pause/retry as IO.read_nonblock.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># Reads at most maxlen bytes from the I/O stream. It blocks only if ios has no data immediately available. It doesn’t block if some data available.</span>
+  <span class="ruby-comment"># If the optional outbuf argument is present, it must reference a String, which will receive the data. It raises EOFError on end of file.</span>
+  <span class="ruby-comment"># readpartial is designed for streams such as pipe, socket, tty, etc. It blocks only when no data immediately available.</span>
+  <span class="ruby-comment"># This means that it blocks only when following all conditions hold:</span>
+  <span class="ruby-comment">#   the byte buffer in the IO object is empty.</span>
+  <span class="ruby-comment">#   the content of the stream is empty.</span>
+  <span class="ruby-comment">#   the stream is not reached to EOF.</span>
+  <span class="ruby-comment"># When readpartial blocks, it waits data or EOF on the stream. If some data is reached, readpartial returns with the data. If EOF is reached,</span>
+  <span class="ruby-comment"># readpartial raises EOFError.</span>
+  <span class="ruby-comment"># When readpartial doesn’t blocks, it returns or raises immediately. If the byte buffer is not empty, it returns the data in the buffer.</span>
+  <span class="ruby-comment"># Otherwise if the stream has some content, it returns the data in the stream. Otherwise if the stream is reached to EOF, it raises EOFError.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_read?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for reading&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">eof?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">EOFError</span>, <span class="ruby-string">&quot;end of stream reached&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-string">&quot;&quot;</span>
+      <span class="ruby-identifier">result</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">internal_encoding</span>)
+      <span class="ruby-identifier">data</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">read</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>
+        <span class="ruby-comment"># non-nil</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+          <span class="ruby-comment"># &#39;blocking&#39; or not?</span>
+          <span class="ruby-keyword">if</span> (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">eof?</span>() <span class="ruby-operator">||</span> (<span class="ruby-identifier">data</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>))
+            <span class="ruby-comment"># no pseudo-blocking</span>
+            <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>
+            <span class="ruby-identifier">data</span> = <span class="ruby-keyword">nil</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-comment"># pseudo-blocking</span>
+            <span class="ruby-keyword">until</span> (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">eof?</span>() <span class="ruby-operator">||</span> (<span class="ruby-identifier">data</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>))
+              <span class="ruby-identifier">data</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">read</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+              <span class="ruby-comment"># string, buffer, or nil</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>
+                <span class="ruby-comment">#</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+                  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">data</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+                    <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>
+                    <span class="ruby-identifier">data</span> = <span class="ruby-keyword">nil</span>
+                    <span class="ruby-keyword">break</span>
+                  <span class="ruby-keyword">else</span>
+                    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">eof?</span>()
+                      <span class="ruby-identifier">raise</span> <span class="ruby-constant">EOFError</span>, <span class="ruby-string">&quot;end of stream reached&quot;</span>
+                    <span class="ruby-keyword">end</span>
+                  <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">else</span>
+                  <span class="ruby-comment"># buffer</span>
+                  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">data</span>
+                  <span class="ruby-identifier">data</span> = <span class="ruby-keyword">nil</span>
+                  <span class="ruby-keyword">break</span>
+                <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">else</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">eof?</span>()
+                  <span class="ruby-identifier">raise</span> <span class="ruby-constant">EOFError</span>, <span class="ruby-string">&quot;end of stream reached&quot;</span>
+                <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">end</span>
+              <span class="ruby-comment">#</span>
+              <span class="ruby-identifier">pause</span>
+              <span class="ruby-comment">#</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-comment"># buffer</span>
+          <span class="ruby-identifier">result</span> = <span class="ruby-identifier">data</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">eof?</span>()
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">EOFError</span>, <span class="ruby-string">&quot;end of stream reached&quot;</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+            <span class="ruby-identifier">result</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">nil</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-comment"># buffer</span>
+          <span class="ruby-identifier">result</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">nil</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sysread" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">sysread</span><span
+            class="method-args">(*args)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="StringIO.html#method-i-read">read</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-syswrite" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">syswrite</span><span
+            class="method-args">(data=&quot;&quot;)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="StringIO.html#method-i-write">write</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-write" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write</span><span
+            class="method-args">(data=&quot;&quot;)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="write-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_io.rb, line 2372</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">write</span>(<span class="ruby-identifier">data</span>=<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-comment"># writes from (self.pos) forward : this will clobber any init string that was passed.</span>
+  <span class="ruby-identifier">written</span> = <span class="ruby-value">0</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_write?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for writing&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">data</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode_to_external</span>(<span class="ruby-identifier">data</span>.<span class="ruby-identifier">dup</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">data</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode_to_external</span>(<span class="ruby-identifier">data</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">written</span> = <span class="ruby-keyword">super</span>(<span class="ruby-identifier">data</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">written</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="StringIO.html#method-i-write_nonblock">write_nonblock</a>, <a href="StringIO.html#method-i-syswrite">syswrite</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_nonblock" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">write_nonblock</span><span
+            class="method-args">(data=&quot;&quot;)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="StringIO.html#method-i-write">write</a>
+        </div>
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

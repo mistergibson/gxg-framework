@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class GxG::Networking::SftpClient - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-async_download">#async_download</a>
+    
+    <li ><a href="#method-i-async_upload">#async_upload</a>
+    
+    <li ><a href="#method-i-change_ownership">#change_ownership</a>
+    
+    <li ><a href="#method-i-change_permissions">#change_permissions</a>
+    
+    <li ><a href="#method-i-closed-3F">#closed?</a>
+    
+    <li ><a href="#method-i-download">#download</a>
+    
+    <li ><a href="#method-i-entries">#entries</a>
+    
+    <li ><a href="#method-i-login">#login</a>
+    
+    <li ><a href="#method-i-logout">#logout</a>
+    
+    <li ><a href="#method-i-make_directory">#make_directory</a>
+    
+    <li ><a href="#method-i-make_link">#make_link</a>
+    
+    <li ><a href="#method-i-open_remote_file">#open_remote_file</a>
+    
+    <li ><a href="#method-i-remove_directory">#remove_directory</a>
+    
+    <li ><a href="#method-i-remove_remote_file">#remove_remote_file</a>
+    
+    <li ><a href="#method-i-rename">#rename</a>
+    
+    <li ><a href="#method-i-upload">#upload</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-GxG::Networking::SftpClient">
+  <h1 id="class-GxG::Networking::SftpClient" class="class">
+    class GxG::Networking::SftpClient
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 4329</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>()
+  <span class="ruby-ivar">@client</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@user</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-async_download" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">async_download</span><span
+            class="method-args">(the_remote_source=nil, the_destination=nil, options={}, &amp;progress_block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="async_download-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 4457</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">async_download</span>(<span class="ruby-identifier">the_remote_source</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">the_destination</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">progress_block</span>)
+  <span class="ruby-comment"># progress - either a block or an object to act as a progress callback. See the discussion of &quot;progress monitoring&quot;</span>
+  <span class="ruby-comment"># at http://net-ssh.github.io/net-sftp/classes/Net/SFTP/Operations/Download.html.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># :requests - the number of pending SFTP requests to allow at any given time. When downloading an</span>
+  <span class="ruby-comment">#  entire directory tree recursively, this will default to 16. Setting this higher might improve throughput.</span>
+  <span class="ruby-comment">#  Reducing it will reduce throughput.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># :read_size - the maximum number of bytes to read at a time from the source. Increasing this value might</span>
+  <span class="ruby-comment"># improve throughput. It defaults to 32,000 bytes.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_remote_source</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a local path as a String.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_destination</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a remote path as a String.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">progress_block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+        <span class="ruby-identifier">channel</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">download</span>(<span class="ruby-identifier">the_remote_source</span>, <span class="ruby-identifier">the_destination</span>, <span class="ruby-identifier">options</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">progress_block</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">channel</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">download</span>(<span class="ruby-identifier">the_remote_source</span>, <span class="ruby-identifier">the_destination</span>, <span class="ruby-identifier">options</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">channel</span>.<span class="ruby-identifier">wait</span>
+      <span class="ruby-comment"># True result means the request was sent, not that it completed.</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:remote_path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_remote_source</span>, <span class="ruby-value">:local_path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_destination</span>, <span class="ruby-value">:options</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">options</span>}})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-async_upload" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">async_upload</span><span
+            class="method-args">(the_local_source=nil, the_destination=nil, options={}, &amp;progress_block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="async_upload-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 4378</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">async_upload</span>(<span class="ruby-identifier">the_local_source</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">the_destination</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">progress_block</span>)
+  <span class="ruby-comment"># options:</span>
+  <span class="ruby-comment">#:progress - either a block or an object to act as a progress callback. See the discussion of &quot;progress monitoring&quot;</span>
+  <span class="ruby-comment"># below.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#:requests - the number of pending SFTP requests to allow at any given time. When uploading an entire directory</span>
+  <span class="ruby-comment"># tree recursively, this will default to 16, otherwise it will default to 2. Setting this higher might improve</span>
+  <span class="ruby-comment"># throughput. Reducing it will reduce throughput.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#:read_size - the maximum number of bytes to read at a time from the source. Increasing this value might</span>
+  <span class="ruby-comment"># improve throughput. It defaults to 32,000 bytes.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#:name - the filename to report to the progress monitor when an IO object is given as local. This defaults</span>
+  <span class="ruby-comment"># to &quot;&lt;memory&gt;&quot;.</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_local_source</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a local path as a String.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_destination</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a remote path as a String.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:name</span>]
+        <span class="ruby-identifier">options</span>[<span class="ruby-value">:name</span>] = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">the_local_source</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">progress_block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+        <span class="ruby-identifier">channel</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">upload</span>(<span class="ruby-identifier">the_local_source</span>, <span class="ruby-identifier">the_destination</span>, <span class="ruby-identifier">options</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">progress_block</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">channel</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">upload</span>(<span class="ruby-identifier">the_local_source</span>, <span class="ruby-identifier">the_destination</span>, <span class="ruby-identifier">options</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">channel</span>.<span class="ruby-identifier">wait</span>
+      <span class="ruby-comment"># True result means the request was sent, not that it completed.</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:local_path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_local_source</span>, <span class="ruby-value">:remote_path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_destination</span>, <span class="ruby-value">:options</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">options</span>}})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-change_ownership" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">change_ownership</span><span
+            class="method-args">(the_path=nil, new_owners=nil, &amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="change_ownership-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 4679</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change_ownership</span>(<span class="ruby-identifier">the_path</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">new_owners</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_path</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST supply a remote path. (/path/to/something).&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">new_owners</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST supply a Hash with :user, and optionally :group, defined with a String.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">new_owners</span>[<span class="ruby-value">:user</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST supply a Hash with :user, and optionally :group, defined with a String.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">setstat!</span>(<span class="ruby-identifier">the_path</span>, <span class="ruby-identifier">new_owners</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+      <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">response</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">ok?</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_path</span>, <span class="ruby-value">:new_owners</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">new_owners</span>}})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-change_permissions" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">change_permissions</span><span
+            class="method-args">(the_path=nil, new_permissions=nil, &amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="change_permissions-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 4702</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">change_permissions</span>(<span class="ruby-identifier">the_path</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">new_permissions</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_path</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST supply a remote path. (/path/to/something).&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">new_permissions</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST supply a new permission value. (GxG permission or Integer/Octal).&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">new_permissions</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">new_permissions</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">gxg_permissions_to_mode</span>(<span class="ruby-identifier">new_permissions</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">setstat!</span>(<span class="ruby-identifier">the_path</span>, {<span class="ruby-value">:permissions</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">new_permissions</span>})
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+      <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">response</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">ok?</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_path</span>, <span class="ruby-value">:new_permissions</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">new_permissions</span>}})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-closed-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">closed?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="closed-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 4362</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">closed?</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">closed?</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-download" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">download</span><span
+            class="method-args">(the_remote_source=nil, the_destination=nil, options={}, &amp;progress_block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="download-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 4492</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">download</span>(<span class="ruby-identifier">the_remote_source</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">the_destination</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">progress_block</span>)
+  <span class="ruby-comment"># progress - either a block or an object to act as a progress callback. See the discussion of &quot;progress monitoring&quot;</span>
+  <span class="ruby-comment"># at http://net-ssh.github.io/net-sftp/classes/Net/SFTP/Operations/Download.html.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># :requests - the number of pending SFTP requests to allow at any given time. When downloading an</span>
+  <span class="ruby-comment">#  entire directory tree recursively, this will default to 16. Setting this higher might improve throughput.</span>
+  <span class="ruby-comment">#  Reducing it will reduce throughput.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment"># :read_size - the maximum number of bytes to read at a time from the source. Increasing this value might</span>
+  <span class="ruby-comment"># improve throughput. It defaults to 32,000 bytes.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_remote_source</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a remote path as a String.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_destination</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a local path (or file name) as a String.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">progress_block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+        <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">download!</span>(<span class="ruby-identifier">the_remote_source</span>, <span class="ruby-identifier">the_destination</span>, <span class="ruby-identifier">options</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">progress_block</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">download!</span>(<span class="ruby-identifier">the_remote_source</span>, <span class="ruby-identifier">the_destination</span>, <span class="ruby-identifier">options</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:remote_path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_remote_source</span>, <span class="ruby-value">:local_path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_destination</span>, <span class="ruby-value">:options</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">options</span>}})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-entries" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">entries</span><span
+            class="method-args">(the_path=nil, pattern=nil, flags=0, &amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Remote <a href="../../File.html"><code>File</code></a> System Operations and Objects</p>
+          
+          
+
+          
+          <div class="method-source-code" id="entries-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 4524</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">entries</span>(<span class="ruby-identifier">the_path</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">pattern</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">flags</span>=<span class="ruby-value">0</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-comment"># List entries in a given remote path.</span>
+  <span class="ruby-comment"># If block is provided, resultant list is iterated over the block - (each_entry).</span>
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+      <span class="ruby-comment"># Validate the_path: /.*(?:\\|\/)(.+)$/ from: https://www.experts-exchange.com/questions/22088316/Extract-Filename-from-PATH-using-REGEX.html</span>
+      <span class="ruby-keyword">unless</span> (<span class="ruby-regexp">/.*(?:\\|\/)(.+)$/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">the_path</span>.<span class="ruby-identifier">to_s</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">the_path</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;/&quot;</span>).<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">the_path</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;/&quot;</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a valid remote file system path.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">pattern</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+        <span class="ruby-comment"># use glob</span>
+        <span class="ruby-keyword">unless</span> <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>)
+          <span class="ruby-identifier">flags</span> = <span class="ruby-value">0</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">raw_list</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">dir</span>.<span class="ruby-identifier">glob</span>(<span class="ruby-identifier">the_path</span>, <span class="ruby-identifier">pattern</span>, <span class="ruby-identifier">flags</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-comment"># use entries</span>
+        <span class="ruby-identifier">raw_list</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">dir</span>.<span class="ruby-identifier">entries</span>(<span class="ruby-identifier">the_path</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">list</span> = []
+      <span class="ruby-identifier">raw_permission</span> = { <span class="ruby-value">:execute</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:rename</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:move</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:destroy</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:create</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:write</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:read</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span> }
+      <span class="ruby-identifier">blank_permissions</span> = {<span class="ruby-value">:effective</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:owner</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">raw_permission</span>.<span class="ruby-identifier">clone</span>, <span class="ruby-value">:group</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">raw_permission</span>.<span class="ruby-identifier">clone</span>, <span class="ruby-value">:other</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">raw_permission</span>.<span class="ruby-identifier">clone</span>}
+      <span class="ruby-comment">#</span>
+      <span class="ruby-identifier">raw_list</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">details</span><span class="ruby-operator">|</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-keyword">unless</span> <span class="ruby-identifier">details</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;.&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">details</span>.<span class="ruby-identifier">name</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;..&quot;</span>
+          <span class="ruby-comment">#</span>
+          <span class="ruby-identifier">record</span> = {<span class="ruby-value">:title</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">details</span>.<span class="ruby-identifier">name</span>), <span class="ruby-value">:type</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">:virtual_directory</span>, <span class="ruby-value">:owner_type</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">:virtual_directory</span>, <span class="ruby-value">:on_device</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:on_device_major</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:on_device_minor</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:is_device</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:is_device_major</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:is_device_minor</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:inode</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:flags</span> <span class="ruby-operator">=&gt;</span> [], <span class="ruby-value">:hardlinks_to</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0</span>, <span class="ruby-value">:user_id</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:group_id</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:size</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0</span>, <span class="ruby-value">:block_size</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0</span>, <span class="ruby-value">:blocks</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0</span>, <span class="ruby-value">:accessed</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:modified</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:status_modified</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:permissions</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:mode</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">nil</span>}
+          <span class="ruby-identifier">permission_record</span> = <span class="ruby-identifier">blank_permissions</span>.<span class="ruby-identifier">clone</span>
+          <span class="ruby-comment">#</span>
+          <span class="ruby-identifier">record</span> = <span class="ruby-identifier">record</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value">:size</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">details</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">size</span>), <span class="ruby-value">:accessed</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-identifier">details</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">atime</span>)).<span class="ruby-identifier">to_datetime</span>, <span class="ruby-value">:modified</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-identifier">details</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">mtime</span>)).<span class="ruby-identifier">to_datetime</span>, <span class="ruby-value">:state_modified</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-constant">Time</span>.<span class="ruby-identifier">at</span>(<span class="ruby-identifier">details</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">mtime</span>)).<span class="ruby-identifier">to_datetime</span>, <span class="ruby-value">:user_id</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">details</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">uid</span>), <span class="ruby-value">:group_id</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">details</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">gid</span>)})
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">details</span>.<span class="ruby-identifier">directory?</span>()
+            <span class="ruby-identifier">record</span>[<span class="ruby-value">:type</span>] = <span class="ruby-value">:directory</span>
+            <span class="ruby-identifier">record</span>[<span class="ruby-value">:owner_type</span>] = <span class="ruby-value">:directory</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">details</span>.<span class="ruby-identifier">file?</span>()
+            <span class="ruby-identifier">record</span>[<span class="ruby-value">:type</span>] = <span class="ruby-value">:file</span>
+            <span class="ruby-identifier">record</span>[<span class="ruby-value">:owner_type</span>] = <span class="ruby-value">:file</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">details</span>.<span class="ruby-identifier">symlink?</span>()
+            <span class="ruby-identifier">record</span>[<span class="ruby-value">:type</span>] = <span class="ruby-value">:symlink</span>
+            <span class="ruby-identifier">record</span>[<span class="ruby-value">:owner_type</span>] = <span class="ruby-value">:symlink</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-comment"># puts &quot;Got: #{details.attributes.permissions.inspect}&quot;</span>
+          <span class="ruby-identifier">record</span>[<span class="ruby-value">:permissions</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">mode_permission_to_gxg</span>(<span class="ruby-identifier">details</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">permissions</span>.<span class="ruby-identifier">to_i</span>)
+          <span class="ruby-identifier">current_groups</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">session</span>.<span class="ruby-identifier">exec!</span>(<span class="ruby-string">&quot;groups&quot;</span>).<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;\n&quot;</span>,<span class="ruby-string">&quot;&quot;</span>).<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_groups</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+            <span class="ruby-identifier">effective_permissions</span> = <span class="ruby-identifier">raw_permission</span>.<span class="ruby-identifier">clone</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-ivar">@user</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">details</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">owner</span>
+              <span class="ruby-identifier">include_owner</span> = <span class="ruby-keyword">true</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">include_owner</span> = <span class="ruby-keyword">false</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">current_groups</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">details</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">group</span>)
+              <span class="ruby-identifier">include_group</span> = <span class="ruby-keyword">true</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">include_group</span> = <span class="ruby-keyword">false</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-comment">#</span>
+            <span class="ruby-identifier">permissions_stack</span> = []
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">include_owner</span>
+              <span class="ruby-identifier">permissions_stack</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">record</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:owner</span>]
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">include_group</span>
+              <span class="ruby-identifier">permissions_stack</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">record</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:group</span>]
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">permissions_stack</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">record</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:other</span>]
+            <span class="ruby-identifier">permissions_stack</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+              <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">keys</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_key</span><span class="ruby-operator">|</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry</span>[(<span class="ruby-identifier">the_key</span>)] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+                  <span class="ruby-identifier">effective_permissions</span>[(<span class="ruby-identifier">the_key</span>)] = <span class="ruby-keyword">true</span>
+                <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">record</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:effective</span>] = <span class="ruby-identifier">effective_permissions</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:effective</span>][<span class="ruby-value">:read</span>]
+              <span class="ruby-identifier">record</span>[<span class="ruby-value">:flags</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:read</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">record</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:effective</span>][<span class="ruby-value">:write</span>]
+              <span class="ruby-identifier">record</span>[<span class="ruby-value">:flags</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:write</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">list</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">record</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+        <span class="ruby-identifier">list</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">entry</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-identifier">list</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:remote_path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_path</span>}})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-login" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">login</span><span
+            class="method-args">(the_url=nil, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="login-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 4335</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">login</span>(<span class="ruby-identifier">the_url</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">Generic</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a valid URI&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@user</span> = <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">user</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">password</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:password</span>] = <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">password</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">port</span>
+      <span class="ruby-identifier">options</span>[<span class="ruby-value">:port</span>] = <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">port</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@client</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Net</span><span class="ruby-operator">::</span><span class="ruby-constant">SFTP</span>.<span class="ruby-identifier">start</span>(<span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">hostname</span>, <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">user</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">connect!</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">closed?</span>
+      <span class="ruby-ivar">@client</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-string">&quot;Failed to open a connection.&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:url</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_url</span>, <span class="ruby-value">:options</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">options</span>}})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-logout" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">logout</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="logout-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 4370</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">logout</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+    <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">close_channel</span>
+    <span class="ruby-ivar">@client</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-make_directory" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">make_directory</span><span
+            class="method-args">(the_path=nil, &amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="make_directory-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 4785</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">make_directory</span>(<span class="ruby-identifier">the_path</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_path</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST supply a new directory path. (/path/to/new_dir).&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">mkdir!</span>(<span class="ruby-identifier">the_path</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+      <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">response</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">ok?</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:original_name</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">name</span>, <span class="ruby-value">:new_name</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">new_name</span>}})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-make_link" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">make_link</span><span
+            class="method-args">(new_link_path=nil, existing_path=nil, symlink=true, &amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="make_link-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 4742</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">make_link</span>(<span class="ruby-identifier">new_link_path</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">existing_path</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">symlink</span>=<span class="ruby-keyword">true</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">new_link_path</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST supply a new link path. (/path/to/new_link).&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">existing_path</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST supply an existing file path. (/path/to/file).&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">symlink</span>
+      <span class="ruby-identifier">symlink</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">link!</span>(<span class="ruby-identifier">new_link_path</span>,<span class="ruby-identifier">existing_path</span>,<span class="ruby-identifier">symlink</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+      <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">response</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">ok?</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:new_link_path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">new_link_path</span>, <span class="ruby-value">:existing_path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">existing_path</span>, <span class="ruby-value">:symlink</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">symlink</span>}})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-open_remote_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">open_remote_file</span><span
+            class="method-args">(the_path=nil, permissions={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="open_remote_file-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 4625</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">open_remote_file</span>(<span class="ruby-identifier">the_path</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">permissions</span>={})
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+      <span class="ruby-identifier">filename</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">the_path</span>)
+      <span class="ruby-identifier">entries</span> = <span class="ruby-identifier">this</span>().<span class="ruby-identifier">entries</span>(<span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">dirname</span>(<span class="ruby-identifier">the_path</span>))
+      <span class="ruby-identifier">open_only</span> = <span class="ruby-keyword">false</span>
+      <span class="ruby-identifier">flags</span> = []
+      <span class="ruby-identifier">entries</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">item</span>[<span class="ruby-value">:title</span>] <span class="ruby-operator">==</span> <span class="ruby-identifier">filename</span>
+          <span class="ruby-identifier">open_only</span> = <span class="ruby-keyword">true</span>
+          <span class="ruby-identifier">flags</span> = <span class="ruby-identifier">item</span>[<span class="ruby-value">:flags</span>]
+          <span class="ruby-keyword">break</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">open_only</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value">:read</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value">:write</span>)
+            <span class="ruby-identifier">open_mode</span> = <span class="ruby-string">&quot;w+&quot;</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">open_mode</span> = <span class="ruby-string">&quot;r&quot;</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value">:write</span>) 
+            <span class="ruby-identifier">open_mode</span> = <span class="ruby-string">&quot;w&quot;</span>
+          <span class="ruby-keyword">else</span>                
+            <span class="ruby-identifier">open_mode</span> = <span class="ruby-string">&quot;r&quot;</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#open</span>
+        <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">file</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">the_path</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-identifier">open_mode</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-comment">#create</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">permissions</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">permissions</span>[<span class="ruby-value">:owner</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">permissions</span>[<span class="ruby-value">:group</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">permissions</span>[<span class="ruby-value">:other</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+            <span class="ruby-identifier">permissions</span> = <span class="ruby-operator">::</span><span class="ruby-constant">File</span>.<span class="ruby-identifier">gxg_permissions_to_mode</span>(<span class="ruby-identifier">permissions</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">permissions</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>)
+          <span class="ruby-keyword">unless</span> <span class="ruby-identifier">permissions</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+            <span class="ruby-identifier">permissions</span> = <span class="ruby-value">0644</span>.<span class="ruby-identifier">to_i</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">permissions</span> = <span class="ruby-value">0644</span>.<span class="ruby-identifier">to_i</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">file</span>.<span class="ruby-identifier">open</span>(<span class="ruby-identifier">the_path</span>.<span class="ruby-identifier">to_s</span>, <span class="ruby-string">&quot;w+&quot;</span>, <span class="ruby-identifier">permissions</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:remote_path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_path</span>, <span class="ruby-value">:permissions</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">permissions</span>}})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_directory" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_directory</span><span
+            class="method-args">(the_path=nil, &amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remove_directory-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 4802</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_directory</span>(<span class="ruby-identifier">the_path</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_path</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST supply a directory path to remove. (/path/to/dir).&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">rmdir!</span>(<span class="ruby-identifier">the_path</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+      <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">response</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">ok?</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:original_name</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">name</span>, <span class="ruby-value">:new_name</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">new_name</span>}})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-remove_remote_file" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">remove_remote_file</span><span
+            class="method-args">(the_path=nil, &amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="remove_remote_file-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 4725</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">remove_remote_file</span>(<span class="ruby-identifier">the_path</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_path</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST supply a remote file path. (/path/to/file).&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">remove!</span>(<span class="ruby-identifier">the_path</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+      <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">response</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">ok?</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_path</span>}})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-rename" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">rename</span><span
+            class="method-args">(name=nil, new_name=nil,&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="rename-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 4765</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">rename</span>(<span class="ruby-identifier">name</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">new_name</span>=<span class="ruby-keyword">nil</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST supply a remote file path. (/path/to/old_name).&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">new_name</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST supply a new file name path. (/path/to/new_name).&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">response</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">rename!</span>(<span class="ruby-identifier">name</span>,<span class="ruby-identifier">new_name</span>,<span class="ruby-value">0x0004</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+      <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">response</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">response</span>.<span class="ruby-identifier">ok?</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:original_name</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">name</span>, <span class="ruby-value">:new_name</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">new_name</span>}})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-upload" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">upload</span><span
+            class="method-args">(the_local_source=nil, the_destination=nil, options={}, &amp;progress_block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="upload-source">
+            <pre><span class="ruby-comment"># File lib/gxg/net_clients.rb, line 4419</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">upload</span>(<span class="ruby-identifier">the_local_source</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">the_destination</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span>={}, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">progress_block</span>)
+  <span class="ruby-comment"># options:</span>
+  <span class="ruby-comment">#:progress - either a block or an object to act as a progress callback. See the discussion of &quot;progress monitoring&quot;</span>
+  <span class="ruby-comment"># below.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#:requests - the number of pending SFTP requests to allow at any given time. When uploading an entire directory</span>
+  <span class="ruby-comment"># tree recursively, this will default to 16, otherwise it will default to 2. Setting this higher might improve</span>
+  <span class="ruby-comment"># throughput. Reducing it will reduce throughput.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#:read_size - the maximum number of bytes to read at a time from the source. Increasing this value might</span>
+  <span class="ruby-comment"># improve throughput. It defaults to 32,000 bytes.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#:name - the filename to report to the progress monitor when an IO object is given as local. This defaults</span>
+  <span class="ruby-comment"># to &quot;&lt;memory&gt;&quot;.</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@client</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_local_source</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a local path as a String.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_destination</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a remote path as a String.&quot;</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:name</span>]
+        <span class="ruby-identifier">options</span>[<span class="ruby-value">:name</span>] = <span class="ruby-constant">File</span>.<span class="ruby-identifier">basename</span>(<span class="ruby-identifier">the_local_source</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">progress_block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+        <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">upload!</span>(<span class="ruby-identifier">the_local_source</span>, <span class="ruby-identifier">the_destination</span>, <span class="ruby-identifier">options</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">progress_block</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">result</span> = <span class="ruby-ivar">@client</span>.<span class="ruby-identifier">upload!</span>(<span class="ruby-identifier">the_local_source</span>, <span class="ruby-identifier">the_destination</span>, <span class="ruby-identifier">options</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:local_path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_local_source</span>, <span class="ruby-value">:remote_path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_destination</span>, <span class="ruby-value">:options</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">options</span>}})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

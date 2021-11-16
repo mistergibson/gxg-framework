@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class GxG::Communications::Bridge - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-call_event">#call_event</a>
+    
+    <li ><a href="#method-i-interface">#interface</a>
+    
+    <li ><a href="#method-i-on">#on</a>
+    
+    <li ><a href="#method-i-reply">#reply</a>
+    
+    <li ><a href="#method-i-request">#request</a>
+    
+    <li ><a href="#method-i-respond_to_event-3F">#respond_to_event?</a>
+    
+    <li ><a href="#method-i-uuid">#uuid</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-GxG::Communications::Bridge">
+  <h1 id="class-GxG::Communications::Bridge" class="class">
+    class GxG::Communications::Bridge
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(process=nil, the_url=nil, options=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_communications.rb, line 823</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">process</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">the_url</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span>=<span class="ruby-keyword">nil</span>)
+    <span class="ruby-comment"># Note: process (required) is a Service or Application instance only</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">process</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Services</span><span class="ruby-operator">::</span><span class="ruby-constant">Service</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a Service or Application instance to bind to.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># Ensure protocol supported</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+        <span class="ruby-identifier">the_url</span> = <span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">the_url</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">Generic</span>)
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You MUST provide a valid URL as a String or URI.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">the_type</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">BRIDGES_AVAILABLE</span>[(<span class="ruby-identifier">the_url</span>.<span class="ruby-identifier">scheme</span>.<span class="ruby-identifier">to_sym</span>)]
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_type</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Sorry, #{the_url.scheme.to_sym.inspect} is not a supported protocol.&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment"># Variables</span>
+    <span class="ruby-ivar">@process</span> = <span class="ruby-identifier">process</span>
+    <span class="ruby-ivar">@url</span> = <span class="ruby-identifier">the_url</span>
+    <span class="ruby-ivar">@adapter</span> = <span class="ruby-identifier">the_type</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>, <span class="ruby-ivar">@url</span>, <span class="ruby-identifier">options</span>)
+    <span class="ruby-ivar">@uuid</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-identifier">uuid_generate</span>.<span class="ruby-identifier">to_sym</span>
+    <span class="ruby-ivar">@interface</span> = {}
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">on</span>(<span class="ruby-value">:interface</span>, <span class="ruby-string">&quot;Available Commands&quot;</span>) <span class="ruby-keyword">do</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">interface</span>()
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-call_event" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">call_event</span><span
+            class="method-args">(operation_envelope=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="call_event-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_communications.rb, line 869</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">call_event</span>(<span class="ruby-identifier">operation_envelope</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">operation_envelope</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">the_event</span> = <span class="ruby-identifier">operation_envelope</span>.<span class="ruby-identifier">keys</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_event</span>
+      <span class="ruby-identifier">data</span> = <span class="ruby-identifier">operation_envelope</span>[(<span class="ruby-identifier">the_event</span>)]
+      <span class="ruby-keyword">if</span> <span class="ruby-ivar">@interface</span>[(<span class="ruby-identifier">the_event</span>)]
+        <span class="ruby-keyword">begin</span>
+          <span class="ruby-identifier">result</span> = {<span class="ruby-value">:result</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-ivar">@interface</span>[(<span class="ruby-identifier">the_event</span>)][<span class="ruby-value">:procedure</span>].<span class="ruby-identifier">call</span>(<span class="ruby-ivar">@process</span>, <span class="ruby-keyword">self</span>, <span class="ruby-identifier">data</span>)}
+        <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+          <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:data</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">data</span>}})
+          <span class="ruby-identifier">result</span> = {<span class="ruby-value">:result</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>.<span class="ruby-identifier">to_s</span>}
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">result</span> = {<span class="ruby-value">:result</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-node">&quot;Command #{the_event.inspect} Not Found&quot;</span>}
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-interface" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">interface</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="interface-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_communications.rb, line 890</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">interface</span>()
+  <span class="ruby-identifier">result</span> = {}
+  <span class="ruby-ivar">@interface</span>.<span class="ruby-identifier">each_pair</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_event</span>, <span class="ruby-identifier">the_record</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">result</span>[(<span class="ruby-identifier">the_event</span>)] = <span class="ruby-identifier">the_record</span>[<span class="ruby-value">:description</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-on" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">on</span><span
+            class="method-args">(the_event, description=nil, &amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Command Interface</p>
+          
+          
+
+          
+          <div class="method-source-code" id="on-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_communications.rb, line 855</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">on</span>(<span class="ruby-identifier">the_event</span>, <span class="ruby-identifier">description</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_event</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Symbol</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You must specify an event listener with a unique Symbol.&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;You must provide an event code block to execute.&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">description</span>
+    <span class="ruby-identifier">description</span> = <span class="ruby-node">&quot;{ &#39;#{the_event.to_s}&#39;: &#39;(your_data_payload)&#39; }&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@interface</span>[(<span class="ruby-identifier">the_event</span>)] = {<span class="ruby-value">:description</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">description</span>, <span class="ruby-value">:procedure</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">block</span>}
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-reply" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">reply</span><span
+            class="method-args">(the_channel_uuid=nil, reply_body=nil, address=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="reply-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_communications.rb, line 947</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">reply</span>(<span class="ruby-identifier">the_channel_uuid</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">reply_body</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">address</span>=<span class="ruby-keyword">nil</span>)
+    <span class="ruby-identifier">result</span> = {<span class="ruby-value">:result</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>}
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-identifier">valid_uuid?</span>(<span class="ruby-identifier">the_channel_uuid</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">reply_body</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Events</span><span class="ruby-operator">::</span><span class="ruby-constant">Message</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">address</span>
+        <span class="ruby-ivar">@adapter</span>.<span class="ruby-identifier">send_message</span>(<span class="ruby-identifier">the_channel_uuid</span>, <span class="ruby-identifier">reply_body</span>, <span class="ruby-identifier">address</span>)
+        <span class="ruby-identifier">result</span>[<span class="ruby-value">:result</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-request" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">request</span><span
+            class="method-args">(the_channel_uuid=nil, request_body=nil, address=nil, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Request/Reply <a href="../Support.html"><code>Support</code></a></p>
+          
+          
+
+          
+          <div class="method-source-code" id="request-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_communications.rb, line 908</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">request</span>(<span class="ruby-identifier">the_channel_uuid</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">request_body</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">address</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">options</span>={})
+    <span class="ruby-identifier">result</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-identifier">valid_uuid?</span>(<span class="ruby-identifier">the_channel_uuid</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">request_body</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Events</span><span class="ruby-operator">::</span><span class="ruby-constant">Message</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">address</span>
+        <span class="ruby-identifier">payload</span> = <span class="ruby-keyword">nil</span>
+        <span class="ruby-identifier">context</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-identifier">uuid_generate</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">address</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">valid_jid?</span>
+            <span class="ruby-comment"># Point-to-Point Request</span>
+            <span class="ruby-identifier">payload</span> = <span class="ruby-identifier">new_message</span>({<span class="ruby-value">:sender</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-ivar">@adapter</span>.<span class="ruby-identifier">jid</span>().<span class="ruby-identifier">to_s</span>, <span class="ruby-value">:body</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">request_body</span>})
+            <span class="ruby-identifier">payload</span>[<span class="ruby-value">:context</span>] = <span class="ruby-identifier">context</span>.<span class="ruby-identifier">to_s</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">payload</span>
+                <span class="ruby-ivar">@adapter</span>.<span class="ruby-identifier">send_message</span>(<span class="ruby-identifier">the_channel_uuid</span>, <span class="ruby-identifier">payload</span>, <span class="ruby-identifier">address</span>)
+                <span class="ruby-identifier">the_reply_list</span> = <span class="ruby-ivar">@adapter</span>.<span class="ruby-identifier">get_messages_by_context</span>(<span class="ruby-identifier">the_channel_uuid</span>, <span class="ruby-identifier">context</span>)
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+                    <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:timeout</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>)
+                        <span class="ruby-identifier">timeout</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:timeout</span>].<span class="ruby-identifier">to_f</span>
+                    <span class="ruby-keyword">else</span>
+                        <span class="ruby-identifier">timeout</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">+</span> <span class="ruby-value">30.0</span>
+                    <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">else</span>
+                    <span class="ruby-identifier">timeout</span> = <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">+</span> <span class="ruby-value">30.0</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">until</span> <span class="ruby-identifier">the_reply_list</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword">do</span>
+                    <span class="ruby-identifier">the_reply_list</span> = <span class="ruby-ivar">@adapter</span>.<span class="ruby-identifier">get_messages_by_context</span>(<span class="ruby-identifier">the_channel_uuid</span>, <span class="ruby-identifier">context</span>)
+                    <span class="ruby-identifier">sleep</span> <span class="ruby-value">0.5</span>
+                    <span class="ruby-keyword">if</span> <span class="ruby-constant">Time</span>.<span class="ruby-identifier">now</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">timeout</span>
+                        <span class="ruby-keyword">break</span>
+                    <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">end</span>
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_reply_list</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+                    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">the_reply_list</span>[<span class="ruby-value">0</span>]
+                <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-respond_to_event-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">respond_to_event?</span><span
+            class="method-args">(the_event=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="respond_to_event-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_communications.rb, line 898</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">respond_to_event?</span>(<span class="ruby-identifier">the_event</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_event</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Symbol</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@interface</span>[(<span class="ruby-identifier">the_event</span>)]
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-uuid" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">uuid</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="uuid-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_communications.rb, line 851</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">uuid</span>()
+    <span class="ruby-ivar">@uuid</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

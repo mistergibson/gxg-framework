@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class StringIO - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-binmode">#binmode</a>
+    
+    <li ><a href="#method-i-binmode-3F">#binmode?</a>
+    
+    <li ><a href="#method-i-fcntl">#fcntl</a>
+    
+    <li ><a href="#method-i-flags">#flags</a>
+    
+    <li ><a href="#method-i-latency_reading">#latency_reading</a>
+    
+    <li ><a href="#method-i-lstat">#lstat</a>
+    
+    <li ><a href="#method-i-profile">#profile</a>
+    
+    <li ><a href="#method-i-read_latency">#read_latency</a>
+    
+    <li ><a href="#method-i-stat">#stat</a>
+    
+    <li ><a href="#method-i-write_latency">#write_latency</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-StringIO">
+  <h1 id="class-StringIO" class="class">
+    class StringIO
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-binmode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">binmode</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="binmode-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 640</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">binmode</span>()
+  <span class="ruby-comment"># Question: ok, so the cosmetics are that it is in binmode ... but what will be its actual behavior??</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">binmode?</span>()
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">set_encoding</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-binmode-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">binmode?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="binmode-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 632</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">binmode?</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span> <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-fcntl" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">fcntl</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="fcntl-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 695</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">fcntl</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">F_GETFL</span>
+    <span class="ruby-identifier">current</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NONBLOCK</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_read?</span>()
+      <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_write?</span>()
+        <span class="ruby-identifier">current</span> = (<span class="ruby-identifier">current</span> <span class="ruby-operator">|</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_WRONLY</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_write?</span>()
+        <span class="ruby-identifier">current</span> = (<span class="ruby-identifier">current</span> <span class="ruby-operator">|</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_RDONLY</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">current</span> = (<span class="ruby-identifier">current</span> <span class="ruby-operator">|</span> <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_RDWR</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">current</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-value">0</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-flags" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">flags</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="flags-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 715</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">flags</span>()
+  <span class="ruby-identifier">result</span> = []
+  <span class="ruby-identifier">current</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">fcntl</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">F_GETFL</span>)
+  <span class="ruby-identifier">flags</span> = {}
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">binmode?</span>()
+    <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:binary</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span> <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:setenc_by_bom</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:text</span>
+    <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:wsplit</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tty?</span>
+    <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:tty</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#flag[:read] = 0x00000001</span>
+  <span class="ruby-comment">#flag[:write] = 0x00000002</span>
+  <span class="ruby-comment">#flag[:readwrite] = (flag[:read] | flag[:write])</span>
+  <span class="ruby-comment">#flag[:binmode] = 0x00000004</span>
+  <span class="ruby-comment">#flag[:readwrite] = (flag[:read] | flag[:write])</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:read</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_RDONLY</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:write</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_WRONLY</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:readwrite</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_RDWR</span>
+  <span class="ruby-comment">#flags[:binary] = 0x00000004</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:sync</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SYNC</span> <span class="ruby-comment"># no internal buffering -- The file will be opened for synchronous I/O. No write operation will complete until the data has been physically written to disk.</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:dsync</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">DSYNC</span> <span class="ruby-comment"># only normal data be synchronized after each write operation, not metadata.</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:rsync</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">RSYNC</span> <span class="ruby-comment"># the synchronization of read requests as well as write requests. It must be used with one of IO::SYNC or IO::DSYNC</span>
+  <span class="ruby-comment">#flags[:tty] = 0x00000010</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:notcontrol_tty</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NOCTTY</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:duplex</span>] = <span class="ruby-value">0x00000020</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:append</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_APPEND</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:create</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_CREAT</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:exclusive</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_EXCL</span>
+  <span class="ruby-comment"># flags[:wsplit] = 0x00000200</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:wsplit_initialized</span>] = <span class="ruby-value">0x00000400</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:trunc</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_TRUNC</span>
+  <span class="ruby-comment">#flags[:text] = 0x00001000</span>
+  <span class="ruby-comment">#flags[:setenc_by_bom] = 0x00100000</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:seek_set</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEEK_SET</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:seek_current</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEEK_CUR</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:seek_end</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">SEEK_END</span>
+  <span class="ruby-comment"># ### file region locking:</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:shared_lock</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">LOCK_SH</span> <span class="ruby-comment"># for reading</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:exclusive_lock</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">LOCK_EX</span> <span class="ruby-comment"># for writing (implies blocking)</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:nonblock_lock</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">LOCK_NB</span> <span class="ruby-comment"># combine with exclusive_lock for immediate non-blocking lock for writing.</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:unlock</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">File</span><span class="ruby-operator">::</span><span class="ruby-constant">LOCK_UN</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:nonblocking</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NONBLOCK</span>
+  <span class="ruby-identifier">flags</span>[<span class="ruby-value">:ndelay</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">Fcntl</span><span class="ruby-operator">::</span><span class="ruby-constant">O_NDELAY</span>
+  <span class="ruby-comment"># these do not apply to in-memory IO-like things at all:</span>
+  <span class="ruby-comment">#    flags[:nofollow] = ::File::NOFOLLOW # Do not follow symlinks.</span>
+  <span class="ruby-comment">#    flags[:noaccesstime] = ::File::NOATIME # Do not update the access time (atime) of the file.</span>
+  <span class="ruby-comment">#    flags[:match_noescape] = ::File::FNM_NOESCAPE #</span>
+  <span class="ruby-comment">#    flags[:match_pathname] = ::File::FNM_PATHNAME #</span>
+  <span class="ruby-comment">#    flags[:match_dotmatch] = ::File::FNM_DOTMATCH #</span>
+  <span class="ruby-comment">#    flags[:match_casefold] = ::File::FNM_CASEFOLD #</span>
+  <span class="ruby-comment">#    flags[:match_systemcase] = ::File::FNM_SYSCASE #</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">flags</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_flag_key</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">current</span> <span class="ruby-operator">&amp;</span> <span class="ruby-identifier">flags</span>[(<span class="ruby-identifier">the_flag_key</span>)]) <span class="ruby-operator">==</span> <span class="ruby-identifier">flags</span>[(<span class="ruby-identifier">the_flag_key</span>)]
+      <span class="ruby-keyword">case</span> <span class="ruby-identifier">the_flag_key</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:readwrite</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value">:write</span>)
+          <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:read</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value">:read</span>)
+            <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:write</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">when</span> <span class="ruby-value">:wsplit_initialized</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">result</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value">:wsplit</span>)
+          <span class="ruby-identifier">result</span>[(<span class="ruby-identifier">result</span>.<span class="ruby-identifier">index</span>(<span class="ruby-value">:wsplit</span>))] = <span class="ruby-value">:wsplit_initialized</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-value">:wsplit_initialized</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_flag_key</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-latency_reading" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">latency_reading</span><span
+            class="method-args">(old_reading=nil,&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="latency_reading-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 665</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">latency_reading</span>(<span class="ruby-identifier">old_reading</span>=<span class="ruby-keyword">nil</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-comment"># Just in StringIO for interface compatibility.</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">old_reading</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">old_reading</span> = {<span class="ruby-value">:low</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:last</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:high</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">new_reading</span> = {<span class="ruby-value">:low</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:last</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:high</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>}
+  <span class="ruby-identifier">reading</span> = <span class="ruby-identifier">millisecond_latency</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">old_reading</span>[<span class="ruby-value">:low</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">reading</span>[<span class="ruby-value">:milliseconds</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">old_reading</span>[<span class="ruby-value">:low</span>]
+      <span class="ruby-identifier">new_reading</span>[<span class="ruby-value">:low</span>] = <span class="ruby-identifier">reading</span>[<span class="ruby-value">:milliseconds</span>].<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">new_reading</span>[<span class="ruby-value">:low</span>] = <span class="ruby-identifier">old_reading</span>[<span class="ruby-value">:low</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">new_reading</span>[<span class="ruby-value">:low</span>] = <span class="ruby-identifier">reading</span>[<span class="ruby-value">:milliseconds</span>].<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">new_reading</span>[<span class="ruby-value">:last</span>] = <span class="ruby-identifier">reading</span>[<span class="ruby-value">:milliseconds</span>].<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">old_reading</span>[<span class="ruby-value">:high</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">reading</span>[<span class="ruby-value">:milliseconds</span>] <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">old_reading</span>[<span class="ruby-value">:high</span>]
+      <span class="ruby-identifier">new_reading</span>[<span class="ruby-value">:high</span>] = <span class="ruby-identifier">reading</span>[<span class="ruby-value">:milliseconds</span>].<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">new_reading</span>[<span class="ruby-value">:high</span>] = <span class="ruby-identifier">old_reading</span>[<span class="ruby-value">:high</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">new_reading</span>[<span class="ruby-value">:high</span>] = <span class="ruby-identifier">reading</span>[<span class="ruby-value">:milliseconds</span>].<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  {<span class="ruby-value">:result</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">reading</span>[<span class="ruby-value">:result</span>], <span class="ruby-value">:reading</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">new_reading</span>}
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-lstat" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">lstat</span><span
+            class="method-args">(*args)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="StringIO.html#method-i-stat">stat</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-profile" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">profile</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="profile-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 806</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">profile</span>()
+  <span class="ruby-identifier">current</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">flags</span>()
+  <span class="ruby-identifier">result</span> = {<span class="ruby-value">:type</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">:memory</span>, <span class="ruby-value">:flags</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">current</span>, <span class="ruby-value">:permissions</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:effective</span><span class="ruby-operator">=&gt;</span>{<span class="ruby-value">:execute</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">false</span>, <span class="ruby-value">:rename</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">false</span>, <span class="ruby-value">:move</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">false</span>, <span class="ruby-value">:destroy</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">false</span>, <span class="ruby-value">:create</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">false</span>, <span class="ruby-value">:write</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">false</span>, <span class="ruby-value">:read</span><span class="ruby-operator">=&gt;</span><span class="ruby-keyword">false</span>}}}
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value">:read</span>)
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:effective</span>][<span class="ruby-value">:read</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">current</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-value">:write</span>)
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:effective</span>][<span class="ruby-value">:write</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:effective</span>][<span class="ruby-value">:destroy</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">result</span>[<span class="ruby-value">:permissions</span>][<span class="ruby-value">:effective</span>][<span class="ruby-value">:create</span>] = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-read_latency" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">read_latency</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="read_latency-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 657</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">read_latency</span>()
+  <span class="ruby-comment"># Just in StringIO for interface compatibility.</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@read_latency</span>)
+    <span class="ruby-ivar">@read_latency</span>= {<span class="ruby-value">:low</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:last</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:high</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@read_latency</span>.<span class="ruby-identifier">clone</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-stat" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">stat</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="stat-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 801</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">stat</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="StringIO.html#method-i-lstat">lstat</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-write_latency" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">write_latency</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="write_latency-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 649</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">write_latency</span>()
+  <span class="ruby-comment"># Just in StringIO for interface compatibility.</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@write_latency</span>)
+    <span class="ruby-ivar">@write_latency</span>= {<span class="ruby-value">:low</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:last</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:high</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@write_latency</span>.<span class="ruby-identifier">clone</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

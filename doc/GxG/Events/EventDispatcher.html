@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class GxG::Events::EventDispatcher - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/navigation.js" defer></script>
+<script src="../../js/search.js" defer></script>
+<script src="../../js/search_index.js" defer></script>
+<script src="../../js/searcher.js" defer></script>
+<script src="../../js/darkfish.js" defer></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li class="calls-super" ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-adjust_event_queue">#adjust_event_queue</a>
+    
+    <li ><a href="#method-i-at">#at</a>
+    
+    <li ><a href="#method-i-cancel_timer">#cancel_timer</a>
+    
+    <li ><a href="#method-i-create_event_queue">#create_event_queue</a>
+    
+    <li ><a href="#method-i-cron">#cron</a>
+    
+    <li ><a href="#method-i-delete_event_queue">#delete_event_queue</a>
+    
+    <li ><a href="#method-i-every">#every</a>
+    
+    <li ><a href="#method-i-in">#in</a>
+    
+    <li ><a href="#method-i-inspect_queue">#inspect_queue</a>
+    
+    <li ><a href="#method-i-inspect_timers">#inspect_timers</a>
+    
+    <li ><a href="#method-i-pause_event_queue">#pause_event_queue</a>
+    
+    <li ><a href="#method-i-post_event">#post_event</a>
+    
+    <li ><a href="#method-i-post_to_event_queue">#post_to_event_queue</a>
+    
+    <li ><a href="#method-i-running-3F">#running?</a>
+    
+    <li ><a href="#method-i-shutdown">#shutdown</a>
+    
+    <li ><a href="#method-i-startup">#startup</a>
+    
+    <li ><a href="#method-i-tick">#tick</a>
+    
+    <li ><a href="#method-i-unpause_event_queue">#unpause_event_queue</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-GxG::Events::EventDispatcher">
+  <h1 id="class-GxG::Events::EventDispatcher" class="class">
+    class GxG::Events::EventDispatcher
+  </h1>
+
+  <section class="description">
+    
+<p>Provide a Cooperative Processing facility for sessions</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(interval=0.333, thread_reservation=100)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 114</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>(<span class="ruby-identifier">interval</span>=<span class="ruby-value">0.333</span>, <span class="ruby-identifier">thread_reservation</span>=<span class="ruby-value">100</span>)
+  <span class="ruby-keyword">super</span>()
+  <span class="ruby-ivar">@reserved_threads</span> = (<span class="ruby-identifier">thread_reservation</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">||</span> <span class="ruby-value">100</span>)
+  <span class="ruby-ivar">@uuid</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-identifier">uuid_generate</span>().<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-ivar">@event_queues</span> = {<span class="ruby-value">:root</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:events</span> <span class="ruby-operator">=&gt;</span> [], <span class="ruby-value">:settings</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:active</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>, <span class="ruby-value">:portion</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">100.0</span>}}}
+  <span class="ruby-ivar">@running</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-ivar">@ticking</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-comment"># Timer format: {:when =&gt; Time_Object.to_f, :what =&gt; event_frame, :interval =&gt; float, :id =&gt; uuid.sym}</span>
+  <span class="ruby-ivar">@timers</span> = []
+  <span class="ruby-ivar">@scheduler</span> = <span class="ruby-constant">Rufus</span><span class="ruby-operator">::</span><span class="ruby-constant">Scheduler</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">:max_work_threads</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-ivar">@reserved_threads</span>)
+  <span class="ruby-keyword">def</span> <span class="ruby-ivar">@scheduler</span>.<span class="ruby-identifier ruby-title">on_error</span>(<span class="ruby-identifier">job</span>, <span class="ruby-identifier">error</span>)
+    <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">error</span>, <span class="ruby-value">:parameters</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:job</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">job</span>}})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@scheduler</span>.<span class="ruby-identifier">pause</span>
+  <span class="ruby-ivar">@tick_timer</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@tick_interval</span> = <span class="ruby-identifier">interval</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-adjust_event_queue" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">adjust_event_queue</span><span
+            class="method-args">(queue=:root,settings={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="adjust_event_queue-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 259</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">adjust_event_queue</span>(<span class="ruby-identifier">queue</span>=<span class="ruby-value">:root</span>,<span class="ruby-identifier">settings</span>={})
+  <span class="ruby-comment"># RESEARCH: GxG::Events::EventDispatcher.adjust_event_queue : refactor :portion of each queue algo needed.</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">queue</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">==</span> <span class="ruby-value">:root</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@event_queues</span>[(<span class="ruby-identifier">queue</span>.<span class="ruby-identifier">to_sym</span>)]
+      <span class="ruby-comment"># LATER: Eventually add :portion as valid setting to accept.</span>
+      [<span class="ruby-value">:active</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_setting</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">settings</span>[(<span class="ruby-identifier">the_setting</span>.<span class="ruby-identifier">to_sym</span>)]
+          <span class="ruby-identifier">new_setting</span> = {}
+          <span class="ruby-comment"># portion adjustment algo here</span>
+          <span class="ruby-identifier">new_setting</span>[(<span class="ruby-identifier">the_setting</span>.<span class="ruby-identifier">to_sym</span>)] = <span class="ruby-identifier">settings</span>[(<span class="ruby-identifier">the_setting</span>.<span class="ruby-identifier">to_sym</span>)]
+          <span class="ruby-comment">#</span>
+          <span class="ruby-ivar">@event_queues</span>[(<span class="ruby-identifier">queue</span>.<span class="ruby-identifier">to_sym</span>)][<span class="ruby-value">:settings</span>].<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">new_setting</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Warning: queue #{queue.inspect} does not exist&quot;</span>
+      <span class="ruby-comment"># For Now: just ignore references to non-existent queues. (reconsider later)</span>
+      <span class="ruby-comment"># raise ArgumentError, &quot;Event Queue :#{queue} does not exist to alter&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-at" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">at</span><span
+            class="method-args">(expression=&quot;&quot;,&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="at-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 364</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">at</span>(<span class="ruby-identifier">expression</span>=<span class="ruby-string">&quot;&quot;</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">the_time</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">case</span> <span class="ruby-identifier">expression</span>.<span class="ruby-identifier">class</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">::</span><span class="ruby-constant">DateTime</span>
+    <span class="ruby-identifier">the_time</span> = <span class="ruby-identifier">expression</span>.<span class="ruby-identifier">to_time</span>()
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">::</span><span class="ruby-constant">Time</span>
+    <span class="ruby-identifier">the_time</span> = <span class="ruby-identifier">expression</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-operator">::</span><span class="ruby-constant">String</span>
+    <span class="ruby-identifier">the_time</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Chronic</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">expression</span>)
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_time</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Invalid time expression: #{expression.inspect}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Invalid time expression: #{expression.inspect}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_time</span>
+    <span class="ruby-ivar">@scheduler</span>.<span class="ruby-identifier">at</span>(<span class="ruby-identifier">the_time</span>.<span class="ruby-identifier">iso8601</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cancel_timer" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cancel_timer</span><span
+            class="method-args">(timer_reference=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Adding Timers See: <a href="https://stackoverflow.com/questions/235504/validating-crontab-entries-with-php">stackoverflow.com/questions/235504/validating-crontab-entries-with-php</a> Cron REGEX: /^((?:[<a href="\/-">1-9]?d|*)s*(?:(?:</a>[<a href="1-9">1-9]?d)|(?:,</a>?d)+)?s*){5}$/ Rufus Duration REGEX: /^(-?)([d.smhdwy]+)$/ at, in, every, cron</p>
+          
+          
+
+          
+          <div class="method-source-code" id="cancel_timer-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 354</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cancel_timer</span>(<span class="ruby-identifier">timer_reference</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-ivar">@scheduler</span>.<span class="ruby-identifier">jobs</span>().<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_task</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_task</span>.<span class="ruby-identifier">job_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">timer_reference</span>
+      <span class="ruby-identifier">the_task</span>.<span class="ruby-identifier">unschedule</span>
+      <span class="ruby-keyword">break</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-create_event_queue" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">create_event_queue</span><span
+            class="method-args">(settings={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="create_event_queue-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 281</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create_event_queue</span>(<span class="ruby-identifier">settings</span>={})
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;you must provide a Hash as a parameter set&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">queue_name</span> = <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-value">:name</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_sym</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">queue_name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@event_queues</span>[(<span class="ruby-identifier">queue_name</span>)]
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Event Queue #{queue_name.inspect} already exists&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@event_queues</span>[(<span class="ruby-identifier">queue_name</span>)] = {<span class="ruby-value">:events</span> <span class="ruby-operator">=&gt;</span> [], <span class="ruby-value">:settings</span> <span class="ruby-operator">=&gt;</span> {<span class="ruby-value">:active</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>, <span class="ruby-value">:portion</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-value">0.0</span>}}
+      <span class="ruby-comment"># For Now: simply evenly divide the portions equally, only :root can be 100%.</span>
+      <span class="ruby-identifier">even_portion</span> = (<span class="ruby-value">100.0</span> <span class="ruby-operator">/</span> <span class="ruby-ivar">@event_queues</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">size</span>.<span class="ruby-identifier">to_f</span>)
+      <span class="ruby-ivar">@event_queues</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_queue</span><span class="ruby-operator">|</span>
+        <span class="ruby-ivar">@event_queues</span>[(<span class="ruby-identifier">the_queue</span>)][<span class="ruby-value">:settings</span>][<span class="ruby-value">:portion</span>] = (<span class="ruby-identifier">even_portion</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">adjust_event_queue</span>(<span class="ruby-identifier">queue_name</span>, <span class="ruby-identifier">settings</span>.<span class="ruby-identifier">merge</span>({<span class="ruby-value">:active</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>}))
+      <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-string">&quot;:name must be provided for Event Queue&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-cron" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">cron</span><span
+            class="method-args">(expression=&quot;&quot;,&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="cron-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 496</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">cron</span>(<span class="ruby-identifier">expression</span>=<span class="ruby-string">&quot;&quot;</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-regexp">/^((?:[1-9]?\d|\*)\s*(?:(?:[\/-][1-9]?\d)|(?:,[1-9]?\d)+)?\s*){5}$/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">expression</span>)
+    <span class="ruby-ivar">@scheduler</span>.<span class="ruby-identifier">cron</span>(<span class="ruby-identifier">expression</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Invalid CRON expression: #{expression.inspect}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delete_event_queue" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delete_event_queue</span><span
+            class="method-args">(queue=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delete_event_queue-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 304</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">delete_event_queue</span>(<span class="ruby-identifier">queue</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">queue</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">==</span> <span class="ruby-value">:root</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@event_queues</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">queue</span>)
+    <span class="ruby-comment"># For Now: simply evenly divide the portions equally, only :root can be 100%.</span>
+    <span class="ruby-identifier">even_portion</span> = (<span class="ruby-ivar">@event_queues</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">size</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-value">100.0</span>)
+    <span class="ruby-ivar">@event_queues</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_queue</span><span class="ruby-operator">|</span>
+      <span class="ruby-ivar">@event_queues</span>[(<span class="ruby-identifier">the_queue</span>)][<span class="ruby-value">:settings</span>][<span class="ruby-value">:portion</span>] = (<span class="ruby-identifier">even_portion</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-every" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">every</span><span
+            class="method-args">(expression=&quot;&quot;, &amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="every-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 441</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">every</span>(<span class="ruby-identifier">expression</span>=<span class="ruby-string">&quot;&quot;</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">expression</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>)
+    <span class="ruby-identifier">interval</span> = <span class="ruby-identifier">expression</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">expression</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot; &quot;</span>)
+      <span class="ruby-comment"># parse to Rufus duration</span>
+      <span class="ruby-identifier">duration_type</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-identifier">interval</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-identifier">expression</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">duration_type</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">interval</span>
+          <span class="ruby-keyword">break</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;s&quot;</span>,<span class="ruby-string">&quot;second&quot;</span>, <span class="ruby-string">&quot;seconds&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">entry</span>)
+            <span class="ruby-identifier">duration_type</span> = <span class="ruby-string">&quot;s&quot;</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;m&quot;</span>,<span class="ruby-string">&quot;minute&quot;</span>, <span class="ruby-string">&quot;minutes&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">entry</span>)
+            <span class="ruby-identifier">duration_type</span> = <span class="ruby-string">&quot;m&quot;</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;h&quot;</span>,<span class="ruby-string">&quot;hour&quot;</span>, <span class="ruby-string">&quot;hours&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">entry</span>)
+            <span class="ruby-identifier">duration_type</span> = <span class="ruby-string">&quot;h&quot;</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;d&quot;</span>,<span class="ruby-string">&quot;day&quot;</span>, <span class="ruby-string">&quot;days&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">entry</span>)
+            <span class="ruby-identifier">duration_type</span> = <span class="ruby-string">&quot;d&quot;</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;w&quot;</span>,<span class="ruby-string">&quot;week&quot;</span>, <span class="ruby-string">&quot;weeks&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">entry</span>)
+            <span class="ruby-identifier">duration_type</span> = <span class="ruby-string">&quot;w&quot;</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-regexp">/[-+0-9.,]*/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">entry</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;.&quot;</span>)
+              <span class="ruby-identifier">interval</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">to_f</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">interval</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">to_i</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">the_interval</span> = (<span class="ruby-identifier">interval</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">duration_type</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># Verify standard Rufus expression</span>
+      <span class="ruby-identifier">duration_type</span> = <span class="ruby-identifier">expression</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/[-+0-9.,]*/</span>)[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_s</span>
+      <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;s&quot;</span>,<span class="ruby-string">&quot;m&quot;</span>,<span class="ruby-string">&quot;h&quot;</span>,<span class="ruby-string">&quot;d&quot;</span>,<span class="ruby-string">&quot;w&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">duration_type</span>.<span class="ruby-identifier">downcase</span>)
+        <span class="ruby-identifier">interval</span> = <span class="ruby-regexp">/[-+0-9.,]*/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">expression</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_i</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">interval</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">the_interval</span> = (<span class="ruby-identifier">interval</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">duration_type</span>.<span class="ruby-identifier">to_s</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Invalid interval expression: #{expression.inspect}&quot;</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Invalid interval expression: #{expression.inspect}&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@scheduler</span>.<span class="ruby-identifier">every</span>(<span class="ruby-identifier">the_interval</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-in" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">in</span><span
+            class="method-args">(expression=&quot;&quot;, &amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="in-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 386</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">in</span>(<span class="ruby-identifier ruby-title">expression</span>=<span class="ruby-string">&quot;&quot;</span>, <span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">expression</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>)
+    <span class="ruby-identifier">interval</span> = <span class="ruby-identifier">expression</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">expression</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot; &quot;</span>)
+      <span class="ruby-comment"># parse to Rufus duration</span>
+      <span class="ruby-identifier">duration_type</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-identifier">interval</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-identifier">expression</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">duration_type</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">interval</span>
+          <span class="ruby-keyword">break</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;s&quot;</span>,<span class="ruby-string">&quot;second&quot;</span>, <span class="ruby-string">&quot;seconds&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">entry</span>)
+            <span class="ruby-identifier">duration_type</span> = <span class="ruby-string">&quot;s&quot;</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;m&quot;</span>,<span class="ruby-string">&quot;minute&quot;</span>, <span class="ruby-string">&quot;minutes&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">entry</span>)
+            <span class="ruby-identifier">duration_type</span> = <span class="ruby-string">&quot;m&quot;</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;h&quot;</span>,<span class="ruby-string">&quot;hour&quot;</span>, <span class="ruby-string">&quot;hours&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">entry</span>)
+            <span class="ruby-identifier">duration_type</span> = <span class="ruby-string">&quot;h&quot;</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;d&quot;</span>,<span class="ruby-string">&quot;day&quot;</span>, <span class="ruby-string">&quot;days&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">entry</span>)
+            <span class="ruby-identifier">duration_type</span> = <span class="ruby-string">&quot;d&quot;</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;w&quot;</span>,<span class="ruby-string">&quot;week&quot;</span>, <span class="ruby-string">&quot;weeks&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">entry</span>)
+            <span class="ruby-identifier">duration_type</span> = <span class="ruby-string">&quot;w&quot;</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-regexp">/[-+0-9.,]*/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">entry</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;.&quot;</span>)
+              <span class="ruby-identifier">interval</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">to_f</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">interval</span> = <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">to_i</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">interval</span> = (<span class="ruby-identifier">interval</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">duration_type</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># Verify standard Rufus expression</span>
+      <span class="ruby-identifier">duration_type</span> = <span class="ruby-identifier">expression</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/[-+0-9.,]*/</span>)[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_s</span>
+      <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;s&quot;</span>,<span class="ruby-string">&quot;m&quot;</span>,<span class="ruby-string">&quot;h&quot;</span>,<span class="ruby-string">&quot;d&quot;</span>,<span class="ruby-string">&quot;w&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">duration_type</span>.<span class="ruby-identifier">downcase</span>)
+        <span class="ruby-identifier">interval</span> = <span class="ruby-regexp">/[-+0-9.,]*/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-identifier">expression</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_i</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">interval</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">interval</span> = (<span class="ruby-identifier">interval</span>.<span class="ruby-identifier">to_s</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">duration_type</span>.<span class="ruby-identifier">to_s</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Invalid interval expression: #{expression.inspect}&quot;</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Invalid interval expression: #{expression.inspect}&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@scheduler</span>.<span class="ruby-identifier">in</span>(<span class="ruby-identifier">interval</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspect_queue" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect_queue</span><span
+            class="method-args">(queue=:root)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inspect_queue-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 255</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inspect_queue</span>(<span class="ruby-identifier">queue</span>=<span class="ruby-value">:root</span>)
+  <span class="ruby-ivar">@event_queues</span>[(<span class="ruby-identifier">queue</span>)]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-inspect_timers" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inspect_timers</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inspect_timers-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 252</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">inspect_timers</span>()
+  <span class="ruby-ivar">@scheduler</span>.<span class="ruby-identifier">jobs</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-pause_event_queue" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">pause_event_queue</span><span
+            class="method-args">(queue=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="pause_event_queue-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 318</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">pause_event_queue</span>(<span class="ruby-identifier">queue</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">queue</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">==</span> <span class="ruby-value">:root</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">adjust_event_queue</span>(<span class="ruby-identifier">queue</span>,{<span class="ruby-value">:active</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">true</span>})
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-post_event" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">post_event</span><span
+            class="method-args">(queue_name=:root,&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="post_event-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 341</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">post_event</span>(<span class="ruby-identifier">queue_name</span>=<span class="ruby-value">:root</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@event_queues</span>[(<span class="ruby-identifier">queue_name</span>.<span class="ruby-identifier">to_sym</span>)]
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">create_event_queue</span>({<span class="ruby-value">:name</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">queue_name</span>.<span class="ruby-identifier">to_sym</span>})
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">post_to_event_queue</span>(<span class="ruby-identifier">queue_name</span>.<span class="ruby-identifier">to_sym</span>,<span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-post_to_event_queue" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">post_to_event_queue</span><span
+            class="method-args">(queue=:root,the_event=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="post_to_event_queue-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 330</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">post_to_event_queue</span>(<span class="ruby-identifier">queue</span>=<span class="ruby-value">:root</span>,<span class="ruby-identifier">the_event</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_event</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@event_queues</span>[(<span class="ruby-identifier">queue</span>)]
+      <span class="ruby-ivar">@event_queues</span>[(<span class="ruby-identifier">queue</span>)][<span class="ruby-value">:events</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_event</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># issue a warning, and post to :root queue anyways (for now). (link to logger, and output)</span>
+      <span class="ruby-ivar">@event_queues</span>[<span class="ruby-value">:root</span>][<span class="ruby-value">:events</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_event</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-running-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">running?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="running-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 134</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">running?</span>()
+  <span class="ruby-ivar">@running</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-shutdown" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">shutdown</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="shutdown-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 159</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">shutdown</span>()
+  <span class="ruby-ivar">@running</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@tick_timer</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">cancel_timer</span>(<span class="ruby-ivar">@tick_timer</span>)
+    <span class="ruby-ivar">@tick_timer</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-ivar">@scheduler</span>.<span class="ruby-identifier">pause</span>
+    <span class="ruby-ivar">@reserved_threads</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span>
+      <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">release_event_descriptor</span>()
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-startup" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">startup</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="startup-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 138</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">startup</span>()
+  <span class="ruby-ivar">@running</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@scheduler</span>.<span class="ruby-identifier">paused?</span>
+    <span class="ruby-ivar">@scheduler</span>.<span class="ruby-identifier">resume</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@tick_timer</span>
+    <span class="ruby-ivar">@tick_timer</span> = <span class="ruby-ivar">@scheduler</span>.<span class="ruby-identifier">every</span>(<span class="ruby-ivar">@tick_interval</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">tick</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@reserved_threads</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">reserve_event_descriptor</span>()
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+      <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>})
+      <span class="ruby-keyword">break</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@running</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-tick" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tick</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="tick-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 172</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">tick</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@running</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-ivar">@ticking</span>
+      <span class="ruby-ivar">@ticking</span> = <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">events</span> = []
+      <span class="ruby-identifier">envelope</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">event_allocation_envelope</span>()
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">envelope</span>.<span class="ruby-identifier">last</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">envelope</span>.<span class="ruby-identifier">first</span>
+        <span class="ruby-identifier">prefetch</span> = {}
+        <span class="ruby-ivar">@event_queues</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_queue</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> (<span class="ruby-ivar">@event_queues</span>[(<span class="ruby-identifier">the_queue</span>)][<span class="ruby-value">:settings</span>][<span class="ruby-value">:active</span>] <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-ivar">@event_queues</span>[(<span class="ruby-identifier">the_queue</span>)][<span class="ruby-value">:events</span>].<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+            ((<span class="ruby-ivar">@event_queues</span>[(<span class="ruby-identifier">the_queue</span>)][<span class="ruby-value">:settings</span>][<span class="ruby-value">:portion</span>].<span class="ruby-identifier">to_f</span> <span class="ruby-operator">/</span> <span class="ruby-value">100.0</span>) <span class="ruby-operator">*</span> <span class="ruby-identifier">envelope</span>.<span class="ruby-identifier">last</span>.<span class="ruby-identifier">to_f</span>).<span class="ruby-identifier">to_i</span>.<span class="ruby-identifier">times</span> <span class="ruby-keyword">do</span>
+              <span class="ruby-identifier">op</span> = <span class="ruby-ivar">@event_queues</span>[(<span class="ruby-identifier">the_queue</span>)][<span class="ruby-value">:events</span>].<span class="ruby-identifier">shift</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">op</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+                (<span class="ruby-identifier">prefetch</span>[(<span class="ruby-identifier">the_queue</span>)] <span class="ruby-operator">||=</span> []) <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">op</span>
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-identifier">prefetch_count</span> = <span class="ruby-value">0</span>
+        <span class="ruby-identifier">prefetch</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_queue</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">prefetch_count</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">prefetch</span>[(<span class="ruby-identifier">the_queue</span>)].<span class="ruby-identifier">size</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-keyword">while</span> <span class="ruby-identifier">prefetch_count</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-keyword">do</span>
+          <span class="ruby-identifier">prefetch</span>.<span class="ruby-identifier">keys</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_queue</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">op</span> = <span class="ruby-identifier">prefetch</span>[(<span class="ruby-identifier">the_queue</span>)].<span class="ruby-identifier">shift</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">op</span>
+              <span class="ruby-identifier">events</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">op</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">prefetch_count</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment"># xxx old version:</span>
+      <span class="ruby-comment"># queues = {}</span>
+      <span class="ruby-comment"># load_size = 0</span>
+      <span class="ruby-comment"># @event_queues.keys.each do |the_queue|</span>
+      <span class="ruby-comment">#   if (@event_queues[(the_queue)][:settings][:active] &amp;&amp; @event_queues[(the_queue)][:events].size &gt; 0)</span>
+      <span class="ruby-comment">#     queues[(the_queue)] = {:portion =&gt; ((@event_queues[(the_queue)][:settings][:portion].to_f / 100.0) * total_slots.to_f).to_i}</span>
+      <span class="ruby-comment">#     if queues[(the_queue)][:portion] == 0</span>
+      <span class="ruby-comment">#       # Fudging a little here in case of real heavy loads and/or too many queues.</span>
+      <span class="ruby-comment">#       queues[(the_queue)][:portion] = 1</span>
+      <span class="ruby-comment">#     end</span>
+      <span class="ruby-comment">#     queues[(the_queue)][:size] = @event_queues[(the_queue)][:events].size</span>
+      <span class="ruby-comment">#     load_size += queues[(the_queue)][:size]</span>
+      <span class="ruby-comment">#   end</span>
+      <span class="ruby-comment"># end</span>
+      <span class="ruby-comment"># queues.keys.each do |the_queue|</span>
+      <span class="ruby-comment">#   # TODO: devise apportioned event dispatch</span>
+      <span class="ruby-comment">#   queues[(the_queue)][:portion].times do</span>
+      <span class="ruby-comment">#     op = @event_queues[(the_queue)][:events].shift</span>
+      <span class="ruby-comment">#     if op.respond_to?(:call)</span>
+      <span class="ruby-comment">#       events &lt;&lt; op</span>
+      <span class="ruby-comment">#     else</span>
+      <span class="ruby-comment">#       break</span>
+      <span class="ruby-comment">#     end</span>
+      <span class="ruby-comment">#   end</span>
+      <span class="ruby-comment"># end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-identifier">events</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_event</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_event</span>
+          <span class="ruby-constant">Thread</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span>
+            <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">reserve_event_descriptor</span>()
+            <span class="ruby-keyword">begin</span>
+              <span class="ruby-identifier">the_event</span>.<span class="ruby-identifier">call</span>()
+            <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+              <span class="ruby-identifier">log_error</span>({<span class="ruby-value">:error</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>})
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">release_event_descriptor</span>()
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-ivar">@ticking</span> = <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unpause_event_queue" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unpause_event_queue</span><span
+            class="method-args">(queue=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unpause_event_queue-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_events.rb, line 324</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">unpause_event_queue</span>(<span class="ruby-identifier">queue</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">queue</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_sym</span> <span class="ruby-operator">==</span> <span class="ruby-value">:root</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">adjust_event_queue</span>(<span class="ruby-identifier">queue</span>,{<span class="ruby-value">:active</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>})
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

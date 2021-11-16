@@ -1,0 +1,2649 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class String - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-transcode_options">::transcode_options</a>
+    
+    <li ><a href="#method-i-base64-3F">#base64?</a>
+    
+    <li ><a href="#method-i-byte_at">#byte_at</a>
+    
+    <li ><a href="#method-i-bytes_at">#bytes_at</a>
+    
+    <li ><a href="#method-i-camel_case-3F">#camel_case?</a>
+    
+    <li ><a href="#method-i-decode64">#decode64</a>
+    
+    <li ><a href="#method-i-decode64-21">#decode64!</a>
+    
+    <li ><a href="#method-i-decrypt">#decrypt</a>
+    
+    <li ><a href="#method-i-each_byte">#each_byte</a>
+    
+    <li ><a href="#method-i-each_byte_with_index">#each_byte_with_index</a>
+    
+    <li ><a href="#method-i-each_char">#each_char</a>
+    
+    <li ><a href="#method-i-each_char_with_index">#each_char_with_index</a>
+    
+    <li ><a href="#method-i-each_codepoint">#each_codepoint</a>
+    
+    <li ><a href="#method-i-each_codepoint_with_index">#each_codepoint_with_index</a>
+    
+    <li ><a href="#method-i-each_line">#each_line</a>
+    
+    <li ><a href="#method-i-each_line_with_index">#each_line_with_index</a>
+    
+    <li ><a href="#method-i-encode64">#encode64</a>
+    
+    <li ><a href="#method-i-encode64-21">#encode64!</a>
+    
+    <li ><a href="#method-i-encrypt">#encrypt</a>
+    
+    <li ><a href="#method-i-from_json">#from_json</a>
+    
+    <li ><a href="#method-i-html-3F">#html?</a>
+    
+    <li ><a href="#method-i-json-3F">#json?</a>
+    
+    <li ><a href="#method-i-json_1-3F">#json_1?</a>
+    
+    <li ><a href="#method-i-json_2-3F">#json_2?</a>
+    
+    <li ><a href="#method-i-mime_type">#mime_type</a>
+    
+    <li ><a href="#method-i-numeric_values">#numeric_values</a>
+    
+    <li ><a href="#method-i-serialized-3F">#serialized?</a>
+    
+    <li ><a href="#method-i-slice_bytes">#slice_bytes</a>
+    
+    <li ><a href="#method-i-split_camelcase">#split_camelcase</a>
+    
+    <li ><a href="#method-i-to_uri">#to_uri</a>
+    
+    <li ><a href="#method-i-transcode">#transcode</a>
+    
+    <li ><a href="#method-i-transcode-21">#transcode!</a>
+    
+    <li ><a href="#method-i-unpack_bytes">#unpack_bytes</a>
+    
+    <li ><a href="#method-i-unserialize">#unserialize</a>
+    
+    <li ><a href="#method-i-valid_date-3F">#valid_date?</a>
+    
+    <li ><a href="#method-i-valid_datetime-3F">#valid_datetime?</a>
+    
+    <li ><a href="#method-i-valid_datetime_nolocale-3F">#valid_datetime_nolocale?</a>
+    
+    <li ><a href="#method-i-valid_jid-3F">#valid_jid?</a>
+    
+    <li ><a href="#method-i-valid_path-3F">#valid_path?</a>
+    
+    <li ><a href="#method-i-valid_time-3F">#valid_time?</a>
+    
+    <li ><a href="#method-i-valid_uri-3F">#valid_uri?</a>
+    
+    <li ><a href="#method-i-xml-3F">#xml?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-String">
+  <h1 id="class-String" class="class">
+    class String
+  </h1>
+
+  <section class="description">
+    
+<p>Alteration to &lt;string&gt; class</p>
+
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-transcode_options" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transcode_options</span><span
+            class="method-args">(destination_encoding, source_encoding, options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>:macos text handling notes: <a href="http://hints.macworld.com/article.php?story=20060825071728278">hints.macworld.com/article.php?story=20060825071728278</a> Also, research UTF8_MAC &lt;-&gt; UTF8_HFS &lt;-&gt; UTF8 normalization conversions.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="transcode_options-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 1850</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">transcode_options</span>(<span class="ruby-identifier">destination_encoding</span>, <span class="ruby-identifier">source_encoding</span>, <span class="ruby-identifier">options</span>={})
+  <span class="ruby-comment"># TODO: ::String::transcode_options : complete transcoding back-end supports.</span>
+  <span class="ruby-comment"># select a default encoding_option set given the two encodings, then merge options over that and return.  Explore Hash deep-merge ideas.</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">new_options</span> = {}
+  <span class="ruby-comment"># fallback set/method or replace char</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:fallback</span>]
+    <span class="ruby-comment"># Note: I *confirmed* (thanks VGoff) that :invalid/:undef/:replace and :fallback are exclusive - So maybe this is really an optimized :fallback thing?</span>
+    <span class="ruby-comment">#    Sets the replacement string by the given object for undefined character. The object should be a Hash, a Proc, a Method,</span>
+    <span class="ruby-comment">#    or an object which has [] method. Its key is an undefined character encoded in the source encoding of current transcoder.</span>
+    <span class="ruby-comment">#    Its value can be any encoding until it can be converted into the destination encoding of the transcoder.</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">options</span>[<span class="ruby-value">:fallback</span>].<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Struct</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Proc</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Method</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:fallback</span>].<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:[]</span>))
+      <span class="ruby-comment"># if :fallback will not process an Array as mentioned above ... remove :[] respond_to? condition.</span>
+      <span class="ruby-identifier">new_options</span>[<span class="ruby-value">:fallback</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-value">:fallback</span>].<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:invalid</span>] <span class="ruby-operator">==</span> <span class="ruby-value">:replace</span>
+      <span class="ruby-comment">#    If the value is :replace, encode replaces invalid byte sequences in str with the replacement character. The default is to</span>
+      <span class="ruby-comment">#    raise the Encoding::InvalidByteSequenceError exception</span>
+      <span class="ruby-identifier">new_options</span>[<span class="ruby-value">:invalid</span>] = <span class="ruby-value">:replace</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:undef</span>] <span class="ruby-operator">==</span> <span class="ruby-value">:replace</span>
+      <span class="ruby-comment">#    If the value is :replace, encode replaces characters which are undefined in the destination encoding with the replacement character.</span>
+      <span class="ruby-comment">#    The default is to raise the Encoding::UndefinedConversionError.</span>
+      <span class="ruby-identifier">new_options</span>[<span class="ruby-value">:undef</span>] = <span class="ruby-value">:replace</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:replace</span>]
+      <span class="ruby-comment">#    Sets the replacement string to the given value. The default replacement string is “uFFFD” for Unicode encoding forms, and “?” otherwise.</span>
+      <span class="ruby-identifier">new_options</span>[<span class="ruby-value">:replace</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-value">:replace</span>].<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># xml</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:xml</span>]
+    <span class="ruby-comment">#    The value must be :text or :attr. If the value is :text encode replaces undefined characters with their (upper-case hexadecimal) numeric character</span>
+    <span class="ruby-comment">#    references. ‘&amp;’, ‘&lt;’, and ‘&gt;’ are converted to “&amp;amp;”, “&amp;lt;”, and “&amp;gt;”, respectively. If the value is :attr, encode also quotes the replacement</span>
+    <span class="ruby-comment">#    result (using ‘“’), and replaces ‘”’ with “&amp;quot;”.</span>
+    <span class="ruby-keyword">if</span> [<span class="ruby-value">:text</span>, <span class="ruby-value">:attr</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">options</span>[<span class="ruby-value">:xml</span>])
+      <span class="ruby-identifier">new_options</span>[<span class="ruby-value">:xml</span>] = <span class="ruby-identifier">options</span>[<span class="ruby-value">:xml</span>].<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:universal_newline</span>]
+    <span class="ruby-comment">#    Replaces CRLF (“rn”) and CR (“r”) with LF (“n”) if value is true.</span>
+    <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">new_options</span>[<span class="ruby-value">:cr_newline</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">new_options</span>[<span class="ruby-value">:crlf_newline</span>])
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:universal_newline</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+        <span class="ruby-identifier">new_options</span>[<span class="ruby-value">:universal_newline</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:crlf_newline</span>]
+      <span class="ruby-comment">#    Replaces LF (“n”) with CRLF (“rn”) if value is true.</span>
+      <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">new_options</span>[<span class="ruby-value">:cr_newline</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">new_options</span>[<span class="ruby-value">:universal_newline</span>])
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:crlf_newline</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+          <span class="ruby-identifier">new_options</span>[<span class="ruby-value">:crlf_newline</span>] = <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:cr_newline</span>]
+        <span class="ruby-comment">#    Replaces LF (“n”) with CR (“r”) if value is true.</span>
+        <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">new_options</span>[<span class="ruby-value">:crlf_newline</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">new_options</span>[<span class="ruby-value">:universal_newline</span>])
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:cr_newline</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+            <span class="ruby-identifier">new_options</span>[<span class="ruby-value">:cr_newline</span>] = <span class="ruby-keyword">true</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-comment"># default</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">default_options</span> = {}
+  <span class="ruby-comment"># find the default conversion options given the destination and source encodings</span>
+  <span class="ruby-comment"># then ...</span>
+  <span class="ruby-identifier">new_options</span>
+  <span class="ruby-comment"># deep-merge new_options into a provided default_options</span>
+  <span class="ruby-comment"># then return default_options</span>
+  <span class="ruby-comment"># default_options</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-base64-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">base64?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Base64 Stuff:</p>
+          
+          
+
+          
+          <div class="method-source-code" id="base64-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2932</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">base64?</span>()
+  <span class="ruby-comment"># RFC 4648</span>
+  <span class="ruby-comment"># SOMEDAY: use regex based detection, current is open to some bugs.</span>
+  <span class="ruby-comment"># See: http://ruby.about.com/od/advancedruby/ss/Base64-In-Ruby.htm</span>
+  <span class="ruby-comment"># See: http://www.perlmonks.org/?node_id=775820</span>
+  <span class="ruby-comment"># See: http://mattfaus.com/blog/2007/02/14/base64-regular-expression/</span>
+  <span class="ruby-comment"># See: http://stackoverflow.com/questions/475074/regex-to-parse-or-validate-base64-data</span>
+  <span class="ruby-comment"># Regex Testing: http://www.myregexp.com/signedJar.html</span>
+  <span class="ruby-comment"># For now:</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-comment"># Review : So, for a work-around - keep adding exclusion tests to this conditional set as you discover them.</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-keyword">not</span> [<span class="ruby-string">&quot;html&quot;</span>,<span class="ruby-string">&quot;form&quot;</span>,<span class="ruby-string">&quot;page&quot;</span>,<span class="ruby-string">&quot;head&quot;</span>,<span class="ruby-string">&quot;body&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">downcase</span>))
+      <span class="ruby-comment"># Review : *almost perfect* - words like &#39;html&#39; &#39;form&#39; &#39;page&#39; get mangled because this regex senses they are base64 when they are not! (consult regex expert for remedy)</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/^(?:[A-Za-z0-9+\/]{4})*(?:[A-Za-z0-9+\/]{2}==|[A-Za-z0-9+\/]{3}=)?$/</span>)
+        <span class="ruby-keyword">true</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">false</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">false</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-byte_at" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">byte_at</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="byte_at-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2733</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">byte_at</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># Random-access indexed byte value retrieval. Returns a Integer or nil.</span>
+  <span class="ruby-comment"># why?  This is to pluck a single byte value out of a string as if it were merely a string of bytes. 1.8.7 used to provide a [] method for this purpose.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Numeric</span>)
+    <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>] = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;The parameter needs to be a Numeric, you provided #{args[0].inspect}&quot;</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">encoding</span> <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>
+      <span class="ruby-keyword">self</span>[(<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>])].<span class="ruby-identifier">ord</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">slice_bytes</span>(<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>])[<span class="ruby-value">0</span>].<span class="ruby-identifier">ord</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-bytes_at" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bytes_at</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="bytes_at-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2752</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">bytes_at</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># Returns GxG::ByteArray</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">args</span> = [(<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>)]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">ByteArray</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">1</span>,<span class="ruby-keyword">self</span>.<span class="ruby-identifier">slice_bytes</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-camel_case-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">camel_case?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="camel_case-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2278</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">camel_case?</span>()
+  <span class="ruby-comment"># self.match(/([A-Z][a-z]+[A-Z][a-zA-Z]+)/)</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/[A-Z]([A-Z0-9]*[a-z][a-z0-9]*[A-Z]|[a-z0-9]*[A-Z][A-Z0-9]*[a-z])[A-Za-z0-9]*/</span>)      
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-decode64" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">decode64</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="decode64-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2967</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">decode64</span>()
+  <span class="ruby-comment"># RFC 4648</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">base64?</span>()
+    <span class="ruby-operator">::</span><span class="ruby-constant">Base64</span><span class="ruby-operator">::</span><span class="ruby-identifier">strict_decode64</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-decode64-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">decode64!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="decode64-21-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2984</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">decode64!</span>()
+  <span class="ruby-identifier">data</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">decode64</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-decrypt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">decrypt</span><span
+            class="method-args">(withkey=&quot;&quot;)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="decrypt-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 3029</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">decrypt</span>(<span class="ruby-identifier">withkey</span>=<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">withkey</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">the_encoding</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">encoding</span>()
+    <span class="ruby-identifier">keybytes</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">ByteArray</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">withkey</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-identifier">container</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">ByteArray</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">container</span>.<span class="ruby-identifier">each_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">the_value</span> = <span class="ruby-identifier">container</span>[(<span class="ruby-identifier">index</span>)]
+      <span class="ruby-comment">#</span>
+      <span class="ruby-identifier">keybytes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_byte</span><span class="ruby-operator">|</span>
+        [<span class="ruby-value">127</span>,<span class="ruby-value">63</span>,<span class="ruby-value">31</span>,<span class="ruby-value">15</span>,<span class="ruby-value">7</span>,<span class="ruby-value">3</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_bit</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_byte</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">the_bit</span>
+            <span class="ruby-identifier">the_value</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_value</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+              <span class="ruby-identifier">the_value</span> = <span class="ruby-value">255</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">the_value</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_value</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">255</span>
+              <span class="ruby-identifier">the_value</span> = <span class="ruby-value">0</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-identifier">container</span>[(<span class="ruby-identifier">index</span>)] = <span class="ruby-identifier">the_value</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">container</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-identifier">the_encoding</span>)
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_byte" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_byte</span><span
+            class="method-args">(&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="each_byte-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2818</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_byte</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">enumerator</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:bytes</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-identifier">enumerator</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">item</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">enumerator</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_byte_with_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_byte_with_index</span><span
+            class="method-args">(offset=0,&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="each_byte_with_index-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2830</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_byte_with_index</span>(<span class="ruby-identifier">offset</span>=<span class="ruby-value">0</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-comment"># Thanks to Hanmac from IRC :)</span>
+  <span class="ruby-identifier">enumerator</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:bytes</span>).<span class="ruby-identifier">with_index</span>(<span class="ruby-identifier">offset</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-identifier">enumerator</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span>,<span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">item</span>,<span class="ruby-identifier">index</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">enumerator</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_char" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_char</span><span
+            class="method-args">(&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="each_char-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2793</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_char</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">enumerator</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:chars</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-identifier">enumerator</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">item</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">enumerator</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_char_with_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_char_with_index</span><span
+            class="method-args">(offset=0,&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="each_char_with_index-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2805</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_char_with_index</span>(<span class="ruby-identifier">offset</span>=<span class="ruby-value">0</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-comment"># Thanks to Hanmac from IRC :)</span>
+  <span class="ruby-identifier">enumerator</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:chars</span>).<span class="ruby-identifier">with_index</span>(<span class="ruby-identifier">offset</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-identifier">enumerator</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span>,<span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">item</span>,<span class="ruby-identifier">index</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">enumerator</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_codepoint" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_codepoint</span><span
+            class="method-args">(&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="each_codepoint-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2843</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_codepoint</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-comment"># String.codepoint will not return a GxG::Enumerator (non-blocking), so I&#39;m providing these methods.</span>
+  <span class="ruby-identifier">enumerator</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:codepoints</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-identifier">enumerator</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">item</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">enumerator</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_codepoint_with_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_codepoint_with_index</span><span
+            class="method-args">(offset=0,&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="each_codepoint_with_index-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2856</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_codepoint_with_index</span>(<span class="ruby-identifier">offset</span>=<span class="ruby-value">0</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">enumerator</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:codepoints</span>).<span class="ruby-identifier">with_index</span>(<span class="ruby-identifier">offset</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-identifier">enumerator</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span>,<span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">item</span>,<span class="ruby-identifier">index</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">enumerator</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_line</span><span
+            class="method-args">(separator=$/,&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Note: documentation: recommend use of these methods and NOT those which they call to ensure cooperative event processing. LATER: String: look into c code : is there a way to pluck a char off a string w/o using chars,bytes,codepoints,lines ? This would afford an opportunity to override chars,bytes,codepoints and lines so that cooperative event processing was truly and invisibly supported. This would be slower than the c code, but would let you load up gems w/o overriding another author&#39;s code to make it cooperative. (i.e. facets, etc)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="each_line-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2769</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_line</span>(<span class="ruby-identifier">separator</span>=<span class="ruby-identifier">$/</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">enumerator</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">lines</span>(<span class="ruby-identifier">separator</span>).<span class="ruby-identifier">to_enum</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-identifier">enumerator</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">item</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">enumerator</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_line_with_index" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_line_with_index</span><span
+            class="method-args">(separator=$/,offset=0,&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="each_line_with_index-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2781</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_line_with_index</span>(<span class="ruby-identifier">separator</span>=<span class="ruby-identifier">$/</span>,<span class="ruby-identifier">offset</span>=<span class="ruby-value">0</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-identifier">enumerator</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">lines</span>(<span class="ruby-identifier">separator</span>).<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">with_index</span>(<span class="ruby-identifier">offset</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-identifier">enumerator</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">item</span>,<span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">item</span>,<span class="ruby-identifier">index</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">enumerator</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encode64" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encode64</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="encode64-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2958</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">encode64</span>()
+  <span class="ruby-comment"># RFC 4648</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">base64?</span>()
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-operator">::</span><span class="ruby-constant">Base64</span><span class="ruby-operator">::</span><span class="ruby-identifier">strict_encode64</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encode64-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encode64!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="encode64-21-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2976</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">encode64!</span>()
+  <span class="ruby-identifier">data</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">encode64</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-encrypt" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">encrypt</span><span
+            class="method-args">(withkey=&quot;&quot;)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="encrypt-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2992</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">encrypt</span>(<span class="ruby-identifier">withkey</span>=<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">withkey</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">the_encoding</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">encoding</span>()
+    <span class="ruby-identifier">keybytes</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">ByteArray</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">withkey</span>.<span class="ruby-identifier">to_s</span>)
+    <span class="ruby-identifier">container</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">ByteArray</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">container</span>.<span class="ruby-identifier">each_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">the_value</span> = <span class="ruby-identifier">container</span>[(<span class="ruby-identifier">index</span>)]
+      <span class="ruby-comment">#</span>
+      <span class="ruby-identifier">keybytes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_byte</span><span class="ruby-operator">|</span>
+        [<span class="ruby-value">127</span>,<span class="ruby-value">63</span>,<span class="ruby-value">31</span>,<span class="ruby-value">15</span>,<span class="ruby-value">7</span>,<span class="ruby-value">3</span>,<span class="ruby-value">1</span>,<span class="ruby-value">0</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_bit</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_byte</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">the_bit</span>
+            <span class="ruby-identifier">the_value</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_value</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">255</span>
+              <span class="ruby-identifier">the_value</span> = <span class="ruby-value">0</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">the_value</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_value</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+              <span class="ruby-identifier">the_value</span> = <span class="ruby-value">255</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-identifier">container</span>[(<span class="ruby-identifier">index</span>)] = <span class="ruby-identifier">the_value</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-identifier">container</span>.<span class="ruby-identifier">to_s</span>
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-identifier">the_encoding</span>)
+    <span class="ruby-identifier">result</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-from_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">from_json</span><span
+            class="method-args">(symbolize_names = true)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="from_json-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2896</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">from_json</span>(<span class="ruby-identifier">symbolize_names</span> = <span class="ruby-keyword">true</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">json?</span>
+    <span class="ruby-identifier">the_object</span> = <span class="ruby-operator">::</span><span class="ruby-constant">JSON</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-keyword">self</span>,{<span class="ruby-value">:symbolize_names</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">symbolize_names</span>})
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_object</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+      <span class="ruby-identifier">the_object</span>.<span class="ruby-identifier">process!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span>, <span class="ruby-identifier">selector</span>, <span class="ruby-identifier">container</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+          <span class="ruby-identifier">item</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">numeric_values</span>()
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">item</span>[<span class="ruby-value">:integer</span>]
+              <span class="ruby-identifier">item</span> = <span class="ruby-identifier">item</span>[<span class="ruby-value">:integer</span>]
+              <span class="ruby-identifier">container</span>[(<span class="ruby-identifier">selector</span>)] = <span class="ruby-identifier">item</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">item</span>[<span class="ruby-value">:float</span>]
+                <span class="ruby-identifier">item</span> = <span class="ruby-identifier">item</span>[<span class="ruby-value">:float</span>]
+                <span class="ruby-identifier">container</span>[(<span class="ruby-identifier">selector</span>)] = <span class="ruby-identifier">item</span>
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">if</span> (<span class="ruby-identifier">value</span>.<span class="ruby-identifier">valid_datetime?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">valid_datetime_nolocale?</span>)
+              <span class="ruby-identifier">container</span>[(<span class="ruby-identifier">selector</span>)] = <span class="ruby-operator">::</span><span class="ruby-constant">DateTime</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">value</span>)
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-comment">#</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">6</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;binary:&quot;</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value</span>[<span class="ruby-value">7</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">base64?</span>
+            <span class="ruby-identifier">container</span>[(<span class="ruby-identifier">selector</span>)] = <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">ByteArray</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">value</span>[<span class="ruby-value">7</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">decode64</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">nil</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-html-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">html?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>def from_xml(options={})</p>
+
+<pre class="ruby"><span class="ruby-comment">#</span>
+<span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:no_test</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">xml?</span>()
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-string">&quot;String is NOT formatted as XML.&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">result</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-identifier">visit</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_node</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">accumulator</span>=[]<span class="ruby-operator">|</span>
+  <span class="ruby-identifier">node_stack</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_node</span>
+    <span class="ruby-identifier">node_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">the_node</span>)
+    <span class="ruby-keyword">while</span> (<span class="ruby-identifier">node_stack</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">a_node</span> = <span class="ruby-identifier">node_stack</span>.<span class="ruby-identifier">pop</span>()
+      <span class="ruby-comment"># process(a_node)</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Text</span>)
+        <span class="ruby-identifier">accumulator</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">text</span>()
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>)
+        <span class="ruby-identifier">record</span> = {<span class="ruby-value">:name</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;document_root&quot;</span>, <span class="ruby-value">:attributes</span> <span class="ruby-operator">=&gt;</span> {}, <span class="ruby-value">:parent</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:object</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;/&quot;</span>, <span class="ruby-value">:assembled</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>}
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:name</span>)
+          <span class="ruby-identifier">record</span>[<span class="ruby-value">:name</span>] = <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">name</span>()
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:attributes</span>)
+          <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_attr</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">record</span>[<span class="ruby-value">:attributes</span>][(<span class="ruby-identifier">the_attr</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_sym</span>)] = <span class="ruby-identifier">the_attr</span>.<span class="ruby-identifier">value</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:parent</span>)
+          <span class="ruby-identifier">record</span>[<span class="ruby-value">:parent</span>] = <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">parent</span>()
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">record</span>[<span class="ruby-value">:parent</span>] = <span class="ruby-identifier">a_node</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">record</span>[<span class="ruby-value">:object</span>] = <span class="ruby-identifier">a_node</span>
+        <span class="ruby-keyword">unless</span> <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>)
+          <span class="ruby-comment"># set accumulator path</span>
+          <span class="ruby-comment">#</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">accumulator</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">record</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">node_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">entry</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">accumulator</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-comment">#</span>
+<span class="ruby-keyword">begin</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:sax</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">database</span> = <span class="ruby-identifier">visit</span>.<span class="ruby-identifier">call</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-identifier">sax_parse_xml</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode</span>({<span class="ruby-value">:replace</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;.&quot;</span>},<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)),[])
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">database</span> = <span class="ruby-identifier">visit</span>.<span class="ruby-identifier">call</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse_xml</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode</span>({<span class="ruby-value">:replace</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;.&quot;</span>},<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)),[])
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">link_db</span> = []
+  <span class="ruby-identifier">accumulator</span> = []
+  <span class="ruby-comment"># Build link_db</span>
+  <span class="ruby-identifier">database</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_node</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">node_record</span> = {}
+      <span class="ruby-identifier">as_key</span> = <span class="ruby-identifier">the_node</span>[<span class="ruby-value">:name</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_sym</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_node</span>[<span class="ruby-value">:object</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>)
+        <span class="ruby-identifier">node_record</span>[(<span class="ruby-identifier">as_key</span>)] = {<span class="ruby-value">:attributes</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">the_node</span>[<span class="ruby-value">:attributes</span>]), <span class="ruby-value">:text</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:children</span> <span class="ruby-operator">=&gt;</span> []}
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">node_record</span>[(<span class="ruby-identifier">as_key</span>)] = {<span class="ruby-value">:attributes</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">the_node</span>[<span class="ruby-value">:attributes</span>]), <span class="ruby-value">:text</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">the_node</span>[<span class="ruby-value">:object</span>].<span class="ruby-identifier">text</span>), <span class="ruby-value">:children</span> <span class="ruby-operator">=&gt;</span> []}
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">link_record</span> = {<span class="ruby-value">:desendents</span> <span class="ruby-operator">=&gt;</span> [], <span class="ruby-value">:accumulator</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">node_record</span>[(<span class="ruby-identifier">as_key</span>)][<span class="ruby-value">:children</span>])}
+      <span class="ruby-comment">#</span>
+      <span class="ruby-identifier">database</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a_node</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_node</span>[<span class="ruby-value">:parent</span>].<span class="ruby-identifier">object_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">the_node</span>[<span class="ruby-value">:object</span>].<span class="ruby-identifier">object_id</span>
+            <span class="ruby-identifier">link_record</span>[<span class="ruby-value">:desendents</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">a_node</span>[<span class="ruby-value">:object</span>]
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">link_db</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">link_record</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_node</span>[<span class="ruby-value">:parent</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>)
+        <span class="ruby-identifier">accumulator</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">node_record</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">accumulator</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_node</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">while</span> (<span class="ruby-identifier">link_db</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">entry</span> = <span class="ruby-identifier">link_db</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">entry</span>[<span class="ruby-value">:desendents</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">unless</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Text</span>)
+            <span class="ruby-identifier">node_record</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">text</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Comment</span>)
+              <span class="ruby-identifier">node_record</span> = {<span class="ruby-value">:comment</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">text</span>}
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">node_record</span> = {}
+              <span class="ruby-identifier">as_key</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_sym</span>
+              <span class="ruby-identifier">node_record</span>[(<span class="ruby-identifier">as_key</span>)] = {<span class="ruby-value">:attributes</span> <span class="ruby-operator">=&gt;</span> {}, <span class="ruby-value">:text</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">node</span>.<span class="ruby-identifier">text</span>), <span class="ruby-value">:children</span> <span class="ruby-operator">=&gt;</span> []}
+              <span class="ruby-identifier">node</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_attr</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">node_record</span>[(<span class="ruby-identifier">as_key</span>)][<span class="ruby-value">:attributes</span>][(<span class="ruby-identifier">the_attr</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_sym</span>)] = <span class="ruby-identifier">the_attr</span>.<span class="ruby-identifier">value</span>
+              <span class="ruby-keyword">end</span>
+              <span class="ruby-identifier">link_record</span> = {<span class="ruby-value">:desendents</span> <span class="ruby-operator">=&gt;</span> [], <span class="ruby-value">:accumulator</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">node_record</span>[(<span class="ruby-identifier">as_key</span>)][<span class="ruby-value">:children</span>])}
+              <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node_descendent</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">link_record</span>[<span class="ruby-value">:desendents</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">node_descendent</span>
+              <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">link_record</span>[<span class="ruby-value">:desendents</span>].<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+                <span class="ruby-identifier">link_db</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">link_record</span>)
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-comment">#</span>
+          <span class="ruby-identifier">entry</span>[<span class="ruby-value">:accumulator</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">node_record</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">accumulator</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-comment">#</span>
+<span class="ruby-identifier">result</span>
+</pre>
+
+<p>end</p>
+
+<p>def from_xml_simple()</p>
+
+<pre class="ruby"><span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">xml?</span>
+  <span class="ruby-identifier">the_hash</span> = <span class="ruby-operator">::</span><span class="ruby-constant">XmlSimple</span>.<span class="ruby-identifier">xml_in</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_hash</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">the_hash</span>.<span class="ruby-identifier">symbolize_keys</span>
+    <span class="ruby-identifier">the_hash</span>.<span class="ruby-identifier">process!</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">value</span>, <span class="ruby-identifier">selector</span>, <span class="ruby-identifier">container</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+        <span class="ruby-identifier">item</span> = <span class="ruby-identifier">value</span>.<span class="ruby-identifier">numeric_values</span>()
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">item</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">item</span>[<span class="ruby-value">:integer</span>]
+            <span class="ruby-identifier">item</span> = <span class="ruby-identifier">item</span>[<span class="ruby-value">:integer</span>]
+            <span class="ruby-identifier">container</span>[(<span class="ruby-identifier">selector</span>)] = <span class="ruby-identifier">item</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">item</span>[<span class="ruby-value">:float</span>]
+              <span class="ruby-identifier">item</span> = <span class="ruby-identifier">item</span>[<span class="ruby-value">:float</span>]
+              <span class="ruby-identifier">container</span>[(<span class="ruby-identifier">selector</span>)] = <span class="ruby-identifier">item</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-comment"># Cast all time elements to ISO-8601</span>
+          <span class="ruby-keyword">if</span> (<span class="ruby-identifier">value</span>.<span class="ruby-identifier">valid_time?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">valid_date?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">valid_datetime?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">valid_datetime_nolocale?</span>)
+            <span class="ruby-identifier">container</span>[(<span class="ruby-identifier">selector</span>)] = <span class="ruby-operator">::</span><span class="ruby-constant">DateTime</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-identifier">value</span>.<span class="ruby-identifier">to_s</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">the_hash</span>
+<span class="ruby-keyword">else</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>end</p>
+          
+          
+
+          
+          <div class="method-source-code" id="html-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2482</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">html?</span>()
+  <span class="ruby-identifier">declaration_test</span> = (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;&lt;!DOCTYPE HTML&#39;</span>) <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;&lt;!DOCTYPE html&#39;</span>) <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&#39;&lt;!DOCTYPE xhtml&#39;</span>))
+  <span class="ruby-identifier">parse_test</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">declaration_test</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">mime</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mime_type</span>()
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">mime</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+        <span class="ruby-keyword">if</span> [<span class="ruby-string">&quot;html&quot;</span>, <span class="ruby-string">&quot;xhtml&quot;</span>, <span class="ruby-string">&quot;xhtml+xml&quot;</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">mime</span>[<span class="ruby-value">:subtype</span>])
+          <span class="ruby-identifier">parse_test</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  (<span class="ruby-identifier">declaration_test</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">parse_test</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-json-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">json?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="json-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2892</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">json?</span>()
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">json_1?</span>() <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">json_2?</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-json_1-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">json_1?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="json_1-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2884</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">json_1?</span>()
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-value">0</span>,<span class="ruby-value">1</span>) <span class="ruby-operator">==</span> <span class="ruby-string">&#39;{&#39;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-json_2-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">json_2?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="json_2-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2888</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">json_2?</span>()
+  (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">json_1?</span>() <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">match</span>(<span class="ruby-string">&#39;&quot;apiVersion&quot;\s?:\s?&quot;2.0&quot;&#39;</span>) <span class="ruby-operator">||</span> <span class="ruby-keyword">false</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-mime_type" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">mime_type</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="mime_type-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2295</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">mime_type</span>()
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">raw</span> = <span class="ruby-operator">::</span><span class="ruby-constant">MimeMagic</span>.<span class="ruby-identifier">by_magic</span>(<span class="ruby-operator">::</span><span class="ruby-constant">StringIO</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone</span>))
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">raw</span>
+    <span class="ruby-identifier">result</span> = {<span class="ruby-value">:type</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">raw</span>.<span class="ruby-identifier">type</span>), <span class="ruby-value">:mediatype</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">raw</span>.<span class="ruby-identifier">mediatype</span>), <span class="ruby-value">:subtype</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">raw</span>.<span class="ruby-identifier">subtype</span>)}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-numeric_values" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">numeric_values</span><span
+            class="method-args">(categories=:any,delimiter=&quot;\t&quot;,locale=:en_US, numeric_base=10)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="numeric_values-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2108</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">numeric_values</span>(<span class="ruby-identifier">categories</span>=<span class="ruby-value">:any</span>,<span class="ruby-identifier">delimiter</span>=<span class="ruby-string">&quot;\t&quot;</span>,<span class="ruby-identifier">locale</span>=<span class="ruby-value">:en_US</span>, <span class="ruby-identifier">numeric_base</span>=<span class="ruby-value">10</span>)
+  <span class="ruby-identifier">results</span> = []
+  <span class="ruby-identifier">prepared</span> = []
+  <span class="ruby-comment"># SOMEDAY: &lt;string&gt;.numeric_values: formulate regex patterns per locale and numeric_base</span>
+  <span class="ruby-identifier">quanta_pattern</span> = <span class="ruby-regexp">/[a-zA-Z]*/</span>
+  <span class="ruby-comment"># proposed: /^-{0,1}\d*\.{0,1}\d+$/</span>
+  <span class="ruby-comment"># /^[-+]{0,1}\d*\.{0,1}\d+$/</span>
+  <span class="ruby-comment"># old: /[0-9.,]*/</span>
+  <span class="ruby-identifier">numerical_pattern</span> = <span class="ruby-regexp">/[-+0-9.,]*/</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each_line</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row_text</span><span class="ruby-operator">|</span>
+    <span class="ruby-comment"># ?? allow empty lines ??  I&#39;m just not sure if I really *want* to attempt to preserve the structure that much.</span>
+    <span class="ruby-identifier">row_prep</span> = []
+    <span class="ruby-identifier">row_text</span>.<span class="ruby-identifier">split</span>(<span class="ruby-identifier">delimiter</span>).<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">column_text</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">column_text</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">column_entry</span> = {<span class="ruby-value">:text</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">column_text</span>, <span class="ruby-value">:denomination</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:multiplier</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>}
+        <span class="ruby-identifier">column_text</span>.<span class="ruby-identifier">scan</span>(<span class="ruby-identifier">quanta_pattern</span>).<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">quanta</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">quanta</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+            <span class="ruby-comment">#</span>
+            <span class="ruby-identifier">interpretation</span> = <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Units</span><span class="ruby-operator">::</span><span class="ruby-identifier">interpret_units</span>({<span class="ruby-value">:text</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">quanta</span>,<span class="ruby-value">:categories</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">categories</span>,<span class="ruby-value">:locale</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">locale</span>, <span class="ruby-value">:base</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">numeric_base</span>})
+            <span class="ruby-comment">#</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">interpretation</span>[<span class="ruby-value">:error</span>]
+              <span class="ruby-identifier">raise</span> <span class="ruby-identifier">interpretation</span>[<span class="ruby-value">:error</span>]
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-comment"># SOMEDAY: &lt;string&gt;.numeric_values: a bit more discernment here than just the first interpretation.</span>
+              <span class="ruby-identifier">interpretation</span> = <span class="ruby-identifier">interpretation</span>[<span class="ruby-value">:result</span>]
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">interpretation</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+                <span class="ruby-keyword">if</span> <span class="ruby-identifier">interpretation</span>[<span class="ruby-value">0</span>][<span class="ruby-value">:quantum</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+                  <span class="ruby-identifier">denomination</span> = <span class="ruby-identifier">interpretation</span>[<span class="ruby-value">0</span>][<span class="ruby-value">:quantum</span>].<span class="ruby-identifier">keys</span>[<span class="ruby-value">0</span>]
+                  <span class="ruby-identifier">multiplier</span> = <span class="ruby-identifier">interpretation</span>[<span class="ruby-value">0</span>][<span class="ruby-value">:quantum</span>][(<span class="ruby-identifier">denomination</span>)]
+                  <span class="ruby-identifier">column_entry</span> = {<span class="ruby-value">:text</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">column_text</span>, <span class="ruby-value">:denomination</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">denomination</span>, <span class="ruby-value">:multiplier</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">multiplier</span>}
+                  <span class="ruby-keyword">if</span> <span class="ruby-identifier">interpretation</span>[<span class="ruby-value">0</span>][<span class="ruby-value">:attributes</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+                    <span class="ruby-identifier">column_entry</span>[<span class="ruby-value">:attributes</span>] = <span class="ruby-identifier">interpretation</span>[<span class="ruby-value">0</span>][<span class="ruby-value">:attributes</span>]
+                  <span class="ruby-keyword">end</span>
+                  <span class="ruby-keyword">break</span>
+                <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-comment">#</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-comment">#</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-identifier">row_prep</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">column_entry</span>
+        <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">row_prep</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">nil</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">prepared</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">row_prep</span>
+    <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># process prepared array</span>
+  <span class="ruby-identifier">prepared</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">row</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">results</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">row</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">map</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">column</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">nil</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">column</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+        <span class="ruby-identifier">column</span>[<span class="ruby-value">:text</span>].<span class="ruby-identifier">scan</span>(<span class="ruby-identifier">numerical_pattern</span>).<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">text</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">text</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&quot;,&quot;</span>,<span class="ruby-string">&quot;&quot;</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+            <span class="ruby-identifier">denomination</span> = <span class="ruby-identifier">column</span>[<span class="ruby-value">:denomination</span>]
+            <span class="ruby-identifier">multiplier</span> = <span class="ruby-identifier">column</span>[<span class="ruby-value">:multiplier</span>]
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">text</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;.&quot;</span>)
+              <span class="ruby-comment"># Note: defaults *assume* base-10 numbers</span>
+              <span class="ruby-keyword">unless</span> <span class="ruby-identifier">denomination</span>
+                <span class="ruby-identifier">denomination</span> = <span class="ruby-value">:float</span>
+              <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">unless</span> <span class="ruby-identifier">multiplier</span>
+                <span class="ruby-identifier">multiplier</span> = <span class="ruby-value">1.0</span>
+              <span class="ruby-keyword">end</span>
+              <span class="ruby-identifier">result</span> = {}
+              <span class="ruby-identifier">result</span>[(<span class="ruby-identifier">denomination</span>)] = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">multiplier</span>.<span class="ruby-identifier">to_f</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-comment"># Note: defaults *assume* base-10 numbers</span>
+              <span class="ruby-keyword">unless</span> <span class="ruby-identifier">denomination</span>
+                <span class="ruby-identifier">denomination</span> = <span class="ruby-value">:integer</span>
+              <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">unless</span> <span class="ruby-identifier">multiplier</span>
+                <span class="ruby-identifier">multiplier</span> = <span class="ruby-value">1</span>
+              <span class="ruby-keyword">end</span>
+              <span class="ruby-identifier">result</span> = {}
+              <span class="ruby-identifier">result</span>[(<span class="ruby-identifier">denomination</span>)] = <span class="ruby-identifier">text</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">multiplier</span>.<span class="ruby-identifier">to_i</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">column</span>[<span class="ruby-value">:attributes</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Hash</span>)
+              <span class="ruby-identifier">result</span>.<span class="ruby-identifier">merge</span>(<span class="ruby-identifier">column</span>[<span class="ruby-value">:attributes</span>])
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">break</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">result</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># unless it is a multi-line, or multi-column result, pass only the found denomination/value Hash.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">results</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+    <span class="ruby-comment"># single row</span>
+    <span class="ruby-identifier">results</span> = <span class="ruby-identifier">results</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">results</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-comment"># single column</span>
+      <span class="ruby-identifier">results</span> = <span class="ruby-identifier">results</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">results</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-serialized-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">serialized?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Encoding format detection and handling: Serialized, JSON &amp; binhex(base64)</p>
+          
+          
+
+          
+          <div class="method-source-code" id="serialized-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2868</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">serialized?</span>()
+  <span class="ruby-keyword">if</span> ((<span class="ruby-keyword">self</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">7</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;marshal:&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>[<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">9</span>].<span class="ruby-identifier">to_s</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;structure:&quot;</span>) <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-keyword">self</span>[<span class="ruby-value">8</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">base64?</span>() <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>[<span class="ruby-value">10</span><span class="ruby-operator">..</span><span class="ruby-value">-1</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">base64?</span>()))
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-slice_bytes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">slice_bytes</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="slice_bytes-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2641</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">slice_bytes</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># Return an ASCII_8BIT encoded sub-string</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">the_range</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Numeric</span>)
+    <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>] = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">the_range</span> = ((<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>])<span class="ruby-operator">..</span>(<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]))
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Numeric</span>)
+      <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>] = <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">to_i</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;Second parameter needs to be a Numeric greater than 0, you provided #{args[1].inspect}&quot;</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">the_range</span> = ((<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>])<span class="ruby-operator">..</span>(<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>] <span class="ruby-operator">+</span> (<span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)))
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Range</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">first</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>] = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">first</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">last</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">args</span>[<span class="ruby-value">2</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">last</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">args</span>[<span class="ruby-value">2</span>] = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">last</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>] <span class="ruby-operator">&lt;=</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">2</span>]
+        <span class="ruby-identifier">the_range</span> = ((<span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>])<span class="ruby-operator">..</span>(<span class="ruby-identifier">args</span>[<span class="ruby-value">2</span>]))
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">the_range</span> = ((<span class="ruby-identifier">args</span>[<span class="ruby-value">2</span>])<span class="ruby-operator">..</span>(<span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>]))
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>.<span class="ruby-identifier">new</span>(<span class="ruby-node">&quot;First parameter needs to be a Numeric or a Range, you provided #{args[0].inspect}&quot;</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_range</span>
+    <span class="ruby-identifier">result</span> = <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-identifier">result</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>)
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">encoding</span> <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_range</span>.<span class="ruby-identifier">min</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">the_range</span>.<span class="ruby-identifier">max</span>
+          <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-identifier">the_range</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-keyword">self</span>[(<span class="ruby-identifier">the_range</span>.<span class="ruby-identifier">min</span>)]
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># based upon memory-load and processing-load of Ruby Engine, select space-vs-speed or speed-vs-space techniques.</span>
+      <span class="ruby-keyword">if</span> (<span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span><span class="ruby-operator">::</span><span class="ruby-identifier">memory_load_high?</span>() <span class="ruby-operator">&amp;&amp;</span> (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:bytes</span>).<span class="ruby-identifier">heap_used</span>() <span class="ruby-operator">&lt;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">heap_used</span>()))
+        <span class="ruby-comment"># trade off speed for space considerations</span>
+        <span class="ruby-comment"># long-way &#39;round</span>
+        <span class="ruby-identifier">position</span> = <span class="ruby-value">0</span>
+        <span class="ruby-identifier">index</span> = <span class="ruby-value">0</span>
+        <span class="ruby-comment">#</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:bytes</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_byte</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_range</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">position</span>)
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_range</span>.<span class="ruby-identifier">min</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">the_range</span>.<span class="ruby-identifier">max</span>
+              <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_byte</span>.<span class="ruby-identifier">chr</span>
+              <span class="ruby-keyword">break</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">result</span>[(<span class="ruby-identifier">index</span>)] = <span class="ruby-identifier">the_byte</span>.<span class="ruby-identifier">chr</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">index</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">position</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-comment"># trade off space for speed considerations</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">bytesize</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-identifier">raw_text</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">clone</span>
+          <span class="ruby-identifier">raw_text</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">ASCII_8BIT</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_range</span>.<span class="ruby-identifier">min</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">the_range</span>.<span class="ruby-identifier">max</span>
+            <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">raw_text</span>.<span class="ruby-identifier">slice</span>(<span class="ruby-identifier">the_range</span>)
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">raw_text</span>[(<span class="ruby-identifier">the_range</span>.<span class="ruby-identifier">min</span>)]
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-split_camelcase" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">split_camelcase</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="split_camelcase-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2287</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">split_camelcase</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">camel_case?</span>()
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp">/(?=[A-Z])/</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-to_uri" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">to_uri</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="to_uri-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2637</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">to_uri</span>()
+  <span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-transcode" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transcode</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="transcode-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 1933</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">transcode</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">destination_encoding</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-identifier">conversion_options</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">conversion_options</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>)
+        <span class="ruby-identifier">destination_encoding</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>]
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">destination_encoding</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>.<span class="ruby-identifier">default_external</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>)
+        <span class="ruby-identifier">destination_encoding</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+          <span class="ruby-identifier">conversion_options</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">1</span>]
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">conversion_options</span> = {}
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">args</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">destination_encoding</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;You must provide a valid Encoding, instead you provided #{destination_encoding.class}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-identifier">conversion_options</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;You must provide a Hash for conversion options, instead you provided #{conversion_options.class}&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">in_options</span> = {}
+  <span class="ruby-identifier">out_options</span> = {}
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:invalid</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:undef</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:replace</span>])
+    <span class="ruby-comment"># Note: I *confirmed* (thanks VGoff) that :invalid/:undef/:replace and :fallback are exclusive.</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment"># If the value is :replace, encode replaces invalid byte sequences in str with the replacement character. The default is to</span>
+    <span class="ruby-comment">#    raise the Encoding::InvalidByteSequenceError exception</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:invalid</span>] <span class="ruby-operator">==</span> <span class="ruby-value">:replace</span>
+      <span class="ruby-identifier">in_options</span>[<span class="ruby-value">:invalid</span>] = <span class="ruby-value">:replace</span>
+      <span class="ruby-identifier">out_options</span>[<span class="ruby-value">:invalid</span>] = <span class="ruby-value">:replace</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#    If the value is :replace, encode replaces characters which are undefined in the destination encoding with the replacement character.</span>
+    <span class="ruby-comment">#    The default is to raise the Encoding::UndefinedConversionError.</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:undef</span>] <span class="ruby-operator">==</span> <span class="ruby-value">:replace</span>
+      <span class="ruby-identifier">in_options</span>[<span class="ruby-value">:undef</span>] = <span class="ruby-value">:replace</span>
+      <span class="ruby-identifier">out_options</span>[<span class="ruby-value">:undef</span>] = <span class="ruby-value">:replace</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-comment">#    Sets the replacement string to the given value. The default replacement string is “uFFFD” for Unicode encoding forms, and “?” otherwise.</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:replace</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">in_options</span>[<span class="ruby-value">:replace</span>] = <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:replace</span>]
+      <span class="ruby-identifier">out_options</span>[<span class="ruby-value">:replace</span>] = <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:replace</span>]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment">#    Sets the replacement string by the given object for undefined character. The object should be a Hash, a Proc, a Method,</span>
+    <span class="ruby-comment">#    or an object which has [] method. Its key is an undefined character encoded in the source encoding of current transcoder.</span>
+    <span class="ruby-comment">#    Its value can be any encoding until it can be converted into the destination encoding of the transcoder.</span>
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:fallback</span>].<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Struct</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Proc</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Method</span>) <span class="ruby-operator">||</span> <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:fallback</span>].<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:[]</span>))
+      <span class="ruby-comment"># if :fallback will not process an Array as mentioned above ... remove :[] respond_to? condition.</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:fallback</span>].<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Proc</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Method</span>)
+        <span class="ruby-comment"># TODO: study arguments and output expected, and construct one in and one out proc as wrapper.</span>
+        <span class="ruby-comment"># FIX: Odd Bug : MRI 1.9.3 will attempt to convert a Proc into a Hash directly and raise exception, instead of calling the proc.</span>
+        <span class="ruby-comment"># Also, when a method is supplied: it does call it, but passes no data and I don&#39;t think even collects a response.  (wtf?) what is the point then??</span>
+        <span class="ruby-comment"># So ... as a work around (FORNOW) I will simply construct a Hash and use that resultant Hash as fallback.</span>
+        <span class="ruby-comment"># LATER: I think I&#39;d like to add the above comparison to simply check for a .respond_to?(:call) on action objects.</span>
+        <span class="ruby-identifier">in_fallback</span> = {}
+        <span class="ruby-identifier">out_fallback</span> = {}
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">each_char</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_char</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">dst_defined_char</span> = <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:fallback</span>].<span class="ruby-identifier">call</span>(<span class="ruby-identifier">the_char</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">chars</span>.<span class="ruby-identifier">first</span>
+          <span class="ruby-keyword">if</span> (<span class="ruby-identifier">dst_defined_char</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">the_char</span> <span class="ruby-operator">!=</span> <span class="ruby-identifier">dst_defined_char</span>)
+            <span class="ruby-identifier">utf_bridge</span> = <span class="ruby-identifier">the_char</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)
+            <span class="ruby-identifier">in_fallback</span>[(<span class="ruby-identifier">the_char</span>)] = <span class="ruby-identifier">utf_bridge</span>
+            <span class="ruby-identifier">out_fallback</span>[(<span class="ruby-identifier">utf_bridge</span>)] = <span class="ruby-identifier">dst_defined_char</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">in_options</span>[<span class="ruby-value">:fallback</span>] = <span class="ruby-identifier">in_fallback</span>
+        <span class="ruby-identifier">out_options</span>[<span class="ruby-value">:fallback</span>] = <span class="ruby-identifier">out_fallback</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:fallback</span>].<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Struct</span>)
+          <span class="ruby-comment">#</span>
+          <span class="ruby-identifier">in_fallback</span> = {}
+          <span class="ruby-identifier">out_fallback</span> = {}
+          <span class="ruby-comment">#</span>
+          <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:fallback</span>].<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each_pair</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">src_undefined_char</span>,<span class="ruby-identifier">dst_defined_char</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">utf_bridge</span> = <span class="ruby-identifier">src_undefined_char</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)
+            <span class="ruby-identifier">in_fallback</span>[(<span class="ruby-identifier">src_undefined_char</span>)] = <span class="ruby-identifier">utf_bridge</span>
+            <span class="ruby-identifier">out_fallback</span>[(<span class="ruby-identifier">utf_bridge</span>)] = <span class="ruby-identifier">dst_defined_char</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-comment">#</span>
+          <span class="ruby-identifier">in_options</span>[<span class="ruby-value">:fallback</span>] = <span class="ruby-identifier">in_fallback</span>
+          <span class="ruby-identifier">out_options</span>[<span class="ruby-value">:fallback</span>] = <span class="ruby-identifier">out_fallback</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">if</span> (<span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:fallback</span>].<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:[]</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:fallback</span>].<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:to_a</span>))
+            <span class="ruby-identifier">in_fallback</span> = {}
+            <span class="ruby-identifier">out_fallback</span> = {}
+            <span class="ruby-identifier">the_data</span> = <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:fallback</span>].<span class="ruby-identifier">to_a</span>.<span class="ruby-identifier">flatten</span>
+            <span class="ruby-identifier">the_size</span> = <span class="ruby-identifier">the_data</span>.<span class="ruby-identifier">size</span>
+            <span class="ruby-keyword">if</span> (<span class="ruby-identifier">the_size</span>.<span class="ruby-identifier">even?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">the_size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>)
+              (<span class="ruby-value">0</span><span class="ruby-operator">..</span>(<span class="ruby-identifier">the_size</span>)).<span class="ruby-identifier">step</span>(<span class="ruby-value">2</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">src_undefined_char</span> = <span class="ruby-identifier">the_data</span>[(<span class="ruby-identifier">index</span>)]
+                <span class="ruby-identifier">dst_defined_char</span> = <span class="ruby-identifier">the_data</span>[(<span class="ruby-identifier">index</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>)]
+                <span class="ruby-identifier">utf_bridge</span> = <span class="ruby-identifier">src_undefined_char</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)
+                <span class="ruby-identifier">in_fallback</span>[(<span class="ruby-identifier">src_undefined_char</span>)] = <span class="ruby-identifier">utf_bridge</span>
+                <span class="ruby-identifier">out_fallback</span>[(<span class="ruby-identifier">utf_bridge</span>)] = <span class="ruby-identifier">dst_defined_char</span>
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-comment"># raise error?  this really requires matched pairs of things</span>
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">in_options</span>[<span class="ruby-value">:fallback</span>] = <span class="ruby-identifier">in_fallback</span>
+            <span class="ruby-identifier">out_options</span>[<span class="ruby-value">:fallback</span>] = <span class="ruby-identifier">out_fallback</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#    The value must be :text or :attr. If the value is :text encode replaces undefined characters with their (upper-case hexadecimal) numeric character</span>
+  <span class="ruby-comment">#    references. ‘&amp;’, ‘&lt;’, and ‘&gt;’ are converted to “&amp;amp;”, “&amp;lt;”, and “&amp;gt;”, respectively. If the value is :attr, encode also quotes the replacement</span>
+  <span class="ruby-comment">#    result (using ‘“’), and replaces ‘”’ with “&amp;quot;”.</span>
+  <span class="ruby-keyword">if</span> [<span class="ruby-value">:text</span>, <span class="ruby-value">:attr</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:xml</span>])
+    <span class="ruby-identifier">in_options</span>[<span class="ruby-value">:xml</span>] = <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:xml</span>]
+    <span class="ruby-identifier">out_options</span>[<span class="ruby-value">:xml</span>] = <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:xml</span>]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#    Replaces LF (“n”) with CR (“r”) if value is true.</span>
+  <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:crlf_newline</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:universal_newline</span>])
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:cr_newline</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">in_options</span>[<span class="ruby-value">:cr_newline</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">out_options</span>[<span class="ruby-value">:cr_newline</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#    Replaces LF (“n”) with CRLF (“rn”) if value is true.</span>
+  <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:cr_newline</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:universal_newline</span>])
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:crlf_newline</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">in_options</span>[<span class="ruby-value">:crlf_newline</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">out_options</span>[<span class="ruby-value">:crlf_newline</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-comment">#    Replaces CRLF (“rn”) and CR (“r”) with LF (“n”) if value is true.</span>
+  <span class="ruby-keyword">unless</span> (<span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:cr_newline</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:crlf_newline</span>])
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">conversion_options</span>[<span class="ruby-value">:universal_newline</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">in_options</span>[<span class="ruby-value">:universal_newline</span>] = <span class="ruby-keyword">true</span>
+      <span class="ruby-identifier">out_options</span>[<span class="ruby-value">:universal_newline</span>] = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># ###</span>
+  <span class="ruby-comment"># the_string = self.encode(::Encoding::UTF_8,self.external_encoding,in_options)</span>
+  <span class="ruby-comment"># the_string.encode!(destination_encoding,::Encoding::UTF_8,out_options)</span>
+  <span class="ruby-comment"># --or--</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">encoding</span> <span class="ruby-operator">==</span> <span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>
+    <span class="ruby-identifier">the_string</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">the_string</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">encode</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>,<span class="ruby-keyword">self</span>.<span class="ruby-identifier">encoding</span>,<span class="ruby-identifier">in_options</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">destination_encoding</span> <span class="ruby-operator">!=</span> <span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>
+    <span class="ruby-identifier">the_string</span>.<span class="ruby-identifier">encode!</span>(<span class="ruby-identifier">destination_encoding</span>,<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>,<span class="ruby-identifier">out_options</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">the_string</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-transcode-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">transcode!</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="transcode-21-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2099</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">transcode!</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-identifier">data</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-identifier">data</span>.<span class="ruby-identifier">encoding</span>)
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">replace</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unpack_bytes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unpack_bytes</span><span
+            class="method-args">(format_template_string=&quot;&quot;)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unpack_bytes-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2760</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">unpack_bytes</span>(<span class="ruby-identifier">format_template_string</span>=<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-comment"># See : http://ruby-doc.org/core-1.9.3/String.html#method-i-byteslice#This%20table%20summarizes</span>
+  <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">ByteArray</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">unpack</span>(<span class="ruby-identifier">format_template_string</span>))
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unserialize" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unserialize</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unserialize-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2876</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">unserialize</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">serialized?</span>()
+    <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-identifier">reconstitute</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">self</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-valid_date-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_date?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="valid_date-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2227</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">valid_date?</span>()
+  <span class="ruby-comment"># Match for Date pattern</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-regexp">/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-keyword">self</span>))
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-valid_datetime-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_datetime?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="valid_datetime-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2236</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">valid_datetime?</span>()
+  <span class="ruby-comment"># Match for ISO 8601 pattern</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-regexp">/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]T[0-9][0-9]:[0-9][0-9]:[0-9][0-9][+-][0-9][0-9]:[0-9][0-9]/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-keyword">self</span>))
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-valid_datetime_nolocale-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_datetime_nolocale?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="valid_datetime_nolocale-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2245</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">valid_datetime_nolocale?</span>()
+  <span class="ruby-comment"># Match for not-so-much ISO 8601-ish pattern</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-regexp">/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]T[0-9][0-9]:[0-9][0-9]:[0-9][0-9]/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-keyword">self</span>))
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-valid_jid-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_jid?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="valid_jid-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2262</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">valid_jid?</span>()
+  <span class="ruby-comment"># From Blather: /^(?:([^@]*)@)??([^@\/]*)(?:\/(.*?))?$/</span>
+  <span class="ruby-comment"># From xmpp4r: /^(?:([^@\/&lt;&gt;\&#39;\&quot;]+)@)?([^@\/&lt;&gt;\&#39;\&quot;]+)(?:\/([^&lt;&gt;\&#39;\&quot;]*))?$/</span>
+  <span class="ruby-comment"># Note: for now - using the one from Blather</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-regexp">/^(?:([^@]*)@)??([^@\/]*)(?:\/(.*?))?$/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-keyword">self</span>)
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># if /^(?:([^@]*)@)??([^@\/]*)(?:\/(.*?))?$/.match(self)</span>
+  <span class="ruby-comment">#   true</span>
+  <span class="ruby-comment"># else</span>
+  <span class="ruby-comment">#   false</span>
+  <span class="ruby-comment"># end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-valid_path-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_path?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="valid_path-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2254</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">valid_path?</span>()
+  <span class="ruby-keyword">if</span> (<span class="ruby-regexp">/.*(?:\\|\/)(.+)$/</span>.<span class="ruby-identifier">match</span>(<span class="ruby-keyword">self</span>) <span class="ruby-operator">||</span> (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot; &quot;</span>).<span class="ruby-identifier">size</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;/&quot;</span>).<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">||</span> <span class="ruby-keyword">self</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;/&quot;</span>))
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-valid_time-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_time?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="valid_time-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2213</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">valid_time?</span>()
+  <span class="ruby-comment"># Parse for Time class</span>
+  <span class="ruby-identifier">instance</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-identifier">instance</span> = <span class="ruby-operator">::</span><span class="ruby-constant">Chronic</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-keyword">self</span>)
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">instance</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Time</span>)
+    <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-valid_uri-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">valid_uri?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>def from_html(options={})</p>
+
+<pre class="ruby"><span class="ruby-comment">#</span>
+<span class="ruby-keyword">unless</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:no_test</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">html?</span>()
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">Exception</span>, <span class="ruby-string">&quot;String is NOT formatted as HTML.&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-identifier">result</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-identifier">visit</span> = <span class="ruby-constant">Proc</span>.<span class="ruby-identifier">new</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_node</span>=<span class="ruby-keyword">nil</span>, <span class="ruby-identifier">accumulator</span>=[]<span class="ruby-operator">|</span>
+  <span class="ruby-identifier">node_stack</span> = []
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_node</span>
+    <span class="ruby-identifier">node_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">the_node</span>)
+    <span class="ruby-keyword">while</span> (<span class="ruby-identifier">node_stack</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) <span class="ruby-keyword">do</span>
+      <span class="ruby-identifier">a_node</span> = <span class="ruby-identifier">node_stack</span>.<span class="ruby-identifier">pop</span>()
+      <span class="ruby-comment"># process(a_node)</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Text</span>)
+        <span class="ruby-identifier">accumulator</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">text</span>()
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Element</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>)
+        <span class="ruby-identifier">record</span> = {<span class="ruby-value">:name</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;document_root&quot;</span>, <span class="ruby-value">:attributes</span> <span class="ruby-operator">=&gt;</span> {}, <span class="ruby-value">:parent</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:object</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">nil</span>, <span class="ruby-value">:path</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;/&quot;</span>, <span class="ruby-value">:assembled</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-keyword">false</span>}
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:name</span>)
+          <span class="ruby-identifier">record</span>[<span class="ruby-value">:name</span>] = <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">name</span>()
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:attributes</span>)
+          <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_attr</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">record</span>[<span class="ruby-value">:attributes</span>][(<span class="ruby-identifier">the_attr</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_sym</span>)] = <span class="ruby-identifier">the_attr</span>.<span class="ruby-identifier">value</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:parent</span>)
+          <span class="ruby-identifier">record</span>[<span class="ruby-value">:parent</span>] = <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">parent</span>()
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">record</span>[<span class="ruby-value">:parent</span>] = <span class="ruby-identifier">a_node</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">record</span>[<span class="ruby-value">:object</span>] = <span class="ruby-identifier">a_node</span>
+        <span class="ruby-keyword">unless</span> <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>)
+          <span class="ruby-comment"># set accumulator path</span>
+          <span class="ruby-comment">#</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">accumulator</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">record</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">entry</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">node_stack</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">entry</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">accumulator</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-comment">#</span>
+<span class="ruby-keyword">begin</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">options</span>[<span class="ruby-value">:sax</span>] <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">database</span> = <span class="ruby-identifier">visit</span>.<span class="ruby-identifier">call</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-identifier">sax_parse_html</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode</span>({<span class="ruby-value">:replace</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;.&quot;</span>},<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)),[])
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">database</span> = <span class="ruby-identifier">visit</span>.<span class="ruby-identifier">call</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse_html</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode</span>({<span class="ruby-value">:replace</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;.&quot;</span>},<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)),[])
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">link_db</span> = []
+  <span class="ruby-identifier">accumulator</span> = []
+  <span class="ruby-comment"># Build link_db</span>
+  <span class="ruby-identifier">database</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_node</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">node_record</span> = {}
+      <span class="ruby-identifier">as_key</span> = <span class="ruby-identifier">the_node</span>[<span class="ruby-value">:name</span>].<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_sym</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_node</span>[<span class="ruby-value">:object</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>)
+        <span class="ruby-identifier">node_record</span>[(<span class="ruby-identifier">as_key</span>)] = {<span class="ruby-value">:attributes</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">the_node</span>[<span class="ruby-value">:attributes</span>]), <span class="ruby-value">:text</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-string">&quot;&quot;</span>, <span class="ruby-value">:children</span> <span class="ruby-operator">=&gt;</span> []}
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">node_record</span>[(<span class="ruby-identifier">as_key</span>)] = {<span class="ruby-value">:attributes</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">the_node</span>[<span class="ruby-value">:attributes</span>]), <span class="ruby-value">:text</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">the_node</span>[<span class="ruby-value">:object</span>].<span class="ruby-identifier">text</span>), <span class="ruby-value">:children</span> <span class="ruby-operator">=&gt;</span> []}
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">link_record</span> = {<span class="ruby-value">:desendents</span> <span class="ruby-operator">=&gt;</span> [], <span class="ruby-value">:accumulator</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">node_record</span>[(<span class="ruby-identifier">as_key</span>)][<span class="ruby-value">:children</span>])}
+      <span class="ruby-comment">#</span>
+      <span class="ruby-identifier">database</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">a_node</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">a_node</span>[<span class="ruby-value">:parent</span>].<span class="ruby-identifier">object_id</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">the_node</span>[<span class="ruby-value">:object</span>].<span class="ruby-identifier">object_id</span>
+            <span class="ruby-identifier">link_record</span>[<span class="ruby-value">:desendents</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">a_node</span>[<span class="ruby-value">:object</span>]
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">link_db</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">link_record</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_node</span>[<span class="ruby-value">:parent</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>)
+        <span class="ruby-identifier">accumulator</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">node_record</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">accumulator</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_node</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">while</span> (<span class="ruby-identifier">link_db</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>) <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">entry</span> = <span class="ruby-identifier">link_db</span>.<span class="ruby-identifier">shift</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">entry</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+      <span class="ruby-identifier">entry</span>[<span class="ruby-value">:desendents</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">unless</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Document</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Text</span>)
+            <span class="ruby-identifier">node_record</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">text</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Oga</span><span class="ruby-operator">::</span><span class="ruby-constant">XML</span><span class="ruby-operator">::</span><span class="ruby-constant">Comment</span>)
+              <span class="ruby-identifier">node_record</span> = {<span class="ruby-value">:comment</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">node</span>.<span class="ruby-identifier">text</span>}
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">node_record</span> = {}
+              <span class="ruby-identifier">as_key</span> = <span class="ruby-identifier">node</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_sym</span>
+              <span class="ruby-identifier">node_record</span>[(<span class="ruby-identifier">as_key</span>)] = {<span class="ruby-value">:attributes</span> <span class="ruby-operator">=&gt;</span> {}, <span class="ruby-value">:text</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">node</span>.<span class="ruby-identifier">text</span>), <span class="ruby-value">:children</span> <span class="ruby-operator">=&gt;</span> []}
+              <span class="ruby-identifier">node</span>.<span class="ruby-identifier">attributes</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_attr</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">node_record</span>[(<span class="ruby-identifier">as_key</span>)][<span class="ruby-value">:attributes</span>][(<span class="ruby-identifier">the_attr</span>.<span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">to_sym</span>)] = <span class="ruby-identifier">the_attr</span>.<span class="ruby-identifier">value</span>
+              <span class="ruby-keyword">end</span>
+              <span class="ruby-identifier">link_record</span> = {<span class="ruby-value">:desendents</span> <span class="ruby-operator">=&gt;</span> [], <span class="ruby-value">:accumulator</span> <span class="ruby-operator">=&gt;</span> (<span class="ruby-identifier">node_record</span>[(<span class="ruby-identifier">as_key</span>)][<span class="ruby-value">:children</span>])}
+              <span class="ruby-identifier">node</span>.<span class="ruby-identifier">children</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">node_descendent</span><span class="ruby-operator">|</span>
+                <span class="ruby-identifier">link_record</span>[<span class="ruby-value">:desendents</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">node_descendent</span>
+              <span class="ruby-keyword">end</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-identifier">link_record</span>[<span class="ruby-value">:desendents</span>].<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+                <span class="ruby-identifier">link_db</span>.<span class="ruby-identifier">push</span>(<span class="ruby-identifier">link_record</span>)
+              <span class="ruby-keyword">end</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-comment">#</span>
+          <span class="ruby-identifier">entry</span>[<span class="ruby-value">:accumulator</span>] <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">node_record</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-identifier">result</span> = <span class="ruby-identifier">accumulator</span>
+<span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+<span class="ruby-keyword">end</span>
+<span class="ruby-comment">#</span>
+<span class="ruby-identifier">result</span>
+</pre>
+
+<p>end</p>
+          
+          
+
+          
+          <div class="method-source-code" id="valid_uri-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2626</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">valid_uri?</span>()
+  <span class="ruby-identifier">result</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">begin</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-identifier">parse</span>(<span class="ruby-keyword">self</span>).<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">URI</span><span class="ruby-operator">::</span><span class="ruby-constant">Generic</span>)
+      <span class="ruby-identifier">result</span> = <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-xml-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">xml?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="xml-3F-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_augmented.rb, line 2304</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">xml?</span>()
+  <span class="ruby-identifier">declaration_test</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-string">&quot;&lt;?xml version=&quot;</span>)
+  <span class="ruby-identifier">parse_test</span> = <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">declaration_test</span>
+    <span class="ruby-keyword">begin</span>
+      <span class="ruby-identifier">mime</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">mime_type</span>()
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">mime</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Hash</span>)
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">mime</span>[<span class="ruby-value">:subtype</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;xml&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">mime</span>[<span class="ruby-value">:subtype</span>] = <span class="ruby-string">&quot;xhtml+xml&quot;</span>
+          <span class="ruby-identifier">parse_test</span> = <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">rescue</span> <span class="ruby-constant">Exception</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">the_error</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  (<span class="ruby-identifier">declaration_test</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">parse_test</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

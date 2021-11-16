@@ -1,0 +1,2346 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module GxG::Support::Library::TranscodingIO - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/navigation.js" defer></script>
+<script src="../../../js/search.js" defer></script>
+<script src="../../../js/search_index.js" defer></script>
+<script src="../../../js/searcher.js" defer></script>
+<script src="../../../js/darkfish.js" defer></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-bytes">#bytes</a>
+    
+    <li ><a href="#method-i-chars">#chars</a>
+    
+    <li ><a href="#method-i-codepoints">#codepoints</a>
+    
+    <li ><a href="#method-i-each">#each</a>
+    
+    <li ><a href="#method-i-each_byte">#each_byte</a>
+    
+    <li class="calls-super" ><a href="#method-i-each_char">#each_char</a>
+    
+    <li ><a href="#method-i-each_codepoint">#each_codepoint</a>
+    
+    <li class="calls-super" ><a href="#method-i-each_line">#each_line</a>
+    
+    <li ><a href="#method-i-each_transcoded_byte">#each_transcoded_byte</a>
+    
+    <li ><a href="#method-i-external_conversion">#external_conversion</a>
+    
+    <li ><a href="#method-i-external_conversion-3D">#external_conversion=</a>
+    
+    <li ><a href="#method-i-external_field_separator">#external_field_separator</a>
+    
+    <li ><a href="#method-i-external_field_separator-3D">#external_field_separator=</a>
+    
+    <li ><a href="#method-i-external_newline">#external_newline</a>
+    
+    <li ><a href="#method-i-external_newline-3D">#external_newline=</a>
+    
+    <li ><a href="#method-i-external_record_separator">#external_record_separator</a>
+    
+    <li ><a href="#method-i-external_record_separator-3D">#external_record_separator=</a>
+    
+    <li class="calls-super" ><a href="#method-i-getbyte">#getbyte</a>
+    
+    <li ><a href="#method-i-getbytes">#getbytes</a>
+    
+    <li class="calls-super" ><a href="#method-i-getc">#getc</a>
+    
+    <li class="calls-super" ><a href="#method-i-gets">#gets</a>
+    
+    <li ><a href="#method-i-internal_conversion">#internal_conversion</a>
+    
+    <li ><a href="#method-i-internal_conversion-3D">#internal_conversion=</a>
+    
+    <li ><a href="#method-i-internal_encoding">#internal_encoding</a>
+    
+    <li ><a href="#method-i-internal_encoding-3D">#internal_encoding=</a>
+    
+    <li ><a href="#method-i-internal_field_separator">#internal_field_separator</a>
+    
+    <li ><a href="#method-i-internal_field_separator-3D">#internal_field_separator=</a>
+    
+    <li ><a href="#method-i-internal_newline">#internal_newline</a>
+    
+    <li ><a href="#method-i-internal_newline-3D">#internal_newline=</a>
+    
+    <li ><a href="#method-i-internal_record_separator">#internal_record_separator</a>
+    
+    <li ><a href="#method-i-internal_record_separator-3D">#internal_record_separator=</a>
+    
+    <li ><a href="#method-i-lines">#lines</a>
+    
+    <li ><a href="#method-i-print">#print</a>
+    
+    <li ><a href="#method-i-printf">#printf</a>
+    
+    <li ><a href="#method-i-put_codepoint">#put_codepoint</a>
+    
+    <li ><a href="#method-i-putc">#putc</a>
+    
+    <li ><a href="#method-i-puts">#puts</a>
+    
+    <li ><a href="#method-i-putwc">#putwc</a>
+    
+    <li ><a href="#method-i-readbyte">#readbyte</a>
+    
+    <li ><a href="#method-i-readchar">#readchar</a>
+    
+    <li ><a href="#method-i-readline">#readline</a>
+    
+    <li ><a href="#method-i-readlines">#readlines</a>
+    
+    <li ><a href="#method-i-transcoded_bytes">#transcoded_bytes</a>
+    
+    <li ><a href="#method-i-unget_transcoded_byte">#unget_transcoded_byte</a>
+    
+    <li ><a href="#method-i-unget_transcoded_bytes">#unget_transcoded_bytes</a>
+    
+    <li class="calls-super" ><a href="#method-i-ungetbyte">#ungetbyte</a>
+    
+    <li ><a href="#method-i-ungetbytes">#ungetbytes</a>
+    
+    <li ><a href="#method-i-ungetc">#ungetc</a>
+    
+    <li ><a href="#method-i-ungets">#ungets</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-GxG::Support::Library::TranscodingIO">
+  <h1 id="module-GxG::Support::Library::TranscodingIO" class="module">
+    module GxG::Support::Library::TranscodingIO
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-bytes" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">bytes</span><span
+            class="method-args">(&amp;block)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="TranscodingIO.html#method-i-each_byte">each_byte</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-chars" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">chars</span><span
+            class="method-args">(&amp;block)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="TranscodingIO.html#method-i-each_char">each_char</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-codepoints" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">codepoints</span><span
+            class="method-args">(&amp;block)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="TranscodingIO.html#method-i-each_codepoint">each_codepoint</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-each" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">each</span><span
+            class="method-args">(separator=$/, limit=nil,&amp;block)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="TranscodingIO.html#method-i-each_line">each_line</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-each_byte" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_byte</span><span
+            class="method-args">(&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="each_byte-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 668</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_byte</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_read?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for reading&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">until</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">eof?</span>()
+        <span class="ruby-identifier">data</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getbyte</span>()
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>
+          <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">data</span>)
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-identifier">pause</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># Note: when each_byte alias is called, will be cosmetic off, but will work.</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each_byte</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="TranscodingIO.html#method-i-bytes">bytes</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_char" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_char</span><span
+            class="method-args">(&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="each_char-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 647</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_char</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_read?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for reading&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-comment"># Note: this approach burns another 20 or 40 bytes (depending on arch-bits) for extra cooperative Enumerator encapsulation,</span>
+      <span class="ruby-comment"># but avoids stack-too-deep errors..</span>
+      <span class="ruby-keyword">super</span>().<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_character</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode_to_internal</span>(<span class="ruby-identifier">the_character</span>))
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># Note: when each_char alias is called, will be cosmetic off, but will work.</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each_char</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="TranscodingIO.html#method-i-chars">chars</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_codepoint" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_codepoint</span><span
+            class="method-args">(&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="each_codepoint-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 712</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_codepoint</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_read?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for reading&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># transcodes at the character level prior to codepoint passage to the block.</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">each_char</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_character</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">the_character</span>.<span class="ruby-identifier">codepoints</span>.<span class="ruby-identifier">first</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># Note: when each_codepoint alias is called, will be cosmetic off, but will work.</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each_codepoint</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="TranscodingIO.html#method-i-codepoints">codepoints</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_line" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_line</span><span
+            class="method-args">(separator=$/, limit=nil,&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="each_line-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 731</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_line</span>(<span class="ruby-identifier">separator</span>=<span class="ruby-identifier">$/</span>, <span class="ruby-identifier">limit</span>=<span class="ruby-keyword">nil</span>,<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-comment"># should not do an *args param capture for interface behavior compatibility.</span>
+  <span class="ruby-comment"># use of limit and separator appear exclusive in this method.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">separator</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Numeric</span>)
+    <span class="ruby-identifier">limit</span> = <span class="ruby-identifier">separator</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-identifier">separator</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment"># if transcoding is set, overwrite default separator according to translation flag settings.</span>
+  <span class="ruby-keyword">if</span> (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">internal_encoding</span>() <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">internal_encoding</span>() <span class="ruby-operator">!=</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">separator</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">$/</span>
+      <span class="ruby-comment">#Note : line separator supplied as method parameter will be applied to the transcoded string, not the StringIO data itself.</span>
+      <span class="ruby-identifier">separator</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">newline_used</span>(<span class="ruby-value">:internal</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">limit</span>
+    <span class="ruby-identifier">limit</span> = <span class="ruby-identifier">limit</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">limit</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-comment"># Note: a work-around : irb FREAKS entire system when you call readlines with limit equal to 0 (memleak: IO lock up)</span>
+      <span class="ruby-identifier">limit</span> = <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">args</span> = [(<span class="ruby-identifier">separator</span>),(<span class="ruby-identifier">limit</span>)]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">args</span> = [(<span class="ruby-identifier">separator</span>)]
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_read?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for reading&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># Note: this approach burns another 20 or 40 bytes (depending on arch-bits) for extra cooperative Enumerator encapsulation,</span>
+      <span class="ruby-comment"># but avoids stack-too-deep errors..</span>
+      <span class="ruby-keyword">super</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_line</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode_to_internal</span>(<span class="ruby-identifier">the_line</span>))
+        <span class="ruby-identifier">pause</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># Note: when each_line alias is called, will be cosmetic off, but will work.</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each_line</span>,<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="TranscodingIO.html#method-i-each">each</a>, <a href="TranscodingIO.html#method-i-lines">lines</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-each_transcoded_byte" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">each_transcoded_byte</span><span
+            class="method-args">(&amp;block)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="each_transcoded_byte-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 690</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">each_transcoded_byte</span>(<span class="ruby-operator">&amp;</span><span class="ruby-identifier">block</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">block</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-value">:call</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_read?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for reading&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-comment"># transcodes at the character level prior to byte passage to the block.</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">each_char</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_character</span><span class="ruby-operator">|</span>
+        <span class="ruby-comment"># the_character is pre-transcoded by each_char where appropriate.</span>
+        <span class="ruby-identifier">the_character</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:bytes</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_byte</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">block</span>.<span class="ruby-identifier">call</span>(<span class="ruby-identifier">the_byte</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">self</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment"># Note: when each_transcoded_byte alias is called, will be cosmetic off, but will work.</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each_transcoded_byte</span>)
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="TranscodingIO.html#method-i-transcoded_bytes">transcoded_bytes</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-external_conversion" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">external_conversion</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="external_conversion-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 377</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">external_conversion</span>()
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@conversion_options</span>)
+    <span class="ruby-ivar">@conversion_options</span> = {<span class="ruby-value">:internal</span> <span class="ruby-operator">=&gt;</span> {}, <span class="ruby-value">:external</span> <span class="ruby-operator">=&gt;</span> {}}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:external</span>].<span class="ruby-identifier">clone</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-external_conversion-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">external_conversion=</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="external_conversion-3D-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 384</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">external_conversion=</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@conversion_options</span>)
+    <span class="ruby-ivar">@conversion_options</span> = {<span class="ruby-value">:internal</span> <span class="ruby-operator">=&gt;</span> {}, <span class="ruby-value">:external</span> <span class="ruby-operator">=&gt;</span> {}}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:external</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">prepare_conversion_options</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:external</span>].<span class="ruby-identifier">clone</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-external_field_separator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">external_field_separator</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="external_field_separator-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 408</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">external_field_separator</span>()
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@external_field_separator</span>)
+    <span class="ruby-ivar">@external_field_separator</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@external_field_separator</span>.<span class="ruby-identifier">dup</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-external_field_separator-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">external_field_separator=</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="external_field_separator-3D-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 415</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">external_field_separator=</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@external_field_separator</span>)
+    <span class="ruby-ivar">@external_field_separator</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+    <span class="ruby-ivar">@external_field_separator</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:globalcopy</span>
+      <span class="ruby-ivar">@external_field_separator</span> = (<span class="ruby-identifier">$,</span>).<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:global</span>
+      <span class="ruby-ivar">@external_field_separator</span> = <span class="ruby-identifier">$,</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-external_newline" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">external_newline</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="external_newline-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 392</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">external_newline</span>()
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">newline_option_used</span>(<span class="ruby-value">:external</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-external_newline-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">external_newline=</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="external_newline-3D-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 396</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">external_newline=</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@conversion_options</span>)
+    <span class="ruby-ivar">@conversion_options</span> = {<span class="ruby-value">:internal</span> <span class="ruby-operator">=&gt;</span> {}, <span class="ruby-value">:external</span> <span class="ruby-operator">=&gt;</span> {}}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> [<span class="ruby-value">:cr_newline</span>, <span class="ruby-value">:crlf_newline</span>, <span class="ruby-value">:universal_newline</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>])
+    <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:external</span>].<span class="ruby-identifier">delete</span>(<span class="ruby-value">:cr_newline</span>)
+    <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:external</span>].<span class="ruby-identifier">delete</span>(<span class="ruby-value">:crlf_newline</span>)
+    <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:external</span>].<span class="ruby-identifier">delete</span>(<span class="ruby-value">:universal_newline</span>)
+    <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:external</span>][(<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>])] = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-external_record_separator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">external_record_separator</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="external_record_separator-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 431</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">external_record_separator</span>()
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@external_record_separator</span>)
+    <span class="ruby-ivar">@external_record_separator</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@external_record_separator</span>.<span class="ruby-identifier">dup</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-external_record_separator-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">external_record_separator=</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="external_record_separator-3D-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 438</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">external_record_separator=</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@external_record_separator</span>)
+    <span class="ruby-ivar">@external_record_separator</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+    <span class="ruby-ivar">@external_record_separator</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:globalcopy</span>
+      <span class="ruby-ivar">@external_record_separator</span> = (<span class="ruby-identifier">$\</span>).<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:global</span>
+      <span class="ruby-ivar">@external_record_separator</span> = <span class="ruby-identifier">$\</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-getbyte" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getbyte</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="getbyte-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 586</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getbyte</span>()
+  <span class="ruby-comment"># regarding getbyte : I don&#39;t see any practical way to do auto-transcoding ... leaving that one alone for now.</span>
+  <span class="ruby-keyword">super</span>()
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-getbytes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getbytes</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="getbytes-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 591</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getbytes</span>()
+  <span class="ruby-identifier">result</span> = <span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">ByteArray</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">until</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">eof?</span>()
+    <span class="ruby-identifier">data</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getbyte</span>()
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>
+      <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">data</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">pause</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">result</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-getc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">getc</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="getc-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 603</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">getc</span>()
+  <span class="ruby-identifier">data</span> = <span class="ruby-keyword">super</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+    <span class="ruby-identifier">data</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode_to_internal</span>(<span class="ruby-identifier">data</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">data</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-gets" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">gets</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="gets-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 566</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">gets</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># Reads the next “line” from the I/O stream; lines are separated by sep. A separator of nil reads the entire contents,</span>
+  <span class="ruby-comment"># and a zero-length separator reads the input a paragraph at a time (two successive newlines in the input separate paragraphs).</span>
+  <span class="ruby-comment"># The stream must be opened for reading or an IOError will be raised. The line read in will be returned and also assigned to $_.</span>
+  <span class="ruby-comment"># Returns nil if called at end of file. If the first argument is an integer, or optional second argument is given, the returning string</span>
+  <span class="ruby-comment"># would not be longer than the given value in bytes.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_read?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for reading&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">data</span> = <span class="ruby-keyword">super</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">data</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode_to_internal</span>(<span class="ruby-identifier">data</span>)
+      <span class="ruby-identifier">$_</span> = <span class="ruby-identifier">data</span>.<span class="ruby-identifier">dup</span>
+      <span class="ruby-identifier">data</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">nil</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-internal_conversion" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">internal_conversion</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="internal_conversion-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 489</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">internal_conversion</span>()
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@conversion_options</span>)
+    <span class="ruby-ivar">@conversion_options</span> = {<span class="ruby-value">:internal</span> <span class="ruby-operator">=&gt;</span> {}, <span class="ruby-value">:external</span> <span class="ruby-operator">=&gt;</span> {}}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:internal</span>].<span class="ruby-identifier">clone</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-internal_conversion-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">internal_conversion=</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="internal_conversion-3D-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 496</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">internal_conversion=</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@conversion_options</span>)
+    <span class="ruby-ivar">@conversion_options</span> = {<span class="ruby-value">:internal</span> <span class="ruby-operator">=&gt;</span> {}, <span class="ruby-value">:external</span> <span class="ruby-operator">=&gt;</span> {}}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:internal</span>] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">prepare_conversion_options</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:internal</span>].<span class="ruby-identifier">clone</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-internal_encoding" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">internal_encoding</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="internal_encoding-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 454</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">internal_encoding</span>()
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@internal_encoding</span>)
+    <span class="ruby-ivar">@internal_encoding</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@internal_encoding</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-internal_encoding-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">internal_encoding=</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="internal_encoding-3D-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 461</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">internal_encoding=</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@internal_encoding</span>)
+    <span class="ruby-ivar">@internal_encoding</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@conversion_options</span>)
+    <span class="ruby-ivar">@conversion_options</span> = {<span class="ruby-value">:internal</span> <span class="ruby-operator">=&gt;</span> {}, <span class="ruby-value">:external</span> <span class="ruby-operator">=&gt;</span> {}}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">binmode?</span>()
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>, <span class="ruby-operator">::</span><span class="ruby-constant">NilClass</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span>)
+        <span class="ruby-ivar">@internal_encoding</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]
+        <span class="ruby-comment"># preserve newline settings</span>
+        <span class="ruby-identifier">nl_op</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">newline_option_used</span>(<span class="ruby-value">:internal</span>)
+        <span class="ruby-identifier">options</span> = {}
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">nl_op</span>
+          <span class="ruby-identifier">options</span>[(<span class="ruby-identifier">nl_op</span>)] = <span class="ruby-keyword">true</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:internal</span>] = <span class="ruby-operator">::</span><span class="ruby-constant">String</span><span class="ruby-operator">::</span><span class="ruby-identifier">transcoding_options</span>(<span class="ruby-ivar">@internal_encoding</span>,<span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span>,<span class="ruby-identifier">options</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-ivar">@internal_encoding</span> = <span class="ruby-keyword">nil</span>
+        <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:internal</span>] = {}
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">ArgumentError</span>, <span class="ruby-node">&quot;Expected an Encoding or NilClass, you provided #{args[0].class}&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-internal_field_separator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">internal_field_separator</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="internal_field_separator-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 520</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">internal_field_separator</span>()
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@internal_field_separator</span>)
+    <span class="ruby-ivar">@internal_field_separator</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@internal_field_separator</span>.<span class="ruby-identifier">dup</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-internal_field_separator-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">internal_field_separator=</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="internal_field_separator-3D-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 527</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">internal_field_separator=</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@internal_field_separator</span>)
+    <span class="ruby-ivar">@internal_field_separator</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+    <span class="ruby-ivar">@internal_field_separator</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:globalcopy</span>
+      <span class="ruby-ivar">@internal_field_separator</span> = (<span class="ruby-identifier">$,</span>).<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:global</span>
+      <span class="ruby-ivar">@internal_field_separator</span> = <span class="ruby-identifier">$,</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-internal_newline" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">internal_newline</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="internal_newline-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 504</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">internal_newline</span>()
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">newline_option_used</span>(<span class="ruby-value">:internal</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-internal_newline-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">internal_newline=</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="internal_newline-3D-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 508</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">internal_newline=</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@conversion_options</span>)
+    <span class="ruby-ivar">@conversion_options</span> = {<span class="ruby-value">:internal</span> <span class="ruby-operator">=&gt;</span> {}, <span class="ruby-value">:external</span> <span class="ruby-operator">=&gt;</span> {}}
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> [<span class="ruby-value">:cr_newline</span>, <span class="ruby-value">:crlf_newline</span>, <span class="ruby-value">:universal_newline</span>].<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>])
+    <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:internal</span>].<span class="ruby-identifier">delete</span>(<span class="ruby-value">:cr_newline</span>)
+    <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:internal</span>].<span class="ruby-identifier">delete</span>(<span class="ruby-value">:crlf_newline</span>)
+    <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:internal</span>].<span class="ruby-identifier">delete</span>(<span class="ruby-value">:universal_newline</span>)
+    <span class="ruby-ivar">@conversion_options</span>[<span class="ruby-value">:internal</span>][(<span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>])] = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-internal_record_separator" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">internal_record_separator</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="internal_record_separator-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 543</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">internal_record_separator</span>()
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@internal_record_separator</span>)
+    <span class="ruby-ivar">@internal_record_separator</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@internal_record_separator</span>.<span class="ruby-identifier">dup</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-internal_record_separator-3D" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">internal_record_separator=</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="internal_record_separator-3D-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 550</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">internal_record_separator=</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">unless</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">instance_variable_defined?</span>(<span class="ruby-value">:@internal_record_separator</span>)
+    <span class="ruby-ivar">@internal_record_separator</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+    <span class="ruby-ivar">@internal_record_separator</span> = <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>]
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:globalcopy</span>
+      <span class="ruby-ivar">@internal_record_separator</span> = (<span class="ruby-identifier">$\</span>).<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">:global</span>
+      <span class="ruby-ivar">@internal_record_separator</span> = <span class="ruby-identifier">$\</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-lines" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">lines</span><span
+            class="method-args">(separator=$/, limit=nil,&amp;block)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="TranscodingIO.html#method-i-each_line">each_line</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-print" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">print</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="print-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 877</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">print</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_write?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for writing&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">fieldseparator</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">field_separator_used</span>(<span class="ruby-value">:external</span>)
+    <span class="ruby-identifier">recordseparator</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">record_separator_used</span>(<span class="ruby-value">:external</span>)
+    <span class="ruby-identifier">args</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">flatten</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">data</span> = <span class="ruby-string">&quot;&quot;</span>
+      <span class="ruby-identifier">data</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span>)
+      <span class="ruby-identifier">args</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each_with_index</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span>,<span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>, <span class="ruby-operator">::</span><span class="ruby-constant">IO</span>, <span class="ruby-operator">::</span><span class="ruby-constant">StringIO</span>, <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">ByteArray</span>)
+          <span class="ruby-identifier">args</span>[(<span class="ruby-identifier">index</span>)] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode_to_external</span>(<span class="ruby-identifier">element</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">args</span>[(<span class="ruby-identifier">index</span>)] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode_to_external</span>(<span class="ruby-identifier">element</span>.<span class="ruby-identifier">to_s</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">args</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each_with_index</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span>,<span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">element</span>
+        <span class="ruby-keyword">unless</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">==</span> (<span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">fieldseparator</span>
+            <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">fieldseparator</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">recordseparator</span>
+        <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">recordseparator</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">data</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-printf" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">printf</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="printf-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 848</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">printf</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_write?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for writing&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">formatting</span> = <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-identifier">args</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">flatten</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">formatting</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">delete_at</span>(<span class="ruby-value">0</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">args</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each_with_index</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span>,<span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>, <span class="ruby-operator">::</span><span class="ruby-constant">IO</span>, <span class="ruby-operator">::</span><span class="ruby-constant">StringIO</span>, <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">ByteArray</span>)
+        <span class="ruby-identifier">args</span>[(<span class="ruby-identifier">index</span>)] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode_to_external</span>(<span class="ruby-identifier">element</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">args</span>[(<span class="ruby-identifier">index</span>)] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode_to_external</span>(<span class="ruby-identifier">element</span>.<span class="ruby-identifier">inspect</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">data</span> = <span class="ruby-string">&quot;&quot;</span>
+    <span class="ruby-identifier">data</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span>)
+    <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">formatting</span>.<span class="ruby-identifier">%</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">data</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-put_codepoint" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">put_codepoint</span><span
+            class="method-args">(the_object=nil)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="TranscodingIO.html#method-i-putc">putc</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-putc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">putc</span><span
+            class="method-args">(the_object=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p><a href="Transcoding.html"><code>Transcoding</code></a> &#39;write&#39; methods:</p>
+          
+          
+
+          
+          <div class="method-source-code" id="putc-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 792</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">putc</span>(<span class="ruby-identifier">the_object</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-comment"># make multi-byte safe version of putc for StringIO. (alternate3)</span>
+  <span class="ruby-comment"># unlike stock putc : multi-byte char safe, can accept arrays of objects : where this will read the first char available on each object and write it.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_object</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Array</span>)
+      <span class="ruby-identifier">dataset</span> = <span class="ruby-identifier">the_object</span>.<span class="ruby-identifier">flatten</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">dataset</span> = [(<span class="ruby-identifier">the_object</span>)]
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">dataset</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">object</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">buffer</span> = <span class="ruby-string">&quot;&quot;</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+        <span class="ruby-comment"># find the string content of these classes and pass them for transcoding: Numeric, String, ::IO via gets, ::StringIO via gets, ::GxG::ByteArray</span>
+        <span class="ruby-identifier">buffer</span> = <span class="ruby-identifier">object</span>.<span class="ruby-identifier">chars</span>.<span class="ruby-identifier">first</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">IO</span>, <span class="ruby-operator">::</span><span class="ruby-constant">StringIO</span>)
+          <span class="ruby-comment"># Note: what issues arise when the_object is in binary mode?  Also, how does this scale to very large things or files?</span>
+          <span class="ruby-identifier">buffer</span> = <span class="ruby-identifier">object</span>.<span class="ruby-identifier">getc</span>.<span class="ruby-identifier">to_s</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">ByteArray</span>)
+          <span class="ruby-identifier">buffer</span> = <span class="ruby-identifier">object</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">chars</span>.<span class="ruby-identifier">first</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">to_i</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-value">0</span>
+            <span class="ruby-identifier">data</span> = <span class="ruby-string">&quot;&quot;</span>
+            <span class="ruby-keyword">if</span> (<span class="ruby-value">0xFFFFFFFF</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">to_i</span>) <span class="ruby-operator">&gt;</span> <span class="ruby-value">255</span>
+              <span class="ruby-comment"># interprets as unicode code point</span>
+              <span class="ruby-identifier">data</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Encoding</span><span class="ruby-operator">::</span><span class="ruby-constant">UTF_8</span>)
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-comment"># interprets as a char value in its own encoding, no transcoding needed.</span>
+              <span class="ruby-identifier">data</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span>)
+            <span class="ruby-keyword">end</span>
+            <span class="ruby-identifier">buffer</span> = (<span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">to_i</span>)
+            <span class="ruby-identifier">data</span> = <span class="ruby-keyword">nil</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-comment"># signed integers not supported for char values or codepoints at this time.</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">encoding</span> <span class="ruby-operator">==</span> (<span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span>)
+          <span class="ruby-keyword">self</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">buffer</span>.<span class="ruby-identifier">chars</span>.<span class="ruby-identifier">first</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-keyword">self</span>.<span class="ruby-identifier">write</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode_to_external</span>(<span class="ruby-identifier">buffer</span>).<span class="ruby-identifier">chars</span>.<span class="ruby-identifier">first</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="TranscodingIO.html#method-i-put_codepoint">put_codepoint</a>, <a href="TranscodingIO.html#method-i-putwc">putwc</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-puts" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">puts</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="puts-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 914</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">puts</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># Writes the given objects to ios as with IO#print. Writes a record separator (typically a newline) after any</span>
+  <span class="ruby-comment"># that do not already end with a newline sequence. If called with an array argument, writes each element on a new line.</span>
+  <span class="ruby-comment"># If called without arguments, outputs a single record separator.</span>
+  <span class="ruby-comment">#  ###</span>
+  <span class="ruby-comment"># determine the correct new_line_separator</span>
+  <span class="ruby-identifier">newline</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">newline_used</span>(<span class="ruby-value">:external</span>)
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_write?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for writing&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">args</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">flatten</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">args</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+      <span class="ruby-identifier">args</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each_with_index</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span>,<span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">is_any?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>, <span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>, <span class="ruby-operator">::</span><span class="ruby-constant">IO</span>, <span class="ruby-operator">::</span><span class="ruby-constant">StringIO</span>, <span class="ruby-operator">::</span><span class="ruby-constant">GxG</span><span class="ruby-operator">::</span><span class="ruby-constant">ByteArray</span>)
+          <span class="ruby-identifier">args</span>[(<span class="ruby-identifier">index</span>)] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode_to_external</span>(<span class="ruby-identifier">element</span>)
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">args</span>[(<span class="ruby-identifier">index</span>)] = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode_to_external</span>(<span class="ruby-identifier">element</span>.<span class="ruby-identifier">to_s</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-identifier">data</span> = <span class="ruby-string">&quot;&quot;</span>
+      <span class="ruby-identifier">data</span>.<span class="ruby-identifier">force_encoding</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">external_encoding</span>)
+      <span class="ruby-identifier">args</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span><span class="ruby-operator">|</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">newline</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+          <span class="ruby-comment"># sense if newline is already present, add if not</span>
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">newline</span>.<span class="ruby-identifier">size</span>
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">element</span>.<span class="ruby-identifier">slice</span>((<span class="ruby-identifier">newline</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">*</span> <span class="ruby-value">-1</span>)<span class="ruby-operator">..</span><span class="ruby-value">-1</span>) <span class="ruby-operator">==</span> <span class="ruby-identifier">newline</span>
+              <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">element</span>
+            <span class="ruby-keyword">else</span>
+              <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">element</span>
+              <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">newline</span>
+            <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">element</span>
+            <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">newline</span>
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">element</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">data</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">data</span>)
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">write</span>(<span class="ruby-identifier">newline</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-putwc" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">putwc</span><span
+            class="method-args">(the_object=nil)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="TranscodingIO.html#method-i-putc">putc</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-readbyte" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">readbyte</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="readbyte-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 611</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">readbyte</span>()
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_read?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for reading&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">eof?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">EOFError</span>, <span class="ruby-string">&quot;end of stream reached&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">getbyte</span>()
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-readchar" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">readchar</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="readchar-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 623</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">readchar</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_read?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for reading&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">eof?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">EOFError</span>, <span class="ruby-string">&quot;end of stream reached&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode_to_internal</span>(<span class="ruby-keyword">self</span>.<span class="ruby-identifier">read</span>(<span class="ruby-value">1</span>))
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-readline" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">readline</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="readline-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 635</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">readline</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_read?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for reading&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">eof?</span>
+      <span class="ruby-identifier">raise</span> <span class="ruby-constant">EOFError</span>, <span class="ruby-string">&quot;end of stream reached&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">gets</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-readlines" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">readlines</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="readlines-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 778</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">readlines</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># Reads all of the lines in ios, and returns them in anArray. Lines are separated by the optional sep.</span>
+  <span class="ruby-comment"># If sep is nil, the rest of the stream is returned as a single record. If the first argument is an integer,</span>
+  <span class="ruby-comment"># or optional second argument is given, the returning string would not be longer than the given value in bytes.</span>
+  <span class="ruby-comment"># The stream must be opened for reading or an IOError will be raised.</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_read?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for reading&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">data</span> = []
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">each_line</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>) { <span class="ruby-operator">|</span><span class="ruby-identifier">the_line</span><span class="ruby-operator">|</span>  <span class="ruby-identifier">data</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">the_line</span> }
+    <span class="ruby-identifier">data</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-transcoded_bytes" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">transcoded_bytes</span><span
+            class="method-args">(&amp;block)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="TranscodingIO.html#method-i-each_transcoded_byte">each_transcoded_byte</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-unget_transcoded_byte" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">unget_transcoded_byte</span><span
+            class="method-args">(the_byte=nil)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="TranscodingIO.html#method-i-ungetbyte">ungetbyte</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-unget_transcoded_bytes" class="method-detail method-alias">
+        
+        <div class="method-heading">
+          <span class="method-name">unget_transcoded_bytes</span><span
+            class="method-args">(*args)</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+        </div>
+
+        
+
+        
+        <div class="aliases">
+          Alias for: <a href="TranscodingIO.html#method-i-ungetbytes">ungetbytes</a>
+        </div>
+        
+      </div>
+
+    
+      <div id="method-i-ungetbyte" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ungetbyte</span><span
+            class="method-args">(the_byte=nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+            <div class="method-calls-super">
+              Calls superclass method
+              
+            </div>
+          
+
+          
+          <div class="method-source-code" id="ungetbyte-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 967</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ungetbyte</span>(<span class="ruby-identifier">the_byte</span>=<span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_write?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for writing&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_byte</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">Numeric</span>)
+      <span class="ruby-keyword">if</span> (<span class="ruby-value">0</span><span class="ruby-operator">..</span><span class="ruby-value">255</span>).<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">the_byte</span>.<span class="ruby-identifier">to_i</span>)
+        <span class="ruby-keyword">super</span>(<span class="ruby-identifier">the_byte</span>.<span class="ruby-identifier">to_i</span>)
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ungetbytes</span>(<span class="ruby-identifier">the_byte</span>)
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ungetbytes</span>(<span class="ruby-identifier">the_byte</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-comment">#</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="TranscodingIO.html#method-i-unget_transcoded_byte">unget_transcoded_byte</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ungetbytes" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ungetbytes</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ungetbytes-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 987</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ungetbytes</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># unget the string content of these classes and pre-pend them to the StringIO: Numeric, String, ::IO via gets, ::StringIO via gets, ::GxG::ByteArray</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_write?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for writing&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">args</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">flatten</span>
+    <span class="ruby-identifier">args</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_object</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-identifier">the_string</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode_to_external</span>(<span class="ruby-identifier">the_object</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_string</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">the_string</span>.<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">each_char</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_character</span><span class="ruby-operator">|</span>
+          <span class="ruby-identifier">bytes</span> = []
+          <span class="ruby-identifier">the_character</span>.<span class="ruby-identifier">each_byte</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_byte_value</span><span class="ruby-operator">|</span>
+            <span class="ruby-identifier">bytes</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">the_byte_value</span>)
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">bytes</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_byte_value</span><span class="ruby-operator">|</span>
+            <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ungetbyte</span>(<span class="ruby-identifier">the_byte_value</span>)
+          <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+        <div class="aliases">
+          Also aliased as: <a href="TranscodingIO.html#method-i-unget_transcoded_bytes">unget_transcoded_bytes</a>
+        </div>
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ungetc" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ungetc</span><span
+            class="method-args">(the_character=&quot;&quot;)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ungetc-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 1014</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ungetc</span>(<span class="ruby-identifier">the_character</span>=<span class="ruby-string">&quot;&quot;</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_write?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for writing&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">unless</span> <span class="ruby-identifier">the_character</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-operator">::</span><span class="ruby-constant">String</span>)
+      <span class="ruby-identifier">the_character</span> = <span class="ruby-identifier">the_character</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">chars</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_character</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">the_character</span> = <span class="ruby-identifier">the_character</span>.<span class="ruby-identifier">chars</span>.<span class="ruby-identifier">first</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ungetbytes</span>(<span class="ruby-identifier">the_character</span>)
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-ungets" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">ungets</span><span
+            class="method-args">(*args)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="ungets-source">
+            <pre><span class="ruby-comment"># File lib/gxg/gxg_transcode.rb, line 1029</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">ungets</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">args</span>)
+  <span class="ruby-comment"># unget the string content of these classes and pre-pend them to the StringIO: Numeric, String, ::IO via gets, ::StringIO via gets, ::GxG::ByteArray</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">closed_write?</span>
+    <span class="ruby-identifier">raise</span> <span class="ruby-constant">IOError</span>, <span class="ruby-string">&quot;not open for writing&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-identifier">args</span> = <span class="ruby-identifier">args</span>.<span class="ruby-identifier">flatten</span>
+    <span class="ruby-identifier">args</span>.<span class="ruby-identifier">to_enum</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_object</span><span class="ruby-operator">|</span>
+      <span class="ruby-comment">#</span>
+      <span class="ruby-identifier">the_string</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">transcode_to_external</span>(<span class="ruby-identifier">the_object</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">the_string</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span>
+        <span class="ruby-identifier">the_string</span>.<span class="ruby-identifier">reverse</span>.<span class="ruby-identifier">to_enum</span>(<span class="ruby-value">:each_char</span>).<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">the_character</span><span class="ruby-operator">|</span>
+          <span class="ruby-keyword">self</span>.<span class="ruby-identifier">ungetc</span>(<span class="ruby-identifier">the_character</span>)
+        <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-comment">#</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.2.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
