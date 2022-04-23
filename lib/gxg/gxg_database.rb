@@ -1770,10 +1770,10 @@ module GxG
           the_record[:permissions] = entry[:permissions]
           if self.role_exist?(entry[:credential])
             role = self.role_fetch({:uuid => entry[:credential].to_s})
-            group = self.group_fetch({:uuid => role[:group_uuid].to_s})
+            # group = self.group_fetch({:uuid => role[:group_uuid].to_s})
             the_record[:details][:role_title] = role[:title]
-            the_record[:details][:group] = group[:uuid].to_s.to_sym
-            the_record[:details][:group_title] = group[:title]
+            # the_record[:details][:group] = group[:uuid].to_s.to_sym
+            # the_record[:details][:group_title] = group[:title]
           else
             if self.user_exist?(entry[:credential])
               user = self.user_fetch({:uuid => entry[:credential].to_s})
