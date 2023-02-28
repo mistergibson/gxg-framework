@@ -3447,10 +3447,11 @@ module GxG
           end
           if the_url.is_any?(::URI::HTTP, ::URI::HTTPS)
             if @cookie
-              request = Net::HTTP::Put.new(the_url.request_uri,data, {'Cookie' => @cookie})
+              request = Net::HTTP::Put.new(the_url.request_uri, {'Cookie' => @cookie})
             else
-              request = Net::HTTP::Put.new(the_url.request_uri,data)
+              request = Net::HTTP::Put.new(the_url.request_uri)
             end
+            request.body = data
             if (the_url.user && the_url.password)
               # basic auth
               request.basic_auth(the_url.user, the_url.password)
@@ -3694,13 +3695,64 @@ module GxG
     class GxGApi
       private
       #
+      def sendable_hash(data={})
+        result = {}
+        processing_db = [{original => data, target => result}]
+        while processing_db.size > 0
+          entry = processing_db.shift
+          if entry
+            if entry[:original].is_a?(::Hash)
+              entry[:original].each_pair do |the_selector, the_value|
+                if the_value.is_any?(::GxG::Database::PersistedHash, ::GxG::Database::DetachedHash)
+                  entry[:target][(the_selector)] = the_value.export_package()
+                else
+                  if the_value.is_a?(::Hash)
+                    entry[:target][(the_selector)] = {}
+                    processing_db << {:original => entry[:original][(the_selector)], :target => entry[:target][(the_selector)]}
+                  else
+                    if the_value.is_a?(::Array)
+                      entry[:target][(the_selector)] = []
+                      processing_db << {:original => entry[:original][(the_selector)], :target => entry[:target][(the_selector)]}
+                    else
+                      entry[:target][(the_selector)] = the_value
+                    end
+                  end
+                end
+              end
+            end
+            #
+            if entry[:original].is_a?(::Array)
+              entry[:original].each_with_index do |the_value, the_selector|
+                if the_value.is_any?(::GxG::Database::PersistedHash, ::GxG::Database::DetachedHash)
+                  entry[:target][(the_selector)] = the_value.export_package()
+                else
+                  if the_value.is_a?(::Hash)
+                    entry[:target][(the_selector)] = {}
+                    processing_db << {:original => entry[:original][(the_selector)], :target => entry[:target][(the_selector)]}
+                  else
+                    if the_value.is_a?(::Array)
+                      entry[:target][(the_selector)] = []
+                      processing_db << {:original => entry[:original][(the_selector)], :target => entry[:target][(the_selector)]}
+                    else
+                      entry[:target][(the_selector)] = the_value
+                    end
+                  end
+                end
+              end
+            end
+            #
+          end
+        end
+        result
+      end
+      #
       def pull(details={})
         result = nil
         begin
-          response = @connector.get(::URI::parse("#{@scheme}://#{@hostname}#{@endpoint}?details=#{details.gxg_export.to_json.encrypt(@csrf).encode64}"))
-          response.body.rewind
+          response = @connector.get(::URI::parse("#{@scheme}://#{@hostname}#{@endpoint}?details=#{sendable_hash(details).gxg_export.to_json.encrypt(@csrf).encode64}"))
+          # response.body.rewind
           if response.code.to_i == 200
-            raw_result = ::Hash::gxg_import(JSON::parse(response.body.read().decode64.decrypt(@csrf), :symbolize_names => true))
+            raw_result = ::Hash::gxg_import(JSON::parse(response.body.decode64.decrypt(@csrf), :symbolize_names => true))
             if raw_result.is_a?(::Hash)
               raw_result.search do |the_value, the_selector, the_container|
                 if the_value.is_a?(::Hash)
@@ -3726,30 +3778,9 @@ module GxG
       end
       #
       def push(data={})
-        result = nil
+        result = false
         begin
-          response = @connector.put(::URI::parse("#{@scheme}://#{@hostname}#{@endpoint}", data.gxg_export.to_json.encrypt(@csrf).encode64))
-          response.body.rewind
-          if response.code.to_i == 200
-            raw_result = ::Hash::gxg_import(JSON::parse(response.body.read().decode64.decrypt(@csrf), :symbolize_names => true))
-            if raw_result.is_a?(::Hash)
-              raw_result.search do |the_value, the_selector, the_container|
-                if the_value.is_a?(::Hash)
-                    if the_value[:formats].is_a?(::Hash) && the_value[:records].is_a?(::Array)
-                        imported_list = ::GxG::Database::Database::detached_package_import(the_value)
-                        if imported_list.size > 1
-                            the_container[(the_selector)] = imported_list
-                        else
-                            the_container[(the_selector)] = imported_list[0]
-                        end
-                    end
-                end
-              end
-              result = raw_result[:result]
-            end
-          else
-            raise Exception.new(response.body.read())
-          end
+          result = @connector.put(::URI::parse("#{@scheme}://#{@hostname}#{@endpoint}"), sendable_hash(data).gxg_export.to_json.encrypt(@csrf).encode64)
         rescue Exception => the_error
           log_error({:error => the_error})
         end
