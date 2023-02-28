@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'gxg-framework'
-  s.version     = '0.0.52'
+  s.version     = '0.0.53'
   s.licenses    = ['UNLICENSED']
   s.summary     = "GxG Framework for JRuby"
   s.description = "GxG Framework for JRuby"

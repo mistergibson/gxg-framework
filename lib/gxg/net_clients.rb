@@ -3691,6 +3691,147 @@ module GxG
     end
     ::GxG::Networking::DISPATCHER.register_client("https",::GxG::Networking::HttpsClient)
     #
+    class GxGApi
+      private
+      #
+      def pull(details={})
+        result = nil
+        begin
+          response = @connector.get(::URI::parse("#{@scheme}://#{@hostname}#{@endpoint}?details=#{details.gxg_export.to_json.encrypt(@csrf).encode64}"))
+          response.body.rewind
+          if response.code.to_i == 200
+            raw_result = ::Hash::gxg_import(JSON::parse(response.body.read().decode64.decrypt(@csrf), :symbolize_names => true))
+            if raw_result.is_a?(::Hash)
+              raw_result.search do |the_value, the_selector, the_container|
+                if the_value.is_a?(::Hash)
+                    if the_value[:formats].is_a?(::Hash) && the_value[:records].is_a?(::Array)
+                        imported_list = ::GxG::Database::Database::detached_package_import(the_value)
+                        if imported_list.size > 1
+                            the_container[(the_selector)] = imported_list
+                        else
+                            the_container[(the_selector)] = imported_list[0]
+                        end
+                    end
+                end
+              end
+              result = raw_result[:result]
+            end
+          else
+            raise Exception.new(response.body.read())
+          end
+        rescue Exception => the_error
+          log_error({:error => the_error})
+        end
+        result
+      end
+      #
+      def push(data={})
+        result = nil
+        begin
+          response = @connector.put(::URI::parse("#{@scheme}://#{@hostname}#{@endpoint}", data.gxg_export.to_json.encrypt(@csrf).encode64))
+          response.body.rewind
+          if response.code.to_i == 200
+            raw_result = ::Hash::gxg_import(JSON::parse(response.body.read().decode64.decrypt(@csrf), :symbolize_names => true))
+            if raw_result.is_a?(::Hash)
+              raw_result.search do |the_value, the_selector, the_container|
+                if the_value.is_a?(::Hash)
+                    if the_value[:formats].is_a?(::Hash) && the_value[:records].is_a?(::Array)
+                        imported_list = ::GxG::Database::Database::detached_package_import(the_value)
+                        if imported_list.size > 1
+                            the_container[(the_selector)] = imported_list
+                        else
+                            the_container[(the_selector)] = imported_list[0]
+                        end
+                    end
+                end
+              end
+              result = raw_result[:result]
+            end
+          else
+            raise Exception.new(response.body.read())
+          end
+        rescue Exception => the_error
+          log_error({:error => the_error})
+        end
+        result
+      end
+      #
+      public
+      #
+      def initialize(the_url=nil, options={})
+        the_uri = ::URI::parse(the_url.to_s)
+        response = nil
+        @scheme = "https"
+        @hostname = the_uri.hostname
+        @endpoint = the_uri.path
+        @connector = nil
+        @csrf = nil
+        @interface = {}
+        begin
+          the_uri = ::URI::parse("https://#{@hostname}#{@endpoint}?details=eyJpbnRyb2R1Y3Rpb24iOnRydWV9")
+          the_connector = ::GxG::Networking::HttpsClient.new(the_uri)
+          response = the_connector.get(the_uri)
+        rescue Exception => the_error
+          begin
+            @scheme = "http"
+            the_uri = ::URI::parse("http://#{@hostname}#{@endpoint}?details=eyJpbnRyb2R1Y3Rpb24iOnRydWV9")
+            the_connector = ::GxG::Networking::HttpClient.new(the_uri)
+            response = the_connector.get(the_uri)
+          rescue Exception => the_error
+            raise Exception.new("Failed to establish session link at #{the_url.to_s}.")
+          end
+        end
+        if response
+          if response.code.to_i == 200
+            @connector = the_connector
+            response.body.rewind()
+            the_csrf = ::Hash::gxg_import(JSON::parse(response.body.read().decode64, :symbolize_names => true))
+            @csrf = the_csrf[:csrf]
+          end
+        end
+        self
+      end
+      #
+      def interface()
+        @interface
+      end
+      #
+      def login(username=nil, password=nil)
+        if push({:upgrade_credential => {:username => username.to_s, :password => password.to_s}})
+          @interface = pull({:interface => nil})
+          true
+        else
+          false
+        end
+      end
+      #
+      def logout()
+        pull({:downgrade_credential => nil})
+        @interface = pull({:interface => nil})
+        true
+      end
+      #
+      def get(details={})
+        if details.is_a?(::Hash)
+          pull(details)
+        else
+          log_error("You MUST provide a Hash")
+          nil
+        end
+      end
+      #
+      def put(data={})
+        if data.is_a?(::Hash)
+          push(data)
+        else
+          log_error("You MUST provide a Hash")
+          nil
+        end
+      end
+      #
+    end
+    ::GxG::Networking::DISPATCHER.register_client("gxg",::GxG::Networking::GxGApi)
+    #
     class MatrixID
       def initialize(the_id=nil)
         if the_id.is_a?(::MatrixSdk::MXID)
