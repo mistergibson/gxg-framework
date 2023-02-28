@@ -3784,8 +3784,8 @@ module GxG
         if response
           if response.code.to_i == 200
             @connector = the_connector
-            response.body.rewind()
-            the_csrf = ::Hash::gxg_import(JSON::parse(response.body.read().decode64, :symbolize_names => true))
+            # response.body.rewind()
+            the_csrf = ::Hash::gxg_import(JSON::parse(response.body.decode64, :symbolize_names => true))
             @csrf = the_csrf[:csrf]
           end
         end
