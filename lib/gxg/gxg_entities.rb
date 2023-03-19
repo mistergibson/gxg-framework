@@ -768,8 +768,9 @@ module GxG
         gxg_root_dir = ::GxG::SYSTEM.gxg_root()
         public_dir = File.expand_path("./Public",gxg_root_dir)
         services_dir = File.expand_path("./Services",gxg_root_dir)
-        app_dir = File.expand_path("./Applications",gxg_root_dir)
+        installer_dir = File.expand_path("./Installers",gxg_root_dir)
         system_dir = File.expand_path("./System",gxg_root_dir)
+        user_dir = File.expand_path("./Users",gxg_root_dir)
         sys_config_dir = "#{system_dir}/Configuration"
         sys_db_dir = "#{system_dir}/Databases"
         sys_ext_dir = "#{system_dir}/Extensions"
@@ -777,7 +778,7 @@ module GxG
         sys_lib_dir = "#{system_dir}/Libraries"
         tmp_dir = "#{system_dir}/Temporary"
         log_dir = "#{system_dir}/Logs"
-        result = {:root => gxg_root_dir, :system => system_dir, :services => services_dir, :temporary => tmp_dir, :logs => log_dir, :applications => app_dir, :users => nil, :public => public_dir,  :configuration => sys_config_dir, :databases => sys_db_dir, :extensions => sys_ext_dir, :gems => sys_gem_dir, :libraries => sys_lib_dir}
+        result = {:root => gxg_root_dir, :system => system_dir, :services => services_dir, :temporary => tmp_dir, :logs => log_dir, :installers => installer_dir, :users => user_dir, :public => public_dir,  :configuration => sys_config_dir, :databases => sys_db_dir, :extensions => sys_ext_dir, :gems => sys_gem_dir, :libraries => sys_lib_dir}
         result
       end
       #
