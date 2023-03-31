@@ -1,4 +1,7 @@
 # require sequel here to ensure other mods are underneath it
+require_relative "./gxg_sqlite.rb"
+require_relative "./gxg_mysql.rb"
+require_relative "./gxg_postgres.rb"
 require "sequel"
 require "securerandom"
 require "openssl"

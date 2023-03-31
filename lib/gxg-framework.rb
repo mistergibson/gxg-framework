@@ -35,7 +35,7 @@ requirements.push({:requirement => "chronic", :gem => "chronic"})
 # FIX : big hassle with windows - exclude for now
 # requirements.push({:requirement => "ffi-rzmq", :gem => "ffi-rzmq"})
 # requirements.push({:requirement => "ezmq", :gem => "ezmq"})
-requirements.push({:requirement => "nokogiri", :gem => "nokogiri"})
+# requirements.push({:requirement => "nokogiri", :gem => "nokogiri"})
 requirements.push({:requirement => "rufus-scheduler", :gem => "rufus-scheduler"})
 requirements.push({:requirement => "mimemagic", :gem => "mimemagic"})
 # requirements.push({:requirement => "mimemagic/overlay", :gem => "mimemagic"})
@@ -442,8 +442,10 @@ unless load_error
   # ---------------------------------------------------------------------------------------------------------------------
   require File.expand_path("./gxg/gxg_entities.rb",File.dirname(__FILE__))
   # ---------------------------------------------------------------------------------------------------------------------
-  require 'jruby'
-  JRuby.objectspace = true
+  if ::RUBY_ENGINE == "jruby"
+    require 'jruby'
+    JRuby.objectspace = true
+  end
   require File.expand_path("./gxg/gxg_engine.rb",File.dirname(__FILE__))
   # ---------------------------------------------------------------------------------------------------------------------
   # Alterations to Object class: GxG::Engine dependency - quota supports

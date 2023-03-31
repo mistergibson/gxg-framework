@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
   s.name        = 'gxg-framework'
-  s.version     = '0.0.53'
+  s.version     = '0.0.54'
   s.licenses    = ['UNLICENSED']
-  s.summary     = "GxG Framework for JRuby"
-  s.description = "GxG Framework for JRuby"
+  s.summary     = "GxG Framework"
+  s.description = "GxG Framework"
   s.authors     = ["G. Gibson"]
   s.email       = 'mistergibson@disroot.org'
   s.files       = ['gxg-framework.gemspec'] + ['lib/gxg-framework.rb'] + Dir['lib/gxg/*']
@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   # FIX : big hassle with windows - exclude for now
   # s.add_runtime_dependency 'ffi-rzmq'
   # s.add_runtime_dependency 'ezmq'
-  s.add_runtime_dependency 'nokogiri'
+  # s.add_runtime_dependency 'nokogiri'
   s.add_runtime_dependency 'mimemagic'
   s.add_runtime_dependency 'rubysl-securerandom'
   s.add_runtime_dependency 'net-ssh'
@@ -38,29 +38,31 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'state_machines'
   s.add_runtime_dependency 'net-ldap'
   # ### Database Adapters:
-  s.add_runtime_dependency 'jdbc-sqlite3'
-  s.add_runtime_dependency 'jdbc-mysql'
-  s.add_runtime_dependency 'jdbc-postgresql'
-  s.add_runtime_dependency 'jdbc-as400'
-  s.add_runtime_dependency 'jdbc-cassandra'
-  s.add_runtime_dependency 'jdbc-crate'
-  s.add_runtime_dependency 'jdbc-derby'
-  s.add_runtime_dependency 'jdbc-filemaker'
-  s.add_runtime_dependency 'jdbc-firebird'
-  s.add_runtime_dependency 'jdbc-h2'
-  s.add_runtime_dependency 'jdbc-hive2'
-  s.add_runtime_dependency 'jdbc-hsqldb'
-  s.add_runtime_dependency 'jdbc-jt400'
-  s.add_runtime_dependency 'jdbc-jtds'
-  s.add_runtime_dependency 'jdbc-luciddb'
-  s.add_runtime_dependency 'jdbc-mssql'
-  s.add_runtime_dependency 'jdbc-nuodb'
-  # ### FIX : openedge requires external .jars in classpath -- exclude for now.
-  # s.add_runtime_dependency 'jdbc-openedge'
-  s.add_runtime_dependency 'jdbc-orientdb'
-  s.add_runtime_dependency 'jdbc-phoenix'
-  # ### FIX : redshift is missing the RedshiftJDBC4.jar file -- exclude for now.
-  # s.add_runtime_dependency 'jdbc-redshift'
-  s.add_runtime_dependency 'jdbc-splice'
-  s.add_runtime_dependency 'jdbc-vertica'
+  if ::RUBY_ENGINE == "jruby"
+    s.add_runtime_dependency 'jdbc-sqlite3'
+    s.add_runtime_dependency 'jdbc-mysql'
+    s.add_runtime_dependency 'jdbc-postgresql'
+    s.add_runtime_dependency 'jdbc-as400'
+    s.add_runtime_dependency 'jdbc-cassandra'
+    s.add_runtime_dependency 'jdbc-crate'
+    s.add_runtime_dependency 'jdbc-derby'
+    s.add_runtime_dependency 'jdbc-filemaker'
+    s.add_runtime_dependency 'jdbc-firebird'
+    s.add_runtime_dependency 'jdbc-h2'
+    s.add_runtime_dependency 'jdbc-hive2'
+    s.add_runtime_dependency 'jdbc-hsqldb'
+    s.add_runtime_dependency 'jdbc-jt400'
+    s.add_runtime_dependency 'jdbc-jtds'
+    s.add_runtime_dependency 'jdbc-luciddb'
+    s.add_runtime_dependency 'jdbc-mssql'
+    s.add_runtime_dependency 'jdbc-nuodb'
+    # ### FIX : openedge requires external .jars in classpath -- exclude for now.
+    # s.add_runtime_dependency 'jdbc-openedge'
+    s.add_runtime_dependency 'jdbc-orientdb'
+    s.add_runtime_dependency 'jdbc-phoenix'
+    # ### FIX : redshift is missing the RedshiftJDBC4.jar file -- exclude for now.
+    # s.add_runtime_dependency 'jdbc-redshift'
+    s.add_runtime_dependency 'jdbc-splice'
+    s.add_runtime_dependency 'jdbc-vertica'
+  end
 end
