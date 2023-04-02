@@ -635,6 +635,42 @@ class IO
     result
   end
   #
+  def as_segments(segment_size=65536, as_bytearrays=false, &block)
+    result = []
+    unless self.closed?
+      if segment_size.is_any?(::TrueClass, ::FalseClass, NilClass)
+        as_bytearrays = segment_size
+        segment_size = 65536
+      end
+      saved_position = self.pos
+      self.seek(0, :END)
+      current_size = self.pos + 1
+      #
+      self.rewind
+      if block.respond_to?(:call)
+        GxG::apportioned_ranges(current_size, segment_size).each do |portion_range|
+          self.seek(portion_range.first)
+          if as_bytearrays
+            block.call(bytes self.read(portion_range.size))
+          else
+            block.call(self.read(portion_range.size))
+          end
+        end
+      else
+        GxG::apportioned_ranges(current_size, segment_size).each do |portion_range|
+          self.seek(portion_range.first)
+          if as_bytearrays
+            result << bytes self.read(portion_range.size)
+          else
+            result << self.read(portion_range.size)
+          end
+        end
+      end
+      #
+      self.pos = saved_position
+    end
+    result
+  end
 end
 #
 class StringIO
@@ -1297,467 +1333,467 @@ module Fcntl
   end
 end
 # ### URI alterations
-module URI
-  #
-  def self.parse(*args)
-    #::URI::Generic.new(*(::URI::split(*args)))
-    ::URI::Generic::parse(*args)
-  end
-  #
-	class Generic
-    #
-		def set_scheme(v)
-			if v.is_a?(String)
-        @scheme = v
-			end
-      v
-		end
+# module URI
+#   #
+#   def self.parse(*args)
+#     #::URI::Generic.new(*(::URI::split(*args)))
+#     ::URI::Generic::parse(*args)
+#   end
+#   #
+# 	class Generic
+#     #
+# 		def set_scheme(v)
+# 			if v.is_a?(String)
+#         @scheme = v
+# 			end
+#       v
+# 		end
 		
-		def scheme=(scheme="")
-			set_scheme(scheme)
-			scheme
-		end
+# 		def scheme=(scheme="")
+# 			set_scheme(scheme)
+# 			scheme
+# 		end
 		
-		def scheme()
-      @scheme
-		end
+# 		def scheme()
+#       @scheme
+# 		end
 		
-		def set_userinfo(user, password = nil)
-			unless password 
-				user, password = split_userinfo(user)
-			end
-			if user.is_a?(String)
-				@user     = URI::escape(user)
-			else
-				@user = user
-			end
-			if password.is_a?(String)
-				@password = URI::escape(password)
-			else
-				@password = password
-			end
-			result = []
-			if @user.is_a?(String)
-				result << URI::unescape(@user)
-			else
-				result << @user
-			end
-			if @password.is_a?(String)
-				result << URI::unescape(@password)
-			else
-				result << @password
-			end
-			result
-		end
+# 		def set_userinfo(user, password = nil)
+# 			unless password 
+# 				user, password = split_userinfo(user)
+# 			end
+# 			if user.is_a?(String)
+# 				@user     = URI::escape(user)
+# 			else
+# 				@user = user
+# 			end
+# 			if password.is_a?(String)
+# 				@password = URI::escape(password)
+# 			else
+# 				@password = password
+# 			end
+# 			result = []
+# 			if @user.is_a?(String)
+# 				result << URI::unescape(@user)
+# 			else
+# 				result << @user
+# 			end
+# 			if @password.is_a?(String)
+# 				result << URI::unescape(@password)
+# 			else
+# 				result << @password
+# 			end
+# 			result
+# 		end
 		
-		def userinfo
-			if @user.nil?
-				nil
-			elsif @password.nil?
-				URI::unescape(@user)
-			else
-				URI::unescape(@user) + ':' + URI::unescape(@password)
-			end
-		end
+# 		def userinfo
+# 			if @user.nil?
+# 				nil
+# 			elsif @password.nil?
+# 				URI::unescape(@user)
+# 			else
+# 				URI::unescape(@user) + ':' + URI::unescape(@password)
+# 			end
+# 		end
 		
-		def user=(user)
-			if user.is_a?(String)
-				user = (URI::escape(user))
-			end
-			set_user(user)
-			self.user
-			# returns user
-		end
+# 		def user=(user)
+# 			if user.is_a?(String)
+# 				user = (URI::escape(user))
+# 			end
+# 			set_user(user)
+# 			self.user
+# 			# returns user
+# 		end
 		
-		def user
-			if @user.is_a?(String)
-				URI::unescape(@user)
-			else
-				@user
-			end
-		end
+# 		def user
+# 			if @user.is_a?(String)
+# 				URI::unescape(@user)
+# 			else
+# 				@user
+# 			end
+# 		end
 		
-		def set_password(v)
-			if v.is_a?(String)
-				@password = URI::escape(v)
-			end
-			if @password.is_a?(String)
-				URI::unescape(@password)
-			else
-				@password
-			end
-		end
+# 		def set_password(v)
+# 			if v.is_a?(String)
+# 				@password = URI::escape(v)
+# 			end
+# 			if @password.is_a?(String)
+# 				URI::unescape(@password)
+# 			else
+# 				@password
+# 			end
+# 		end
 		
-		def password=(password)
-			if password.is_a?(String)
-				password = (URI::escape(password))
-			end
-			set_password(password)
-			# returns password
-		end
+# 		def password=(password)
+# 			if password.is_a?(String)
+# 				password = (URI::escape(password))
+# 			end
+# 			set_password(password)
+# 			# returns password
+# 		end
 		
-		def password
-			if @password.is_a?(String)
-				URI::unescape(@password)
-			else
-				@password
-			end
-		end
+# 		def password
+# 			if @password.is_a?(String)
+# 				URI::unescape(@password)
+# 			else
+# 				@password
+# 			end
+# 		end
 		
-		def set_host(v)
-			if v.is_a?(String)
-				@host = URI::escape(v)
-			else
-				@host = v
-			end
-		end
-		#
-		def host=(v)
-			if v.is_a?(String)
-				v = (URI::escape(v))
-			end
-			set_host(v)
-			self.host
-		end
-		#
-		def host()
-			if @host.is_a?(String)
-				URI::unescape(@host)
-			else
-				@host
-			end
-		end
-    #
-    def hostname()
-      if @host.to_s.size > 0
-        self.host().to_s.dup.gsub("[","").gsub("]","")
-      else
-        nil
-      end
-    end
-    #
-    def hostname=(v)
-      if (v.to_s.include?(":") || (v.to_s.include?("[") && v.to_s.include?("]")))
-        # ipv6 ??
-        if v.to_s.include?("[") && v.to_s.include?("]")
-          self.host = v.to_s
-        else
-          self.host = "[" << v.to_s << "]"
-        end
-      else
-        self.host = v.to_s
-      end
-      self.host()
-    end
-		#
-		# def set_registry(v)
-		# 	if v.is_a?(String)
-		# 		@registry = URI::escape(v)
-		# 	else
-		# 		@registry = v
-		# 	end
-		# end
-    # #
-		# def registry=(v)
-		# 	if v.is_a?(String)
-		# 		v = (URI::escape(v))
-		# 	end
-		# 	set_registry(v)
-		# 	self.registry
-		# end
+# 		def set_host(v)
+# 			if v.is_a?(String)
+# 				@host = URI::escape(v)
+# 			else
+# 				@host = v
+# 			end
+# 		end
+# 		#
+# 		def host=(v)
+# 			if v.is_a?(String)
+# 				v = (URI::escape(v))
+# 			end
+# 			set_host(v)
+# 			self.host
+# 		end
+# 		#
+# 		def host()
+# 			if @host.is_a?(String)
+# 				URI::unescape(@host)
+# 			else
+# 				@host
+# 			end
+# 		end
+#     #
+#     def hostname()
+#       if @host.to_s.size > 0
+#         self.host().to_s.dup.gsub("[","").gsub("]","")
+#       else
+#         nil
+#       end
+#     end
+#     #
+#     def hostname=(v)
+#       if (v.to_s.include?(":") || (v.to_s.include?("[") && v.to_s.include?("]")))
+#         # ipv6 ??
+#         if v.to_s.include?("[") && v.to_s.include?("]")
+#           self.host = v.to_s
+#         else
+#           self.host = "[" << v.to_s << "]"
+#         end
+#       else
+#         self.host = v.to_s
+#       end
+#       self.host()
+#     end
+# 		#
+# 		# def set_registry(v)
+# 		# 	if v.is_a?(String)
+# 		# 		@registry = URI::escape(v)
+# 		# 	else
+# 		# 		@registry = v
+# 		# 	end
+# 		# end
+#     # #
+# 		# def registry=(v)
+# 		# 	if v.is_a?(String)
+# 		# 		v = (URI::escape(v))
+# 		# 	end
+# 		# 	set_registry(v)
+# 		# 	self.registry
+# 		# end
 		
-		# def registry
-		# 	if @registry.is_a?(String)
-		# 		URI::unescape(@registry)
-		# 	else
-		# 		@registry
-		# 	end
-		# end
+# 		# def registry
+# 		# 	if @registry.is_a?(String)
+# 		# 		URI::unescape(@registry)
+# 		# 	else
+# 		# 		@registry
+# 		# 	end
+# 		# end
 		
-		# def set_path(v)
-		# 	if v.is_a?(String)
-		# 		@path = URI::escape(v)
-		# 	else
-		# 		@path = v
-		# 	end
-		# end
+# 		# def set_path(v)
+# 		# 	if v.is_a?(String)
+# 		# 		@path = URI::escape(v)
+# 		# 	else
+# 		# 		@path = v
+# 		# 	end
+# 		# end
 
-		# def path=(v)
-		# 	if v.is_a?(String)
-		# 		v = (URI::escape(v))
-		# 	end
-		# 	set_path(v)
-		# 	self.path
-		# end
+# 		# def path=(v)
+# 		# 	if v.is_a?(String)
+# 		# 		v = (URI::escape(v))
+# 		# 	end
+# 		# 	set_path(v)
+# 		# 	self.path
+# 		# end
 		
-		# def path
-		# 	if @path.is_a?(String)
-		# 		URI::unescape(@path)
-		# 	else
-		# 		@path
-		# 	end
-		# end
+# 		# def path
+# 		# 	if @path.is_a?(String)
+# 		# 		URI::unescape(@path)
+# 		# 	else
+# 		# 		@path
+# 		# 	end
+# 		# end
 		
-		# def set_opaque(v)
-		# 	if v.is_a?(String)
-		# 		@opaque = URI::escape(v)
-		# 	else
-		# 		@opaque = v
-		# 	end
-		# end
+# 		# def set_opaque(v)
+# 		# 	if v.is_a?(String)
+# 		# 		@opaque = URI::escape(v)
+# 		# 	else
+# 		# 		@opaque = v
+# 		# 	end
+# 		# end
 
-		# def opaque=(v)
-		# 	if v.is_a?(String)
-		# 		v = (URI::escape(v))
-		# 	end
-		# 	set_opaque(v)
-		# 	self.opaque
-		# end
+# 		# def opaque=(v)
+# 		# 	if v.is_a?(String)
+# 		# 		v = (URI::escape(v))
+# 		# 	end
+# 		# 	set_opaque(v)
+# 		# 	self.opaque
+# 		# end
 		
-		# def opaque
-		# 	if @opaque.is_a?(String)
-		# 		URI::unescape(@opaque)
-		# 	else
-		# 		@opaque
-		# 	end
-		# end
-		# Review - query modifications bugger MatrixClient logins.
-		# def set_query(v)
-		# 	if v.is_a?(String)
-		# 		@query = URI::escape(v)
-		# 	else
-		# 		@query = v
-		# 	end
-		# end
+# 		# def opaque
+# 		# 	if @opaque.is_a?(String)
+# 		# 		URI::unescape(@opaque)
+# 		# 	else
+# 		# 		@opaque
+# 		# 	end
+# 		# end
+# 		# Review - query modifications bugger MatrixClient logins.
+# 		# def set_query(v)
+# 		# 	if v.is_a?(String)
+# 		# 		@query = URI::escape(v)
+# 		# 	else
+# 		# 		@query = v
+# 		# 	end
+# 		# end
 		
-		# def query=(v)
-		# 	if v.is_a?(String)
-		# 		v = (URI::escape(v))
-		# 	end
-		# 	set_query(v)
-		# 	self.query
-		# end
+# 		# def query=(v)
+# 		# 	if v.is_a?(String)
+# 		# 		v = (URI::escape(v))
+# 		# 	end
+# 		# 	set_query(v)
+# 		# 	self.query
+# 		# end
 		
-		# def query
-		# 	if @query.is_a?(String)
-		# 		URI::unescape(@query)
-		# 	else
-		# 		@query
-		# 	end
-		# end
+# 		# def query
+# 		# 	if @query.is_a?(String)
+# 		# 		URI::unescape(@query)
+# 		# 	else
+# 		# 		@query
+# 		# 	end
+# 		# end
 		
-		# def set_fragment(v)
-		# 	if v.is_a?(String)
-		# 		@fragment = URI::escape(v)
-		# 	else
-		# 		@fragment = v
-		# 	end
-		# end
+# 		# def set_fragment(v)
+# 		# 	if v.is_a?(String)
+# 		# 		@fragment = URI::escape(v)
+# 		# 	else
+# 		# 		@fragment = v
+# 		# 	end
+# 		# end
 
-		# def fragment=(v)
-		# 	if v.is_a?(String)
-		# 		v = (URI::escape(v))
-		# 	end
-		# 	set_fragment(v)
-		# 	self.fragment
-		# end
+# 		# def fragment=(v)
+# 		# 	if v.is_a?(String)
+# 		# 		v = (URI::escape(v))
+# 		# 	end
+# 		# 	set_fragment(v)
+# 		# 	self.fragment
+# 		# end
 		
-		# def fragment
-		# 	if @fragment.is_a?(String)
-		# 		URI::unescape(@fragment)
-		# 	else
-		# 		@fragment
-		# 	end
-		# end
-		#
-		# def to_s
-		# 	str = ''
-		# 	if @scheme
-		# 		str << @scheme
-		# 		str << ':'
-		# 	end
-		# 	if @opaque
-		# 		str << @opaque
-		# 	else
-		# 		if @registry
-		# 			str << @registry
-		# 		else
-    #       if @host
-    #         str << '//'
-    #       end
-    #       if self.userinfo
-    #         str << self.userinfo
-    #         str << '@'
-    #       end
-    #       if @host
-    #         str << @host
-    #       end
-    #       if @port && @port != self.default_port
-    #         str << ':'
-    #         str << @port.to_s
-    #       end
-		# 		end
-    #     str << @path
-    #     if @query
-    #       str << '?'
-    #       str << @query
-    #     end
-		# 	end
-		# 	if @fragment
-		# 		str << '#'
-		# 		str << @fragment
-		# 	end
-		# 	URI::escape(str)
-		# end
-    #
-    def from_hash(the_hash={})
-			if the_hash[:scheme]
-        self.scheme = the_hash[:scheme]
-      else
-        @scheme = nil
-			end
-			if the_hash[:opaque]
-        self.opaque = the_hash[:opaque]
-        @registry = nil
-        @user = nil
-        @password = nil
-        @host = nil
-        @port = nil
-        @path = nil
-        @query = nil
-			else
-        @opaque = nil
-				if the_hash[:registry]
-          self.registry = the_hash[:registry]
-          @user = nil
-          @password = nil
-          @host = nil
-          @port = nil
-				else
-          @registry = nil
-          if the_hash[:user]
-            self.user = the_hash[:user]
-          else
-            @user = nil
-          end
-          if the_hash[:password]
-            self.password = the_hash[:password]
-          else
-            @password = nil
-          end
-          if the_hash[:host]
-            self.host = the_hash[:host]
-          else
-            @host = nil
-          end
-          if the_hash[:port] && the_hash[:port] != self.default_port
-            self.port = the_hash[:port].to_i
-          else
-            @port = nil
-          end
-				end
-        if the_hash[:path]
-          self.path = the_hash[:path]
-        else
-          @path = nil
-        end
-        if the_hash[:query]
-          self.query = the_hash[:query]
-        else
-          @query = nil
-        end
-			end
-      if the_hash[:fragment]
-        self.fragment = the_hash[:fragment]
-      else
-        @fragment = nil
-      end
-      self
-    end
-    #
-		def to_hash()
-			result = {}
-			if @scheme
-				result[:scheme] = @scheme
-			end
-			if @opaque
-				result[:opaque] = URI::unescape(@opaque)
-			else
-				if @registry
-          result[:registry] = URI::unescape(@registry)
-				else
-          if @user
-            result[:user] = URI::unescape(@user)
-          end
-          if @password
-            result[:password] = URI::unescape(@password)
-          end
-          if @host
-            result[:host] = URI::unescape(@host)
-          end
-          if @port && @port != self.default_port
-            result[:port] = URI::unescape(@port).to_i
-          end
-				end
-        if @path
-          result[:path] = URI::unescape(@path)
-        end
-        if @query
-          result[:query] = URI::unescape(@query)
-        end
-			end
-      if @fragment
-        result[:fragment] = URI::unescape(@fragment)
-      end
-      result
-		end
-    #
-    def address_info()
-      ::Addrinfo::parse(self)
-    end
-    #
-    def resolve_host()
-      case @scheme
-      when "inproc"
-        # no-op
-      when "ipc", "unix"
-        # no-op
-      when "tcp", "tcp4", "tcp6", "udp", "udp4", "udp6"
-        self.hostname = ::TCPSocket.getaddress(self.hostname)
-      end
-    end
-    #
-	end
+# 		# def fragment
+# 		# 	if @fragment.is_a?(String)
+# 		# 		URI::unescape(@fragment)
+# 		# 	else
+# 		# 		@fragment
+# 		# 	end
+# 		# end
+# 		#
+# 		# def to_s
+# 		# 	str = ''
+# 		# 	if @scheme
+# 		# 		str << @scheme
+# 		# 		str << ':'
+# 		# 	end
+# 		# 	if @opaque
+# 		# 		str << @opaque
+# 		# 	else
+# 		# 		if @registry
+# 		# 			str << @registry
+# 		# 		else
+#     #       if @host
+#     #         str << '//'
+#     #       end
+#     #       if self.userinfo
+#     #         str << self.userinfo
+#     #         str << '@'
+#     #       end
+#     #       if @host
+#     #         str << @host
+#     #       end
+#     #       if @port && @port != self.default_port
+#     #         str << ':'
+#     #         str << @port.to_s
+#     #       end
+# 		# 		end
+#     #     str << @path
+#     #     if @query
+#     #       str << '?'
+#     #       str << @query
+#     #     end
+# 		# 	end
+# 		# 	if @fragment
+# 		# 		str << '#'
+# 		# 		str << @fragment
+# 		# 	end
+# 		# 	URI::escape(str)
+# 		# end
+#     #
+#     def from_hash(the_hash={})
+# 			if the_hash[:scheme]
+#         self.scheme = the_hash[:scheme]
+#       else
+#         @scheme = nil
+# 			end
+# 			if the_hash[:opaque]
+#         self.opaque = the_hash[:opaque]
+#         @registry = nil
+#         @user = nil
+#         @password = nil
+#         @host = nil
+#         @port = nil
+#         @path = nil
+#         @query = nil
+# 			else
+#         @opaque = nil
+# 				if the_hash[:registry]
+#           self.registry = the_hash[:registry]
+#           @user = nil
+#           @password = nil
+#           @host = nil
+#           @port = nil
+# 				else
+#           @registry = nil
+#           if the_hash[:user]
+#             self.user = the_hash[:user]
+#           else
+#             @user = nil
+#           end
+#           if the_hash[:password]
+#             self.password = the_hash[:password]
+#           else
+#             @password = nil
+#           end
+#           if the_hash[:host]
+#             self.host = the_hash[:host]
+#           else
+#             @host = nil
+#           end
+#           if the_hash[:port] && the_hash[:port] != self.default_port
+#             self.port = the_hash[:port].to_i
+#           else
+#             @port = nil
+#           end
+# 				end
+#         if the_hash[:path]
+#           self.path = the_hash[:path]
+#         else
+#           @path = nil
+#         end
+#         if the_hash[:query]
+#           self.query = the_hash[:query]
+#         else
+#           @query = nil
+#         end
+# 			end
+#       if the_hash[:fragment]
+#         self.fragment = the_hash[:fragment]
+#       else
+#         @fragment = nil
+#       end
+#       self
+#     end
+#     #
+# 		def to_hash()
+# 			result = {}
+# 			if @scheme
+# 				result[:scheme] = @scheme
+# 			end
+# 			if @opaque
+# 				result[:opaque] = URI::unescape(@opaque)
+# 			else
+# 				if @registry
+#           result[:registry] = URI::unescape(@registry)
+# 				else
+#           if @user
+#             result[:user] = URI::unescape(@user)
+#           end
+#           if @password
+#             result[:password] = URI::unescape(@password)
+#           end
+#           if @host
+#             result[:host] = URI::unescape(@host)
+#           end
+#           if @port && @port != self.default_port
+#             result[:port] = URI::unescape(@port).to_i
+#           end
+# 				end
+#         if @path
+#           result[:path] = URI::unescape(@path)
+#         end
+#         if @query
+#           result[:query] = URI::unescape(@query)
+#         end
+# 			end
+#       if @fragment
+#         result[:fragment] = URI::unescape(@fragment)
+#       end
+#       result
+# 		end
+#     #
+#     def address_info()
+#       ::Addrinfo::parse(self)
+#     end
+#     #
+#     def resolve_host()
+#       case @scheme
+#       when "inproc"
+#         # no-op
+#       when "ipc", "unix"
+#         # no-op
+#       when "tcp", "tcp4", "tcp6", "udp", "udp4", "udp6"
+#         self.hostname = ::TCPSocket.getaddress(self.hostname)
+#       end
+#     end
+#     #
+# 	end
 	
-	def self.parse(uri)
-		# Alterations:
-		# leading/trailing whitespace removal - intended to reduce false exception conditions (missing regexp bits)
-		# I think first reported in 2007, but still not fixed.  dunno why not.
-		while uri[0] == 32
-			uri[0] = ""
-		end
-		if uri.size > 0
-			while uri[-1] == 32
-				uri[-1] = ""
-			end
-		end
-		# attempt to escape all strings going INTO the URI object?
-		uri = URI::escape(uri)
-		# End Alterations
-		scheme, userinfo, host, port, 
-		registry, path, opaque, query, fragment = self.split(uri)
+# 	def self.parse(uri)
+# 		# Alterations:
+# 		# leading/trailing whitespace removal - intended to reduce false exception conditions (missing regexp bits)
+# 		# I think first reported in 2007, but still not fixed.  dunno why not.
+# 		while uri[0] == 32
+# 			uri[0] = ""
+# 		end
+# 		if uri.size > 0
+# 			while uri[-1] == 32
+# 				uri[-1] = ""
+# 			end
+# 		end
+# 		# attempt to escape all strings going INTO the URI object?
+# 		uri = URI::escape(uri)
+# 		# End Alterations
+# 		scheme, userinfo, host, port, 
+# 		registry, path, opaque, query, fragment = self.split(uri)
 
-		if scheme && @@schemes.include?(scheme.upcase)
-		@@schemes[scheme.upcase].new(scheme, userinfo, host, port, 
-					   registry, path, opaque, query, 
-					   fragment)
-		else
-		Generic.new(scheme, userinfo, host, port, 
-			  registry, path, opaque, query, 
-			  fragment)
-		end
-	end
-end
+# 		if scheme && @@schemes.include?(scheme.upcase)
+# 		@@schemes[scheme.upcase].new(scheme, userinfo, host, port, 
+# 					   registry, path, opaque, query, 
+# 					   fragment)
+# 		else
+# 		Generic.new(scheme, userinfo, host, port, 
+# 			  registry, path, opaque, query, 
+# 			  fragment)
+# 		end
+# 	end
+# end
 #
 class Addrinfo
   #

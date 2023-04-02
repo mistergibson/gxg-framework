@@ -1,5 +1,7 @@
-#
+# See: https://github.com/crystal-lang/crystal-mysql
 if defined?(::External::Database::Mysql)
 else
-    require "mysql2"
+    unless  ::RUBY_ENGINE == "jruby"
+        require "mysql2"
+    end
 end

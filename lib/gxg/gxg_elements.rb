@@ -570,6 +570,34 @@ module GxG
       @data
     end
     #
+    def as_segments(segment_size=65536, as_bytearrays=false, &block)
+      result = []
+      if segment_size.is_any?(::TrueClass, ::FalseClass, NilClass)
+        as_bytearrays = segment_size
+        segment_size = 65536
+      end
+      #
+      if block.respond_to?(:call)
+        GxG::apportioned_ranges(self.size, segment_size).each do |portion_range|
+          if as_bytearrays
+            block.call(self[portion_range])
+          else
+            block.call(self[portion_range].to_s)
+          end
+        end
+      else
+        GxG::apportioned_ranges(self.size, segment_size).each do |portion_range|
+          if as_bytearrays
+            result << (self[portion_range])
+          else
+            result << (self[portion_range].to_s)
+          end
+        end
+      end
+      #
+      result
+    end
+    #
 	# instance methods:
 	def initialize(*args,&block)
    		# Integer(how_many), <Acceptable-data-type>, <Max-size>, <Pad-value>, <Outer-value>
