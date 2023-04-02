@@ -651,16 +651,16 @@ class IO
         GxG::apportioned_ranges(current_size, segment_size).each do |portion_range|
           self.seek(portion_range.first)
           if as_bytearrays
-            block.call(bytes self.read(portion_range.size))
+            block.call(::GxG::ByteArray.new(self.read(portion_range.size)))
           else
-            block.call(self.read(portion_range.size))
+            block.call(self.ead(portion_range.size))
           end
         end
       else
         GxG::apportioned_ranges(current_size, segment_size).each do |portion_range|
           self.seek(portion_range.first)
           if as_bytearrays
-            result << bytes self.read(portion_range.size)
+            result << ::GxG::ByteArray.new(self.read(portion_range.size))
           else
             result << self.read(portion_range.size)
           end
