@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'gxg-framework'
-  s.version     = '0.0.55'
+  s.version     = '0.0.56'
   s.licenses    = ['UNLICENSED']
   s.summary     = "GxG Framework"
   s.description = "GxG Framework"
@@ -23,7 +23,8 @@ Gem::Specification.new do |s|
   # FIX : big hassle with windows - exclude for now
   # s.add_runtime_dependency 'ffi-rzmq'
   # s.add_runtime_dependency 'ezmq'
-  # s.add_runtime_dependency 'nokogiri'
+  s.add_runtime_dependency 'jrzmq'
+  s.add_runtime_dependency 'nokogiri'
   s.add_runtime_dependency 'mimemagic'
   s.add_runtime_dependency 'rubysl-securerandom'
   s.add_runtime_dependency 'net-ssh'
