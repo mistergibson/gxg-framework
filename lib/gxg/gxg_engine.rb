@@ -22,8 +22,9 @@ module GxG
     end
     #
     @@details[:files] = {:maximum_file_descriptors => 1024}
-    # FORNOW : Review : server claims 50% of all system threads
-    @@details[:events] = {:maximum_event_descriptors => (GxG::SYSTEM["kernel.threads_max"]["kernel.threads_max"].to_f * 0.5).to_i , :event_descriptors_threshold => 0.05, :event_descriptors_envelope => (20..100), :event_minimum_threshold => 20}
+    # FORNOW : Review : server claims 50% of all system threads, saw a default of 18931 imposed by system quotas.
+    # @@details[:events] = {:maximum_event_descriptors => (GxG::SYSTEM["kernel.threads_max"]["kernel.threads_max"].to_f * 0.5).to_i , :event_descriptors_threshold => 0.05, :event_descriptors_envelope => (20..100), :event_minimum_threshold => 20}
+    @@details[:events] = {:maximum_event_descriptors => 18931, :event_descriptors_threshold => 0.05, :event_descriptors_envelope => (20..100), :event_minimum_threshold => 20}
     # Fix for Windows: per-process theads max is 2000.
     if GxG::SYSTEM.platform[:platform] == :windows
       @@details[:files][:maximum_file_descriptors] = 512
