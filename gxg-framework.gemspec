@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'gxg-framework'
-  s.version     = '0.0.58'
+  s.version     = '0.0.59'
   s.licenses    = ['HIPPOCRATIC 2.1', 'https://firstdonoharm.dev/version/2/1/license.html']
   s.summary     = "GxG Framework"
   s.description = "GxG Framework"
@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
     s.add_runtime_dependency 'ezmq'
   end
   s.add_runtime_dependency 'nokogiri'
-  s.add_runtime_dependency 'mimemagic'
+  s.add_runtime_dependency 'mimemagic', '= 0.3.4'
   s.add_runtime_dependency 'rubysl-securerandom'
   s.add_runtime_dependency 'net-ssh'
   s.add_runtime_dependency 'net-scp'
