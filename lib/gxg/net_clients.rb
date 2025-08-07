@@ -12,6 +12,7 @@ require 'net/imap'
 require 'gmail_xoauth'
 require 'mail'
 require 'matrix_sdk'
+require 'nextcloud'
 # GxG:
 module GxG
   #
@@ -3863,6 +3864,124 @@ module GxG
     end
     ::GxG::Networking::DISPATCHER.register_client("gxg",::GxG::Networking::GxGApi)
     #
+    class GxGRemoteServer
+      def refresh_services
+        response = nil
+        begin
+          the_uri = ::URI::parse("https://#{@hostname}#{@endpoint}")
+          the_connector = ::GxG::Networking::HttpsClient.new(the_uri)
+          response = the_connector.get(the_uri)
+        rescue Exception => the_error
+          begin
+            @scheme = "http"
+            the_uri = ::URI::parse("http://#{@hostname}#{@endpoint}")
+            the_connector = ::GxG::Networking::HttpClient.new(the_uri)
+            response = the_connector.get(the_uri)
+          rescue Exception => the_error
+            raise Exception.new("Failed to establish session link at #{the_url.to_s}.")
+          end
+        end
+        if response
+          if response.code.to_i == 200
+            provisions = JSON::parse(response.body.decode64, :symbolize_names => true)[:result]
+            if provisions
+              @services = {}
+              provisions.each do |the_record|
+                @services[(the_record[:provides].to_s.downcase.to_sym)] = the_record[:path]
+              end
+            end
+          end
+        end
+      end
+      #
+      def initialize(the_url=nil, options={})
+      # URI Note: user:password@hostname/path/to/endpoint
+        the_uri = ::URI::parse(the_url.to_s)
+        @uuid = ::GxG::uuid_generate.to_s.to_sym
+        @scheme = "https"
+        @hostname = the_uri.hostname
+        @services = {}
+        self.refresh_services
+        @clients = {}
+        @services.each_pair do |service,endpoint|
+          @clients[(service)] = ::GxG::Networking::GxGApi.new("gxg://#{@hostname}#{endpoint}")
+          if service == :federation
+            @clients[(service)].login(the_uri.username, the_uri.password)
+            if @clients[(service)].respond_to_event?(:connect)
+              header = @clients[(service)].get({:connect => @uuid})
+              if header.is_a?(::Hash)
+                @title = header[:title]
+              else
+                raise Exception.new("Could not connect")
+              end
+            end
+          end
+        end
+        self
+      end
+      #
+      def uuid
+        @uuid
+      end
+      #
+      def title
+        @title
+      end
+      #
+      def interface
+        result = {}
+        #
+        @services.keys.each do |service|
+          result[(service)] = @clients[(service)].interface
+        end
+        #
+        result
+      end
+      #
+      def login(username=nil, password=nil)
+        #
+        @services.keys.each do |service|
+          @clients[(service)].login(username, password)
+        end
+        #
+        true
+      end
+      #
+      def logout
+        #
+        @services.keys.each do |service|
+          @clients[(service)].logout
+        end
+        #
+        true
+      end
+      #
+      def keys
+        @services.keys
+      end
+      #
+      def [](selector=:unspecified)
+        @clients[(selector)]
+      end
+      #
+      def send_message(the_message)
+        @clients[:federation].put({:send_message => {:uuid => @uuid, :message => the_message}})[:result]
+      end
+      #
+      def next_message()
+        @clients[:federation].get({:next_message => @uuid})[:result]
+      end
+    end
+    ::GxG::Networking::DISPATCHER.register_client("federation",::GxG::Networking::GxGRemoteServer)
+    #
+    class NextcloudClient
+      # TODO: complete class code
+      def initialize(the_url=nil, options={})
+        self
+      end
+    end
+    ::GxG::Networking::DISPATCHER.register_client("nextcloud",::GxG::Networking::NextcloudClient)
+    #
     class MatrixID
       def initialize(the_id=nil)
         if the_id.is_a?(::MatrixSdk::MXID)
@@ -4966,4 +5085,29 @@ module GxG
   #
   CLIENTS = GxG::Networking::DISPATCHER
   #
+end
+#
+class Object
+  private
+  def remote_server(specifier=nil)
+    result = nil
+    if specifier or ::GxG::valid_uuid?(specifier)
+      ::GxG::GXG_FEDERATION_SAFETY.synchronize {
+        ::GxG::GXG_FEDERATION[:available].each_pair do |server_uuid, server|
+          if specifier.is_a?(::String)
+            if specifier == server.title
+              result = server
+              break
+            end
+          else
+            if specifier == server_uuid
+              result = server
+              break
+            end
+          end
+        end
+      }
+    end
+    result
+  end
 end

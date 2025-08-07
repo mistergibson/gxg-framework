@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'gxg-framework'
-  s.version     = '0.0.59'
+  s.version     = '0.0.63'
   s.licenses    = ['HIPPOCRATIC 2.1', 'https://firstdonoharm.dev/version/2/1/license.html']
   s.summary     = "GxG Framework"
   s.description = "GxG Framework"
@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'sys-cpu'
   s.add_runtime_dependency 'sys-proctable'
   s.add_runtime_dependency 'tzinfo-data'
-  s.add_runtime_dependency 'tzinfo', '~> 2.0'
+  s.add_runtime_dependency 'tzinfo', '~> 1.1'
   s.add_runtime_dependency 'bcrypt'
   s.add_runtime_dependency 'sequel'
   s.add_runtime_dependency 'ffi'
@@ -24,11 +24,11 @@ Gem::Specification.new do |s|
     s.add_runtime_dependency 'jrzmq'
   else
     # FIX : big hassle with windows - exclude for now
-    s.add_runtime_dependency 'ffi-rzmq'
-    s.add_runtime_dependency 'ezmq'
+    # s.add_runtime_dependency 'ffi-rzmq'
+    # s.add_runtime_dependency 'ezmq'
   end
   s.add_runtime_dependency 'nokogiri'
-  s.add_runtime_dependency 'mimemagic', '= 0.3.4'
+  s.add_runtime_dependency 'mimemagic'
   s.add_runtime_dependency 'rubysl-securerandom'
   s.add_runtime_dependency 'net-ssh'
   s.add_runtime_dependency 'net-scp'
@@ -41,6 +41,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'matrix_sdk'
   s.add_runtime_dependency 'state_machines'
   s.add_runtime_dependency 'net-ldap'
+   s.add_runtime_dependency 'nextcloud'
   # ### Database Adapters:
   if ::RUBY_ENGINE == "jruby"
     s.add_runtime_dependency 'jdbc-sqlite3'

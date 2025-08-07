@@ -110,6 +110,19 @@ class Time
     self.to_f.to_d
   end
 end
+# 
+# class Set
+#   public
+#   def initialize_clone
+#     # TODO: flesh this out to return a copy Set
+#     @self
+#   end
+#   alias :initialize_dup :initialize_clone
+#   alias :dup :initialize_clone
+#   def clone()
+#     initialize_clone
+#   end
+# end
 # IO/StringIO/File alterations
 # Fill in missing constants according to platform.
 # ### win32 stuff
@@ -3204,20 +3217,23 @@ end
 # Alteration to Struct for support of structural processing:
 #
 class Struct
-  #
-  public
-  def initialize_clone
-    result = self.class.new
-    self.each_pair do |key, value|
-      result[(key)] = value.clone
-    end
-    result
-  end
-  alias :initialize_dup :initialize_clone
-  alias :dup :initialize_clone
-  def clone()
-    initialize_clone
-  end
+  # FIXME: dup collision on mail gem
+  # NoMethodError: private method 'dup' called for an instance of Net::IMAP::Config::AttrAccessors::Struct
+  #  initialize_dup at /opt/jruby-gems/shared/gems/net-imap-0.5.9/lib/net/imap/config/attr_accessors.rb:69
+  # public
+  # def initialize_clone
+  #   result = self.class.new
+  #   self.each_pair do |key, value|
+  #     result[(key)] = value.clone
+  #   end
+  #   result
+  # end
+  # def clone()
+  #   initialize_clone
+  # end
+  # private
+  # alias :initialize_dup :initialize_clone
+  # alias :dup :initialize_clone
   #
   def self.process(the_struct=::Struct.new(nil),&block)
     new_struct = ::Struct.new(nil)

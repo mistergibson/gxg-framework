@@ -38,7 +38,7 @@ requirements.push({:requirement => "chronic", :gem => "chronic"})
 # requirements.push({:requirement => "nokogiri", :gem => "nokogiri"})
 requirements.push({:requirement => "rufus-scheduler", :gem => "rufus-scheduler"})
 requirements.push({:requirement => "mimemagic", :gem => "mimemagic"})
-# requirements.push({:requirement => "mimemagic/overlay", :gem => "mimemagic"})
+#requirements.push({:requirement => "mimemagic/overlay", :gem => "mimemagic"})
 requirements.push({:requirement => "bcrypt", :gem => "bcrypt"})
 requirements.push({:requirement => "matrix_sdk", :gem => "matrix_sdk"})
 requirements.push({:requirement => "state_machines", :gem => "state_machines"})
@@ -759,6 +759,7 @@ unless load_error
   ::GxG::LOG[:default] = ::Logger.new(STDOUT)
   ::GxG::LOG[:default].level = ::Logger::ERROR
   $Dispatcher.every("0.333 seconds") do
+    ::GxG::CHANNELS.update_channels
     ::GxG::LOG.process_messages()
   end
   # ### Defer long-runnign cpu info gather on Winderz
