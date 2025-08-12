@@ -41,7 +41,8 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'matrix_sdk'
   s.add_runtime_dependency 'state_machines'
   s.add_runtime_dependency 'net-ldap'
-   s.add_runtime_dependency 'nextcloud'
+  s.add_runtime_dependency 'nextcloud'
+  s.add_runtime_dependency 'stanford-core-nlp'
   # ### Database Adapters:
   if ::RUBY_ENGINE == "jruby"
     s.add_runtime_dependency 'jdbc-sqlite3'
