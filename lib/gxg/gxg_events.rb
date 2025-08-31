@@ -107,7 +107,7 @@ module GxG
             if channel
               if channel.socket
                 # Send format: channel.socket.send({ :payload => the_message.export.to_s.encrypt(channel.secret).encode64 }.to_json.encode64, :text)
-                channel.socket.send({ :payload => the_message.export.to_s.encrypt(channel.secret).encode64 }.to_json.encode64, :text)
+                channel.socket.send({ :payload => the_message.export.to_s.encrypt(channel.secret.to_s).encode64 }.to_json.encode64, :text)
               else
                 channel.write(the_message)
               end
