@@ -3938,6 +3938,14 @@ module GxG
         result
       end
       #
+      def respond_to_event?(service, operation)
+        @clients[(service)].respond_to_event?(operation)
+      end
+      #
+      def call_event(service, operation_frame)
+        @clients[(service)].get(operation_frame)
+      end
+      #
       def login(username=nil, password=nil)
         #
         @services.keys.each do |service|

@@ -3,6 +3,15 @@ module GxG
   #
   GXG_FEDERATION = {:title => "Untitled", :uuid => nil, :available => {}, :connections => {}}
   GXG_FEDERATION_SAFETY = Mutex.new
+  def self.federation_servers()
+    result = {}
+    ::GxG::GXG_FEDERATION_SAFETY.synchronize {
+      ::GxG::GXG_FEDERATION[:available].each_pair do |uuid, server|
+        result[(uuid.to_s.to_sym)] = server
+      end
+    }
+    result
+  end
   #
   module Messages
     class Channel
@@ -112,9 +121,24 @@ module GxG
                 channel.write(the_message)
               end
               result = true
+            else
+            end
+          else
+            if ::GxG::valud_uuid?(destination.to_s)
+              # TODO: search available federated servers for channel. ???
+              ::GxG::federation_servers.each_pair do |the_uuid, the_server|
+                if the_server.call_event(:federation, {:channel_exist => (destination)})[:result]
+                  the_server.call_event(:federation, {:operation => {:forward_message => (the_message.serialize)}})
+                  result = true
+                  break
+                end
+              end
+            else
+            #
+            # email address -- TODO: integrate sendmail functionality in pure ruby. ::GxG::Networking::SmtpClient.new(::URI::parse("smtp://username:password@hostname.org:587"), {:use_ssl => true, :ignore_ssl_errors => true})
+            #
             end
           end
-          # email address -- TODO: integrate sendmail functionality in pure ruby. ::GxG::Networking::SmtpClient.new(::URI::parse("smtp://username:password@hostname.org:587"), {:use_ssl => true, :ignore_ssl_errors => true})
           #
         end
         result
@@ -997,7 +1021,9 @@ class Object
     channel = ::GxG::CHANNELS.fetch_channel(@uuid)
     if channel 
       channel.write(the_message)
+      true
+    else
+      false
     end
-    true
   end
 end

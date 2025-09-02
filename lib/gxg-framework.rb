@@ -411,14 +411,24 @@ unless load_error
     end
     #
     def new_message(*args)
-      if this.actor?()
-        ::GxG::Events::Message.new({:sender => this().to_uri(), :subject => args[1], :body => args[0]})
-      else
-        ::GxG::Events::Message.new({:sender => this(), :subject => args[1], :body => args[0]})
+      unless @uuid
+        @uuid = ::GxG::uuid_generate.to_s.to_sym
+        ::GxG::CHANNELS.create_channel(@uuid)
       end
+      ::GxG::Events::Message.new({:sender => @uuid, :subject => args[1], :body => args[0]})
     end
     #
     public
+    #
+    def defederate()
+      if @uuid
+        the_channel = ::GxG::CHANNELS.fetch_channel(@uuid)
+        if the_channel
+          ::GxG::CHANNELS.destroy_channel(@uuid)
+        end
+      end
+      true
+    end
     #
     def millisecond_latency(*args,&block)
       if block
