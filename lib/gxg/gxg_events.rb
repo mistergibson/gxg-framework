@@ -16,7 +16,7 @@ module GxG
   module Messages
     class Channel
       #
-      def initialize(the_uuid)
+      def initialize(the_uuid=nil, the_object=nil)
         @uuid = the_uuid
         @inbox = []
         @inbox_safety = ::Mutex.new
@@ -25,11 +25,16 @@ module GxG
         @socket = nil
         @remote = nil
         @channel_secret = nil
+        @object = the_object
         self
       end
       #
       def uuid()
         @uuid
+      end
+      #
+      def object()
+        @object
       end
       #
       def socket()
@@ -148,8 +153,8 @@ module GxG
         GXG_FEDERATION_SAFETY.synchronize { GXG_FEDERATION[:connections][(the_uuid)] }
       end
       #
-      def create_channel(the_uuid)
-        GXG_FEDERATION_SAFETY.synchronize { GXG_FEDERATION[:connections][(the_uuid)] = ::GxG::Messages::Channel.new(the_uuid)}
+      def create_channel(the_uuid=nil, the_object=nil)
+        GXG_FEDERATION_SAFETY.synchronize { GXG_FEDERATION[:connections][(the_uuid)] = ::GxG::Messages::Channel.new(the_uuid,the_object)}
       end
       #
       def destroy_channel(the_uuid)
@@ -999,7 +1004,7 @@ class Object
   def send_message(the_message)
     unless @uuid
       @uuid = ::GxG::uuid_generate.to_s.to_sym
-      ::GxG::CHANNELS.create_channel(@uuid)
+      ::GxG::CHANNELS.create_channel(@uuid,self)
     end
     ::GxG::CHANNELS.send_message(@uuid, the_message)
     true
@@ -1008,7 +1013,7 @@ class Object
   def next_message()
     unless @uuid
       @uuid = ::GxG::uuid_generate.to_s.to_sym
-      ::GxG::CHANNELS.create_channel(@uuid)
+      ::GxG::CHANNELS.create_channel(@uuid,self)
     end
     ::GxG::CHANNELS.next_message(@uuid)
   end
@@ -1016,7 +1021,7 @@ class Object
   def post(the_message)
     unless @uuid
       @uuid = ::GxG::uuid_generate.to_s.to_sym
-      ::GxG::CHANNELS.create_channel(@uuid)
+      ::GxG::CHANNELS.create_channel(@uuid,self)
     end
     channel = ::GxG::CHANNELS.fetch_channel(@uuid)
     if channel 
