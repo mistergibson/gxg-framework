@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     # s.add_runtime_dependency 'ezmq'
   end
   s.add_runtime_dependency 'nokogiri'
+  s.add_runtime_dependency 'shared-mime-info'
   s.add_runtime_dependency 'mimemagic'
   s.add_runtime_dependency 'rubysl-securerandom'
   s.add_runtime_dependency 'net-ssh'

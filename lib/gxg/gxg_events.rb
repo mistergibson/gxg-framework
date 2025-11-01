@@ -1,7 +1,7 @@
 #
 module GxG
   #
-  GXG_FEDERATION = {:title => "Untitled", :uuid => nil, :available => {}, :connections => {}}
+  GXG_FEDERATION = {:title => "Untitled", :uuid => nil, :access_url => nil, :available => {}, :connections => {}}
   GXG_FEDERATION_SAFETY = Mutex.new
   def self.federation_servers()
     result = {}

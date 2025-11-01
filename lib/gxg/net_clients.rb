@@ -3895,28 +3895,27 @@ module GxG
       end
       #
       def initialize(the_url=nil, options={})
-      # URI Note: user:password@hostname/path/to/endpoint
-        the_uri = ::URI::parse(the_url.to_s)
-        @uuid = ::GxG::uuid_generate.to_s.to_sym
+        # URI Note: user:password@hostname/path/to/endpoint
+        @uri = ::URI::parse(the_url.to_s)
+        if ::GxG::valid_uuid?(options[:use_uuid].to_s.to_sym)
+          @uuid = options[:use_uuid].to_s.to_sym
+        else
+          @uuid = ::GxG::uuid_generate.to_s.to_sym
+        end
         @scheme = "https"
-        @hostname = the_uri.hostname
+        @hostname = @uri.hostname
         @services = {}
         self.refresh_services
         @clients = {}
+        @credential = :"00000000-0000-4000-0000-000000000000"
+        @bridge_challenge = ::GxG::uuid_generate.to_s.to_sym
+        @status = :unavailable
         @services.each_pair do |service,endpoint|
           @clients[(service)] = ::GxG::Networking::GxGApi.new("gxg://#{@hostname}#{endpoint}")
-          if service == :federation
-            @clients[(service)].login(the_uri.username, the_uri.password)
-            if @clients[(service)].respond_to_event?(:connect)
-              header = @clients[(service)].get({:connect => @uuid})
-              if header.is_a?(::Hash)
-                @title = header[:title]
-              else
-                raise Exception.new("Could not connect")
-              end
-            end
-          end
+          @clients[(service)].login(@uri.username, @uri.password)
+          #
         end
+        @status = :connected
         self
       end
       #
@@ -3926,6 +3925,52 @@ module GxG
       #
       def title
         @title
+      end
+      #
+      def credential()
+        @credential
+      end
+      #
+      def status()
+        @status
+      end
+      # ### Bridging tools:
+      def connect_bridge(parmameters={})
+        localuuid = nil
+        localtitle = "Untitled"
+        localaccess = nil
+        ::GxG::GXG_FEDERATION_SAFETY.synchronize do
+          localuuid = ::GxG::GXG_FEDERATION[:uuid]
+          localtitle = ::GxG::GXG_FEDERATION[:title]
+          localaccess = ::GxG::GXG_FEDERATION[:access_url]
+        end
+        # @bridge_challenge
+        # {:uuid => localuuid, :title => localtitle, :access_url => localaccess, :bridge_challenge => @bridge_challenge}
+        header = @clients[:federation].get({:connect => {:uuid => localuuid, :title => localtitle, :access_url => localaccess, :bridge_challenge => @bridge_challenge}})
+        # xxx
+        if service == :federation
+          # :access_url
+          if @clients[(service)].respond_to_event?(:connect)
+            # {:uuid => (uuid), :username => String, :password => String}
+            header = @clients[(service)].get({:connect => {:uuid => @uuid, :username => "", :password => ""}})
+            # {} 
+            if header.is_a?(::Hash)
+              @title = header[:title]
+            else
+              raise Exception.new("Could not connect")
+            end
+          end
+        end
+        #
+      end
+      #
+      def disconnect_bridge(parmameters={})
+        # @bridge_challenge
+        # 
+      end
+      #
+      def complete_bridge(parmameters={})
+        #@bridge_challenge
       end
       #
       def interface
