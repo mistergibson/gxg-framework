@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'gxg-framework'
-  s.version     = '0.0.64'
+  s.version     = '0.0.65'
   s.licenses    = ['HIPPOCRATIC 2.1', 'https://firstdonoharm.dev/version/2/1/license.html']
   s.summary     = "GxG Framework"
   s.description = "GxG Framework"
@@ -20,6 +20,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'ffi'
   s.add_runtime_dependency 'chronic'
   s.add_runtime_dependency 'rufus-scheduler', '~> 3.0'
+  s.add_runtime_dependency 'prism', '= 1.6.0'
   if ::RUBY_ENGINE == "jruby"
     s.add_runtime_dependency 'jrzmq'
   else
@@ -29,7 +30,7 @@ Gem::Specification.new do |s|
   end
   s.add_runtime_dependency 'nokogiri'
   s.add_runtime_dependency 'shared-mime-info'
-  s.add_runtime_dependency 'mimemagic'
+  s.add_runtime_dependency 'afp_mimemagic'
   s.add_runtime_dependency 'rubysl-securerandom'
   s.add_runtime_dependency 'net-ssh'
   s.add_runtime_dependency 'net-scp'
@@ -46,7 +47,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'stanford-core-nlp'
   # ### Database Adapters:
   if ::RUBY_ENGINE == "jruby"
-    s.add_runtime_dependency 'jdbc-sqlite3'
+    s.add_runtime_dependency 'jdbc-sqlite3', '= 3.6.14.2.056'
     s.add_runtime_dependency 'jdbc-mysql'
     s.add_runtime_dependency 'jdbc-postgresql'
     s.add_runtime_dependency 'jdbc-as400'
