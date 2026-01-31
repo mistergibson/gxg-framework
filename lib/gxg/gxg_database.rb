@@ -7,6 +7,7 @@ require "securerandom"
 require "openssl"
 require "base64"
 require "net/ldap"
+
 module GxG
   DB_SAFETY = ::Mutex.new
   DB = {:cache => {}, :formats => {}, :authority => nil, :administrator => nil, :roles => {}}
