@@ -870,11 +870,14 @@ module GxG
               end
               last_container = container
             end
-            if selector.is_a?(Symbol)
-              safe_key = (":" + selector.to_s)
-            else
-              safe_key = selector.to_s
-            end
+            safe_key = selector.to_s
+            # xxx
+            # if selector.is_a?(Symbol)
+            #   safe_key = (":" + selector.to_s)
+            # else
+            #   safe_key = selector.to_s
+            # end
+            # xxx
             safe_key.gsub!("/","%2f")
             path_stack.unshift(safe_key)
             # compare the_value
@@ -914,9 +917,7 @@ module GxG
               else
                 element = path_element
                 element.gsub!("%2f","/")
-                if element[0] == ":"
-                  element = element[(1..-1)].to_sym
-                end
+                element = element.to_sym
               end
             end
             if element
@@ -948,9 +949,7 @@ module GxG
               else
                 selector = raw_selector
                 selector.gsub!("%2f","/")
-                if selector[0] == ":"
-                  selector = selector[(1..-1)].to_sym
-                end
+                selector = selector.to_sym
               end
             end
             if selector
@@ -2802,9 +2801,7 @@ module GxG
               else
                 element = path_element
                 element.gsub!("%2f","/")
-                if element[0] == ":"
-                  element = element[(1..-1)].to_sym
-                end
+                element = element.to_sym
               end
             end
             if element
@@ -2836,9 +2833,7 @@ module GxG
               else
                 selector = raw_selector
                 selector.gsub!("%2f","/")
-                if selector[0] == ":"
-                  selector = selector[(1..-1)].to_sym
-                end
+                selector = selector.to_sym
               end
             end
             if selector
