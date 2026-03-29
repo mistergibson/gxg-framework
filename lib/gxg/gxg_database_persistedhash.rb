@@ -2914,26 +2914,29 @@ module GxG
         result
       end
       #
-      def merge(input_object=nil, options={})
-        result = self
+      def merge(input_object=nil, options={:role => :data, :credential => ::GxG::DB[:administrator]})
+        result = nil
         if input_object.is_any?(::Hash, ::GxG::Database::DetachedHash, ::GxG::Database::PersistedHash)
           #
-          result = ::GxG::Database::DetachedHash::iterative_detached_persist(self.unpersist)
-          #
-          if @format
-            # merge only keys common to both
-            input_object.keys.each do |import_key|
-              if self.keys.include?(import_key)
+          database = ::GxG::DB[:roles][(options[:role] || :data)]
+          if database.is_a?(::GxG::Database::Database)
+            result = database.try_persist({}, (options[:credential] || ::GxG::DB[:administrator]))
+            #
+            if @format
+              # merge only keys common to both
+              self.keys.each do |import_key|
+                if input_object.keys.include?(import_key)
+                  result[(import_key)] = input_object[(import_key)]
+                end
+              end
+              result.format = @format
+            else
+              input_object.keys.each do |import_key|
                 result[(import_key)] = input_object[(import_key)]
               end
             end
-            result.format = @format
-          else
-            input_object.keys.each do |import_key|
-              result[(import_key)] = input_object[(import_key)]
-            end
+            #
           end
-          #
         end
         result
       end
