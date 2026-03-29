@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'gxg-framework'
-  s.version     = '0.0.67'
+  s.version     = '0.0.68'
   s.licenses    = ['HIPPOCRATIC 2.1', 'https://firstdonoharm.dev/version/2/1/license.html']
   s.summary     = "GxG Framework"
   s.description = "GxG Framework"

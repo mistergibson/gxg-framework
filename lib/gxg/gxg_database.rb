@@ -5504,3 +5504,28 @@ end
 require File.expand_path("./gxg_database_persistedarray.rb",File.dirname(__FILE__))
 require File.expand_path("./gxg_database_persistedhash.rb",File.dirname(__FILE__))
 #
+class Hash
+  #
+  def persist(credential=::GxG::DB[:administrator], to_db=:data)
+    result = nil
+    database = ::GxG::DB[:roles][(to_db)]
+    if database.is_a?(::GxG::Database::Database)
+      result = database.try_persist(self, credential)
+    end
+    result
+  end
+  #
+end
+#
+class Array
+  #
+  def persist(credential=::GxG::DB[:administrator], to_db=:data)
+    result = nil
+    database = ::GxG::DB[:roles][(to_db)]
+    if database.is_a?(::GxG::Database::Database)
+      result = database.try_persist(self, credential)
+    end
+    result
+  end
+  #
+end

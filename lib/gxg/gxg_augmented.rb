@@ -3772,7 +3772,6 @@ class Hash
     self
   end
   #
-  #
 end
 #
 class Array
@@ -4149,6 +4148,11 @@ class Array
   end
   #
 end
+
+
+
+
+
 # OpenStruct support for Arrays.
 module GxG
   class ArrayWrapper
