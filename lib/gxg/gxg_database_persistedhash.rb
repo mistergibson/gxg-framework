@@ -41,7 +41,7 @@ module GxG
         end
       end
       #
-      def element_version(key=nil)
+      def property_version(key=nil)
         result = 0.0
         if key.is_a?(::Symbol)
           if key.to_s.size > 256
@@ -59,7 +59,7 @@ module GxG
         result
       end
       #
-      def set_element_version(element_key, the_version=nil)
+      def set_property_version(element_key, the_version=nil)
         result = false
         if @property_links[(element_key)]
           if the_version.is_a?(::Numeric)
@@ -870,14 +870,13 @@ module GxG
               end
               last_container = container
             end
-            safe_key = selector.to_s
-            # xxx
+            # xxx --> not using colon in pathnames.
             # if selector.is_a?(Symbol)
             #   safe_key = (":" + selector.to_s)
             # else
             #   safe_key = selector.to_s
             # end
-            # xxx
+            safe_key = selector.to_s
             safe_key.gsub!("/","%2f")
             path_stack.unshift(safe_key)
             # compare the_value
@@ -1426,7 +1425,7 @@ module GxG
         end
       end
       #
-      def element_version(key=nil)
+      def property_version(key=nil)
         result = 0.0
         if key.is_a?(::Symbol)
           if key.to_s.size > 256
@@ -1444,7 +1443,7 @@ module GxG
         result
       end
       #
-      def set_element_version(element_key, the_version=nil)
+      def set_property_version(element_key, the_version=nil)
         result = false
         if @property_links[(element_key)]
           if the_version.is_a?(::Numeric)
@@ -1466,6 +1465,19 @@ module GxG
       def format=(the_format=nil)
         if GxG::valid_uuid?(the_format)
           @format = the_format.to_s.to_sym
+        end
+      end
+      #
+      def ufs()
+        if @format
+          record = @db_address[:database].format_load({:uuid => @format.to_s})
+          if record
+            {:ufs => record[:ufs], :version => record[:version]}
+          else
+            {}
+          end
+        else
+          {}
         end
       end
       #
@@ -2801,11 +2813,13 @@ module GxG
               end
               last_container = container
             end
-            if selector.is_a?(Symbol)
-              safe_key = (":" + selector.to_s)
-            else
-              safe_key = selector.to_s
-            end
+            # xxx --> not using colon in pathnames.
+            # if selector.is_a?(Symbol)
+            #   safe_key = (":" + selector.to_s)
+            # else
+            #   safe_key = selector.to_s
+            # end
+            safe_key = selector.to_s
             safe_key.gsub!("/","%2f")
             path_stack.unshift(safe_key)
             # compare the_value

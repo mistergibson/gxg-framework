@@ -3238,10 +3238,10 @@ class Struct
   def self.process(the_struct=::Struct.new(nil),&block)
     new_struct = ::Struct.new(nil)
     if block.respond_to?(:call)
-      if the_struct.is_any?(::Array, ::Hash, ::Struct, ::GxG::Database::PersistedHash, ::GxG::Database::PersistedArray)
+      if the_struct.is_any?(::Hash, ::Array, ::Struct, ::GxG::Database::DetachedHash, ::GxG::Database::PersistedHash, ::GxG::Database::DetachedArray, ::GxG::Database::PersistedArray)
         new_struct = the_struct.process!(&block)
       else
-        raise ArgumentError, "you must pass a Hash, or an Array, or a ByteArray, or a Set, or a Struct"
+        raise ArgumentError, "you must pass a Hash, or an Array, or a ByteArray, or a Struct"
       end
     end
     new_struct
@@ -3250,7 +3250,7 @@ class Struct
   def self.search(the_struct=::Struct.new(nil),&block)
     new_struct = ::Struct.new(nil)
     if block.respond_to?(:call)
-      if the_struct.is_any?(::Array, ::Hash, ::Set, ::Struct, ::GxG::Database::PersistedHash, ::GxG::Database::PersistedArray)
+      if the_struct.is_any?(::Hash, ::Array, ::Set, ::Struct, ::GxG::Database::DetachedHash, ::GxG::Database::PersistedHash, ::GxG::Database::DetachedArray, ::GxG::Database::PersistedArray)
         new_struct = the_struct.search(&block)
       else
         raise ArgumentError, "you must pass a Hash, or an Array, or a ByteArray, or a Set, or a Struct"
@@ -3502,7 +3502,7 @@ class Hash
     last_container = origin
     found = false
     # tester = {:a=>1, :b=>2, :c=>[0, 5], :testing=>{:d=>4.0, :e=>0.9, :f => nil}}
-    if origin.is_any?(::Hash, ::Array, ::Struct, ::GxG::Database::PersistedHash, ::GxG::Database::PersistedArray)
+    if origin.is_any?(::Hash, ::Array, ::Struct, ::GxG::Database::DetachedHash, ::GxG::Database::PersistedHash, ::GxG::Database::DetachedArray, ::GxG::Database::PersistedArray)
       origin.process! do |the_value, selector, container|
         if last_container.object_id != container.object_id
           container_record = find_container.call(container)
@@ -3514,14 +3514,13 @@ class Hash
           end
           last_container = container
         end
-        safe_key = selector.to_s
-        # xxx
+        # xxx --> not using colon in pathnames.
         # if selector.is_a?(Symbol)
         #   safe_key = (":" + selector.to_s)
         # else
         #   safe_key = selector.to_s
         # end
-        # xxx
+        safe_key = selector.to_s
         safe_key = safe_key.gsub("/","%2f")
         path_stack.unshift(safe_key)
         # compare the_value

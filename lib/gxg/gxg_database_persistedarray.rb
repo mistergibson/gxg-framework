@@ -1715,7 +1715,7 @@ module GxG
       end
       #
       def element_version(index=nil)
-        result = 0.0
+        result = ::BigDecimal.new("0.0")
         if index.is_a?(::Numeric)
           if @element_links[(index)]
             result = @element_links[(index)][:record][:version]
@@ -1810,12 +1810,12 @@ module GxG
         if @constraint
           record = @db_address[:database].format_load({:uuid => @constraint.to_s})
           if record
-            record[:ufs]
+            {:ufs => record[:ufs], :version => record[:version]}
           else
-            ""
+            {}
           end
         else
-          ""
+          {}
         end
       end
       #

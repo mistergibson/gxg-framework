@@ -4769,7 +4769,7 @@ module GxG
                               if existing.version > record[:version]
                                 action = :provide
                               else
-                                if existing.version < record[:version]
+                                if existing.version <= record[:version]
                                   action = :update
                                 else
                                   action = :ignore
@@ -4790,151 +4790,106 @@ module GxG
                                   formatting[:constraint] = record[:constraint].to_s
                                 end
                                 clean_up_list << existing
-                                existing.get_reservation()
+                                existing.wait_for_reservation(100.0)
                                 unless existing.write_permission?() && existing.write_reserved?()
                                   raise Exception, "Failed to secure write permission and write reservation for this credential."
                                 end
                                 existing.title = (record[:title])
                                 # ### Update Elements
-                                if record[:content].is_a?(::Hash)
-                                  # Review : What to do / how to handle formatted existing Hashes??
-                                  unless existing.format
-                                    # Eliminate keys that the imported record does not have. (tracking structural changes)
+                                # ???
+                                # Formatted/Constrained or Freeform?
+                                if formatting[:format] || formatting[:constraint]
+                                  # Formatted
+                                  if existing.is_a?(::GxG::Database::PersistedHash)
+                                    if existing.format
+                                      the_format = existing.format()
+                                      if existing.format() != formatting[:format]
+                                        raise Exception, "Format Mismatch Error --> Aborting Merge for record uuid #{existing.uuid.inspect}"
+                                      end
+                                    else
+                                      the_format = formatting[:format]
+                                    end
+                                    existing.format = nil
                                     existing.keys.each do |the_key|
                                       unless record[:content].keys.include?(the_key)
                                         temp_object = existing.delete(the_key)
-                                        if temp_object.is_any?(::GxG::Database::PersistedArray, ::GxG::Database::PersistedHash)
-                                          temp_object.destroy()
-                                        end
                                       end
                                     end
+                                    #
+                                    record[:content].keys.each do |the_key|
+                                      existing[(the_key)] = record[:content][(the_key)]
+                                      existing.set_property_version(the_key, record[:content].property_version(the_key))
+                                    end
+                                    #
+                                    if the_format
+                                      existing.format = the_format
+                                    end
+                                    existing.version = record[:content].version
+                                    existing.save
+                                    existing.deactivate
+                                    total_records_processed += 1
                                   end
-                                  record[:content].each_pair do |property, element_record|
-                                    if element_record[:uuid]
-                                      # ### Element is Hash or Array
-                                      element = self.retrieve_by_uuid(element_record[:uuid], credential)
-                                      unless element
-                                        # ### Create blank element record and retrieve
-                                        # Note: since there is no way to create a Persisted Object with a given UUID, this method is used to create the object: object will be updated later.
-                                        unless @connector[(element_record[:type].to_s.downcase.to_sym)].filter({:uuid => element_record[:uuid].to_s}).count > 0
-                                          # This prevents no-element-retrieved-due-to-permission issue causing an 'add duplicate uuid object' situation:
-                                          dbid = @connector[(element_record[:type].to_s.downcase.to_sym)].insert({:uuid => element_record[:uuid].to_s, :title => "Merged Persisted Object"})
-                                          self.assign_element_permission(element_record[:type].to_s.downcase.to_sym,dbid,credential,{:execute => false, :rename => true, :move => true, :destroy => true, :create => true, :write => true, :read => true})
-                                          #
-                                        end
-                                        element = self.retrieve_by_uuid(element_record[:uuid], credential)
+                                  if existing.is_a?(::GxG::Database::PersistedArray)
+                                    if existing.constraint()
+                                      the_format = existing.constraint()
+                                      if existing.constraint() != formatting[:constraint]
+                                        raise Exception, "Format Constraint Mismatch Error --> Aborting Merge for record uuid #{existing.uuid.inspect}"
                                       end
-                                      if element
-                                        # ### Ensure Element Linking
-                                        # Review : Warning - absence of a :write permission can bugger this up.
-                                        clean_up_list << element
-                                        element.get_reservation()
-                                        unless element.write_permission?() && element.write_reserved?()
-                                          raise Exception, "Failed to secure write permission and write reservation for this credential."
-                                        end
-                                        existing[(property)] = element
-                                        # element.deactivate ??
-                                      end
-                                      # Note: return to processing queue to set its elements
-                                      queue << element_record
                                     else
-                                      # ### Base Element
-                                      unless existing.version(property) > element_record[:version]
-                                        the_content = nil
-                                        case element_record[:type].to_s.downcase.to_sym
-                                        when :element_boolean, :element_integer, :element_float
-                                          the_content = element_record[:content]
-                                        when :element_bigdecimal
-                                          the_content = ::BigDecimal.new(element_record[:content].to_s)
-                                        when :element_datetime
-                                          the_content = ::DateTime::parse(element_record[:content].to_s)
-                                        when :element_text
-                                          the_content = element_record[:content].to_s
-                                        when :element_binary
-                                          the_content = ::GxG::ByteArray.new(element_record[:content].to_s.decode64)
-                                        end
-                                        existing[(property)] = the_content
+                                      the_format = formatting[:constraint]
+                                    end
+                                    existing.constraint = nil
+                                    record[:content].each_with_index do |item, indexer|
+                                      existing[(indexer)] = record[:content][(indexer)]
+                                      existing.set_element_version(indexer, record[:content].element_version(indexer))
+                                    end
+                                    if existing.size > record[:content].size
+                                      ((record[:content].size)..(existing.size - 1)).to_a.reverse.each do |indexer|
+                                        temp_object = existing.delete_at(indexer)
                                       end
                                     end
+                                    existing.constraint = the_format
+                                    existing.version = record[:content].version
+                                    existing.save
+                                    existing.deactivate
+                                    total_records_processed += 1
                                   end
                                 else
-                                  if record[:content].is_a?(::Array)
-                                    # Eliminate elements that the imported record does not have. (tracking structural changes)
+                                  # Freeform (rsync)
+                                  if existing.is_a?(::GxG::Database::PersistedHash)
+                                    existing.format = nil
+                                    existing.keys.each do |the_key|
+                                      unless record[:content].keys.include?(the_key)
+                                        temp_object = existing.delete(the_key)
+                                      end
+                                    end
+                                    #
+                                    record[:content].keys.each do |the_key|
+                                      existing[(the_key)] = record[:content][(the_key)]
+                                      existing.set_property_version(the_key, record[:content].property_version(the_key))
+                                    end
+                                    #
+                                    existing.version = record[:content].version
+                                    existing.save
+                                    existing.deactivate
+                                    total_records_processed += 1
+                                  end
+                                  if existing.is_a?(::GxG::Database::PersistedArray)
+                                    record[:content].each_with_index do |item, indexer|
+                                      existing[(indexer)] = record[:content][(indexer)]
+                                      existing.set_element_version(indexer, record[:content].element_version(indexer))
+                                    end
                                     if existing.size > record[:content].size
-                                      ((record[:content].size)..(existing.size - 1)).each do |the_indexer|
-                                        temp_object = existing.delete_at(the_indexer)
-                                        if temp_object.is_any?(::GxG::Database::PersistedArray, ::GxG::Database::PersistedHash)
-                                          temp_object.destroy()
-                                        end
+                                      ((record[:content].size)..(existing.size - 1)).to_a.reverse.each do |indexer|
+                                        temp_object = existing.delete_at(indexer)
                                       end
                                     end
-                                    record[:content].each_with_index do |element_record, indexer|
-                                      if element_record[:uuid]
-                                        # ### Element is Hash or Array
-                                        element = self.retrieve_by_uuid(element_record[:uuid], credential)
-                                        unless element
-                                          # ### Create blank element record and retrieve
-                                          # Note: since there is no way to create a Persisted Object with a given UUID, this method is used to create the object: object will be updated later.
-                                          unless @connector[(element_record[:type].to_s.downcase.to_sym)].filter({:uuid => element_record[:uuid].to_s}).count > 0
-                                            # This prevents no-element-retrieved-due-to-permission issue causing an 'add duplicate uuid object' situation:
-                                            dbid = @connector[(element_record[:type].to_s.downcase.to_sym)].insert({:uuid => element_record[:uuid].to_s, :title => "Merged Persisted Object"})
-                                            self.assign_element_permission(element_record[:type].to_s.downcase.to_sym,dbid,credential,{:execute => false, :rename => true, :move => true, :destroy => true, :create => true, :write => true, :read => true})
-                                            #
-                                          end
-                                          element = self.retrieve_by_uuid(element_record[:uuid], credential)
-                                        end
-                                        if element
-                                          # ### Ensure Element Linking
-                                          # Review : Warning - absence of a :write permission can bugger this up.
-                                          clean_up_list << element
-                                          element.get_reservation()
-                                          unless element.write_permission?() && element.write_reserved?()
-                                            raise Exception, "Failed to secure write permission and write reservation for this credential."
-                                          end
-                                          existing[(indexer)] = element
-                                          # element.deactivate ??
-                                        end
-                                        # Note: return to processing queue to set its elements
-                                        queue << element_record
-                                      else
-                                        # ### Base Element
-                                        unless existing.version(indexer) > element_record[:version]
-                                          the_content = nil
-                                          case element_record[:type].to_s.downcase.to_sym
-                                          when :element_boolean, :element_integer, :element_float
-                                            the_content = element_record[:content]
-                                          when :element_bigdecimal
-                                            the_content = ::BigDecimal.new(element_record[:content].to_s)
-                                          when :element_datetime
-                                            the_content = ::DateTime::parse(element_record[:content].to_s)
-                                          when :element_text
-                                            the_content = element_record[:content].to_s
-                                          when :element_binary
-                                            the_content = ::GxG::ByteArray.new(element_record[:content].to_s.decode64)
-                                          end
-                                          existing[(indexer)] = the_content
-                                        end
-                                      end
-                                      #
-                                    end
+                                    existing.version = record[:content].version
+                                    existing.save
+                                    existing.deactivate
+                                    total_records_processed += 1
                                   end
                                 end
-                                # ### Set Fromatting / Constraints
-                                if existing.is_a?(::GxG::Database::PersistedHash)
-                                  if formatting[:format].to_s.size > 0
-                                    existing.format = (formatting[:format])
-                                  end
-                                end
-                                if existing.is_a?(::GxG::Database::PersistedArray)
-                                  if formatting[:constraint].to_s.size > 0
-                                    existing.constraint = (formatting[:constraint])
-                                  end
-                                end
-                                # ### Conclude Existing
-                                existing.version = (record[:version])
-                                existing.save
-                                existing.deactivate
-                                total_records_processed += 1
                               end
                             end
                           end
