@@ -3545,13 +3545,25 @@ class Hash
     search_results
   end
   #
+  def object_map()
+    result = {}
+    #
+    self.search do |the_value, the_selector, the_container|
+      self.paths_to(the_value).each do |the_subpath|
+        result[(the_subpath.to_s.to_sym)] = the_value
+      end
+    end
+    #
+    result
+  end
+  #
   def get_at_path(the_path="/")
     result = nil
     if the_path == "/"
       result = self
     else
       object_stack = [(self)]
-      path_stack = the_path.split("/")
+      path_stack = the_path.to_s.split("/")
       path_stack.to_enum.each do |path_element|
         element = nil
         if path_element.size > 0
@@ -3559,7 +3571,7 @@ class Hash
             element = path_element.to_i
           else
             element = path_element
-            element.gsub!("%2f","/")
+            element = element.gsub("%2f","/")
             element = element.to_sym
           end
         end
@@ -3582,16 +3594,16 @@ class Hash
   def set_at_path(the_path="/",the_value=nil)
     result = nil
     if the_path != "/"
-      container = self.get_at_path(::File::dirname(the_path))
+      container = self.get_at_path(::File::dirname(the_path.to_s))
       if container
-        raw_selector = ::File::basename(the_path)
+        raw_selector = ::File::basename(the_path.to_s)
         selector = nil
         if raw_selector.size > 0
           if (raw_selector =~ /^(?:[0-9])*[0-9](?:[0-9])*$/) == 0
             selector = raw_selector.to_i
           else
             selector = raw_selector
-            selector.gsub!("%2f","/")
+            selector = selector.gsub("%2f","/")
             selector = selector.to_sym
           end
         end
@@ -3886,6 +3898,80 @@ class Array
     results
   end
   #
+  def object_map()
+    result = {}
+    #
+    self.search do |the_value, the_selector, the_container|
+      self.paths_to(the_value).each do |the_subpath|
+        result[(the_subpath.to_s.to_sym)] = the_value
+      end
+    end
+    #
+    result
+  end
+  #
+  def get_at_path(the_path="/")
+    result = nil
+    if the_path == "/"
+      result = self
+    else
+      object_stack = [(self)]
+      path_stack = the_path.to_s.split("/")
+      path_stack.to_enum.each do |path_element|
+        element = nil
+        if path_element.size > 0
+          if (path_element =~ /^(?:[0-9])*[0-9](?:[0-9])*$/) == 0
+            element = path_element.to_i
+          else
+            element = path_element
+            element = element.gsub("%2f","/")
+            element = element.to_sym
+          end
+        end
+        if element
+          result = object_stack.first[(element)]
+          if result.is_a?(NilClass)
+            break
+          else
+            object_stack.unshift(result)
+          end
+        else
+          # ignore double slashes? '//'
+          # break
+        end
+      end
+    end
+    result
+  end
+  #
+  def set_at_path(the_path="/",the_value=nil)
+    result = nil
+    if the_path != "/"
+      container = self.get_at_path(::File::dirname(the_path.to_s))
+      if container
+        raw_selector = ::File::basename(the_path.to_s)
+        selector = nil
+        if raw_selector.size > 0
+          if (raw_selector =~ /^(?:[0-9])*[0-9](?:[0-9])*$/) == 0
+            selector = raw_selector.to_i
+          else
+            selector = raw_selector
+            selector = selector.gsub("%2f","/")
+            selector = selector.to_sym
+          end
+        end
+        if selector
+          container[(selector)] = the_value
+          result = container[(selector)]
+        else
+          # ignore double slashes? '//'
+          # break
+        end
+        #
+      end
+    end
+    result
+  end
   #
   def paths_to(the_object=nil,base_path="")
     # new idea here:
@@ -3955,73 +4041,6 @@ class Array
       search_results << ("/" << path_stack.join("/"))
     end
     search_results
-  end
-  #
-  def get_at_path(the_path="/")
-    # /^(?:[0-9])*[0-9](?:[0-9])*$/ = nil if an alpha present there, else 0 only numeric
-    # Attribution : http://stackoverflow.com/questions/1240674/regex-match-a-string-containing-numbers-and-letters-but-not-a-string-of-just-nu
-    #
-    # if ":" detected do: (str.gsub("%2f","/").to_sym) as key else (str.gsub("%2f","/"))
-    result = nil
-    if the_path == "/"
-      result = self
-    else
-      object_stack = [(self)]
-      path_stack = the_path.split("/")
-      path_stack.to_enum.each do |path_element|
-        element = nil
-        if path_element.size > 0
-          if (path_element =~ /^(?:[0-9])*[0-9](?:[0-9])*$/) == 0
-            element = path_element.to_i
-          else
-            element = path_element
-            element.gsub!("%2f","/")
-            element = element.to_sym
-          end
-        end
-        if element
-          result = object_stack.first[(element)]
-          if result.is_a?(NilClass)
-            break
-          else
-            object_stack.unshift(result)
-          end
-        else
-          # ignore double slashes? '//'
-          # break
-        end
-      end
-    end
-    result
-  end
-  #
-  def set_at_path(the_path="/",the_value=nil)
-    result = nil
-    if the_path != "/"
-      container = self.get_at_path(::File::dirname(the_path))
-      if container
-        raw_selector = ::File::basename(the_path)
-        selector = nil
-        if raw_selector.size > 0
-          if (raw_selector =~ /^(?:[0-9])*[0-9](?:[0-9])*$/) == 0
-            selector = raw_selector.to_i
-          else
-            selector = raw_selector
-            selector.gsub!("%2f","/")
-            selector = selector.to_sym
-          end
-        end
-        if selector
-          container[(selector)] = the_value
-          result = container[(selector)]
-        else
-          # ignore double slashes? '//'
-          # break
-        end
-        #
-      end
-    end
-    result
   end
   #
   def gxg_export()

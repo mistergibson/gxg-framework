@@ -901,13 +901,25 @@ module GxG
         search_results
       end
       #
+      def object_map()
+        result = {}
+        #
+        self.search do |the_value, the_selector, the_container|
+          self.paths_to(the_value).each do |the_subpath|
+            result[(the_subpath.to_s.to_sym)] = the_value
+          end
+        end
+        #
+        result
+      end
+      #
       def get_at_path(the_path="/")
         result = nil
         if the_path == "/"
           result = self
         else
           object_stack = [(self)]
-          path_stack = the_path.split("/")
+          path_stack = the_path.to_s.split("/")
           path_stack.to_enum.each do |path_element|
             element = nil
             if path_element.size > 0
@@ -915,7 +927,7 @@ module GxG
                 element = path_element.to_i
               else
                 element = path_element
-                element.gsub!("%2f","/")
+                element = element.gsub("%2f","/")
                 element = element.to_sym
               end
             end
@@ -938,16 +950,16 @@ module GxG
       def set_at_path(the_path="/",the_value=nil)
         result = nil
         if the_path != "/"
-          container = self.get_at_path(::File::dirname(the_path))
+          container = self.get_at_path(::File::dirname(the_path.to_s))
           if container
-            raw_selector = ::File::basename(the_path)
+            raw_selector = ::File::basename(the_path.to_s)
             selector = nil
             if raw_selector.size > 0
               if (raw_selector =~ /^(?:[0-9])*[0-9](?:[0-9])*$/) == 0
                 selector = raw_selector.to_i
               else
                 selector = raw_selector
-                selector.gsub!("%2f","/")
+                selector = selector.gsub("%2f","/")
                 selector = selector.to_sym
               end
             end
@@ -2856,13 +2868,25 @@ module GxG
         search_results
       end
       #
+      def object_map()
+        result = {}
+        #
+        self.search do |the_value, the_selector, the_container|
+          self.paths_to(the_value).each do |the_subpath|
+            result[(the_subpath.to_s.to_sym)] = the_value
+          end
+        end
+        #
+        result
+      end
+      #
       def get_at_path(the_path="/")
         result = nil
         if the_path == "/"
           result = self
         else
           object_stack = [(self)]
-          path_stack = the_path.split("/")
+          path_stack = the_path.to_s.split("/")
           path_stack.to_enum.each do |path_element|
             element = nil
             if path_element.size > 0
@@ -2870,7 +2894,7 @@ module GxG
                 element = path_element.to_i
               else
                 element = path_element
-                element.gsub!("%2f","/")
+                element = element.gsub("%2f","/")
                 element = element.to_sym
               end
             end
@@ -2893,16 +2917,16 @@ module GxG
       def set_at_path(the_path="/",the_value=nil)
         result = nil
         if the_path != "/"
-          container = self.get_at_path(::File::dirname(the_path))
+          container = self.get_at_path(::File::dirname(the_path.to_s))
           if container
-            raw_selector = ::File::basename(the_path)
+            raw_selector = ::File::basename(the_path.to_s)
             selector = nil
             if raw_selector.size > 0
               if (raw_selector =~ /^(?:[0-9])*[0-9](?:[0-9])*$/) == 0
                 selector = raw_selector.to_i
               else
                 selector = raw_selector
-                selector.gsub!("%2f","/")
+                selector = selector.gsub("%2f","/")
                 selector = selector.to_sym
               end
             end
