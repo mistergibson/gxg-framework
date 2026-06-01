@@ -973,11 +973,17 @@ module GxG
             input_object.keys.each do |import_key|
               if result.keys.include?(import_key)
                 result[(import_key)] = input_object[(import_key)]
+                if input_object.is_any?(::GxG::Database::DetachedHash, ::GxG::Database::PersistedHash)
+                  result.set_property_version(import_key, input_object.property_version(import_key))
+                end
               end
             end
           else
             input_object.keys.each do |import_key|
               result[(import_key)] = input_object[(import_key)]
+              if input_object.is_any?(::GxG::Database::DetachedHash, ::GxG::Database::PersistedHash)
+                result.set_property_version(import_key, input_object.property_version(import_key))
+              end
             end
           end
           #
@@ -995,12 +1001,18 @@ module GxG
             input_object.keys.each do |import_key|
               if result.keys.include?(import_key)
                 result[(import_key)] = input_object[(import_key)]
+                if input_object.is_any?(::GxG::Database::DetachedHash, ::GxG::Database::PersistedHash)
+                  result.set_property_version(import_key, input_object.property_version(import_key))
+                end
               end
             end
             result.format = @format
           else
             input_object.keys.each do |import_key|
               result[(import_key)] = input_object[(import_key)]
+              if input_object.is_any?(::GxG::Database::DetachedHash, ::GxG::Database::PersistedHash)
+                result.set_property_version(import_key, input_object.property_version(import_key))
+              end
             end
           end
           #
@@ -2916,11 +2928,17 @@ module GxG
             input_object.keys.each do |import_key|
               if result.keys.include?(import_key)
                 result[(import_key)] = input_object[(import_key)]
+                if input_object.is_any?(::GxG::Database::DetachedHash, ::GxG::Database::PersistedHash)
+                  result.set_property_version(import_key, input_object.property_version(import_key))
+                end
               end
             end
           else
             input_object.keys.each do |import_key|
               result[(import_key)] = input_object[(import_key)]
+              if input_object.is_any?(::GxG::Database::DetachedHash, ::GxG::Database::PersistedHash)
+                result.set_property_version(import_key, input_object.property_version(import_key))
+              end
             end
           end
           #
@@ -2941,12 +2959,18 @@ module GxG
               self.keys.each do |import_key|
                 if input_object.keys.include?(import_key)
                   result[(import_key)] = input_object[(import_key)]
+                  if input_object.is_any?(::GxG::Database::DetachedHash, ::GxG::Database::PersistedHash)
+                    result.set_property_version(import_key, input_object.property_version(import_key))
+                  end
                 end
               end
               result.format = @format
             else
               input_object.keys.each do |import_key|
                 result[(import_key)] = input_object[(import_key)]
+                if input_object.is_any?(::GxG::Database::DetachedHash, ::GxG::Database::PersistedHash)
+                  result.set_property_version(import_key, input_object.property_version(import_key))
+                end
               end
             end
             #
