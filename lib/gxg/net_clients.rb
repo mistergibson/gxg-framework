@@ -3915,7 +3915,9 @@ module GxG
           @clients[(service)].login(@uri.username, @uri.password)
           #
         end
-        @status = :connected
+        unless ::GxG::add_federation_server(self)
+          raise Exception.new("Failure to register remote server #{@hostname.to_s}")
+        end
         self
       end
       #
@@ -3992,12 +3994,28 @@ module GxG
       end
       #
       def login(username=nil, password=nil)
-        #
-        @services.keys.each do |service|
-          @clients[(service)].login(username, password)
+        result = false
+        unless username
+          username = @uri.username
+        end
+        unless password
+          password = @uri.password
         end
         #
-        true
+        #
+        @services.keys.each do |service|
+         if @clients[(service)].login(username, password)
+          result = true
+         else
+          result = false
+          break
+         end
+        end
+        if result
+          @status = :available
+        end
+        #
+        result
       end
       #
       def logout
@@ -4005,6 +4023,7 @@ module GxG
         @services.keys.each do |service|
           @clients[(service)].logout
         end
+        @status = :unavailable
         #
         true
       end

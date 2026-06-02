@@ -1,15 +1,50 @@
 #
 module GxG
   #
-  GXG_FEDERATION = {:title => "Untitled", :uuid => nil, :access_url => nil, :available => {}, :connections => {}}
+  GXG_FEDERATION = {:title => "Untitled", :uuid => nil, :access_url => nil, :servers => {}, :connections => {}}
   GXG_FEDERATION_SAFETY = Mutex.new
   def self.federation_servers()
     result = {}
     ::GxG::GXG_FEDERATION_SAFETY.synchronize {
-      ::GxG::GXG_FEDERATION[:available].each_pair do |uuid, server|
+      ::GxG::GXG_FEDERATION[:servers].each_pair do |uuid, server|
         result[(uuid.to_s.to_sym)] = server
       end
     }
+    result
+  end
+  #
+  def self.add_federation_server(the_server=nil)
+    result = false
+    if the_server.is_a?(::GxG::Networking::GxGRemoteServer)
+      ::GxG::GXG_FEDERATION_SAFETY.synchronize {
+        ::GxG::GXG_FEDERATION[:servers][(the_server.uuid)] = the_server
+      }
+      result = true
+    end
+    result
+  end
+  #
+  def self.remove_federation_server(the_reference=nil)
+    result = nil
+    if the_reference.is_any?(::String, ::Symbol)
+      if ::GxG::valid_uuid?(the_reference.to_s.to_sym)
+        the_uuid = the_reference.to_s.to_sym
+      else
+        the_uuid = nil
+        manifest = ::GxG::federation_servers()
+        manifest.each_pair do |uuid,server|
+          if server.title == the_reference.to_s
+            the_uuid = uuid
+            break
+          end
+        end
+      end
+    end
+    if the_uuid
+      ::GxG::GXG_FEDERATION_SAFETY.synchronize {
+        result = ::GxG::GXG_FEDERATION[:servers].delete(the_uuid)
+      }
+    end
     result
   end
   #
