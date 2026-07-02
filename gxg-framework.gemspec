@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'gxg-framework'
-  s.version     = '0.0.70'
+  s.version     = '0.0.71'
   s.licenses    = ['HIPPOCRATIC 2.1', 'https://firstdonoharm.dev/version/2/1/license.html']
   s.summary     = "GxG Framework"
   s.description = "GxG Framework"
@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'prism', '= 1.6.0'
   if ::RUBY_ENGINE == "jruby"
     s.add_runtime_dependency 'jrzmq'
+    s.add_runtime_dependency 'jruby-openssl', '~> 0.16'
   else
     # FIX : big hassle with windows - exclude for now
     # s.add_runtime_dependency 'ffi-rzmq'

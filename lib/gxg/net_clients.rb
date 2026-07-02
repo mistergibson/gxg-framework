@@ -3912,8 +3912,8 @@ module GxG
         @status = :unavailable
         @services.each_pair do |service,endpoint|
           @clients[(service)] = ::GxG::Networking::GxGApi.new("gxg://#{@hostname}#{endpoint}")
-          @clients[(service)].login(@uri.username, @uri.password)
-          #
+          # @clients[(service)].login(@uri.username, @uri.password)
+          # might have to login to prime session --> not sure at this point
         end
         unless ::GxG::add_federation_server(self)
           raise Exception.new("Failure to register remote server #{@hostname.to_s}")

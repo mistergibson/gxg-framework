@@ -3,7 +3,9 @@
 # See: https://github.com/jeremyevans/sequel
 if defined?(::External::Database::Sqlite)
 else
-    unless  ::RUBY_ENGINE == "jruby"
+    if  ::RUBY_ENGINE == "jruby"
+        require 'jdbc/sqlite3'
+    else
         require "sqlite3"
     end
 end
